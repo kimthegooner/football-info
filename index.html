@@ -105,6 +105,7 @@
     font-size: 12px; font-weight: 800; white-space: nowrap;
   }
   .util-links { opacity: .92; }
+  .util .champ::before { content: " · "; }
   .theme-toggle {
     margin-left: auto; background: transparent; border:1.5px solid rgba(255,255,255,.6); color:#fff;
     border-radius: 999px; padding: 3px 12px; font-size:11.5px; font-weight:800;
@@ -574,6 +575,189 @@
     font-size: 12px; padding: 6px 10px; border-radius: 8px; opacity:0; transition: opacity .12s;
     max-width: 260px;
   }
+  /* ══════════════════════════════════════════════════════════
+     모바일 레이어 (≤768px) — 2026-08-04 개편
+     데스크탑 규칙은 건드리지 않고 이 블록에서만 재정의한다.
+     ══════════════════════════════════════════════════════════ */
+
+  /* 표 가로 스크롤 래퍼 (JS가 table.tbl을 감싼다) */
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tbl-scroll::-webkit-scrollbar { display: none; }
+
+  /* 하단 탭바 — 기본은 숨김, 모바일에서만 노출 */
+  .mtab, .sheet-ov { display: none; }
+
+  @media (max-width: 768px) {
+    html { scroll-padding-top: 96px; }
+    body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+    * { -webkit-tap-highlight-color: rgba(0,0,0,.06); }
+
+    /* ── 헤더 압축: 3덩어리(290px) → 1덩어리(≈84px) ── */
+    header.site { position: sticky; top: 0; z-index: 60; }
+    .site-inner { padding: 0 14px; }
+    .util-in.site-inner, .mainbar-in.site-inner { padding-left: 14px; padding-right: 14px; }
+    .util-in { padding: 7px 14px; gap: 8px; font-size: 11px; flex-wrap: nowrap; }
+    .pill-link { font-size: 10.5px; padding: 2px 9px; }
+    .util-links { font-size: 10.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    .u-hide-m, .util .champ { display: none; }
+    .theme-toggle { display: none; }        /* → 더보기 시트로 이동 */
+    .team-switch { margin-left: auto; flex: none; }
+    .team-switch button { padding: 4px 12px; font-size: 11px; }
+    .mainbar-in { gap: 0; flex-wrap: nowrap; }
+    .wordmark { font-size: 15.5px; padding: 11px 0; }
+    .wordmark .wm-sub { display: none; }
+    [data-team="mun"] .wordmark { font-size: 17px; }
+    nav.tabs { display: none; }             /* → 하단 탭바로 대체 */
+
+    /* ── 본문 여백·타이포 ── */
+    main { padding: 18px 14px 26px; }
+    h2.sec { font-size: 20px; }
+    p.sec-sub { font-size: 12.5px; margin-bottom: 15px; line-height: 1.65; }
+    .card { padding: 15px 14px; margin-bottom: 12px; }
+    .card h3 { font-size: 15px; margin-bottom: 10px; }
+    .small { font-size: 13px; line-height: 1.72; }
+    .muted { font-size: 12px; }
+    .src { font-size: 11.5px; line-height: 1.7; }
+    .grid2, .grid3 { gap: 12px; }
+
+    /* ── 히어로: 화면 하나를 다 먹던 것 → 1/3로 ── */
+    .hero { padding: 20px 18px; gap: 4px 18px; margin-bottom: 14px; border-radius: 12px; }
+    .hero::after { right: -80px; top: -80px; width: 190px; height: 190px; border-width: 20px; }
+    .hero .dday { font-size: 46px; letter-spacing: -2px; }
+    .hero .dday small { font-size: 10px; margin-top: 4px; letter-spacing: .1em; }
+    .hero .info { min-width: 0; flex-basis: 100%; }
+    .hero .info .t1 { font-size: 10.5px; letter-spacing: .1em; }
+    .hero .info .t2 { font-size: 23px; margin: 4px 0 6px; }
+    .hero .info .t3 { font-size: 12.5px; line-height: 1.6; }
+
+    /* ── 스탯 타일: 값 줄바꿈 방지 ── */
+    /* 인라인 style로 3~4열이 박힌 타일도 강제로 2열 (인라인 우선순위 때문에 !important 필요) */
+    .tiles { grid-template-columns: repeat(2, 1fr) !important; gap: 9px; margin-bottom: 14px; }
+    .tile { padding: 13px 12px 12px; border-radius: 10px; min-width: 0; }
+    .tile .label { font-size: 9.5px; letter-spacing: .05em; }
+    .tile .value { font-size: 22px !important; margin-top: 3px; word-break: keep-all; overflow-wrap: anywhere; }
+    .tile .note { font-size: 11px; line-height: 1.45; }
+
+    /* ── 표: 팀명은 JS가 축약, 여기선 줄바꿈 금지 + 넘치면 가로 스크롤 ── */
+    table.tbl { font-size: 13px; white-space: nowrap; }
+    table.tbl th { padding: 7px 7px; font-size: 10px; letter-spacing: .03em; }
+    table.tbl td { padding: 9px 7px; }
+    table.tbl th:first-child, table.tbl td:first-child { padding-left: 2px; }
+    table.tbl th:last-child, table.tbl td:last-child { padding-right: 2px; }
+    .pos-badge { width: 23px; height: 22px; font-size: 11.5px; }
+
+    /* ── 경기 행: 날짜·대회는 한 줄, 팀명은 다음 줄 전체 폭 ── */
+    .match { gap: 5px 9px; padding: 11px 0; }
+    .match .date { width: auto; font-size: 11.5px; }
+    .match .comp { width: auto; font-size: 9.5px; }
+    .match .date { order: 1; }
+    .match .comp { order: 2; }
+    .match .badge { order: 3; margin-left: auto; }
+    .match .teams { flex: 1 1 100%; min-width: 0; font-size: 14px; order: 4; }
+    .match .score { font-size: 15px; order: 5; }
+
+    .dg-head { font-size: 14px; margin: 20px 0 10px; }
+    .chips { gap: 6px; margin: 8px 0 12px; }
+
+    /* ── 선수단 2열 ── */
+    .p-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
+    .p-card { padding: 14px 8px 12px; border-radius: 10px; }
+    .p-photo-wrap { width: 66px; height: 66px; margin-bottom: 8px; }
+    .p-fallback { font-size: 21px; }
+    .p-name { font-size: 13px; }
+    .p-pos { font-size: 10px; letter-spacing: .05em; }
+    .p-detail { padding: 4px 12px; font-size: 11px; }
+    .squad-count { font-size: 12px; }
+
+    /* ── 선수 상세: 가운데 모달 → 바텀시트 ── */
+    .modal-ov { align-items: flex-end; padding: 0; }
+    .modal {
+      max-width: none; width: 100%; border-radius: 18px 18px 0 0; max-height: 90vh;
+      padding: 22px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+      animation: sheetUp .24s cubic-bezier(.22,.9,.3,1);
+    }
+    .modal::before {
+      content: ''; display: block; width: 38px; height: 4px; border-radius: 99px;
+      background: var(--grid); margin: -8px auto 14px;
+    }
+    .modal-close { top: 12px; right: 12px; }
+    .modal-head img { width: 60px; height: 60px; }
+    .modal-head .m-name { font-size: 18px; }
+    .m-sec p { font-size: 13px; line-height: 1.75; }
+
+    /* ── 기타 ── */
+    .pitch-wrap { max-width: 100%; }
+    .mgr { gap: 14px; }
+    .mgr-info { min-width: 0; }
+    .fm-kpis, .con-kpis { gap: 9px; }
+    footer.site .cols { gap: 18px; }
+  }
+
+  @keyframes sheetUp { from { transform: translateY(24px); opacity: .4; } to { transform: none; opacity: 1; } }
+
+  /* ══════════ 하단 고정 탭바 ══════════ */
+  @media (max-width: 768px) {
+    .mtab {
+      display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+      background: color-mix(in srgb, var(--surface-1) 92%, transparent);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-top: 1px solid var(--grid);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .mtab button {
+      flex: 1; min-width: 0; background: none; border: none; cursor: pointer;
+      font-family: inherit; color: var(--ink-3); padding: 7px 2px 8px;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      font-size: 10px; font-weight: 800; letter-spacing: -0.02em;
+    }
+    .mtab button svg { width: 21px; height: 21px; stroke: currentColor; fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .mtab button .dots { fill: currentColor; stroke: none; }
+    .mtab button.on { color: var(--ars-red); }
+    .mtab button.on svg { stroke-width: 2.1; }
+    .mtab button:active { background: var(--chip-bg); }
+
+    /* ══════════ 더보기 시트 ══════════ */
+    .sheet-ov {
+      display: block; position: fixed; inset: 0; z-index: 110;
+      background: rgba(0,0,0,.45); opacity: 0; pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .sheet-ov.open { opacity: 1; pointer-events: auto; }
+    .sheet {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      background: var(--surface-1); border-radius: 18px 18px 0 0;
+      padding: 10px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+      transform: translateY(102%); transition: transform .26s cubic-bezier(.22,.9,.3,1);
+      max-height: 86vh; overflow-y: auto;
+    }
+    .sheet-ov.open .sheet { transform: none; }
+    .sheet-grip { width: 38px; height: 4px; border-radius: 99px; background: var(--grid); margin: 0 auto 14px; }
+    .sheet-lab { font-size: 10.5px; font-weight: 800; color: var(--ink-3);
+      letter-spacing: .1em; text-transform: uppercase; margin: 2px 0 8px; }
+    .sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sheet-grid button {
+      background: var(--chip-bg); border: 1px solid transparent; border-radius: 10px;
+      padding: 13px 12px; font-family: inherit; font-size: 13.5px; font-weight: 800;
+      color: var(--ink-1); text-align: left; cursor: pointer;
+    }
+    .sheet-grid button.on { background: var(--ars-red); color: #fff; }
+    .sheet-foot { display: flex; gap: 8px; margin-top: 14px; }
+    .sheet-foot button {
+      flex: 1; background: none; border: 1px solid var(--grid); border-radius: 10px;
+      padding: 12px; font-family: inherit; font-size: 13px; font-weight: 800;
+      color: var(--ink-2); cursor: pointer;
+    }
+    .sheet-team { display: flex; gap: 8px; }
+    .sheet-team button {
+      flex: 1; background: none; border: 1.5px solid var(--grid); border-radius: 10px;
+      padding: 12px; font-family: inherit; font-size: 13.5px; font-weight: 800;
+      color: var(--ink-2); cursor: pointer;
+    }
+    .sheet-team button.on { border-color: var(--ars-red); color: var(--ars-red); background: color-mix(in srgb, var(--ars-red) 8%, transparent); }
+  }
+
 </style>
 </head>
 <body>
@@ -582,7 +766,7 @@
   <div class="util">
     <div class="site-inner util-in">
       <span class="pill-link" id="brandPill">아스날 팬 허브</span>
-      <span class="util-links" id="utilLine">비공식 팬 사이트 · <span id="syncStamp">2026.8.4 11:40 동기화</span> · <span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
+      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.4 11:40 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
       <div class="team-switch" id="teamSwitch" style="margin-left:auto;">
         <button data-team-btn="ars" class="on">아스날</button>
         <button data-team-btn="mun">맨유</button>
@@ -2236,6 +2420,172 @@ function renderXI(pitchId, list) {
 }
 renderXI('pitch', XI);
 renderXI('pitchMun', XI_MUN);
+</script>
+
+<!-- ══════════ 모바일 하단 탭바 ══════════ -->
+<nav class="mtab" id="mtab" aria-label="모바일 메뉴">
+  <button data-mtab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3.2l9 7.3"/><path d="M5.6 9.4V20.3h12.8V9.4"/></svg>홈</button>
+  <button data-mtab="matches"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.2" width="18" height="15.6" rx="2.2"/><path d="M3 10.2h18M8 3.2v4M16 3.2v4"/></svg>경기</button>
+  <button data-mtab="transfers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.2h13M14.2 5.2l3 3-3 3"/><path d="M20 15.8H7M9.8 12.8l-3 3 3 3"/></svg>이적시장</button>
+  <button data-mtab="fans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6a2.2 2.2 0 0 1-2.2 2.2H8.4L4 21V6.2A2.2 2.2 0 0 1 6.2 4h11.8a2.2 2.2 0 0 1 2.2 2.2z"/></svg>팬 여론</button>
+  <button id="moreBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="dots"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></g></svg>더보기</button>
+</nav>
+
+<div class="sheet-ov" id="sheetOv">
+  <div class="sheet" role="dialog" aria-label="전체 메뉴" aria-modal="true">
+    <div class="sheet-grip"></div>
+    <div class="sheet-lab">구단 선택</div>
+    <div class="sheet-team" id="sheetTeam">
+      <button data-steam="ars" class="on">아스날</button>
+      <button data-steam="mun">맨체스터 유나이티드</button>
+    </div>
+    <div class="sheet-lab" style="margin-top:16px;">전체 메뉴</div>
+    <div class="sheet-grid" id="sheetGrid">
+      <button data-mtab="home">홈</button>
+      <button data-mtab="matches">경기</button>
+      <button data-mtab="table">순위표</button>
+      <button data-mtab="stats">통계</button>
+      <button data-mtab="squad">선수단</button>
+      <button data-mtab="opponent">다음 상대</button>
+      <button data-mtab="columns">칼럼</button>
+      <button data-mtab="press">기자회견·인터뷰</button>
+      <button data-mtab="fans">팬 여론</button>
+      <button data-mtab="transfers">이적시장</button>
+    </div>
+    <div class="sheet-foot">
+      <button id="sheetTheme">다크모드</button>
+      <button id="sheetClose">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   모바일 레이어 JS (2026-08-04)
+   기존 탭/팀/테마 로직을 재작성하지 않고, 숨겨진 데스크탑 컨트롤을
+   프로그램적으로 클릭해 재사용한다 — 동작 일관성 보장 + 회귀 위험 0.
+   ══════════════════════════════════════════════════════════ */
+(function () {
+  var mq = window.matchMedia('(max-width: 768px)');
+
+  /* ── 1. 모든 표를 가로 스크롤 래퍼로 감싼다 (데스크탑엔 영향 없음) ── */
+  document.querySelectorAll('table.tbl').forEach(function (t) {
+    if (t.parentElement && t.parentElement.classList.contains('tbl-scroll')) return;
+    var w = document.createElement('div');
+    w.className = 'tbl-scroll';
+    t.parentNode.insertBefore(w, t);
+    w.appendChild(t);
+  });
+
+  /* ── 2. 모바일에서 긴 구단명 축약 (되돌리기 가능) ── */
+  var SHORT = {
+    '맨체스터 유나이티드': '맨유', '맨체스터 시티': '맨시티', '토트넘 홋스퍼': '토트넘',
+    '뉴캐슬 유나이티드': '뉴캐슬', '웨스트햄 유나이티드': '웨스트햄', '노팅엄 포레스트': '노팅엄',
+    '브라이턴 앤 호브 알비온': '브라이턴', '울버햄튼 원더러스': '울버햄튼',
+    '크리스탈 팰리스': '팰리스', '애스턴 빌라': '빌라', '아스톤 빌라': '빌라',
+    '셰필드 유나이티드': '셰필드U', '리즈 유나이티드': '리즈', '레스터 시티': '레스터',
+    '입스위치 타운': '입스위치', '코번트리 시티': '코번트리', '노리치 시티': '노리치',
+    '웨스트브로미치 알비온': '웨스트브롬', '셰필드 웬즈데이': '셰필드W',
+    '레알 마드리드': '레알', '아틀레티코 마드리드': '아틀레티코', '바이어 레버쿠젠': '레버쿠젠',
+    '클럽 브뤼헤': '브뤼헤', '베르더 브레멘': '브레멘', '파리 생제르맹': 'PSG',
+    '라싱 산탄데르': '산탄데르', '바이에른 뮌헨': '뮌헨', '인터 밀란': '인터',
+    '보루시아 도르트문트': '도르트문트', '아약스 암스테르담': '아약스'
+  };
+  var cells = null;
+  function shortNames(on) {
+    if (!cells) cells = Array.prototype.slice.call(document.querySelectorAll('table.tbl td'));
+    cells.forEach(function (td) {
+      if (td.children.length && !td.querySelector('b')) return;
+      var host = td.querySelector('b') || td;
+      if (on) {
+        if (host.dataset.full) return;
+        var t = host.textContent.trim();
+        if (SHORT[t]) { host.dataset.full = t; host.textContent = SHORT[t]; }
+      } else if (host.dataset.full) {
+        host.textContent = host.dataset.full;
+        delete host.dataset.full;
+      }
+    });
+  }
+
+  /* ── 3. 하단 탭바 ↔ 기존 데스크탑 내비 연결 ── */
+  var mtab = document.getElementById('mtab');
+  var sheetOv = document.getElementById('sheetOv');
+  var sheetGrid = document.getElementById('sheetGrid');
+  var BAR_TABS = ['home', 'matches', 'transfers', 'fans'];
+
+  function currentTab() {
+    var a = document.querySelector('#tabs button.active');
+    return a ? a.dataset.tab : 'home';
+  }
+  function sync() {
+    var cur = currentTab();
+    mtab.querySelectorAll('button[data-mtab]').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.mtab === cur);
+    });
+    document.getElementById('moreBtn')
+      .classList.toggle('on', BAR_TABS.indexOf(cur) === -1);
+    sheetGrid.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.mtab === cur);
+    });
+    var t = document.documentElement.dataset.team || 'ars';
+    document.querySelectorAll('#sheetTeam button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.steam === t);
+    });
+    document.getElementById('sheetTheme').textContent =
+      document.getElementById('themeToggle').textContent;
+  }
+  function goTab(tab) {
+    var btn = document.querySelector('#tabs button[data-tab="' + tab + '"]');
+    if (btn) btn.click();
+    sync();
+  }
+
+  function openSheet(open) {
+    sheetOv.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  mtab.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    if (b.id === 'moreBtn') { sync(); openSheet(true); return; }
+    goTab(b.dataset.mtab);
+  });
+  sheetGrid.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-mtab]');
+    if (!b) return;
+    openSheet(false);
+    goTab(b.dataset.mtab);
+  });
+  document.getElementById('sheetTeam').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-steam]');
+    if (!b) return;
+    var t = document.querySelector('#teamSwitch button[data-team-btn="' + b.dataset.steam + '"]');
+    if (t) t.click();
+    openSheet(false);
+    sync();
+  });
+  document.getElementById('sheetTheme').addEventListener('click', function () {
+    document.getElementById('themeToggle').click();
+    sync();
+  });
+  document.getElementById('sheetClose').addEventListener('click', function () { openSheet(false); });
+  sheetOv.addEventListener('click', function (e) { if (e.target === sheetOv) openSheet(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && sheetOv.classList.contains('open')) openSheet(false);
+  });
+
+  /* 데스크탑 내비·팀 스위처를 직접 눌러도 하단바가 따라오도록 */
+  document.getElementById('tabs').addEventListener('click', function () { setTimeout(sync, 0); });
+  document.getElementById('teamSwitch').addEventListener('click', function () { setTimeout(sync, 0); });
+  document.getElementById('themeToggle').addEventListener('click', function () { setTimeout(sync, 0); });
+
+  /* ── 4. 뷰포트 변화 대응 ── */
+  function onMQ() { shortNames(mq.matches); if (!mq.matches) openSheet(false); sync(); }
+  mq.addEventListener ? mq.addEventListener('change', onMQ) : mq.addListener(onMQ);
+  onMQ();
+})();
 </script>
 </body>
 </html>

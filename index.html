@@ -896,6 +896,29 @@
     #teamOther .grid2 { grid-template-columns: 1fr; }
   }
 </style>
+
+<style id="tacStyle">
+  /* ══════ 18팀 감독·전술 + 엠블럼 (2026-08-15) ══════ */
+  .club-hero { display: flex; align-items: center; gap: 16px; }
+  .ch-crest { width: 56px; height: 56px; object-fit: contain; flex: none; }
+  .ch-crest-na {
+    width: 56px; height: 56px; flex: none; border-radius: 50%;
+    background: var(--chip-bg); color: var(--ink-3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900;
+  }
+  .club-hero > div:not(.ch-crest-na) { min-width: 0; }
+  .xi.xi-nophoto { cursor: default; }
+  .xi.xi-nophoto:hover .xi-n { background: rgba(0,0,0,.55); }
+  .xi.xi-nophoto .xi-fb { background: #fff; }
+
+  @media (max-width: 768px) {
+    .club-hero { gap: 11px; }
+    .ch-crest, .ch-crest-na { width: 42px; height: 42px; }
+    .ch-crest-na { font-size: 17px; }
+    #teamOther .pitch-wrap { max-width: 100%; }
+  }
+</style>
 </head>
 <body>
 
@@ -903,7 +926,7 @@
   <div class="util">
     <div class="site-inner util-in">
       <span class="pill-link" id="brandPill">아스날 팬 허브</span>
-      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.14 23:10 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
+      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.15 00:20 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
       <div class="team-switch" id="teamSwitch" hidden aria-hidden="true" style="display:none;">
     <button data-team-btn="ars" class="on">아스날</button>
     <button data-team-btn="mci">맨체스터 시티</button>
@@ -970,6 +993,7 @@
       <button data-tab="press">기자회견·인터뷰</button>
       <button data-tab="fans">팬 여론</button>
       <button data-tab="transfers">이적시장</button>
+      <button data-tab="tactics">감독·전술</button>
       <button data-tab="league" class="t-league">EPL 전체</button>
     </nav>
   </div>
@@ -2805,8 +2829,9 @@
 
 <section class="panel" id="panel-mci-home">
   <h2 class="sec">맨체스터 시티</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="맨체스터 시티 엠블럼" loading="lazy">
     <div class="ch-name">맨체스터 시티 <span>Manchester City</span></div>
     <div class="ch-meta">에티하드 스타디움 · 61,474석 · 감독 <b>엔조 마레스카</b></div>
   </div>
@@ -2990,8 +3015,9 @@
 
 <section class="panel" id="panel-avl-home">
   <h2 class="sec">아스톤 빌라</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="아스톤 빌라 엠블럼" loading="lazy">
     <div class="ch-name">아스톤 빌라 <span>Aston Villa</span></div>
     <div class="ch-meta">빌라 파크 · 37,000석 · 감독 <b>우나이 에메리</b></div>
   </div>
@@ -3172,8 +3198,9 @@
 
 <section class="panel" id="panel-liv-home">
   <h2 class="sec">리버풀</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="리버풀 엠블럼" loading="lazy">
     <div class="ch-name">리버풀 <span>Liverpool</span></div>
     <div class="ch-meta">안필드 · 61,276석 · 감독 <b>안도니 이라올라</b></div>
   </div>
@@ -3355,8 +3382,9 @@
 
 <section class="panel" id="panel-bou-home">
   <h2 class="sec">본머스</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="본머스 엠블럼" loading="lazy">
     <div class="ch-name">본머스 <span>AFC Bournemouth</span></div>
     <div class="ch-meta">비탈리티 스타디움 · 11,307석 · 감독 <b>마르코 로제</b></div>
   </div>
@@ -3536,8 +3564,9 @@
 
 <section class="panel" id="panel-sun-home">
   <h2 class="sec">선덜랜드</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="선덜랜드 엠블럼" loading="lazy">
     <div class="ch-name">선덜랜드 <span>Sunderland</span></div>
     <div class="ch-meta">스타디움 오브 라이트 · 49,000석 · 감독 <b>레지스 르 브리</b></div>
   </div>
@@ -3715,8 +3744,9 @@
 
 <section class="panel" id="panel-bha-home">
   <h2 class="sec">브라이턴 앤 호브 알비온</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="브라이턴 앤 호브 알비온 엠블럼" loading="lazy">
     <div class="ch-name">브라이턴 앤 호브 알비온 <span>Brighton &amp; Hove Albion</span></div>
     <div class="ch-meta">아멕스 스타디움 · 31,800석 · 감독 <b>파비안 휘르첼러</b></div>
   </div>
@@ -3897,8 +3927,9 @@
 
 <section class="panel" id="panel-bre-home">
   <h2 class="sec">브렌트포드</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="브렌트포드 엠블럼" loading="lazy">
     <div class="ch-name">브렌트포드 <span>Brentford</span></div>
     <div class="ch-meta">지테크 커뮤니티 스타디움 · 17,250석 · 감독 <b>키스 앤드루스</b></div>
   </div>
@@ -4077,8 +4108,9 @@
 
 <section class="panel" id="panel-che-home">
   <h2 class="sec">첼시</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="첼시 엠블럼" loading="lazy">
     <div class="ch-name">첼시 <span>Chelsea</span></div>
     <div class="ch-meta">스탬퍼드 브리지 · 40,044석 · 감독 <b>사비 알론소</b></div>
   </div>
@@ -4262,8 +4294,9 @@
 
 <section class="panel" id="panel-ful-home">
   <h2 class="sec">풀럼</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="풀럼 엠블럼" loading="lazy">
     <div class="ch-name">풀럼 <span>Fulham</span></div>
     <div class="ch-meta">크레이븐 코티지 · 27,782석 · 감독 <b>알바로 아르벨로아</b></div>
   </div>
@@ -4443,8 +4476,9 @@
 
 <section class="panel" id="panel-new-home">
   <h2 class="sec">뉴캐슬 유나이티드</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="뉴캐슬 유나이티드 엠블럼" loading="lazy">
     <div class="ch-name">뉴캐슬 유나이티드 <span>Newcastle United</span></div>
     <div class="ch-meta">세인트 제임스 파크 · 52,305석 · 감독 <b>마티아스 야이슬레</b></div>
   </div>
@@ -4626,8 +4660,9 @@
 
 <section class="panel" id="panel-eve-home">
   <h2 class="sec">에버턴</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,UklGRq4LAABXRUJQVlA4WAoAAAAQAAAANgAARwAAQUxQSPQCAAABoERtmyHJ+v4/Ynht217Ztm3b1sq2bWtp27Zt33Z3/PF/i+rMrIzLZURMAP7/lHpaT1pRBKlSgWqVKLQFxbRAiEE1RAUWAUIMqiEGYFpotyRgl+9OmhGV8103fNU8qJzptO+2R5CuSMChJH+6dqfl5l94lX3v6SfZe9feKy+8wHI7X/8LyQMQpAuiOIU5G0laJkmjkWQ2krSceTxUGilwKc1JNyPpZk7SzZykmZNuvBDQBopxtzOx0p113VlpvHkstJZiygeY2H7ivZNDawhmeI6JJSY+PR2kQjDtxxxhmSP8YCqR0aDjz6UVYjxtrKLuxbQijGdDUFNCeJK5gMwHJdSCYsFe99acf8wNRf2Ay5haSzwPEU1kM+bWMteT0AibFOBcB40idqe1ZtwRsdk5TK0lntxM8CytNeNjkAaKufvprTl7ZoXWiziAie0b90Csp/IErYgHoLUU8w3TC3D2zwmtE7E3jSUad0asE3AtUxGJlyHUAV5lLsL4HKSGYIof6EVkfjMJpEp13p5CnL/PqVqhEbOnYvqmQ9SOIMAS53gx6bTFAAkAsMpdic5yR25fEQA2fJiksVwj/cH1cRhJc5bsRvKASznUw9J7hnnuvGcsdTWtKOOlS50550w7PjroLNsHHtp+pkf417xvl5z+AilvO/5dz8Vlf2MsdqMVZ9weOvZN5sKML0cNWM3Ni3KzFRAQcClTUYnnIQCik71JK8j4ykQVAIpFfmcuJvPnBaDoDFg3eS4k+9AaCBg9YmtjLiJzZDNEVEdsOcBUQGLPxoioG7HKN0zekid+sTwi6gfM+RBpbbiR986KgKYBeuQfpHmX3MjfDgECmiuwwC1OpuyNPCfSbpgXouimBGCZm/tIWjL3UdwtGcmeG5YEIrqtAZj/uJdG2OmZ2dk59MLR8wJB0aIqgEX2vO6FHwZJIwe/f/7aPRYGoIqWNaJzqnnW/JyfrD7PVOiMihI1RABY+P75ASAGRbkiGgAEFUHxIoL/xQFWUDgglAgAAJAmAJ0BKjcASAA+PRiIQyIhoRmarnwgA8S0BlGYV1MEuRtYH8BtORzu1icz/m9075iv2j9Zz0N/4r1AP2A9Z/1JfQA/YzrMP3c/cD4BP1m/8WcO9c39Z8Gfwz59+w/lv6KGNfnL/tPI39m/yfkj3g8AL1D/lPCB/Ve0Kqb/pPUC9nvnn+H+4Tz9f4r0A+qv+Q9S/8m/yf5rcyL3l7AH8m/ln+s+4X6Pv3H/f/5f8yvZT+Tf23/j/434Av5H/Of8//c/8Z/8P8d8znsy/bH2T/1tME4MQHik4qvHiOUYPAB8l1J70TbmRELC2yCV2IY+Gt3Ru/GFaOdx5x3UkFe2E1gylnsewpa2EH95kL54lSCm2itXNqHmj//RVHb4OMePZVeYPmiZ/GjvHEDwTpZJR0yIMf5Usy5LqIq3VZOAAP7/H3oWw9P/LUuhau4QdF5AqTn7pKoRCdt5cYOT1V9feD9wBqZP3NQjQgBLTVYCe7qrySSF45h7SSEc5SFGLEyIY9GMek3MbozgeRSPRFGIRdQ2QexFF8WYY10L5H5BlhfmrdW223H/xh5uMYH1BeAsMKWc30IGk5nTVG072Z29ZKmLQnq6HYjbuWR7eBmLCQX4Wv+3oPBE85btd/w9o/3iF1Cx/0vS9GdTP2zDgNm674OGzjhsjSmzt99hX8KYCRXkhQ1LBX6EDe1R0PwGc2lAPkcKz+ZlKVCGt3+G6gXUgdRSa9pfDPcxKQFstlzG7piD0wAfLpxsAAKOb4sqZlFPQ8tm9+jLqerIvmsJKe48hDuFAc5eNLOW4SWirbd6bww/DhcGSW3gE/dDI/yTfqcDZ92vaFTD6pIe6ErmTgXjG+78/1gnQ320GRDTug2XGy+J5PHuFfn1mMhj4X8laN07eWa5JUkMgMgl89209Z7fSg9Xm+F1kWL9pDB6X9WiL/iuiR2Axub4F/cN8bSv+Baf//61P0P/vP/p/es4Ks0ZY//MZCvP+PWZvve/jbhCMfoj7gxQSHmGyOVN1d+JQB/5NKWXaG3WTKD99yXPY74wIiZjL6GCGANQ6lnBcWFUzBvjYo5g6XSGv/4zOTj/zJYs1+aIQ/VKOpsU7ECekhmoR1AHO/OODjHzLg2QZTGbODGmo8eneuA9fzgonXEk04i9T2i16I8kdQFy/CGxabfNYrNMzJs/L97f4dn/gQedydjniZzIbfhMsypqgAFE8rHffNeGhqRczflg+x2zbnbkLuU3SH9G9yRI3MAHls69xoVXBQcbwelgUM1bxK55mB57WkIqyT6dxt95Wo3xBiFNVEgx474Ik2YrUhnZLqyfnXTdgmacMBQHmZ/wv4cDR75AEVqjiHpElCgaQzm9aL4vj0kS3bM/iu9V1JRVtftPt12MmIWz63v4Sc92MgysfuE7D55cUh1m0x/BqCDKxOvgcCP/NwpWO6BBJS40huIIbzWV5M3Qxl6aenW5PKS39IL7tAOrMoXz6F92SxTwtWv7ugOMAp3MRkOS7LAOYbKVAJ5xu+LEysW5ve8zlvwihzUNPoDUsausf8/r8a4iSMjag4/DrLbsrHoVgg4hb4KFZvk2NsVM0avV3oIjkoxz4utP2P8s7ZjRx48R/eblwj+1p3Bw2NcGFAkjo7ik/2YVpQ7gVslMWBpndzw4/ZFIy5Adj+yMsLstSxrdhuuNmv3ny2anJYWYnnC/AKFCKHHnoC96j+CMzKI/S7cUcZAUscRyiIWasVBuDwZ206wvsUBOCzUVxCx8T9lZsWwcXWJTA2Jl+7YZk4HuLAkrWKyMkvPC0oMOWh9aFyNaiA43RdjZ4Ec+9q6Ja5iDC4dJ6fGrn/vxK6a2xZLd54xc7NidLFSf197KFdO5klOqqTQsnrw2pT0GK9clX+WIrruYGUuEEOvi5I4j6C6N3trqExsZu3XEd1NloeDfHfulmywTcwtXfW/Ppk2BpY3XunyBFQJg/kASV1NcxgSdR+3IsaTXA/lWAuTPqJhph10fEgaADVvVfLAAr8Qp5b3omeM9vEDvr8NietyDFfL5xn4of9yHyzGO8QnnYO3IX8MiTtabfK9QS4n8ztICA3W3SU8eJuQHI1a++P7Oc0uU2X9HOUKE91b+v4zsYy+cojpsjt8RDquGfe6q9sul8zvVnwafbHdgXzdf7j1vANfr+K9Jxxpp/AeswgfOpIxKrqPx0w9/+z7a8G9eLl1LtcKPiCHIqTdqjXYNxzHe3zMn6aks0DDNe3quh9vmY2MKJ2tri3wQpm1Tw5m5D+jnE7h7c0oWU5QMLJSD+ixiNeQqnXm+lc8/OT5b9oU/RbF1gPsu3LuHd8/En+DbAGFLM7ncE2sPLfhl4AI/Nwut/zCvpwoYhsxQfefwLAEJQxGIdo6pYRpUSG8wnT3IkWu+JpM7VgKwX20Q2rrLJH/KpXk1KmirmtWg5gd/v37rhDJirxF/5riC5rykMWauNFRHFysZijRsJFQyP4EKesEX95SVx/nQqLJ/KjMf65f8y2qQtCbzrWm9Dh8RchWV2pasO2CnwnU1NZ06IFVYk+FVKAyT5s7aOrQuEBAU46zaWLJszWKb5gA3CXTWZdGwJ46F3GzhP+rRDbDnmiOcJxgYbuNomB7FGaKigGd/+N5zIADTfaz5ilsbfb+9NOozD7ZnJo3dmjFlkJvkOUxBZ/2z/dlFQ7gTxveuh4MGcw45JBR9oB/XXpOOZ1vQbaER8foWyw+xd7d1pJkHq8hW9CbPXgK33BsrbneMCuKhJM+lMb6hn2ACdTTHB5YLmD+VqSWC9dL6U1Dm5lGQoaiS+JEM/8FvhJae3/YwmwDF5NNDg4rr8/mdbRR0HiKP/vmRrp22GhPurrezisjUf/M1aoW5PEfY5fiL8jkkzF9/ZDkX3cGumwhnjdjW66IMHAzj1GLf/9eaI1xkj29MKgAAAAAAAA==" alt="에버턴 엠블럼" loading="lazy">
     <div class="ch-name">에버턴 <span>Everton</span></div>
     <div class="ch-meta">힐 디킨슨 스타디움 · 52,888석 · 감독 <b>데이비드 모예스</b></div>
   </div>
@@ -4808,8 +4843,9 @@
 
 <section class="panel" id="panel-lee-home">
   <h2 class="sec">리즈 유나이티드</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="리즈 유나이티드 엠블럼" loading="lazy">
     <div class="ch-name">리즈 유나이티드 <span>Leeds United</span></div>
     <div class="ch-meta">엘런드 로드 · 37,645석 · 감독 <b>다니엘 파르케</b></div>
   </div>
@@ -4989,8 +5025,9 @@
 
 <section class="panel" id="panel-cry-home">
   <h2 class="sec">크리스탈 팰리스</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="크리스탈 팰리스 엠블럼" loading="lazy">
     <div class="ch-name">크리스탈 팰리스 <span>Crystal Palace</span></div>
     <div class="ch-meta">셀허스트 파크 · 25,486석 · 감독 <b>피에르 사주</b></div>
   </div>
@@ -5171,8 +5208,9 @@
 
 <section class="panel" id="panel-nfo-home">
   <h2 class="sec">노팅엄 포레스트</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="노팅엄 포레스트 엠블럼" loading="lazy">
     <div class="ch-name">노팅엄 포레스트 <span>Nottingham Forest</span></div>
     <div class="ch-meta">시티 그라운드 · 30,404석 · 감독 <b>올리버 글라스너</b></div>
   </div>
@@ -5353,8 +5391,9 @@
 
 <section class="panel" id="panel-tot-home">
   <h2 class="sec">토트넘 홋스퍼</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,UklGRloGAABXRUJQVlA4WAoAAAAQAAAANgAARwAAQUxQSI0EAAABoLZt2yHJXdJ9P+9bPWvbtr2xbduc2LZt27Zt28kitp1MV9V7f6juzryViJgANE6C5rw3kgRJgo2i1UnSoWjGho2kWQSAQNupq6w7HSDKTGtz5C96Yt9LbxgAlgnwc4757cUN3Dp3N5UMwMw/tT/OWB+uXFbBHn9tZKueDl8umM26Bph0CVge1sTwy4gRVwL8rxGs6DDuamL0VbD/zEgJ174ImHwZXNlw03rA4ucgKVeCFT9s8ljjNFTMWKCZMZqz7l/fhjbY+uBCfeejebtbd6AdD9gGiRlJM7oEiEN6HKr0z0WB49aCJ40kPdFxcccoDhOrea6f9+59+grwRpLmUdljfj4dPs71ShWkH35dBo5Fj+HPSToJSQRDr19DkEImbUFPkIYRn6rln2O70CI4rKhcxWq4FA6FNi+pRb8cfHofRPDYXGmNoJ960UCPXZSquCRcjC3qKNMFSGBsmhdySf+kW8K3nsNqymsp04aoeC6nXJJSHRLDMKJFoVbI/1oBhvOUSgrV7HS41iP5YshqKejv3ToO+1ZBIZN0fQw4bK20joL09Y+SMinMe3I3WOuZueR5pXUUMiko1zfHTm0CyBgeo75XWkcKIeS6oj9A5yyKecz+QWk9hVx7ARXvzCJZgnFvKwt1Mu2OireakSxB52ulvEamC1CxujFoRvNA8z/KJOVhXnvnzFgCmtF5zFmoTMq1CRLSjIxDM5I0q6Dfm8pzvV9xzmikGRmjaDQiQf/PQlWHwZMFmkWrnWDVkOVz6FgEGQsogHR4Vt90h6FAgjHA2gCZ4GC9R5AEARBl9dhS8wwNskzpEnAAWCitx27hl/H0KLvDmdod/0PivTeBjqsOBEtlHBO+uf7mRzdxRKkTnKpXL9m+H0rJ+taEQX/dDwCOjbae1fYO6PWs9nQdEmeNxgN6bbZA4VxYpSw0s8QWf/wbKQu/bt0edCyL83hIytIsDZq3l4dnCUgzcL1/WlpUd944ODOSNEZxGLfyt7mkNy89cOuNN9vzumdnOlewOI5D9z9J+vakNdY78KrHXnn6mt3WW84co8HhkuYv/z5k2SPfU91/bhwBI0gSre8w541x9yy17y+S0izP8yyVFnSnsWbrGWfudtbIp6Q0qH6LmuERu2m107WnsjSoZghSFm6DA8AIRP8Lbnhn8E2SslxSJoWsqrdJxCWGbTZj3ds2X/XS3yRlmfKvJYVPOoBx4NwW92wpvb7b8ge8IunGZTZZb6/bNb8SD9f+skpLJn1z9tprn379cu8+8eg1y5/3DojIHpeGld4JaSbp1eP6ztl+9lbHP7PN8fAsRkiwmk44RJlCGqRNn9pycGe38pi+dFZk65k1zfth1s95kFTNjt7j+7euuqp5QjtatAQr6ehmVSWF0LLTqrsc17zRTPh45nGKlrpFVdX88p5z7t2b3qKRzuOCPxa7T3mWh7wq6Tw4Z2aMYzRz2P3N9S9Q7YXrwTkzYzyax/ADl1/1mnl//vriXt3hrcE4RiZAV0ObEYMBeJqRLDACazsPegDmHRs0iwPWNWckCRI1SDQOAFZQOCCmAQAAcAsAnQEqNwBIAD49GopDIiGhFmwFqCADxKANB/yMxYd3tmrsw9ADpI/KjAaxK342RIltAIMwsgjtJpEdl9yW6fVhLmLsU0Ck5vJhPi8WuhDShuIKqyQFBY/drUoxXOrDsy/UAAD+/gNIxOZolgBjs/dR3BbilX7PGrJqfNY0uVn60J/w/retI+teliKeQ4rqXNLL6qqQPv9gt9Viaop3d+vrPwvJx9JqaSnc3/5UUbjCr37Prw2NwKi7xW90OHiKNj3YunpxNs5AZM/CkNB+7yT+VecjYdZXlxQHO9mr2LQ2PjxRZAMv0a8EdzMWnUJ9LHWPT9IXibZaHN3iuHzpfwBs2PHCOF62ABsVGxS3xzrbWKuTGVd94qOrsQHK+x1siy6ELoiPc/016Yk/On3GhEEkn/gFidzC6r7OlL3vT/iUcqX7kb2N8/t/4tDwG5g7FcSVgcRpcFei0o5DPkdQaYnQ9nDf75qCMgmdmOAWHR435UqV9iQ1DYCBjthW2NzgpswV1lrHL0P/Lzx+6/lfP4N67C/BJUK3TL5Hj2P+mOmjvBcAAAA=" alt="토트넘 홋스퍼 엠블럼" loading="lazy">
     <div class="ch-name">토트넘 홋스퍼 <span>Tottenham Hotspur</span></div>
     <div class="ch-meta">토트넘 홋스퍼 스타디움 · 62,850석 · 감독 <b>로베르토 데 제르비</b></div>
   </div>
@@ -5538,8 +5577,9 @@
 
 <section class="panel" id="panel-cov-home">
   <h2 class="sec">코번트리 시티</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <div class="ch-crest ch-crest-na" aria-hidden="true">코</div>
     <div class="ch-name">코번트리 시티 <span>Coventry City</span></div>
     <div class="ch-meta">코번트리 빌딩 소사이어티 아레나 · 32,609석 · 감독 <b>프랭크 램파드</b></div>
   </div>
@@ -5722,8 +5762,9 @@
 
 <section class="panel" id="panel-ips-home">
   <h2 class="sec">입스위치 타운</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <img class="ch-crest" src="data:image/webp;base64,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" alt="입스위치 타운 엠블럼" loading="lazy">
     <div class="ch-name">입스위치 타운 <span>Ipswich Town</span></div>
     <div class="ch-meta">포트먼 로드 · 29,673석 · 감독 <b>게리 오닐</b></div>
   </div>
@@ -5907,8 +5948,9 @@
 
 <section class="panel" id="panel-hul-home">
   <h2 class="sec">헐 시티</h2>
-  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단 · 감독·전술</b> 4개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
   <div class="club-hero">
+    <div class="ch-crest ch-crest-na" aria-hidden="true">헐</div>
     <div class="ch-name">헐 시티 <span>Hull City</span></div>
     <div class="ch-meta">MKM 스타디움 · 25,586석 · 감독 <b>세르게이 야키로비치</b></div>
   </div>
@@ -6090,6 +6132,1215 @@
   </div>
 </section>
 
+
+<script>var XI18 = {};</script>
+
+<section class="panel" id="panel-mci-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">맨체스터 시티의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">엔</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">엔조 마레스카</div>
+          <div class="mgr-meta">Enzo Maresca · 1980년생 · 이탈리아</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 6월</td></tr>
+              <tr><td>이전 소속</td><td>첼시 · 레스터 시티 · 파르마</td></tr>
+              <tr><td>주요 트로피</td><td>컨퍼런스리그·클럽월드컵(2025, 첼시) · 챔피언십 우승(2023-24, 레스터)</td></tr>
+              <tr><td>스타일</td><td>인버티드 풀백을 축으로 한 3-2-5 포지셔널 플레이</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>4-2-3-1 기반, 소유 시 3-2-5 변형</div>
+        <p class="small">기본 뼈대는 4-2-3-1이지만 볼을 잡으면 3-2-5, 2-3-5까지 엄격한 포지셔널 규칙으로 변형된다. 풀백 한 명이 안쪽으로 들어와 더블 피벗 옆에 서고 윙어는 터치라인에 고정돼 폭을 유지하는, 첼시·레스터에서 쓰던 구조 그대로다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>프리시즌: 4-3-3과 4-2-3-1 병행 테스트</div>
+        <p class="small">홍콩 인터전은 4-3-3, 서울 아틀레티코전은 4-2-3-1로 나섰다. 홀란·셰르키·앤더슨 등 월드컵 차출 자원이 아시아 투어에 빠져 있어 마레스카는 개막 직전에야 완전체를 소집했다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>후방 빌드업 리스크와 로드리 공백</div>
+        <p class="small">골키퍼부터 짧게 푸는 원칙을 고수하는 감독이라 첫 압박 라인을 뚫지 못했을 때의 실점 리스크가 첼시 시절부터 반복 지적됐다. 로드리는 월드컵 이후 허리 수술 재활 중으로 커뮤니티실드 결장이 확정적이며, £116m 엘리엇 앤더슨과 코바치치·레인더르스가 피봇을 메워야 한다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-mci">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["mci"] = [
+  { n: '돈나룸마', p: 'GK', x: 50, y: 88 },
+  { n: '리코 루이스', p: 'RB', x: 83, y: 71 },
+  { n: '후사노프', p: 'CB', x: 36, y: 75 },
+  { n: '후벵 디아스', p: 'CB', x: 64, y: 75 },
+  { n: '그바르디올', p: 'LB', x: 17, y: 71 },
+  { n: '엘리엇 앤더슨', p: 'DM', x: 50, y: 58 },
+  { n: '레인더르스', p: 'CM', x: 50, y: 47 },
+  { n: '세메뇨', p: 'RW', x: 82, y: 27 },
+  { n: '셰르키', p: 'AM', x: 50, y: 33 },
+  { n: '도쿠', p: 'LW', x: 18, y: 27 },
+  { n: '홀란', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-avl-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">아스톤 빌라의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">우</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">우나이 에메리</div>
+          <div class="mgr-meta">Unai Emery · 1971년생 · 스페인</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2022년 11월 (5년째)</td></tr>
+              <tr><td>이전 소속</td><td>세비야 · 파리 생제르맹 · 아스날 · 비야레알</td></tr>
+              <tr><td>주요 트로피</td><td>유로파리그 5회(세비야 3회·비야레알·아스톤 빌라 2026) — 역대 최다 · 리그1 1회</td></tr>
+              <tr><td>스타일</td><td>상대별 맞춤 준비를 극단까지 밀어붙이는 디테일 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>4-2-3-1 공격, 4-4-2 수비 블록</div>
+        <p class="small">볼을 잡으면 4-2-3-1, 잃으면 두 줄로 내려앉는 플랫 4-4-2 블록으로 전환한다. 짧은 패스로 인내심 있게 쌓다가 압박이 걸리면 왓킨스의 뒷공간 침투로 단번에 뒤집는 전환이 핵심. 왓킨스는 6시즌 연속 리그 두 자릿수 득점을 이어가고 있다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>모건 로저스 £117m 공백을 어떻게 메우나</div>
+        <p class="small">유로파리그 우승의 핵심이던 로저스(첼시)와 틸레만스(맨유), 디뉴(PSG)가 한꺼번에 빠졌다. 대체로 만잠비(프라이부르크), 주앙 고메스(울버햄튼), 가르나초(첼시 임대)를 데려와 2·3선을 통째로 다시 짰다. 새 얼굴들의 조합 속도가 시즌 초반 최대 변수.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>슈퍼컵 PSG전 1-2 패 — 로테이션과 부상이 겹친 상태</div>
+        <p class="small">8월 12일 UEFA 슈퍼컵에서 PSG에 1-2로 졌고 17세 마조가 득점했다. 마르티네스·왓킨스·콘사가 월드컵 이후 컨디션 문제로 빠진 상태였다. 세트피스 코치와 수석코치가 동시에 팀을 떠나 지난 시즌 강점이던 세트피스 경쟁력 유지도 과제다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-avl">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["avl"] = [
+  { n: '에밀리아노 마르티네스', p: 'GK', x: 50, y: 88 },
+  { n: '매티 캐시', p: 'RB', x: 83, y: 71 },
+  { n: '콘사', p: 'CB', x: 36, y: 75 },
+  { n: '파우 토레스', p: 'CB', x: 64, y: 75 },
+  { n: '마천', p: 'LB', x: 17, y: 71 },
+  { n: '카마라', p: 'DM', x: 50, y: 58 },
+  { n: '주앙 고메스', p: 'CM', x: 50, y: 47 },
+  { n: '맥긴', p: 'RW', x: 82, y: 27 },
+  { n: '부엔디아', p: 'AM', x: 50, y: 33 },
+  { n: '가르나초', p: 'LW', x: 18, y: 27 },
+  { n: '왓킨스', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-liv-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">리버풀의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">안</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">안도니 이라올라</div>
+          <div class="mgr-meta">Andoni Iraola · 1982년생 · 스페인</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 6월</td></tr>
+              <tr><td>이전 소속</td><td>본머스 · 라요 바예카노 · 미란데스</td></tr>
+              <tr><td>주요 트로피</td><td>감독 커리어 주요 트로피 없음 (본머스 2025-26 리그 6위·유로파리그 진출)</td></tr>
+              <tr><td>스타일</td><td>고강도 전방압박과 리그 최단 경로 다이렉트 전환</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>리그에서 가장 빠른 다이렉트 전환</div>
+        <p class="small">본머스 시절 이라올라의 팀은 평균 전진 속도 1.95m/s로 프리미어리그 1위, 공격 시퀀스당 패스 2.98회로 리그 최저권이었다. 이라올라 본인이 "볼을 뺏으면 가장 먼저 9번에게 붙인다"고 설명했을 만큼 회수 즉시 최전방으로 꽂는 것이 1원칙이다. 리버풀에서의 세부 패턴은 아직 공개 정보가 제한적이라 이 항목은 본머스 시절 데이터 기반이다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>대인 지향 하이프레스와 '테이크오버'</div>
+        <p class="small">PPDA 10.6(리그 4위), 상대 진영 탈취 후 슈팅 147회로 리그 1위를 기록한 강한 압박이 핵심이다. 센터백이 상대 공격수를 미드필드까지 따라 올라가 넘겨받는 대인 압박 방식을 쓴다. 소보슬라이·비르츠처럼 압박 강도가 높은 자원이 이 구조의 엔진이 될 전망.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>내려앉은 상대 공략 = 최대 약점</div>
+        <p class="small">본머스는 점유율 55% 이상인 경기 승률이 7.7%에 그친 반면 점유율이 낮은 경기에서는 48%였다. 리버풀은 대부분 상대가 블록을 세우기 때문에 이 지점이 최대 시험대다. 살라·코나테·로버트슨이 모두 떠났고 정통 오른쪽 윙어 자원이 부족하다는 지적도 프리시즌 내내 따라붙었다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-liv">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["liv"] = [
+  { n: '알리송', p: 'GK', x: 50, y: 88 },
+  { n: '프림퐁', p: 'RB', x: 83, y: 71 },
+  { n: '반다이크', p: 'CB', x: 36, y: 75 },
+  { n: '아라우호', p: 'CB', x: 64, y: 75 },
+  { n: '케르케즈', p: 'LB', x: 17, y: 71 },
+  { n: '흐라번베르흐', p: 'DM', x: 50, y: 58 },
+  { n: '매캘리스터', p: 'CM', x: 50, y: 47 },
+  { n: '소보슬라이', p: 'RW', x: 82, y: 27 },
+  { n: '비르츠', p: 'AM', x: 50, y: 33 },
+  { n: '학포', p: 'LW', x: 18, y: 27 },
+  { n: '이사크', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-bou-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">본머스의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">마</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">마르코 로제</div>
+          <div class="mgr-meta">Marco Rose · 1976년생 · 독일</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 6월</td></tr>
+              <tr><td>이전 소속</td><td>RB 라이프치히 · 보루시아 도르트문트 · 보루시아 묀헨글라트바흐 · 레드불 잘츠부르크</td></tr>
+              <tr><td>주요 트로피</td><td>DFB포칼 1회(2023, 라이프치히) · 오스트리아 분데스리가 2회(잘츠부르크)</td></tr>
+              <tr><td>스타일</td><td>'감정·허기·능동성' — 수직 지향 전진 패스와 게겐프레싱으로 상대 실수를 강제하는 고강도 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>중앙 밀집 + 풀백이 만드는 폭</div>
+        <p class="small">라이프치히 시절부터 윙어를 안으로 접어 넣어 중앙에 인원을 몰아넣고 폭은 양 풀백에게만 맡기는 구조를 썼다. 2026-27 프리시즌(장크트파울리·아우크스부르크전)에서도 4-2-3-1 기반에 도크·아들리를 안쪽으로 좁히고 트뤼페르가 좌측 폭을 담당하는 형태가 관찰됐다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>맨마킹이 아닌 '공간 지향' 압박</div>
+        <p class="small">로제의 압박은 개인 마크가 아니라 공간을 잘라 골키퍼가 마크된 수비수에게 주거나 롱볼을 차도록 유도하는 방식이다. 1차 압박이 뚫리면 측면으로 몰아 무리 지어 사냥한다. 이라올라의 초고강도 전방 압박과 결이 비슷해 선수단 적응 비용이 크지 않다는 평가.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 압박이 식은 뒤의 뒷공간과 센터백 재편</div>
+        <p class="small">라이프치히 말기에 압박 강도가 떨어지자 전진한 풀백 뒤 공간이 그대로 노출되며 수비 구조가 무너진 전례가 있다. 세네시가 토트넘으로 떠나고 밀로사블례비치가 프리시즌 부상, 크루피는 발 부상으로 3개월 이탈해 안토니우 실바 영입에도 백라인 조합이 새로 짜여야 한다. 유로파리그 병행 일정까지 겹친다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-bou">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["bou"] = [
+  { n: '페트로비치', p: 'GK', x: 50, y: 88 },
+  { n: '애덤 스미스', p: 'RB', x: 83, y: 71 },
+  { n: '안토니우 실바', p: 'CB', x: 36, y: 75 },
+  { n: '바포데 디아키테', p: 'CB', x: 64, y: 75 },
+  { n: '트뤼페르', p: 'LB', x: 17, y: 71 },
+  { n: '알렉스 스콧', p: 'DM', x: 34, y: 58 },
+  { n: '타일러 애덤스', p: 'DM', x: 66, y: 58 },
+  { n: '벤 도크', p: 'RW', x: 82, y: 27 },
+  { n: '클라위베르트', p: 'AM', x: 50, y: 33 },
+  { n: '아민 아들리', p: 'LW', x: 18, y: 27 },
+  { n: '에바닐송', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-sun-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">선덜랜드의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">레</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">레지스 르 브리</div>
+          <div class="mgr-meta">Regis Le Bris · 1975년생 · 프랑스</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2024년 7월</td></tr>
+              <tr><td>이전 소속</td><td>FC 로리앙 · FC 로리앙 유스·리저브 · 스타드 렌 유스</td></tr>
+              <tr><td>주요 트로피</td><td>1군 메이저 트로피 없음 (2025 챔피언십 승격 플레이오프 우승, 2025-26 PL 7위로 유로파리그 진출)</td></tr>
+              <tr><td>스타일</td><td>원칙은 뚜렷하되 상대에 맞춰 형태를 바꾸는 구조 중심 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-3-3</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>자카를 축으로 한 저위치 빌드업</div>
+        <p class="small">골키퍼-6번-센터백의 서드맨 연결로 압박 대비 수적 우위(4v3)를 만들고, 센터백이 직접 드리블로 1차 압박을 깨는 패턴을 쓴다. 자카가 깊은 위치에서 전진 패스와 사이드 체인지로 템포를 잡고, 풀백은 높은 지역에서 안으로 접혀 2+3 리스트 디펜스를 형성한다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>측면 오버로드와 1대1, 그리고 세트피스</div>
+        <p class="small">풀백-8번-윙어의 삼각 조합에서 오버랩·언더랩과 서드맨 침투로 측면을 과부하시키고, 인버티드 윙어의 1대1 돌파 빈도가 높다. 코너·롱스로인·딥 프리킥을 명확한 득점 루트로 설계해 쓰는 것도 특징이다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 낮은 기대득점과 얇아진 스쿼드</div>
+        <p class="small">2025-26시즌 순위(7위) 대비 xG는 리그 최하위권으로, 득점 생산이 구조적으로 얇다는 지적을 받았다. 맨마킹 성향의 전방 압박은 한 번 무너지면 라인 사이 공간이 크게 벌어지는 위험도 있다. 여기에 2026 여름은 매각 위주였고 영입은 뫼니에 정도라, 유로파리그가 추가되는 일정에서 뎁스 문제가 부각된다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-3-3 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-sun">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["sun"] = [
+  { n: '로빈 루프스', p: 'GK', x: 50, y: 88 },
+  { n: '토마 뫼니에', p: 'RB', x: 83, y: 71 },
+  { n: '댄 밸러드', p: 'CB', x: 36, y: 75 },
+  { n: '루크 오니엔', p: 'CB', x: 64, y: 75 },
+  { n: '헤이닐두 만다바', p: 'LB', x: 17, y: 71 },
+  { n: '그라니트 자카', p: 'DM', x: 50, y: 58 },
+  { n: '노아 사디키', p: 'CM', x: 34, y: 47 },
+  { n: '엔조 르 페', p: 'CM', x: 66, y: 47 },
+  { n: '트라이 흄', p: 'RW', x: 82, y: 27 },
+  { n: '셈스딘 탈비', p: 'LW', x: 18, y: 27 },
+  { n: '브라이언 브로베이', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-bha-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">브라이턴 앤 호브 알비온의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">파</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">파비안 휘르첼러</div>
+          <div class="mgr-meta">Fabian Hurzeler · 1993년생 · 독일</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2024년 6월</td></tr>
+              <tr><td>이전 소속</td><td>FC 장크트파울리 · FC 피핑스리트</td></tr>
+              <tr><td>주요 트로피</td><td>장크트파울리 분데스리가 승격(2023-24). 메이저 트로피는 확인 안 됨</td></tr>
+              <tr><td>스타일</td><td>강한 전방 압박으로 높은 지점에서 뺏고 곧바로 슈팅까지 연결하는 하이템포 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>하이프레스와 즉시 전환</div>
+        <p class="small">PPDA 10.5로 리그 4위, 하이 턴오버 116회로 리그 1위를 기록했고 그중 20회를 곧바로 슈팅으로 연결했다. 상대 압박을 일부러 유도한 뒤 라인 사이 3명이 받아 빠져나가는 4-1 빌드업 구조가 기본이다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>웰벡 이탈로 중앙 통과 축구로 이동</div>
+        <p class="small">프리시즌 로마전 3-0 승리에서 타깃맨 웰벡이 빠진 뒤 팀이 폭을 좁혀 크로스 대신 중원을 통과하는 패스로 공격을 풀었다. 뤼테르가 최전방으로 올라가 득점했고 아야리는 2골로 프리시즌 최고 폼을 보였다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>센터백 전면 재편이라는 리스크</div>
+        <p class="small">판 헤케(토트넘 £52m)와 던크가 동시에 빠지면서 빌드업 기점이 사라졌다. 프리시즌에는 구단 최고 이적료 부슈코비치와 보스칼리 조합이 나섰지만, 하이라인을 쓰는 팀 특성상 신입 조합의 적응이 초반 최대 변수다. 발레바도 발목 부상으로 결장 중.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-bha">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["bha"] = [
+  { n: '페르브뤼헌', p: 'GK', x: 50, y: 88 },
+  { n: '카디오을루', p: 'RB', x: 83, y: 71 },
+  { n: '부슈코비치', p: 'CB', x: 36, y: 75 },
+  { n: '보스칼리', p: 'CB', x: 64, y: 75 },
+  { n: '이고르 줄리우', p: 'LB', x: 17, y: 71 },
+  { n: '파스칼 그로스', p: 'DM', x: 50, y: 58 },
+  { n: '야신 아야리', p: 'CM', x: 50, y: 47 },
+  { n: '얀쿠바 민테', p: 'RW', x: 82, y: 27 },
+  { n: '힌셜우드', p: 'AM', x: 50, y: 33 },
+  { n: '디에고 고메스', p: 'LW', x: 18, y: 27 },
+  { n: '조르지뇨 뤼테르', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-bre-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">브렌트포드의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">키</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">키스 앤드루스</div>
+          <div class="mgr-meta">Keith Andrews · 1980년생 · 아일랜드</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2025년 6월</td></tr>
+              <tr><td>이전 소속</td><td>브렌트포드 세트피스 코치 · 셰필드 유나이티드 코치 · 아일랜드 대표팀 수석코치</td></tr>
+              <tr><td>주요 트로피</td><td>확인 안 됨 (감독 커리어 트로피 없음)</td></tr>
+              <tr><td>스타일</td><td>수비 안정과 직선적 전환을 결합하고 세트피스를 무기로 삼는 실용주의</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>4-2-3-1과 피벗 드롭 빌드업</div>
+        <p class="small">지난 시즌 45경기 중 33경기를 4-2-3-1로 치른 팀의 기본 틀을 유지한다. 더블 피벗 중 한 명이 센터백 옆으로 내려가 같은 쪽 풀백을 먼저 전진시키는 것이 앤드루스 빌드업의 시그니처다. 센터백을 중앙에 남겨 역습 대비를 유지하면서 롱패스 각도를 확보하는 구조.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>스루볼과 롱패스, 그리고 세트피스</div>
+        <p class="small">27경기 기준 스루볼 3위, 롱패스 1위로 리그에서 가장 직선적인 팀 중 하나다. 윙어 샤데와 와타라가 일찍 안으로 좁혀 치아구를 지원하고, 세트피스 코치 출신 감독답게 롱스로를 포함한 정지 상황 루틴 비중이 크다. 치아구는 지난 시즌 22골로 득점 2위.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>프리시즌은 경기 대신 훈련</div>
+        <p class="small">앤드루스는 2026 포르투갈 캠프에서 친선경기를 아예 잡지 않고 '경기라는 방해 요소 없이 완전히 통제된 훈련'을 택했다. 이적 변동이 적어 헨더슨 이탈 외에 큰 손실은 없다. 다만 실전 감각 점검이 부족한 상태로 개막전 토트넘을 맞는 점은 위험 요소.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-bre">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["bre"] = [
+  { n: '키비언 켈러허', p: 'GK', x: 50, y: 88 },
+  { n: '미카엘 카요데', p: 'RB', x: 83, y: 71 },
+  { n: '네이선 콜린스', p: 'CB', x: 36, y: 75 },
+  { n: '판 덴 베르흐', p: 'CB', x: 64, y: 75 },
+  { n: '루이스포터', p: 'LB', x: 17, y: 71 },
+  { n: '마마두 상가레', p: 'DM', x: 50, y: 58 },
+  { n: '야르몰류크', p: 'CM', x: 50, y: 47 },
+  { n: '당고 와타라', p: 'RW', x: 82, y: 27 },
+  { n: '담스고르', p: 'AM', x: 50, y: 33 },
+  { n: '케빈 샤데', p: 'LW', x: 18, y: 27 },
+  { n: '이고르 치아구', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-che-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">첼시의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">사</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">사비 알론소</div>
+          <div class="mgr-meta">Xabi Alonso · 1981년생 · 스페인</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 7월</td></tr>
+              <tr><td>이전 소속</td><td>레알 소시에다드 B · 바이어 레버쿠젠 · 레알 마드리드</td></tr>
+              <tr><td>주요 트로피</td><td>분데스리가·DFB포칼 더블(2023-24, 레버쿠젠 무패 우승) · DFL 슈퍼컵(2024)</td></tr>
+              <tr><td>스타일</td><td>정교한 점유와 위치 선정, 볼을 잃는 즉시 들어가는 고강도 역압박</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">3-4-2-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>스리백 기반, 그러나 '한 가지 그림'은 아니다</div>
+        <p class="small">프리시즌 AC밀란전에서 3-4-2-1로 3-0 완승을 거뒀지만 인도네시아 슈퍼컵 밀란전에서는 4-2-3-1로 나섰다. 알론소는 '한 가지 아이디어에만 머물지 않는다, 옵션이 많을수록 좋은 팀이 된다'며 상황별 가변을 예고했다. 개막전 기준으로는 3-4-2-1이 유력하다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>중앙 압축 빌드업 → 뒤늦게 열리는 윙백</div>
+        <p class="small">볼을 다루는 센터백 두 명을 축으로 좁은 중앙 통로에서 패스를 쌓고, 윙백은 공격 후반부에 폭과 속도를 더한다. 카이세도-라비아가 라인 사이로 패스를 찔러 넣고, 파머와 모건 로저스가 레버쿠젠 시절 비르츠처럼 하프스페이스를 파고든다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>즉시 역압박, 다만 프리시즌은 '반반'</div>
+        <p class="small">레버쿠젠 시절 90분당 하이 턴오버 10.8회로 분데스리가 1위를 기록할 만큼 볼 상실 직후의 압박 트리거가 명확하다. 다만 2026 프리시즌은 밀란전 승리, 토트넘·유벤투스전 패배로 엇갈렸고 지난 시즌부터 이어진 수비진 약점이 다시 드러났다는 평가가 나왔다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">3-4-2-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-che">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["che"] = [
+  { n: '로베르트 산체스', p: 'GK', x: 50, y: 88 },
+  { n: '포파나', p: 'CB', x: 26, y: 75 },
+  { n: '라크루아', p: 'CB', x: 50, y: 75 },
+  { n: '콜윌', p: 'CB', x: 74, y: 75 },
+  { n: '팔레스트라', p: 'RWB', x: 88, y: 56 },
+  { n: '카이세도', p: 'DM', x: 50, y: 58 },
+  { n: '라비아', p: 'CM', x: 50, y: 47 },
+  { n: '하토', p: 'LWB', x: 12, y: 56 },
+  { n: '콜 파머', p: 'AM', x: 34, y: 33 },
+  { n: '모건 로저스', p: 'AM', x: 66, y: 33 },
+  { n: '주앙 페드루', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-ful-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">풀럼의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">알</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">알바로 아르벨로아</div>
+          <div class="mgr-meta">Alvaro Arbeloa · 1983년생 · 스페인</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 7월</td></tr>
+              <tr><td>이전 소속</td><td>레알 마드리드 후베닐A · 레알 마드리드 카스티야 · 레알 마드리드 1군(2026년 1~5월)</td></tr>
+              <tr><td>주요 트로피</td><td>지도자: 레알 후베닐A 트레블(2022-23). 성인 무대 우승은 확인 안 됨 / 선수 시절 UCL 2회·유로 2회</td></tr>
+              <tr><td>스타일</td><td>좁고 수직적인 전진과 즉시 회수형 하이프레스를 결합한 '용감하고 지배적인' 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>말라가전에서 드러난 4-2-3-1 원형</div>
+        <p class="small">8월 12일 말라가전(2-2)에서 첼시전 개막 예상 라인업으로 평가된 4-2-3-1을 가동했다. 이워비-베르게 더블 피벗 앞에 스미스 로우를 두고 케빈·보브·곤살로 가르시아의 3인 전방을 세웠다. 마르코 실바의 골격은 유지하되 전방 조합이 완전히 새로 짜였다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>중앙 짧은 빌드업 + 미드필더 내려서기</div>
+        <p class="small">레알 마드리드 시절 관찰된 패턴은 미드필더 1명을 센터백 옆으로 내려 백3를 만들고, 풀백 위치에 따라 3-4-3 또는 3-2-5로 전환하는 것이다. 짧은 골킥으로 중앙에서 시작해 한쪽 측면으로 상대를 몰아넣은 뒤 중앙을 관통하는 수직 패스로 압박을 깬다. 프리시즌이 아닌 레알 시절 분석 기반이다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 얇은 윙어 자원과 플랜B 부재</div>
+        <p class="small">말라가전 벤치에 정통 윙어가 18세 매콜리 제파뿐이었을 만큼 측면 뎁스가 얇다. 레알 시절부터 '상대가 압박으로 나올 때 확실한 플랜B가 없다'는 지적을 받았고, 스쿼드 평균 연령 27.8세로 리그 최고령권이라는 점도 강도 높은 프레싱 유지에 부담 요소로 꼽힌다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-ful">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["ful"] = [
+  { n: '베른트 레노', p: 'GK', x: 50, y: 88 },
+  { n: '카스타뉴', p: 'RB', x: 83, y: 71 },
+  { n: '요아킴 안데르센', p: 'CB', x: 36, y: 75 },
+  { n: '칼빈 배시', p: 'CB', x: 64, y: 75 },
+  { n: '안토니 로빈슨', p: 'LB', x: 17, y: 71 },
+  { n: '산데르 베르게', p: 'DM', x: 50, y: 58 },
+  { n: '알렉스 이워비', p: 'CM', x: 50, y: 47 },
+  { n: '케빈', p: 'RW', x: 82, y: 27 },
+  { n: '에밀 스미스 로우', p: 'AM', x: 50, y: 33 },
+  { n: '오스카 보브', p: 'LW', x: 18, y: 27 },
+  { n: '곤살로 가르시아', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-new-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">뉴캐슬 유나이티드의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">마</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">마티아스 야이슬레</div>
+          <div class="mgr-meta">Matthias Jaissle · 1988년생 · 독일</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 8월</td></tr>
+              <tr><td>이전 소속</td><td>알 아흘리 · 레드불 잘츠부르크 · FC 리페링</td></tr>
+              <tr><td>주요 트로피</td><td>오스트리아 분데스리가 2회 · AFC 챔피언스리그 엘리트 2회(2024-25, 2025-26)</td></tr>
+              <tr><td>스타일</td><td>즉각적 역압박과 '매우 수직적인' 속공</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>고라인 + 즉시 역압박</div>
+        <p class="small">레드불 계열에서 성장한 지도자답게 상대 진영 깊은 곳부터 강하게 압박하고, 볼을 잃는 즉시 여럿이 달려들어 회수한다. 잘츠부르크에서는 4-4-2 다이아몬드, 알아흘리에서는 4-2-3-1로 조정했다. 본인은 "포메이션보다 어떻게 뛸 것인가가 중요하다, 우리는 매우 수직적"이라고 설명한다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>프리시즌: 4-3-3과 4-4-2 병행</div>
+        <p class="small">발렌시아 원정 첫 지휘 경기는 4-3-3, 8월 12일 에버턴전은 사실상 4-4-2로 나섰다. 현지에서는 "투레와 엘랑가의 선발이 야이슬레식 축구에 가장 부합하는 윙어 조합"이라는 평가가 나왔다. 골문은 두 경기 모두 신입 호르니체크가 지켰다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>중원 대량 유출 + 준비 기간 2주</div>
+        <p class="small">기마랑이스(아스날), 토날리(토트넘), 고든(바르셀로나)이 한꺼번에 빠지며 지난 시즌 중원·측면 핵심이 통째로 사라졌다. 야이슬레는 개막 약 2주 전인 8월 5일에야 부임했고 유럽 5대 리그 지휘는 처음이다. 개막전이 리버풀(홈), 이어 토트넘 원정이라 적응 시간이 사실상 없다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-new">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["new"] = [
+  { n: '호르니체크', p: 'GK', x: 50, y: 88 },
+  { n: '리브라멘투', p: 'RB', x: 83, y: 71 },
+  { n: '티아우', p: 'CB', x: 36, y: 75 },
+  { n: '보트만', p: 'CB', x: 64, y: 75 },
+  { n: '루이스 홀', p: 'LB', x: 17, y: 71 },
+  { n: '밤바', p: 'DM', x: 50, y: 58 },
+  { n: '조엘린통', p: 'CM', x: 50, y: 47 },
+  { n: '엘랑가', p: 'RW', x: 82, y: 27 },
+  { n: '제이컵 램지', p: 'AM', x: 50, y: 33 },
+  { n: '바주마나 투레', p: 'LW', x: 18, y: 27 },
+  { n: '볼테마데', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-eve-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">에버턴의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">데</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">데이비드 모예스</div>
+          <div class="mgr-meta">David Moyes · 1963년생 · 스코틀랜드</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2025년 1월</td></tr>
+              <tr><td>이전 소속</td><td>웨스트햄 유나이티드 · 레알 소시에다드 · 맨체스터 유나이티드</td></tr>
+              <tr><td>주요 트로피</td><td>UEFA 컨퍼런스리그 2022-23 (웨스트햄)</td></tr>
+              <tr><td>스타일</td><td>탄탄한 백4와 수비 조직을 먼저 세우고 역습과 세트피스로 득점을 만드는 실리형 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>프리시즌 스리백 실험, 그래도 결론은 백4</div>
+        <p class="small">2026 프리시즌에서 윙백 시스템을 시험했지만 대부분 전통적인 백4로 돌아갔다. 8월 12일 뉴캐슬전(3-1 승)도 백4 기반이었고 개막전 역시 백4가 유력하다. 스리백은 상대에 따라 꺼내는 옵션 수준으로 보인다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>미드필드 전면 개편, 개막 초반은 과도기</div>
+        <p class="small">게예와 그릴리시가 떠난 자리에 노르고르(아스날)와 해크니(미들즈브러)를 영입해 조합을 새로 짰다. 다만 지난 시즌 올해의 선수 가너가 수술로 개막 전후 결장이 유력해 초반 밸런스는 불안하다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>딥블록 후 역습, 여전한 득점력 숙제</div>
+        <p class="small">데이터 매체들이 모예스 에버턴을 '딥블록 + 카운터'로 분류할 만큼 저중심 수비 후 전환이 기본 루트다. 반대로 2시즌 연속 13위에 그친 원인인 점유 상황에서의 창의성 부족은 프리시즌에도 뚜렷이 해결되지 않았다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-eve">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["eve"] = [
+  { n: '픽퍼드', p: 'GK', x: 50, y: 88 },
+  { n: '오브라이언', p: 'RB', x: 83, y: 71 },
+  { n: '타코스키', p: 'CB', x: 36, y: 75 },
+  { n: '브랜스웨이트', p: 'CB', x: 64, y: 75 },
+  { n: '미콜렌코', p: 'LB', x: 17, y: 71 },
+  { n: '노르고르', p: 'DM', x: 50, y: 58 },
+  { n: '해크니', p: 'CM', x: 50, y: 47 },
+  { n: '타이릭 조지', p: 'RW', x: 82, y: 27 },
+  { n: '듀스버리홀', p: 'AM', x: 50, y: 33 },
+  { n: '은디아예', p: 'LW', x: 18, y: 27 },
+  { n: '베투', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-lee-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">리즈 유나이티드의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">다</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">다니엘 파르케</div>
+          <div class="mgr-meta">Daniel Farke · 1976년생 · 독일</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2023년 7월</td></tr>
+              <tr><td>이전 소속</td><td>보루시아 묀헨글라트바흐 · 노리치 시티 · 보루시아 도르트문트 II</td></tr>
+              <tr><td>주요 트로피</td><td>EFL 챔피언십 우승 3회(노리치 2회, 리즈 2024-25) · 챔피언십 올해의 감독</td></tr>
+              <tr><td>스타일</td><td>인내심 있는 점유와 포지셔널 플레이 — 후방부터 짧게 쌓아 하프스페이스로 침투하는 독일식 4-3-3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-3-3</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>백3에서 백4로 회귀 (프리시즌 관찰)</div>
+        <p class="small">지난 시즌 잔류를 만든 건 3-5-2/3-4-3 백3 전환이었고 실점이 경기당 1.92에서 1.15로 줄었다. 그럼에도 파르케는 '볼을 지배하는 팀'이라는 본인 철학으로 돌아가려 하며, 8월 12일 크로크파크 맨유전에서 실제로 4-3-3을 세웠다. 다만 라이프치히전 예상에는 다시 3-4-3이 거론돼 개막 시점 형태는 유동적이다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>트래퍼드 영입으로 후방 빌드업 재설계</div>
+        <p class="small">맨시티에서 구단 최고 £40m에 영입한 트래퍼드가 메슬리에(아스날 이적)를 대체하며, 발밑이 좋은 GK를 1차 전진 옵션으로 쓰는 파르케식 빌드업의 출발점이 된다. 사수올로에서 £34.1m에 온 무하레모비치와 비욜이 새 센터백 조합이고, 자유계약으로 온 해리 윌슨은 백4 전환 계획을 사전에 전달받았다고 보도됐다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 마무리 부족과 왼쪽 부상 공백</div>
+        <p class="small">프리시즌 내내 최전방(은메차·칼버트르윈·피로)과 측면(제임스·오카포르·뇬토)의 결정력이 도마에 올랐다. 주전 왼쪽 풀백 구드문드손이 리버풀전에서 햄스트링 부상으로 수 주 이탈해 좌측 수비 조합이 불안정하며, 보르나우는 함부르크 이적설로 유출 가능성이 있다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-3-3 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-lee">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["lee"] = [
+  { n: '제임스 트래퍼드', p: 'GK', x: 50, y: 88 },
+  { n: '제이든 보글', p: 'RB', x: 83, y: 71 },
+  { n: '무하레모비치', p: 'CB', x: 36, y: 75 },
+  { n: '야카 비욜', p: 'CB', x: 64, y: 75 },
+  { n: '제임스 저스틴', p: 'LB', x: 17, y: 71 },
+  { n: '이선 암파두', p: 'DM', x: 50, y: 58 },
+  { n: '안톤 슈타흐', p: 'CM', x: 34, y: 47 },
+  { n: '다나카 아오', p: 'CM', x: 66, y: 47 },
+  { n: '대니얼 제임스', p: 'RW', x: 82, y: 27 },
+  { n: '브렌던 애런슨', p: 'LW', x: 18, y: 27 },
+  { n: '루카스 은메차', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-cry-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">크리스탈 팰리스의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">피</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">피에르 사주</div>
+          <div class="mgr-meta">Pierre Sage · 1979년생 · 프랑스</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 6월</td></tr>
+              <tr><td>이전 소속</td><td>올랭피크 리옹 · RC 랑스 · 레드스타(수석코치)</td></tr>
+              <tr><td>주요 트로피</td><td>쿠프 드 프랑스 2025-26(랑스, 구단 사상 첫 메이저 트로피) · 리그1 올해의 감독</td></tr>
+              <tr><td>스타일</td><td>백3 기반 3-4-3에서 전방부터 강하게 압박하고 회수 즉시 측면 과부하로 수직 전진</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">3-4-3</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>글라스너의 백3를 계승, 내용물만 교체</div>
+        <p class="small">프리시즌에서 전임 글라스너의 스리백+윙백 골격을 그대로 유지해 적응 비용을 줄였다. 사주 본인이 랑스에서 쿠프 드 프랑스를 들어올린 3-4-3과 사실상 같은 형태여서 선수단 반응도 긍정적이라고 밝혔다. 다만 초반 친선경기는 월드컵 차출로 주전 다수가 빠진 채 치러졌다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>후방부터 과감한 전진 패스와 크로스 폭격</div>
+        <p class="small">사주가 프리시즌 내내 강조한 원칙은 후방에서 최종 3분의 1로 향하는 '용감한' 패스, 박스로 향하는 잦은 크로스, 전방에서의 강한 압박이다. 알 울라전 3-1 승리에서 공격 전환이 한층 직선적으로 바뀐 모습이 확인됐다. 랑스에서는 리그1 최다인 세트피스 9골을 기록했다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 볼 소유 국면과 득점력</div>
+        <p class="small">랑스전 0-3 패배 뒤 사주는 '볼을 가졌을 때 문제가 있었다'고 직접 인정했다. 랑스 시절에도 점유율 48.4%로 상대가 내려앉을 때의 해법이 물음표였는데, 팰리스는 지난 시즌 기대득점 대비 실제 득점이 경기당 0.31골 부족했던 팀이라 같은 약점이 겹친다. 라크루아·게히 이탈로 수비 리더십 공백도 크다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">3-4-3 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-cry">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["cry"] = [
+  { n: '딘 헨더슨', p: 'GK', x: 50, y: 88 },
+  { n: '크리스 리처즈', p: 'CB', x: 26, y: 75 },
+  { n: '샤디 리아드', p: 'CB', x: 50, y: 75 },
+  { n: '제이디 캉보', p: 'CB', x: 74, y: 75 },
+  { n: '다니엘 무뇨스', p: 'RWB', x: 88, y: 56 },
+  { n: '애덤 와튼', p: 'CM', x: 34, y: 47 },
+  { n: '윌 휴스', p: 'CM', x: 66, y: 47 },
+  { n: '타이릭 미첼', p: 'LWB', x: 12, y: 56 },
+  { n: '이스마일라 사르', p: 'RW', x: 82, y: 27 },
+  { n: '마테타', p: 'ST', x: 50, y: 17 },
+  { n: '예레미 피노', p: 'LW', x: 18, y: 27 }
+];</script>
+</section>
+
+<section class="panel" id="panel-nfo-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">노팅엄 포레스트의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">올</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">올리버 글라스너</div>
+          <div class="mgr-meta">Oliver Glasner · 1974년생 · 오스트리아</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 7월</td></tr>
+              <tr><td>이전 소속</td><td>크리스탈 팰리스 · 아인트라흐트 프랑크푸르트 · VfL 볼프스부르크</td></tr>
+              <tr><td>주요 트로피</td><td>유로파리그 2021-22(프랑크푸르트) · FA컵 2024-25 · 컨퍼런스리그 2025-26 · 커뮤니티실드 2025(이상 팰리스)</td></tr>
+              <tr><td>스타일</td><td>스리백과 윙백으로 구조를 잡아 수비 안정을 확보한 뒤 전방 압박과 빠른 전환으로 찌르는 실리적 지배 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">3-4-2-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>부임 즉시 백3 이식</div>
+        <p class="small">노츠 카운티전에서 전·후반 라인업을 통째로 바꾸면서도 양쪽 모두 스리백+윙백을 세웠고, 8월 12일 레버쿠젠전(2-1 승)에서도 디오망데-밀렌코비치-무리요의 백3를 가동했다. 팰리스에서 쓰던 3-4-2-1 골격을 그대로 옮겨오는 흐름이 프리시즌 내내 일관됐다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>윙백이 공격의 폭을 담당</div>
+        <p class="small">올라 아이나와 네코 윌리엄스가 좌우 윙백으로 고정되며 팀의 너비를 책임진다. 지난 시즌 태클 96회를 기록한 윌리엄스는 글라스너 시스템에서 수비 부담이 분산돼 클린시트 기여가 늘어날 것이라는 전망이 나온다. 스리백 전환으로 팀 색깔이 순수 역습에서 좀 더 볼을 쥐는 쪽으로 이동할 가능성도 거론된다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>약점: 엘리엇 앤더슨 공백과 적응 시간</div>
+        <p class="small">맨시티로 £116m에 떠난 앤더슨의 자리를 자유계약으로 온 슐라거(볼프스부르크 시절 글라스너와 호흡)로 메웠지만 완전한 대체는 아니라는 평가다. 글라스너 본인도 '초반에는 최상의 컨디션이 아닐 것, 5~6주 만에 다 해내면 마법사'라며 기대치를 낮췄다. 7월 스포르팅전 1-4 패 등 프리시즌 3연패 구간도 있었다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">3-4-2-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-nfo">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["nfo"] = [
+  { n: '마츠 셀스', p: 'GK', x: 50, y: 88 },
+  { n: '디오망드', p: 'CB', x: 26, y: 75 },
+  { n: '밀렌코비치', p: 'CB', x: 50, y: 75 },
+  { n: '무릴루', p: 'CB', x: 74, y: 75 },
+  { n: '올라 아이나', p: 'RWB', x: 88, y: 56 },
+  { n: '이브라힘 상가레', p: 'DM', x: 50, y: 58 },
+  { n: '자버 슐라거', p: 'CM', x: 50, y: 47 },
+  { n: '네코 윌리엄스', p: 'LWB', x: 12, y: 56 },
+  { n: '모건 깁스화이트', p: 'AM', x: 34, y: 33 },
+  { n: '단 은도예', p: 'AM', x: 66, y: 33 },
+  { n: '이고르 제주스', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-tot-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">토트넘 홋스퍼의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">로</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">로베르토 데 제르비</div>
+          <div class="mgr-meta">Roberto De Zerbi · 1979년생 · 이탈리아</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 4월</td></tr>
+              <tr><td>이전 소속</td><td>사수올로 · 샤흐타르 도네츠크 · 브라이턴 · 마르세유</td></tr>
+              <tr><td>주요 트로피</td><td>우크라이나 슈퍼컵 1회(2021, 샤흐타르). 그 외 메이저 트로피 없음</td></tr>
+              <tr><td>스타일</td><td>골키퍼부터 짧게 쌓는 점유 축구 + 볼을 잃으면 즉시 강도 높은 압박</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>투도르식 4-4-2를 걷어내고 4-2-3-1로</div>
+        <p class="small">프리미어리그 공식 분석에 따르면 데 제르비는 부임 직후 투도르의 4-4-2를 4-3-3 계열로 바꾸고 첫 홈경기에서 선발 7명을 교체하며 판을 갈아엎었다. 프리시즌 호펜하임전에서도 토날리-페르난드스 더블 피벗 위에 공격형 3인을 얹는 4-2-3-1을 세웠다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>이름값과 달리 지금은 '점유'보다 '전환'</div>
+        <p class="small">잔류 싸움을 치른 2025-26 후반기 스퍼스는 상대 진영 패스 성공이 경기당 88회로 시즌 평균 151회보다 크게 낮았고, 대신 압박으로 빼앗아 빠르게 찌르는 직선적 공격에 의존했다. 데 제르비 본인도 스퍼스에서는 '경기와 전술을 단순화하겠다'고 밝혔다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>후방 전면 개편, 빌드업 패턴은 숙제</div>
+        <p class="small">판 헤케(£52m)·세네시·로버트슨을 한 번에 들여 로메로 이탈로 생긴 구멍을 메웠고, 골문은 킨스키를 주전으로 낙점했다. 다만 볼을 쥐는 상대를 만나면 현재의 직선적 접근만으로는 부족하다는 지적이 있다. 매디슨·쿠두스의 컨디션이 초반 변수.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-tot">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["tot"] = [
+  { n: '킨스키', p: 'GK', x: 50, y: 88 },
+  { n: '포로', p: 'RB', x: 83, y: 71 },
+  { n: '판 헤케', p: 'CB', x: 36, y: 75 },
+  { n: '판 더 펜', p: 'CB', x: 64, y: 75 },
+  { n: '로버트슨', p: 'LB', x: 17, y: 71 },
+  { n: '토날리', p: 'DM', x: 50, y: 58 },
+  { n: '페르난드스', p: 'CM', x: 50, y: 47 },
+  { n: '쿠두스', p: 'RW', x: 82, y: 27 },
+  { n: '사비 시몬스', p: 'AM', x: 50, y: 33 },
+  { n: '마티스 텔', p: 'LW', x: 18, y: 27 },
+  { n: '히샬리송', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-cov-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">코번트리 시티의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">프</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">프랭크 램파드</div>
+          <div class="mgr-meta">Frank Lampard · 1978년생 · 잉글랜드</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2024년 11월</td></tr>
+              <tr><td>이전 소속</td><td>더비 카운티 · 첼시 · 에버턴</td></tr>
+              <tr><td>주요 트로피</td><td>2025-26 EFL 챔피언십 우승(승점 95·11점 차) 및 LMA 올해의 감독. 그 이전 감독 우승 트로피는 없음</td></tr>
+              <tr><td>스타일</td><td>미드필드 템포로 경기를 통제하고 빠른 측면 전환으로 찌르는 점유 기반 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>4-2-3-1 골격 그대로 개막</div>
+        <p class="small">8월 8일 에스파뇰과의 프리시즌 홈 친선경기(3-1 승)에서도 러시워스-판 에베이크 라인에 그라임스·온예카 더블 피벗을 세운 4-2-3-1을 그대로 가동했다. 챔피언십 우승 시즌 내내 유지한 골격이라 개막전에서도 큰 변형은 예상되지 않는다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>높이 올라가는 풀백과 측면 과부하</div>
+        <p class="small">램파드는 양쪽 풀백을 높이 올려 폭을 확보하고, 안쪽으로 좁힌 윙어와 함께 측면에서 수적 우위를 만든다. 판 에베이크는 지난 시즌 도움 10개와 태클 93회를 동시에 기록했고, 에스파뇰전에서도 교체 투입된 비드웰의 크로스가 득점으로 연결됐다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>미들블록 압박, 그러나 최종 3선이 관건</div>
+        <p class="small">공격적인 미들블록을 세웠다가 중앙에서 탈취 트리거가 걸리면 곧바로 하이프레스로 전환한다. 다만 에스파뇰전 전반에는 최종 3선에서 실속이 없다는 지적이 나왔고, 잭 루도니가 어깨 수술로 프리시즌을 통째로 결장 중이라 창의성 공급원이 얇다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-cov">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["cov"] = [
+  { n: '칼 러시워스', p: 'GK', x: 50, y: 88 },
+  { n: '판 에베이크', p: 'RB', x: 83, y: 71 },
+  { n: '오렐 아멘다', p: 'CB', x: 36, y: 75 },
+  { n: '리암 키칭', p: 'CB', x: 64, y: 75 },
+  { n: '제이 다실바', p: 'LB', x: 17, y: 71 },
+  { n: '프랭크 온예카', p: 'DM', x: 50, y: 58 },
+  { n: '맷 그라임스', p: 'CM', x: 50, y: 47 },
+  { n: '룸 차우나', p: 'RW', x: 82, y: 27 },
+  { n: '토머스-아산테', p: 'AM', x: 50, y: 33 },
+  { n: '사카모토', p: 'LW', x: 18, y: 27 },
+  { n: '하지 라이트', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-ips-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">입스위치 타운의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">게</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">게리 오닐</div>
+          <div class="mgr-meta">Gary O'Neil · 1983년생 · 잉글랜드</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2026년 6월</td></tr>
+              <tr><td>이전 소속</td><td>본머스 · 울버햄튼 · 스트라스부르</td></tr>
+              <tr><td>주요 트로피</td><td>없음 (감독으로서 확인된 우승 트로피 없음)</td></tr>
+              <tr><td>스타일</td><td>볼을 쥐고 표현하되 프리미어리그 현실에 맞춰 실리를 우선하는 적응형 축구</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>맥케나의 4-2-3-1을 일단 계승</div>
+        <p class="small">프리시즌 르아브르전(1-0 승)에서 오닐은 맥케나 시절 팬들에게 익숙한 4-2-3-1을 그대로 썼다. 취임 직후라 전면 개조보다 기존 골격 위에서 세부를 바꾸는 접근으로 보인다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>볼 소유 지향 + 승점 우선의 실리</div>
+        <p class="small">오닐은 부임 회견에서 "내 팀이 볼을 가지길 원하고, 볼을 갖고 우리를 표현하길 원한다"면서도 프리미어리그에서는 "일단 충분한 승점을 따자"고 못박았다. 울버햄튼·본머스 시절처럼 상대별로 경기 계획을 바꾸는 리액티브한 운용이 예상된다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>대규모 리빌드와 중원 공백</div>
+        <p class="small">승격 후 파타우(레스터), 마에다(셀틱), 루키치·디오프(풀럼), 플로렌티누 루이스 등에 큰돈을 썼다. 다만 프리시즌 동안 마투시와와 잭 테일러가 부상으로 빠져 중앙 미드필드가 얇았고, 주전 골키퍼도 개막 직전까지 확정되지 않았다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-ips">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["ips"] = [
+  { n: '셸 스헤르펀', p: 'GK', x: 50, y: 88 },
+  { n: '다넬 펄롱', p: 'RB', x: 83, y: 71 },
+  { n: '다라 오셰이', p: 'CB', x: 36, y: 75 },
+  { n: '이사 디오프', p: 'CB', x: 64, y: 75 },
+  { n: '레이프 데이비스', p: 'LB', x: 17, y: 71 },
+  { n: '아조르 마투시와', p: 'DM', x: 50, y: 58 },
+  { n: '사샤 루키치', p: 'CM', x: 50, y: 47 },
+  { n: '이사하쿠 파타우', p: 'RW', x: 82, y: 27 },
+  { n: '마르셀리노 누녜스', p: 'AM', x: 50, y: 33 },
+  { n: '마에다 다이젠', p: 'LW', x: 18, y: 27 },
+  { n: '조지 허스트', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
+<section class="panel" id="panel-hul-tactics">
+  <h2 class="sec">감독 · 전술</h2>
+  <p class="sec-sub">헐 시티의 감독 프로필, 전술 포인트, 2026-27 예상 선발 11인이에요. 예상 선발은 프리시즌 라인업과 현지 매체 전망을 종합한 <b>편집부 예측</b>이라 실제 개막전과 다를 수 있어요. <b>선수 얼굴 사진은 아직 없습니다</b> — 지금 환경에서 이미지 서버에 접근할 수 없어 이름 첫 글자로 대신했어요.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>감독</h3>
+      <div class="mgr">
+        <div class="p-photo-wrap">
+          <div class="p-fallback" style="display:flex;">세</div>
+        </div>
+        <div class="mgr-info">
+          <div class="mgr-name">세르게이 야키로비치</div>
+          <div class="mgr-meta">Sergej Jakirovic · 1976년생 · 보스니아 헤르체고비나</div>
+          <table class="mgr-facts">
+            <tbody>
+              <tr><td>부임</td><td>2025년 6월</td></tr>
+              <tr><td>이전 소속</td><td>즈린스키 모스타르 · 디나모 자그레브 · 카이세리스포르</td></tr>
+              <tr><td>주요 트로피</td><td>보스니아 리그 우승(2021-22) · 크로아티아 리그·컵 더블(2023-24) · 2026 챔피언십 플레이오프 우승</td></tr>
+              <tr><td>스타일</td><td>조직적 수비 + 초고속 역습. 볼을 잃은 직후의 반응을 축으로 삼는다</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>전술 포인트 <span class="muted">4-2-3-1</span></h3>
+      <div class="tac">
+        <div class="tac-t"><span class="no">01</span>점유는 버리고 역습으로 결정</div>
+        <p class="small">지난 챔피언십 시즌 점유율은 24개 팀 중 19위였지만 속공에서 나온 슛 56개로 리그 2위였다. 총 슈팅 515개로 70골을 넣어 슛당 기대득점 0.13으로 리그 최고 효율을 냈는데, 이는 슛 수가 아니라 '좋은 상황에서만 쏜다'는 설계에 가깝다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">02</span>상대에 따라 4-2-3-1과 5백을 오감</div>
+        <p class="small">기본은 4-2-3-1이고 필요할 때 4-3-3, 반드시 지켜야 하는 경기에서는 5-4-1까지 내려앉는다. 8월 15일 니스와의 홈 프리시즌 경기도 촐라키스-코일-아자이-자일스 라인에 슬레이터·크룩스를 놓는 형태로 예고됐다.</p>
+      </div>
+      <div class="tac">
+        <div class="tac-t"><span class="no">03</span>대규모 재편과 부상이 겹친 개막</div>
+        <p class="small">구단주가 14명 영입을 목표로 내걸었고 촐라키스로 구단 최고 이적료를 경신했다. 그런데 여름에 데려온 주전급 골키퍼 잭 버틀런드가 팔 부상으로 약 3개월 이탈했고 찰리 휴스, 오스카르 삼브라노, 코디 드라메까지 프리시즌 막판 결장해 개막전 라인업이 유동적이다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>예상 선발 11인 <span class="muted">4-2-3-1 · 편집부 예측</span></h3>
+    <div class="pitch-wrap">
+      <div class="pitch" id="pitch-hul">
+        <div class="pl-line pl-half"></div>
+        <div class="pl-line pl-circle"></div>
+        <div class="pl-line pl-box-t"></div>
+        <div class="pl-line pl-box-b"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
+  </div>
+  <script>XI18["hul"] = [
+  { n: '촐라키스', p: 'GK', x: 50, y: 88 },
+  { n: '루이 코일', p: 'RB', x: 83, y: 71 },
+  { n: '세미 아자이', p: 'CB', x: 36, y: 75 },
+  { n: '존 이건', p: 'CB', x: 64, y: 75 },
+  { n: '라이언 자일스', p: 'LB', x: 17, y: 71 },
+  { n: '리건 슬레이터', p: 'DM', x: 50, y: 58 },
+  { n: '맷 크룩스', p: 'CM', x: 50, y: 47 },
+  { n: '벨루미', p: 'RW', x: 82, y: 27 },
+  { n: '키어런 다월', p: 'AM', x: 50, y: 33 },
+  { n: '아킨톨라', p: 'LW', x: 18, y: 27 },
+  { n: '올리 맥버니', p: 'ST', x: 50, y: 17 }
+];</script>
+</section>
+
 </div><!-- /teamOther -->
 
 </main>
@@ -6098,7 +7349,7 @@
   <div class="cols">
     <div>
       <h4>아스날 팬 허브</h4>
-      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 14일 23:10 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
+      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 15일 00:20 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
     </div>
     <div>
       <h4>주요 출처</h4>
@@ -6142,18 +7393,22 @@ let curTab = 'home';
 /* 아스날·맨유는 10탭 전부, 나머지 18팀은 홈·경기·선수단 + EPL 전체만 */
 const FULL_TEAMS = ['ars', 'mun'];
 const LIGHT_HDR = ['mci', 'hul', 'cov'];   /* 헤더 배경이 밝아 글씨를 검게 쓰는 구단 */
-const LITE_TABS = ['home', 'matches', 'squad', 'league'];
+const LITE_TABS = ['home', 'matches', 'squad', 'tactics', 'league'];
+const LITE_ONLY = ['tactics'];   /* 18팀 전용 탭 — 아스날·맨유엔 없다 */
 const BAR_FULL = ['home', 'matches', 'transfers', 'fans'];
-const BAR_LITE = ['home', 'matches', 'squad', 'league'];
+const BAR_LITE = ['home', 'matches', 'tactics', 'squad'];
 function isLite() { return FULL_TEAMS.indexOf(curTeam) === -1; }
 
 function syncTabVisibility() {
   const lite = isLite();
+  function hide(t) {
+    return lite ? LITE_TABS.indexOf(t) === -1 : LITE_ONLY.indexOf(t) !== -1;
+  }
   document.querySelectorAll('#tabs button[data-tab]').forEach(b => {
-    b.hidden = lite && LITE_TABS.indexOf(b.dataset.tab) === -1;
+    b.hidden = hide(b.dataset.tab);
   });
   document.querySelectorAll('#sheetGrid button[data-mtab]').forEach(b => {
-    b.hidden = lite && LITE_TABS.indexOf(b.dataset.mtab) === -1;
+    b.hidden = hide(b.dataset.mtab);
   });
   const bar = lite ? BAR_LITE : BAR_FULL;
   document.querySelectorAll('.mtab button[data-mtab]').forEach(b => {
@@ -6223,7 +7478,7 @@ function setTeam(key) {
   document.querySelector('#utilLine .champ').textContent = meta.champ;
   document.getElementById('wordmark').innerHTML =
     meta.wm + '<span class="wm-sub">' +
-    (isLite() ? '홈 · 경기 · 선수단' : '경기 · 순위 · 통계 · 이적시장 · 여론') + '</span>';
+    (isLite() ? '홈 · 경기 · 선수단 · 전술' : '경기 · 순위 · 통계 · 이적시장 · 여론') + '</span>';
   showPanel();
   window.scrollTo({ top: 0 });
 }
@@ -6739,6 +7994,26 @@ function renderXI(pitchId, list) {
     el.appendChild(d);
   });
 }
+/* 18팀 예상 선발 — 사진 없이 이니셜 배지로만 렌더 */
+function renderXI18() {
+  Object.keys(XI18).forEach(function (key) {
+    var el = document.getElementById('pitch-' + key);
+    if (!el || el.dataset.done) return;
+    el.dataset.done = '1';
+    XI18[key].forEach(function (pl) {
+      var d = document.createElement('div');
+      d.className = 'xi xi-nophoto';
+      d.style.left = pl.x + '%';
+      d.style.top = pl.y + '%';
+      d.innerHTML = '<div class="xi-fb" style="display:flex;">' + pl.n.charAt(0) + '</div>'
+        + '<span class="xi-n">' + pl.n + '</span>'
+        + '<span class="xi-p">' + pl.p + '</span>';
+      el.appendChild(d);
+    });
+  });
+}
+renderXI18();
+
 renderXI('pitch', XI);
 renderXI('pitchMun', XI_MUN);
 </script>
@@ -6750,6 +8025,7 @@ renderXI('pitchMun', XI_MUN);
   <button data-mtab="transfers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.2h13M14.2 5.2l3 3-3 3"/><path d="M20 15.8H7M9.8 12.8l-3 3 3 3"/></svg>이적시장</button>
   <button data-mtab="fans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6a2.2 2.2 0 0 1-2.2 2.2H8.4L4 21V6.2A2.2 2.2 0 0 1 6.2 4h11.8a2.2 2.2 0 0 1 2.2 2.2z"/></svg>팬 여론</button>
   <button data-mtab="squad" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.4"/><path d="M4.8 20.4c0-3.6 3.2-6.2 7.2-6.2s7.2 2.6 7.2 6.2"/></svg>선수단</button>
+  <button data-mtab="tactics" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="4.6" width="17.6" height="14.8" rx="1.8"/><path d="M12 4.6v14.8"/><circle cx="12" cy="12" r="2.6"/></svg>감독·전술</button>
   <button data-mtab="league" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M9.3 20V4.5M14.7 20v-8M20 20V7"/></svg>EPL 전체</button>
   <button id="moreBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="dots"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></g></svg>더보기</button>
 </nav>
@@ -6792,6 +8068,7 @@ renderXI('pitchMun', XI_MUN);
       <button data-mtab="press">기자회견·인터뷰</button>
       <button data-mtab="fans">팬 여론</button>
       <button data-mtab="transfers">이적시장</button>
+      <button data-mtab="tactics">감독·전술</button>
       <button data-mtab="league">EPL 전체 <span style="font-size:10px;opacity:.7;">20팀</span></button>
     </div>
     <div class="sheet-foot">

@@ -816,6 +816,86 @@
     }
   }
 </style>
+
+<style id="t20Style">
+  /* ══════ 20팀 확장 (2026-08-14) ══════ */
+  [data-team="liv"] { --header-red: #C8102E; --header-red-deep: #C8102E; --hdr-ink: #fff; }
+  [data-team="mci"] { --header-red: #6CABDD; --header-red-deep: #6CABDD; --hdr-ink: #111; }
+  [data-team="new"] { --header-red: #241F20; --header-red-deep: #241F20; --hdr-ink: #fff; }
+  [data-team="tot"] { --header-red: #132257; --header-red-deep: #132257; --hdr-ink: #fff; }
+  [data-team="che"] { --header-red: #034694; --header-red-deep: #034694; --hdr-ink: #fff; }
+  [data-team="avl"] { --header-red: #670E36; --header-red-deep: #670E36; --hdr-ink: #fff; }
+  [data-team="eve"] { --header-red: #003399; --header-red-deep: #003399; --hdr-ink: #fff; }
+  [data-team="bha"] { --header-red: #0057B8; --header-red-deep: #0057B8; --hdr-ink: #fff; }
+  [data-team="bre"] { --header-red: #D20000; --header-red-deep: #D20000; --hdr-ink: #fff; }
+  [data-team="ful"] { --header-red: #000000; --header-red-deep: #000000; --hdr-ink: #fff; }
+  [data-team="cry"] { --header-red: #1B458F; --header-red-deep: #1B458F; --hdr-ink: #fff; }
+  [data-team="nfo"] { --header-red: #DD0000; --header-red-deep: #DD0000; --hdr-ink: #fff; }
+  [data-team="bou"] { --header-red: #DA291C; --header-red-deep: #DA291C; --hdr-ink: #fff; }
+  [data-team="sun"] { --header-red: #EB172B; --header-red-deep: #EB172B; --hdr-ink: #fff; }
+  [data-team="lee"] { --header-red: #1D428A; --header-red-deep: #1D428A; --hdr-ink: #fff; }
+  [data-team="cov"] { --header-red: #78D0F3; --header-red-deep: #78D0F3; --hdr-ink: #111; }
+  [data-team="ips"] { --header-red: #3A64A3; --header-red-deep: #3A64A3; --hdr-ink: #fff; }
+  [data-team="hul"] { --header-red: #F5A12D; --header-red-deep: #F5A12D; --hdr-ink: #111; }
+  /* 밝은 구단 컬러(맨시티·헐·코번트리)는 헤더 글씨를 검게 — html[data-hdr="light"] */
+  [data-hdr="light"] header.site { color: #101010; }
+  [data-hdr="light"] header.site nav.tabs button { color: inherit; }
+  [data-hdr="light"] header.site nav.tabs button.active { border-bottom-color: currentColor; }
+  [data-hdr="light"] header.site nav.tabs button:hover { border-bottom-color: rgba(0,0,0,.35); }
+  [data-hdr="light"] header.site .pill-link { border-color: currentColor; }
+  [data-hdr="light"] header.site .util { border-bottom-color: rgba(0,0,0,.18); }
+  [data-hdr="light"] header.site .theme-toggle { border-color: rgba(0,0,0,.45); color: inherit; }
+  [data-hdr="light"] header.site .theme-toggle:hover { background: #101010; color: #fff; border-color: #101010; }
+
+  /* 구단 선택 셀렉트 */
+  .team-sel-wrap { position: relative; flex: none; display: flex; align-items: center; }
+  .team-sel-wrap::after {
+    content: ''; position: absolute; right: 11px; top: 50%; width: 7px; height: 7px;
+    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: translateY(-70%) rotate(45deg); opacity: .75; pointer-events: none;
+  }
+  .team-sel {
+    -webkit-appearance: none; appearance: none;
+    background: rgba(255,255,255,.14); color: inherit; font: inherit;
+    font-size: 12px; font-weight: 800; letter-spacing: -0.01em;
+    border: 1px solid rgba(255,255,255,.42); border-radius: 999px;
+    padding: 5px 26px 5px 13px; cursor: pointer; max-width: 200px;
+    text-overflow: ellipsis;
+  }
+  .team-sel:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  .team-sel option { color: #121212; background: #fff; font-weight: 700; }
+  [data-theme="dark"] .team-sel option { color: #f5f5f5; background: #1d1d1d; }
+  [data-hdr="light"] .team-sel { background: rgba(0,0,0,.09); border-color: rgba(0,0,0,.38); }
+  [data-hdr="light"] .team-sel-wrap::after { opacity: .8; }
+
+  /* hidden 속성이 display:flex 같은 규칙에 밀리지 않도록 (하단 탭바 버그) */
+  .mtab button[hidden], #tabs button[hidden], #sheetGrid button[hidden],
+  .sheet-team button[hidden] { display: none !important; }
+
+  /* 구단 헤더 카드 */
+  .club-hero {
+    background: var(--surface-1); border: 1px solid var(--ring); border-left: 5px solid var(--header-red);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .ch-name { font-size: 24px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; }
+  .ch-name span { font-size: 14px; font-weight: 700; color: var(--ink-3); margin-left: 7px; letter-spacing: 0; }
+  .ch-meta { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.6; }
+
+  /* 시트 구단 선택 20팀 */
+  .sheet-team-20 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; max-height: 232px; overflow-y: auto; }
+  .sheet-team-20 button { width: 100%; font-size: 12.5px; padding: 9px 8px; }
+
+  @media (max-width: 768px) {
+    .team-sel { font-size: 11px; padding: 4px 22px 4px 10px; max-width: 132px; }
+    .team-sel-wrap { margin-left: auto; }
+    .team-sel-wrap::after { right: 9px; width: 6px; height: 6px; }
+    .club-hero { padding: 15px 15px; border-radius: 10px; margin-bottom: 12px; border-left-width: 4px; }
+    .ch-name { font-size: 19px; }
+    .ch-name span { display: block; margin: 3px 0 0; font-size: 12px; }
+    .ch-meta { font-size: 12px; }
+    #teamOther .grid2 { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -823,11 +903,57 @@
   <div class="util">
     <div class="site-inner util-in">
       <span class="pill-link" id="brandPill">아스날 팬 허브</span>
-      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.14 20:50 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
-      <div class="team-switch" id="teamSwitch" style="margin-left:auto;">
-        <button data-team-btn="ars" class="on">아스날</button>
-        <button data-team-btn="mun">맨유</button>
-      </div>
+      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.14 23:10 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
+      <div class="team-switch" id="teamSwitch" hidden aria-hidden="true" style="display:none;">
+    <button data-team-btn="ars" class="on">아스날</button>
+    <button data-team-btn="mci">맨체스터 시티</button>
+    <button data-team-btn="mun">맨체스터 유나이티드</button>
+    <button data-team-btn="avl">아스톤 빌라</button>
+    <button data-team-btn="liv">리버풀</button>
+    <button data-team-btn="bou">본머스</button>
+    <button data-team-btn="sun">선덜랜드</button>
+    <button data-team-btn="bha">브라이턴 앤 호브 알비온</button>
+    <button data-team-btn="bre">브렌트포드</button>
+    <button data-team-btn="che">첼시</button>
+    <button data-team-btn="ful">풀럼</button>
+    <button data-team-btn="new">뉴캐슬 유나이티드</button>
+    <button data-team-btn="eve">에버턴</button>
+    <button data-team-btn="lee">리즈 유나이티드</button>
+    <button data-team-btn="cry">크리스탈 팰리스</button>
+    <button data-team-btn="nfo">노팅엄 포레스트</button>
+    <button data-team-btn="tot">토트넘 홋스퍼</button>
+    <button data-team-btn="cov">코번트리 시티</button>
+    <button data-team-btn="ips">입스위치 타운</button>
+    <button data-team-btn="hul">헐 시티</button>
+  </div>
+  <div class="team-sel-wrap">
+    <select class="team-sel" id="teamSel" aria-label="구단 선택">
+      <optgroup label="집중 취재">
+      <option value="ars">아스날</option>
+      <option value="mun">맨체스터 유나이티드</option>
+      </optgroup>
+      <optgroup label="프리미어리그 18팀">
+      <option value="mci">맨체스터 시티</option>
+      <option value="avl">아스톤 빌라</option>
+      <option value="liv">리버풀</option>
+      <option value="bou">본머스</option>
+      <option value="sun">선덜랜드</option>
+      <option value="bha">브라이턴 앤 호브 알비온</option>
+      <option value="bre">브렌트포드</option>
+      <option value="che">첼시</option>
+      <option value="ful">풀럼</option>
+      <option value="new">뉴캐슬 유나이티드</option>
+      <option value="eve">에버턴</option>
+      <option value="lee">리즈 유나이티드</option>
+      <option value="cry">크리스탈 팰리스</option>
+      <option value="nfo">노팅엄 포레스트</option>
+      <option value="tot">토트넘 홋스퍼</option>
+      <option value="cov">코번트리 시티</option>
+      <option value="ips">입스위치 타운</option>
+      <option value="hul">헐 시티</option>
+      </optgroup>
+    </select>
+  </div>
       <button class="theme-toggle" id="themeToggle" style="margin-left:0;">다크모드</button>
     </div>
   </div>
@@ -917,7 +1043,8 @@
     <p class="small" style="margin-bottom:8px;">② <b>콘사 — 8/13 재협상 착수, 격차는 여전히 £20m</b> — thehardtackle·caughtoffside(8/13)에 따르면 아스날이 빌라와 재협상(fresh talks)에 들어갔으나 아스날 상한선 £40m대 vs 빌라 요구 £60m+ 격차가 그대로다. 저널리스트 벤 제이콥스는 "아스날의 초기 제안보다 상당히 높은 금액이 필요할 것"이라 전망. <b>여전히 미확정, 단기 타결 가능성은 낮다는 관측</b>.</p>
     <p class="small" style="margin-bottom:8px;">③ <b>페란 토레스 — 최신 상태 확인 안 됨(보도 혼선 지속)</b> — 8/9 일부 매체가 "PSG와 개인 조건 합의, 아스날·토트넘 거절"을 보도했으나, 8/11엔 아스날이 로인(임대) 백업 옵션으로 여전히 검토 중이라는 상반된 보도도 나왔다. 8/12~14 사이 이를 정리하는 후속 보도는 확인되지 않아 <b>어느 쪽이 맞는지 단정할 수 없는 상태</b>로 유지한다.</p>
     <p class="small" style="margin-bottom:8px;">④ <b>🆕 마르티넬리 — 갈라타사라이, €45m 공식 입찰서 제출</b> — caughtoffside·thehardtackle(8/12~13)에 따르면 갈라타사라이가 마르티넬리 영입에 약 £38.5~40m(€45m) 공식 입찰서를 냈다. 아스날은 새 왼쪽 공격 자원을 먼저 영입해야 방출을 검토하겠다는 기존 입장 유지 — <b>승인 여부 미확정</b>.</p>
-    <p class="small">⑤ <b>루이 콥리 ACL·사이스 — 확인, 변동 없음</b> · 콥리는 구단 공식 성명·수술 계획이 여전히 없고, 클럽 브뤼헤 사이스(LB)도 맨유가 선두라는 8/10~11 보도 이후 새 진전이 확인되지 않았다. <b>🆕 루이스-스켈리에는 첼시가 정식 문의, 맨유도 장기 관심</b>(Sky Sports 8/12~13) — 아르테타는 이를 "좋은 신호"라 언급. 자세한 내용은 이적시장 탭 참고.</p>
+    <p class="small" style="margin-bottom:8px;">⑤ <b>루이 콥리 ACL·사이스 — 확인, 변동 없음</b> · 콥리는 구단 공식 성명·수술 계획이 여전히 없고, 클럽 브뤼헤 사이스(LB)도 맨유가 선두라는 8/10~11 보도 이후 새 진전이 확인되지 않았다. <b>🆕 루이스-스켈리에는 첼시가 정식 문의, 맨유도 장기 관심</b>(Sky Sports 8/12~13) — 아르테타는 이를 "좋은 신호"라 언급했으나, 아스날 구단 자체는 첼시를 라이벌로 보고 <b>매각 의사가 없다</b>는 보도(8/14 재확인)도 함께 있다. 자세한 내용은 이적시장 탭 참고.</p>
+    <p class="small">⑥ <b>커뮤니티실드(8/16) 프리뷰 — 살리바 결장 확인</b> · 팀버는 계속 결장, <b>살리바는 월드컵 기간 얻은 등 부상으로 이번에도 결장</b>할 것으로 보인다(roundtable.io). 라이스·사카는 훈련 복귀했으나 코모전 스쿼드에는 없었던 만큼 이번 경기 출전 여부는 미확정. 자세한 내용은 경기 탭 참고.</p>
   </div>
 </section>
 
@@ -968,6 +1095,7 @@
     <div class="match"><div class="date">8.22 (토) 04:00</div><div class="comp">EPL 1R</div><div class="teams">아스날 vs 코번트리 시티 <span class="muted">· 홈 (현지 8.21 20:00)</span></div><span class="badge hot">개막전</span></div>
     <div class="match"><div class="date">2R</div><div class="comp">EPL</div><div class="teams">아스톤 빌라 vs 아스날 <span class="muted">· 원정 · 일시 미확정</span></div><span class="badge up">예정</span></div>
     <div class="match"><div class="date">3R</div><div class="comp">EPL</div><div class="teams">아스날 vs 첼시 <span class="muted">· 홈 · 일시 미확정</span></div><span class="badge up">예정</span></div>
+    <p class="small" style="margin-top:8px;"><b>커뮤니티실드 프리뷰(8/16):</b> 팀버는 "몇 주 더" 필요해 결장 지속, <b>살리바는 월드컵 기간 얻은 등 부상으로 결장</b>(roundtable.io). 기마랑이스는 코모전 데뷔 후 출전 가능, 에제·마두에케는 최근 30분씩 소화하며 컨디션 끌어올리는 중. 라이스·사카는 훈련에 복귀했으나 코모전 스쿼드에는 포함되지 않았다 — 이번 경기 복귀 여부는 미확정. 상대 맨시티는 홀란드·게이·오라일리·앤더슨·체르키·도쿠 등 다수가 월드컵 여파로 결장, 세메뇨·마르무시가 대신 프리시즌에서 인상적이었다는 평가(신임 마레스카 감독 체제).</p>
     <p class="muted" style="margin-top:8px;">* 리그 챔피언 자격으로 FA컵 우승팀 맨시티와 커뮤니티실드에서 맞대결. 4R 이후 일정은 공식 발표 확인 후 업데이트 예정.</p>
   </div>
 </section>
@@ -1518,6 +1646,7 @@
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/11 확인:</b> 디시 갤러리는 이번 실행도 열람 불가(구조적 한계 동일). 펨코를 "아스날 도르트문트 기마랑이스", "아스날 페란 토레스", "아스날 바르콜라 콘사" 키워드로 재검색했으나, <b>도르트문트전 실시간 스코어 반응 제목(이나시우 선제골 등, 단순 중계 반응) 외에 페란 토레스·바르콜라·콘사를 다룬 신규 국내 커뮤니티 제목은 확인되지 않았습니다.</b> 없는 것을 지어내지 않고 그대로 기록합니다 — 다음 실행에서 재확인 필요.</p>
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/12 확인:</b> 디시 갤러리는 이번 실행도 열람 불가(구조적 한계 동일). 펨코를 "아스날 기마랑이스 콥리 콘사" 키워드로 재검색했으나, <b>콘사 밸류에이션 격차·콥리 회복 전망·사이스를 다룬 신규 국내 커뮤니티 제목은 확인되지 않았습니다</b>(노출 결과는 대부분 기마랑이스 영입 단계별 과거 보도 재노출). 없는 것을 지어내지 않고 그대로 기록합니다.</p>
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/13~14 확인:</b> 펨코를 "아스날 콘사", "아스날 코모", "아스날 콥리", "아스날 페란토레스" 키워드로 재검색. <b>"[스카이스포츠] 살리바의 부상 악재 이후 스톤스와 콘사에게 관심이 있는 아스날"</b>, <b>"[DM-독점] 아스날, 에즈리 콘사 영입 준비"</b> 제목이 확인됐으나 게시 정확한 시점은 URL만으로 특정할 수 없었습니다(살리바 부상 이후 시점 기사로 추정). 코모전·콥리·페란 토레스를 다룬 신규 국내 커뮤니티 제목은 이번 검색에서 뚜렷하게 확인되지 않았습니다. 디시 갤러리는 이번 회차도 열람 불가(구조적 한계 동일).</p>
+    <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/14 저녁(21시경) 재확인:</b> "아스날 커뮤니티실드 콘사 살리바" 키워드로 재검색 — 위 8/13~14 확인분과 동일한 콘사·살리바 관련 제목만 재노출됐고, <b>커뮤니티실드·살리바 부상(등)을 새로 다룬 국내 커뮤니티 제목은 확인되지 않았습니다.</b> 없는 것을 지어내지 않고 그대로 기록합니다. 디시 갤러리는 이번 회차도 열람 불가(구조적 한계 동일).</p>
     <h4 style="font-size:13.5px; font-weight:800; margin:16px 0 6px;">8월 4일 기록</h4>
     <div class="chips">
       <span class="chip red">비니시우스 = 최대 화두</span>
@@ -1668,7 +1797,8 @@
       <div class="teams"><b>마일스 루이스-스켈리</b> <span class="muted">LB/WB · 아스날 소속 · 최근 재계약</span></div>
       <span class="badge low">신뢰도 낮음 · 첼시 문의 · 8/13 신규</span>
     </div>
-    <p class="small" style="margin:0 0 14px 4px;"><b>🆕 첼시 정식 문의, 맨유도 장기 관심.</b> Sky Sports 등 다수 매체(8/12~13)가 <b>첼시가 루이스-스켈리 영입에 정식 문의(enquiry)</b>를 넣었고, 맨유도 장기적으로 관심을 갖고 있다고 보도했다. 최근 재계약을 체결했음에도 매각 가능성을 완전히 닫지 않은 것으로 전해진다. 아르테타는 코모전 이후 이 이적설에 대해 <b>"우리 선수에 대한 루머가 있다는 건 좋은 신호"</b>라고 담담하게 반응했다(atomicsoda·fotmob, 8/12). <b>공식 오퍼·구체 금액은 없는 초기 단계.</b> <span class="muted">(Sky Sports 8/12~13)</span></p>
+    <p class="small" style="margin:0 0 14px 4px;"><b>🆕 첼시 정식 문의, 맨유도 장기 관심.</b> Sky Sports 등 다수 매체(8/12~13)가 <b>첼시가 루이스-스켈리 영입에 정식 문의(enquiry)</b>를 넣었고, 맨유도 장기적으로 관심을 갖고 있다고 보도했다. 최근 재계약을 체결했음에도 매각 가능성을 완전히 닫지 않은 것으로 전해진다. 아르테타는 코모전 이후 이 이적설에 대해 <b>"우리 선수에 대한 루머가 있다는 건 좋은 신호"</b>라고 담담하게 반응했다(atomicsoda·fotmob, 8/12). <b>공식 오퍼·구체 금액은 없는 초기 단계.</b> <span class="muted">(Sky Sports 8/12·13)</span></p>
+    <p class="small" style="margin:0 0 14px 4px;"><b>8/14 저녁 재확인 — 아스날은 매각 의사 없음, 라이벌 구도가 걸림돌.</b> Sky Sports(8/12)에 따르면 아스날은 <b>루이스-스켈리를 첼시에 팔 의사가 없다</b> — 첼시를 지역 라이벌이자 이번 시즌 우승 경쟁자로 보고 있어서다. £75m을 들여 기마랑이스를 영입했음에도 구단은 여전히 루이스-스켈리를 보유하려 한다는 설명. 다만 같은 시기 The Athletic 등은 앞서 "첼시·맨유가 오히려 중개인의 접촉을 거절했다"(8/11)는 다른 각도의 보도도 냈던 만큼, <b>정확히 누가 누구에게 얼마나 적극적인지는 매체마다 결이 다르다</b> — 확실한 것은 초기 탐색 단계이고 아스날 쪽 매각 의사가 낮다는 점.</p>
     <div class="match">
       <div class="teams"><b>훌리안 알바레스</b> <span class="muted">FW · 아틀레티코</span> / <b>니코 윌리엄스 · 깁스화이트 · 토날리</b></div>
       <span class="badge low">신뢰도 낮음 · 링크만 존재</span>
@@ -1737,7 +1867,7 @@
     </div>
     <div class="card">
       <h3>다가오는 일정</h3>
-      <div class="match"><div class="date">8.15 (토)*</div><div class="comp">프리시즌</div><div class="teams">AC 밀란전 · 브로츠와프</div><span class="badge up">예정</span></div>
+      <div class="match"><div class="date">8.15 (토) 23:45</div><div class="comp">프리시즌</div><div class="teams">AC 밀란전 · 브로츠와프</div><span class="badge up">예정</span></div>
       <div class="match"><div class="date">8.22 (토) 20:30</div><div class="comp">EPL 1R</div><div class="teams">헐 시티전 · 원정</div><span class="badge hot">개막전</span></div>
       <p class="muted" style="margin-top:8px;">* 모든 일정은 한국시간(KST) 기준</p>
     </div>
@@ -1749,7 +1879,8 @@
     <p class="small" style="margin-bottom:8px;">① <b>추아메니 영입 — 사실상 완전 종결</b> — 레알 마드리드 재계약(2031년까지)이 사실상 마무리 단계로, 8/12~14 사이 이를 뒤집을 새 보도는 확인되지 않았다. AS 계열의 "유나이티드 제안 아직 거절 안 함" 보도의 후속도 없어 <b>사실상 무산 국면이 그대로 유지</b>된다.</p>
     <p class="small" style="margin-bottom:8px;">② <b>🆕 브루노 페르난데스 — 재계약 이슈 부상, 유벤투스·AC밀란·갈라타사라이 관심</b> — BBC(8/13) 등 다수 매체에 따르면 브루노의 계약이 마지막 해에 접어들었고, 구단은 1년 연장 옵션을 보유했으나 장기 재계약은 아직 합의되지 않았다. 해외 이적 시 £57m 바이아웃 조항이 있으며, 아모림 감독이 이끄는 AC밀란(8/15 상대)과의 재회 스토리도 화제. <b>본인은 맨유 잔류를 선호</b>한다고 보도됨.</p>
     <p class="small" style="margin-bottom:8px;">③ <b>사이스·페이지 — 협상 준비 단계로 진전</b> — 클럽 브뤼헤 사이스(LB)는 맨유가 £30m대 협상 준비 중(Yahoo Sports 8/12), 레스터 루이스 페이지(MF)는 £10m 기본가+애드온 선에서 합의 근접(football365 8/13) — 아스날의 입찰은 거절됐고 본인은 맨유 선호로 전해진다.</p>
-    <p class="small">④ <b>발레바·홀·살리나스·지르크지·휘틀리 — 확인, 변동 없음</b> · 홀은 사이스 기사에서 "영입 시도 실패"로 언급돼 사실상 무산 확인. 그 외 재확인 결과 8/10~12 상태에서 진전 없다.</p>
+    <p class="small" style="margin-bottom:8px;">④ <b>발레바·홀·살리나스·지르크지·휘틀리 — 확인, 변동 없음</b> · 홀은 사이스 기사에서 "영입 시도 실패"로 언급돼 사실상 무산 확인. 살리나스는 <b>여전히 방출조항 미발동</b>(라싱 산탄데르 €16m 고수, 아틀레티코 경쟁 구체화) — 그 외 재확인 결과 8/10~12 상태에서 진전 없다.</p>
+    <p class="small">⑤ <b>AC밀란전(8/15 23:45 KST) 프리뷰 — 마운트 재차 결장 가능성, 아모림 재회</b> · 마운트는 PSG전 부상 여파로 리즈전에 이어 이번에도 출전이 불확실하다. 마이누·래시퍼드·세스코가 프리시즌 첫 출전을 노리는 가운데, 상대 AC밀란은 <b>전 맨유 감독 루번 아모림</b>이 지휘봉을 잡고 있어 브루노 페르난데스와의 재회가 화제다.</p>
   </div>
 </section>
 
@@ -1773,11 +1904,12 @@
 
   <div class="card">
     <h3>다가오는 일정</h3>
-    <div class="match"><div class="date">8.15 (토) 23:45*</div><div class="comp">프리시즌</div><div class="teams">맨유 vs AC 밀란 <span class="muted">· 브로츠와프 (현지 8.15 15:45 추정)</span></div><span class="badge up">예정</span></div>
+    <div class="match"><div class="date">8.15 (토) 23:45</div><div class="comp">프리시즌</div><div class="teams">맨유 vs AC 밀란 <span class="muted">· 타르친스키 아레나, 브로츠와프 (현지 8.15 15:45 BST, 2개 매체 교차확인)</span></div><span class="badge up">예정</span></div>
     <div class="match"><div class="date">8.22 (토) 20:30</div><div class="comp">EPL 1R</div><div class="teams">헐 시티 vs 맨유 <span class="muted">· 원정 (현지 8.22 12:30 확정)</span></div><span class="badge hot">개막전</span></div>
     <div class="match"><div class="date">8.30 (일)</div><div class="comp">EPL 2R</div><div class="teams">맨유 vs 입스위치 <span class="muted">· 홈 · 시간 미확정 (일정 변경 확정)</span></div><span class="badge up">예정</span></div>
     <div class="match"><div class="date">9.5 (토) 23:00</div><div class="comp">EPL 3R</div><div class="teams">에버튼 vs 맨유 <span class="muted">· 원정 (현지 15:00)</span></div><span class="badge up">예정</span></div>
-    <p class="muted" style="margin-top:8px;">* 첫 맨체스터 더비는 9월 12일 홈. 프리시즌 킥오프는 미국 매체 보도를 변환한 추정치로 변동 가능.</p>
+    <p class="small" style="margin-top:8px;"><b>AC밀란전 프리뷰(8/15, 프리시즌 마지막 경기):</b> 메이슨 마운트는 PSG전 부상 여파로 리즈전에 이어 또 결장 가능성(상태 불확실). 마이누·래시퍼드·세스코는 이번 경기에서 프리시즌 첫 출전을 노린다 — 세스코는 4월 이후 아직 미출전. 상대 AC밀란은 <b>루번 아모림</b>(전 맨유 감독)이 지휘봉을 잡아 브루노 페르난데스와의 재회가 스토리라인. 더 리흐트·우가르테는 장기 결장 지속, 리산드로 마르티네스는 월드컵 회복 일정상 출전이 불투명하다는 보도(매체 간 다소 엇갈림).</p>
+    <p class="muted" style="margin-top:8px;">* 첫 맨체스터 더비는 9월 12일 홈. 다른 프리시즌 킥오프는 미국 매체 보도를 변환한 추정치로 변동 가능.</p>
   </div>
 </section>
 
@@ -2254,6 +2386,7 @@
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/11 확인:</b> 디시 갤러리는 이번 실행도 열람 불가(구조적 한계 동일). 펨코를 "맨유 리즈전 캐릭", "맨유 소식 8월", "맨유 이적 히튼 마운트" 키워드로 재검색했으나 <b>리즈전 팀 뉴스·래시퍼드 복귀를 다룬 신규 국내 커뮤니티 제목은 확인되지 않았습니다</b>(노출 결과는 대부분 과거 아모림 경질·이적 진행 단계 글 재노출). 없는 것을 지어내지 않고 그대로 기록합니다.</p>
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/12 확인:</b> 디시 갤러리는 이번 실행도 열람 불가(구조적 한계 동일). 펨코를 "맨유 리즈전 캐릭" 키워드로 재검색했으나 <b>추아메니 무산·사이스 경합을 다룬 신규 국내 커뮤니티 제목은 확인되지 않았습니다</b>(노출 결과는 과거 시즌 리즈전·아모림 경질 관련 글 위주). 없는 것을 지어내지 않고 그대로 기록합니다.</p>
     <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/13~14 확인:</b> 펨코를 "맨유 리즈전", "맨유 추아메니", "맨유 사이스" 키워드로 재검색. <b>"[공홈] 친선경기 맨체스터 유나이티드 VS 리즈 유나이티드 선발 라인업"</b>, <b>"[미러] 브루노 페르난데스, 맨유와 재계약 결심 ; 곧 공식 발표 예정"</b>, <b>"[로마노 단독] 레시포드, 맨유 남아서 경쟁 할 예정"</b> 제목이 확인됐으나 정확한 게시 시점은 robots.txt 차단으로 확인할 수 없었습니다. "[BBC-사이먼 스톤] 맨유, 추아메니 영입 가능성 긍정적 분위기" 제목도 노출됐으나 <b>레알 재계약 확정 전 시점의 과거 게시물일 가능성이 높아 최신 정보로 반영하지 않습니다.</b> 사이스 관련 직접 게시글은 확인되지 않았습니다. 디시 갤러리는 이번 회차도 열람 불가(구조적 한계 동일).</p>
+    <p class="small" style="margin-bottom:14px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>8/14 저녁(21시경) 재확인:</b> "맨유 AC밀란 브루노 사이스" 키워드로 재검색 — 위 8/13~14 확인분과 동일한 브루노 재계약 제목만 재노출됐고, <b>AC밀란전·사이스를 새로 다룬 국내 커뮤니티 제목은 확인되지 않았습니다.</b> 없는 것을 지어내지 않고 그대로 기록합니다. 디시 갤러리는 이번 회차도 열람 불가(구조적 한계 동일).</p>
     <h4 style="font-size:13.5px; font-weight:800; margin:16px 0 6px;">8월 4일 기록</h4>
     <div class="chips">
       <span class="chip red">홀 영입 체념 기류</span>
@@ -2345,6 +2478,7 @@
     <p class="small" style="margin:0 0 6px 4px;"><b>8/3:</b> 홀 영입이 막힐 경우의 대안으로 <b>19세 좌측 수비수 살리나스</b>가 부상. 방출 조항이 <b>€16m</b>으로 홀의 4분의 1 수준이라, 유나이티드가 조항 발동을 검토 중이며 캐릭도 승인했다는 보도.</p>
     <p class="small" style="margin:0 0 14px 4px;"><b>8/4 — 실제로 발동했다.</b> 유나이티드가 <b>라싱 산탄데르의 €16m(£14m) 방출조항을 실제로 지불하고 발동</b>했다는 보도가 나왔다. 바르셀로나 등 경쟁 클럽이 조항 발동 없이 협상만 하던 것과 달리 유나이티드가 <b>과감하게 조항을 전액 지불하며 선수를 확보</b>한 모양새 — 사실상 영입 완료 단계로, 공식 발표만 남은 것으로 보인다. 살리나스는 지난 시즌 33경기 7도움·7클린시트를 기록했다. 루크 쇼가 계약 마지막 해에 접어든 상황에서 좌측 수비 뎁스를 메우는 육성형 보강이다. <span class="muted">(<a href="https://www.crunchsports.com/football/united-trigger-salinas-release-clause" target="_blank">CrunchSports</a> · <a href="https://www.football365.com/news/man-utd-carrick-approves-hall-alternative-willing-trigger-release-clause-salinas" target="_blank">football365</a>)</span></p>
     <p class="small" style="margin:0 0 14px 4px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>⚠️ 8/12 업데이트 — 보도 상충, 최신 상태 미확정.</b> 8/11 보도는 라싱 산탄데르 측이 방출조항(€16m) 발동을 준비 중이며 아틀레티코 마드리드도 관심이라 전했으나, 같은 시기 사이스 관련 기사에서는 <b>"살리나스 영입도 실패했다"</b>는 상반된 서술이 나왔다. 어느 쪽이 최신 상태인지 8/12~14 사이 이를 정리하는 후속 보도가 확인되지 않아 <b>단정하지 않고 병기</b>한다.</p>
+    <p class="small" style="margin:0 0 14px 4px;"><b>8/14 저녁 재확인 — 아직 미발동, 아틀레티코 경쟁 구체화.</b> britbrief(8/12)에 따르면 유나이티드는 방출조항 발동을 "준비된" 상태일 뿐 <b>아직 실제로 지불·발동하지는 않았다.</b> 라싱 산탄데르 스포팅 디렉터는 "방출조항은 €16m이며 이 금액에서 물러서지 않을 것"이라 못박았고, <b>아틀레티코 마드리드가 마테오 루자리 방출 이후 빠르게 움직일 수 있다</b>는 경쟁 변수도 확인됐다. 8/12 이후 이를 정리하는 추가 후속 보도는 없어 여전히 <b>미확정</b>으로 유지한다.</p>
     <div class="match">
       <div class="teams"><b>미드필더 추가 영입</b> <span class="muted">발레바(브라이턴)</span></div>
       <span class="badge hot">신뢰도 높음 · 온스틴</span>
@@ -2430,7 +2564,7 @@
 
   <div class="card">
     <h3>2026-27 개막 라운드 <span class="muted">1R · 전 10경기 · 한국시간</span></h3>
-    <p class="small" style="margin-bottom:10px;">현지 8/21(금)~8/24(월) 일정을 한국시간으로 환산했어요(현지 +13시간, 영국 서머타임 기준). <b>붉은 배경이 아스날·맨유 경기</b>예요.</p>
+    <p class="small" style="margin-bottom:10px;">현지 8/21(금)~8/24(월) 일정을 한국시간으로 환산했어요(영국 서머타임 BST +8시간). <b>붉은 배경이 아스날·맨유 경기</b>예요.</p>
     <div class="match" style="background:rgba(239,1,7,.045);border-radius:8px;padding-left:8px;padding-right:8px;">
       <div class="date">8.22 (토) 04:00</div>
       <div class="comp">EPL 1R</div>
@@ -2667,13 +2801,3304 @@
 
 </div><!-- /teamLeague -->
 
+<div id="teamOther" hidden>
+
+<section class="panel" id="panel-mci-home">
+  <h2 class="sec">맨체스터 시티</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">맨체스터 시티 <span>Manchester City</span></div>
+    <div class="ch-meta">에티하드 스타디움 · 61,474석 · 감독 <b>엔조 마레스카</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">2위</div><div class="note">승점 78 · 득실 +42</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">23-9-6</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">챔피언스리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">10명</div><div class="note">영입 5 · 방출 5</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">10년을 이끈 과르디올라가 떠난 뒤 마레스카가 3년 계약으로 지휘봉을 잡은 첫 시즌. 구단 최고액 £116m 엘리엇 앤더슨을 중심으로 스톤스·아칸지·베르나르두 실바가 한꺼번에 빠진 중원·수비를 재건해야 한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">본머스 <span class="muted">· 홈 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 원정 · 셀허스트 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">코번트리 시티 <span class="muted">· 홈 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>엘리엇 앤더슨</b></td><td>MF</td><td>노팅엄 포레스트</td><td>£116m</td></tr>
+        <tr><td><b>마티스 데투르베</b></td><td>FW</td><td>트루아</td><td>£21.4m</td></tr>
+        <tr><td><b>제레미 몽가</b></td><td>FW</td><td>레스터 시티</td><td>£10m</td></tr>
+        <tr><td><b>헤로니모 룰리</b></td><td>GK</td><td>마르세유</td><td>비공개</td></tr>
+        <tr><td><b>피어스 찰스</b></td><td>GK</td><td>셰필드 웬즈데이</td><td>£3m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>제임스 트래퍼드</b></td><td>GK</td><td>리즈 유나이티드</td><td>£40m</td></tr>
+        <tr><td><b>마누엘 아칸지</b></td><td>DF</td><td>인터 밀란</td><td>£13m</td></tr>
+        <tr><td><b>나탕 아케</b></td><td>DF</td><td>페네르바체</td><td>£7m</td></tr>
+        <tr><td><b>베르나르두 실바</b></td><td>MF</td><td>레알 마드리드</td><td>자유계약</td></tr>
+        <tr><td><b>존 스톤스</b></td><td>DF</td><td>방출</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-mci-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">본머스 <span class="muted">· 홈 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 원정 · 셀허스트 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">코번트리 시티 <span class="muted">· 홈 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.9</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">맨체스터 시티 <span class="score">3-1</span> 아틀레티코 마드리드</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.5</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">맨체스터 시티 <span class="score">3-1</span> K리그 올스타</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">맨체스터 시티 <span class="score">1-1</span> 인터 밀란</div>
+        <span class="badge up">무</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 맨체스터 시티 기준(앞이 맨체스터 시티).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-mci-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 23명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>돈나룸마</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">13</td><td><b>베티넬리</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">28</td><td><b>헤로니모 룰리</b></td><td>아르헨티나</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>후벵 디아스</b></td><td>포르투갈</td></tr>
+        <tr><td class="num">6</td><td><b>마르크 게히</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">21</td><td><b>아이트누리</b></td><td>알제리</td></tr>
+        <tr><td class="num">24</td><td><b>그바르디올</b></td><td>크로아티아</td></tr>
+        <tr><td class="num">27</td><td><b>마테우스 누네스</b></td><td>포르투갈</td></tr>
+        <tr><td class="num">45</td><td><b>후사노프</b></td><td>우즈베키스탄</td></tr>
+        <tr><td class="num">82</td><td><b>리코 루이스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>비토르 헤이스</b></td><td>브라질</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">4</td><td><b>레인더르스</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">5</td><td><b>엘리엇 앤더슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">8</td><td><b>코바치치</b></td><td>크로아티아</td></tr>
+        <tr><td class="num">10</td><td><b>라얀 셰르키</b></td><td>프랑스</td></tr>
+        <tr><td class="num">16</td><td><b>로드리</b></td><td>스페인</td></tr>
+        <tr><td class="num">—</td><td><b>니코 곤살레스</b></td><td>스페인</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>오마르 마르무시</b></td><td>이집트</td></tr>
+        <tr><td class="num">9</td><td><b>엘링 홀란</b></td><td>노르웨이</td></tr>
+        <tr><td class="num">11</td><td><b>제레미 도쿠</b></td><td>벨기에</td></tr>
+        <tr><td class="num">26</td><td><b>사비뉴</b></td><td>브라질</td></tr>
+        <tr><td class="num">42</td><td><b>앙투안 세메뇨</b></td><td>가나</td></tr>
+        <tr><td class="num">47</td><td><b>필 포든</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-avl-home">
+  <h2 class="sec">아스톤 빌라</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">아스톤 빌라 <span>Aston Villa</span></div>
+    <div class="ch-meta">빌라 파크 · 37,000석 · 감독 <b>우나이 에메리</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">4위</div><div class="note">승점 65 · 득실 +7</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">19-8-11</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">챔피언스리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">9명</div><div class="note">영입 4 · 방출 5</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">4위(65점)로 챔피언스리그에 복귀했지만 핵심 모건 로저스를 £117m에 팔아 PSR을 맞췄고, 노스 스탠드 재건축으로 홈 수용인원이 3만7천 명으로 줄어든 상태에서 UCL을 병행해야 한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 원정 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.1 (화) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">아스날 <span class="muted">· 홈 · 빌라 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 01:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">헐 시티 <span class="muted">· 원정 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>요한 만잠비</b></td><td>MF</td><td>프라이부르크</td><td>£59.5m</td></tr>
+        <tr><td><b>주앙 고메스</b></td><td>MF</td><td>울버햄튼</td><td>£38m</td></tr>
+        <tr><td><b>모두 케바 시세</b></td><td>DF</td><td>LASK</td><td>£4m</td></tr>
+        <tr><td><b>가르나초</b></td><td>FW</td><td>첼시</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>모건 로저스</b></td><td>MF</td><td>첼시</td><td>£117m</td></tr>
+        <tr><td><b>유리 틸레만스</b></td><td>MF</td><td>맨체스터 유나이티드</td><td>£35m</td></tr>
+        <tr><td><b>도니엘 말렌</b></td><td>FW</td><td>로마</td><td>비공개</td></tr>
+        <tr><td><b>뤼카 딘뉴</b></td><td>DF</td><td>PSG</td><td>£8.5m</td></tr>
+        <tr><td><b>바레네체아</b></td><td>MF</td><td>벤피카</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-avl-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 원정 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.1 (화) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">아스날 <span class="muted">· 홈 · 빌라 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 01:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">헐 시티 <span class="muted">· 원정 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.7</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">아스톤 빌라 <span class="score">1-2</span> 바이에른 뮌헨</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.4</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">아스톤 빌라 <span class="score">3-1</span> BG 파툼</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">아스톤 빌라 <span class="score">3-1</span> 인도네시아 올스타</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 아스톤 빌라 기준(앞이 아스톤 빌라).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-avl-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 21명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">23</td><td><b>에밀리아노 마르티네스</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">40</td><td><b>마르코 비조트</b></td><td>네덜란드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>매티 캐시</b></td><td>폴란드</td></tr>
+        <tr><td class="num">3</td><td><b>린델로프</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">4</td><td><b>에즈리 콘사</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">5</td><td><b>타이런 밍스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">14</td><td><b>파우 토레스</b></td><td>스페인</td></tr>
+        <tr><td class="num">22</td><td><b>이안 마천</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">32</td><td><b>네델코비치</b></td><td>세르비아</td></tr>
+        <tr><td class="num">48</td><td><b>케바 시세</b></td><td>세네갈</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">6</td><td><b>로스 바클리</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">7</td><td><b>존 맥긴</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">8</td><td><b>부바카르 카마라</b></td><td>프랑스</td></tr>
+        <tr><td class="num">24</td><td><b>아마두 오나나</b></td><td>벨기에</td></tr>
+        <tr><td class="num">35</td><td><b>주앙 고메스</b></td><td>브라질</td></tr>
+        <tr><td class="num">44</td><td><b>요한 만잠비</b></td><td>스위스</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">10</td><td><b>부엔디아</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">11</td><td><b>올리 왓킨스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">17</td><td><b>가르나초</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">18</td><td><b>태미 에이브러햄</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">31</td><td><b>리온 베일리</b></td><td>자메이카</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-liv-home">
+  <h2 class="sec">리버풀</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">리버풀 <span>Liverpool</span></div>
+    <div class="ch-meta">안필드 · 61,276석 · 감독 <b>안도니 이라올라</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">5위</div><div class="note">승점 60 · 득실 +10</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">17-9-12</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">챔피언스리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">8명</div><div class="note">영입 4 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">아르네 슬롯 경질 후 부임한 이라올라 감독의 첫 시즌. 살라·코나테·로버트슨이 모두 자유계약으로 떠난 자리를 자케·아라우호·무뇨스로 메운 재편이 최대 과제다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.24 (월) 00:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 원정 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 20:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 홈 · 안필드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 04:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">입스위치 타운 <span class="muted">· 원정 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>제레미 자케</b></td><td>DF</td><td>렌</td><td>£55m</td></tr>
+        <tr><td><b>빅토르 무뇨스</b></td><td>FW</td><td>오사수나</td><td>£34.5m</td></tr>
+        <tr><td><b>로날드 아라우호</b></td><td>DF</td><td>바르셀로나</td><td>임대(완전이적 옵션)</td></tr>
+        <tr><td><b>이페아니 은두크웨</b></td><td>DF</td><td>아우스트리아 빈</td><td>£2.6m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>모하메드 살라</b></td><td>FW</td><td>트라브존스포르</td><td>자유계약</td></tr>
+        <tr><td><b>이브라히마 코나테</b></td><td>DF</td><td>레알 마드리드</td><td>자유계약</td></tr>
+        <tr><td><b>앤디 로버트슨</b></td><td>DF</td><td>토트넘</td><td>자유계약</td></tr>
+        <tr><td><b>루카 스티븐슨</b></td><td>DF</td><td>볼턴</td><td>£0.7m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-liv-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.24 (월) 00:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 원정 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 20:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 홈 · 안필드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 04:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">입스위치 타운 <span class="muted">· 원정 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.9</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리버풀 <span class="score">2-3</span> 모나코</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.2</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리버풀 <span class="score">2-4</span> 리즈 유나이티드</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">7.30</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리버풀 <span class="score">1-0</span> 렉섬</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 리버풀 기준(앞이 리버풀).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-liv-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 23명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>알리송 베케르</b></td><td>브라질</td></tr>
+        <tr><td class="num">25</td><td><b>마마르다슈빌리</b></td><td>조지아</td></tr>
+        <tr><td class="num">28</td><td><b>프레디 우드먼</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>조 고메스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">4</td><td><b>버질 반다이크</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">5</td><td><b>제레미 자케</b></td><td>프랑스</td></tr>
+        <tr><td class="num">6</td><td><b>밀로시 케르케즈</b></td><td>헝가리</td></tr>
+        <tr><td class="num">12</td><td><b>코너 브래들리</b></td><td>북아일랜드</td></tr>
+        <tr><td class="num">15</td><td><b>조반니 레오니</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">30</td><td><b>제레미 프림퐁</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">33</td><td><b>로날드 아라우호</b></td><td>우루과이</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>엔도 와타루</b></td><td>일본</td></tr>
+        <tr><td class="num">8</td><td><b>소보슬라이</b></td><td>헝가리</td></tr>
+        <tr><td class="num">10</td><td><b>매캘리스터</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">17</td><td><b>커티스 존스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">38</td><td><b>흐라번베르흐</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">42</td><td><b>트레이 뇨니</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>플로리안 비르츠</b></td><td>독일</td></tr>
+        <tr><td class="num">9</td><td><b>알렉산더 이사크</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">14</td><td><b>페데리코 키에사</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">18</td><td><b>코디 학포</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">22</td><td><b>위고 에키티케</b></td><td>프랑스</td></tr>
+        <tr><td class="num">23</td><td><b>빅토르 무뇨스</b></td><td>스페인</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-bou-home">
+  <h2 class="sec">본머스</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">본머스 <span>AFC Bournemouth</span></div>
+    <div class="ch-meta">비탈리티 스타디움 · 11,307석 · 감독 <b>마르코 로제</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">6위</div><div class="note">승점 57 · 득실 +4</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">13-18-7</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">유로파리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">6명</div><div class="note">영입 3 · 방출 3</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">6위(57점)로 구단 역사상 첫 유럽대회(유로파리그) 진출을 확정한 뒤, 리버풀로 떠난 이라올라의 후임 마르코 로제 체제로 첫 시즌을 맞는다. 리그 최소 규모 홈구장은 2만석 확장 공사를 시즌 중 병행한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 원정 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">에버턴 <span class="muted">· 홈 · 비탈리티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 20:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 원정 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>알바로 로드리게스</b></td><td>FW</td><td>엘체</td><td>£21.5m</td></tr>
+        <tr><td><b>안토니우 실바</b></td><td>DF</td><td>벤피카</td><td>£21.4m</td></tr>
+        <tr><td><b>후안루 산체스</b></td><td>DF</td><td>세비야</td><td>£11.1m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>앙투안 세메뇨</b></td><td>FW</td><td>맨체스터 시티</td><td>£64m (1월)</td></tr>
+        <tr><td><b>마르코스 세네시</b></td><td>DF</td><td>토트넘</td><td>자유계약</td></tr>
+        <tr><td><b>알렉스 히메네스</b></td><td>DF</td><td>피오렌티나</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bou-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 원정 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">에버턴 <span class="muted">· 홈 · 비탈리티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 20:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 원정 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">본머스 <span class="score">2-2</span> 레알 베티스</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.4</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">본머스 <span class="score">10-1</span> 제노아</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.30</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">본머스 <span class="score">5-2</span> 아우크스부르크</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 본머스 기준(앞이 본머스).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bou-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 23명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>페트로비치</b></td><td>세르비아</td></tr>
+        <tr><td class="num">17</td><td><b>프레이저 포스터</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">9명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>훌리안 아라우호</b></td><td>멕시코</td></tr>
+        <tr><td class="num">3</td><td><b>트뤼페르</b></td><td>프랑스</td></tr>
+        <tr><td class="num">5</td><td><b>제임스 힐</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">6</td><td><b>훌리오 솔레르</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">14</td><td><b>안토니우 실바</b></td><td>포르투갈</td></tr>
+        <tr><td class="num">15</td><td><b>애덤 스미스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">18</td><td><b>바포데 디아키테</b></td><td>프랑스</td></tr>
+        <tr><td class="num">44</td><td><b>밀로사블례비치</b></td><td>세르비아</td></tr>
+        <tr><td class="num">—</td><td><b>후안루 산체스</b></td><td>스페인</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">4</td><td><b>루이스 쿡</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">8</td><td><b>알렉스 스콧</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>라이언 크리스티</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">12</td><td><b>타일러 애덤스</b></td><td>미국</td></tr>
+        <tr><td class="num">16</td><td><b>태버니어</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">19</td><td><b>클라위베르트</b></td><td>네덜란드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>에바닐송</b></td><td>브라질</td></tr>
+        <tr><td class="num">11</td><td><b>벤 도크</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">21</td><td><b>아민 아들리</b></td><td>모로코</td></tr>
+        <tr><td class="num">22</td><td><b>엘리 크루피</b></td><td>프랑스</td></tr>
+        <tr><td class="num">37</td><td><b>하이안</b></td><td>브라질</td></tr>
+        <tr><td class="num">—</td><td><b>알바로 로드리게스</b></td><td>우루과이</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-sun-home">
+  <h2 class="sec">선덜랜드</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">선덜랜드 <span>Sunderland</span></div>
+    <div class="ch-meta">스타디움 오브 라이트 · 49,000석 · 감독 <b>레지스 르 브리</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">7위</div><div class="note">승점 54 · 득실 -6</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">14-12-12</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">유로파리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">5명</div><div class="note">영입 1 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">승격팀으로 7위(54점)를 찍고 1973년 이후 53년 만에 유럽대회(유로파리그)로 복귀했다. 다만 여름 영입은 자유계약 뫼니에 한 명뿐인 반면 마옌다·패터슨이 빠져나가 스쿼드 뎁스 확보가 최대 과제다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">입스위치 타운 <span class="muted">· 원정 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">풀럼 <span class="muted">· 홈 · 스타디움 오브 라이트</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 원정 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">1명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>토마 뫼니에</b></td><td>DF</td><td>릴</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>엘리에세르 마옌다</b></td><td>FW</td><td>스타드 렌</td><td>£18.9m</td></tr>
+        <tr><td><b>앤서니 패터슨</b></td><td>GK</td><td>렉섬</td><td>£8m</td></tr>
+        <tr><td><b>데니스 서킨</b></td><td>DF</td><td>QPR</td><td>자유계약</td></tr>
+        <tr><td><b>아르튀르 마수아쿠</b></td><td>DF</td><td>코니아스포르</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-sun-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">입스위치 타운 <span class="muted">· 원정 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">풀럼 <span class="muted">· 홈 · 스타디움 오브 라이트</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 원정 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">선덜랜드 <span class="score">2-0</span> 랑스</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.2</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">선덜랜드 <span class="score">1-0</span> 렉섬</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.30</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">선덜랜드 <span class="score">0-1</span> 리즈 유나이티드</div>
+        <span class="badge low">패</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 선덜랜드 기준(앞이 선덜랜드).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-sun-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">22</td><td><b>로빈 루프스</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">21</td><td><b>사이먼 무어</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">5</td><td><b>댄 밸러드</b></td><td>북아일랜드</td></tr>
+        <tr><td class="num">12</td><td><b>토마 뫼니에</b></td><td>벨기에</td></tr>
+        <tr><td class="num">13</td><td><b>루크 오니엔</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">15</td><td><b>오마르 알데레테</b></td><td>파라과이</td></tr>
+        <tr><td class="num">17</td><td><b>헤이닐두 만다바</b></td><td>모잠비크</td></tr>
+        <tr><td class="num">20</td><td><b>노르디 무키엘레</b></td><td>프랑스</td></tr>
+        <tr><td class="num">23</td><td><b>옌손 셀트</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">32</td><td><b>트라이 흄</b></td><td>북아일랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">8</td><td><b>앨런 브라운</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">11</td><td><b>크리스 리그</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">19</td><td><b>아비브 디아라</b></td><td>세네갈</td></tr>
+        <tr><td class="num">27</td><td><b>노아 사디키</b></td><td>콩고민주공화국</td></tr>
+        <tr><td class="num">28</td><td><b>엔조 르 페</b></td><td>프랑스</td></tr>
+        <tr><td class="num">34</td><td><b>그라니트 자카</b></td><td>스위스</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>셈스딘 탈비</b></td><td>모로코</td></tr>
+        <tr><td class="num">9</td><td><b>브라이언 브로베이</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">10</td><td><b>닐손 앙굴로</b></td><td>에콰도르</td></tr>
+        <tr><td class="num">14</td><td><b>로메인 먼들</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">18</td><td><b>윌슨 이시도르</b></td><td>아이티</td></tr>
+        <tr><td class="num">24</td><td><b>시몽 아딩그라</b></td><td>코트디부아르</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-bha-home">
+  <h2 class="sec">브라이턴 앤 호브 알비온</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">브라이턴 앤 호브 알비온 <span>Brighton &amp; Hove Albion</span></div>
+    <div class="ch-meta">아멕스 스타디움 · 31,800석 · 감독 <b>파비안 휘르첼러</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">8위</div><div class="note">승점 53 · 득실 +6</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">14-11-13</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">컨퍼런스리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">9명</div><div class="note">영입 5 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">8위(53점)로 구단 사상 첫 컨퍼런스리그 진출권을 따냈다. 판 헤케·코폴라·웰벡이 빠진 자리를 구단 최고 이적료 부슈코비치(£46m)와 스트라윅으로 메우며 유럽 대항전과 리그 병행을 시험한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">아스톤 빌라 <span class="muted">· 홈 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">첼시 <span class="muted">· 원정 · 스탬퍼드 브리지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 홈 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>루카 부슈코비치</b></td><td>DF</td><td>토트넘</td><td>£46m</td></tr>
+        <tr><td><b>자독 요한나</b></td><td>FW</td><td>AIK</td><td>£26m</td></tr>
+        <tr><td><b>파스칼 스트라윅</b></td><td>DF</td><td>리즈 유나이티드</td><td>£18m</td></tr>
+        <tr><td><b>코스치냐</b></td><td>DF</td><td>올림피아코스</td><td>£11m</td></tr>
+        <tr><td><b>미하엘 스보보다</b></td><td>DF</td><td>베네치아</td><td>£4.3m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>얀 파울 판 헤케</b></td><td>DF</td><td>토트넘</td><td>£52m</td></tr>
+        <tr><td><b>디에고 코폴라</b></td><td>DF</td><td>파리 FC</td><td>£17m</td></tr>
+        <tr><td><b>대니 웰벡</b></td><td>FW</td><td>첼시</td><td>£5m</td></tr>
+        <tr><td><b>요엘 펠트만</b></td><td>DF</td><td>웨스트햄</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bha-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 22:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">아스톤 빌라 <span class="muted">· 홈 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">첼시 <span class="muted">· 원정 · 스탬퍼드 브리지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 홈 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="score">3-0</span> AS로마</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="score">4-3</span> 스트라스부르</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.18</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="score">4-1</span> 와이컴</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 브라이턴 앤 호브 알비온 기준(앞이 브라이턴 앤 호브 알비온).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bha-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 21명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>페르브뤼헌</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">23</td><td><b>제이슨 스틸</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>이고르 줄리우</b></td><td>브라질</td></tr>
+        <tr><td class="num">5</td><td><b>루이스 덩크</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">21</td><td><b>보스칼리</b></td><td>프랑스</td></tr>
+        <tr><td class="num">24</td><td><b>카디오을루</b></td><td>튀르키예</td></tr>
+        <tr><td class="num">29</td><td><b>더 카위퍼르</b></td><td>벨기에</td></tr>
+        <tr><td class="num">—</td><td><b>스트라윅</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">—</td><td><b>부슈코비치</b></td><td>크로아티아</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">13</td><td><b>힌셜우드</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">17</td><td><b>카를로스 발레바</b></td><td>카메룬</td></tr>
+        <tr><td class="num">25</td><td><b>디에고 고메스</b></td><td>파라과이</td></tr>
+        <tr><td class="num">26</td><td><b>야신 아야리</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">30</td><td><b>파스칼 그로스</b></td><td>독일</td></tr>
+        <tr><td class="num">33</td><td><b>맷 오라일리</b></td><td>덴마크</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>치마스</b></td><td>그리스</td></tr>
+        <tr><td class="num">10</td><td><b>조르지뇨 뤼테르</b></td><td>프랑스</td></tr>
+        <tr><td class="num">11</td><td><b>얀쿠바 민테</b></td><td>감비아</td></tr>
+        <tr><td class="num">19</td><td><b>코스툴라스</b></td><td>그리스</td></tr>
+        <tr><td class="num">22</td><td><b>미토마 카오루</b></td><td>일본</td></tr>
+        <tr><td class="num">—</td><td><b>에번 퍼거슨</b></td><td>아일랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-bre-home">
+  <h2 class="sec">브렌트포드</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">브렌트포드 <span>Brentford</span></div>
+    <div class="ch-meta">지테크 커뮤니티 스타디움 · 17,250석 · 감독 <b>키스 앤드루스</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">9위</div><div class="note">승점 53 · 득실 +3</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">14-11-13</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">7명</div><div class="note">영입 4 · 방출 3</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">토마스 프랑크 이탈 후에도 9위(53점)를 찍은 앤드루스가 2032년까지 재계약을 맺고 맞는 2년차 시즌. 헨더슨·오녜카가 빠진 자리를 윌슨·앤서니·상가레로 메우며 유럽 진출에 도전한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 01:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 홈 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 원정 · 엘런드 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 홈 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>칼럼 윌슨</b></td><td>FW</td><td>웨스트햄</td><td>자유계약</td></tr>
+        <tr><td><b>제이던 앤서니</b></td><td>FW</td><td>번리</td><td>비공개</td></tr>
+        <tr><td><b>야니크 슈스터</b></td><td>DF</td><td>잘츠부르크</td><td>비공개</td></tr>
+        <tr><td><b>마마두 상가레</b></td><td>MF</td><td>랑스</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>조던 헨더슨</b></td><td>MF</td><td>첼시</td><td>계약 해지 후 자유이적</td></tr>
+        <tr><td><b>프랭크 온예카</b></td><td>MF</td><td>코번트리 시티</td><td>비공개</td></tr>
+        <tr><td><b>리스 넬슨</b></td><td>FW</td><td>아스날(임대 복귀)</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bre-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 01:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 홈 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 원정 · 엘런드 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 홈 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브렌트포드 <span class="score">4-2</span> 스타드 렌</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.5</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브렌트포드 <span class="score">4-1</span> 와이컴</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.15</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">브렌트포드 <span class="score">3-2</span> AFC 윔블던</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 브렌트포드 기준(앞이 브렌트포드).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-bre-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 21명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>키비언 켈러허</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">12</td><td><b>발디마르손</b></td><td>아이슬란드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>에런 히키</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">3</td><td><b>리코 헨리</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">4</td><td><b>판 덴 베르흐</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">5</td><td><b>이선 피녹</b></td><td>자메이카</td></tr>
+        <tr><td class="num">20</td><td><b>크리스토페르 아예르</b></td><td>노르웨이</td></tr>
+        <tr><td class="num">22</td><td><b>네이선 콜린스</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">33</td><td><b>미카엘 카요데</b></td><td>이탈리아</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">8</td><td><b>마티아스 옌센</b></td><td>덴마크</td></tr>
+        <tr><td class="num">17</td><td><b>안토니 밀람보</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">18</td><td><b>야르몰류크</b></td><td>우크라이나</td></tr>
+        <tr><td class="num">24</td><td><b>담스고르</b></td><td>덴마크</td></tr>
+        <tr><td class="num">27</td><td><b>비탈리 야넬트</b></td><td>독일</td></tr>
+        <tr><td class="num">—</td><td><b>마마두 상가레</b></td><td>말리</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>케빈 샤데</b></td><td>독일</td></tr>
+        <tr><td class="num">9</td><td><b>이고르 치아구</b></td><td>브라질</td></tr>
+        <tr><td class="num">11</td><td><b>당고 와타라</b></td><td>부르키나파소</td></tr>
+        <tr><td class="num">19</td><td><b>제이던 앤서니</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">23</td><td><b>루이스포터</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">30</td><td><b>칼럼 윌슨</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-che-home">
+  <h2 class="sec">첼시</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">첼시 <span>Chelsea</span></div>
+    <div class="ch-meta">스탬퍼드 브리지 · 40,044석 · 감독 <b>사비 알론소</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">10위</div><div class="note">승점 52 · 득실 +6</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">14-10-14</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">11명</div><div class="note">영입 6 · 방출 5</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">10위(52점)로 유럽대항전 진출에 실패한 뒤 맞는 사비 알론소의 첫 시즌. 유럽 일정이 없는 대신 £117m 모건 로저스를 비롯한 대형 영입진을 곧바로 상위권 경쟁으로 되돌려놓아야 한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.25 (화) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">풀럼 <span class="muted">· 원정 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 홈 · 스탬퍼드 브리지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.7 (월) 00:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">아스날 <span class="muted">· 원정 · 에미레이츠 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">6명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>모건 로저스</b></td><td>MF</td><td>아스톤 빌라</td><td>£117m</td></tr>
+        <tr><td><b>막상스 라크루아</b></td><td>DF</td><td>크리스탈 팰리스</td><td>£52m</td></tr>
+        <tr><td><b>마르코 팔레스트라</b></td><td>DF</td><td>아탈란타</td><td>£47m</td></tr>
+        <tr><td><b>제오바니 켄다</b></td><td>FW</td><td>스포르팅</td><td>£43m</td></tr>
+        <tr><td><b>발렌틴 바르코</b></td><td>MF</td><td>스트라스부르</td><td>£34m</td></tr>
+        <tr><td><b>에마누엘 에메가</b></td><td>FW</td><td>스트라스부르</td><td>£22m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>마르크 쿠쿠레야</b></td><td>DF</td><td>레알 마드리드</td><td>£51.8m</td></tr>
+        <tr><td><b>안드레이 산투스</b></td><td>MF</td><td>맨체스터 유나이티드</td><td>£48m</td></tr>
+        <tr><td><b>트레보 찰로바</b></td><td>DF</td><td>코모</td><td>£25.7m</td></tr>
+        <tr><td><b>타이릭 조지</b></td><td>FW</td><td>에버턴</td><td>£18m</td></tr>
+        <tr><td><b>가르나초</b></td><td>FW</td><td>아스톤 빌라</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-che-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.25 (화) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">풀럼 <span class="muted">· 원정 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 홈 · 스탬퍼드 브리지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.7 (월) 00:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">아스날 <span class="muted">· 원정 · 에미레이츠 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.9</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">첼시 <span class="score">3-3</span> 조호르 다룰 탁짐</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">첼시 <span class="score">3-0</span> AC밀란</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.5</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">첼시 <span class="score">0-1</span> 유벤투스</div>
+        <span class="badge low">패</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 첼시 기준(앞이 첼시).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-che-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>로베르트 산체스</b></td><td>스페인</td></tr>
+        <tr><td class="num">39</td><td><b>미케 펜더르스</b></td><td>벨기에</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>팔레스트라</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">4</td><td><b>아다라비오요</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">6</td><td><b>리바이 콜윌</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">21</td><td><b>요럴 하토</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">24</td><td><b>리스 제임스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">27</td><td><b>말로 귀스토</b></td><td>프랑스</td></tr>
+        <tr><td class="num">29</td><td><b>웨슬리 포파나</b></td><td>프랑스</td></tr>
+        <tr><td class="num">—</td><td><b>라크루아</b></td><td>프랑스</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">8</td><td><b>엔소 페르난데스</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">17</td><td><b>모건 로저스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">25</td><td><b>카이세도</b></td><td>에콰도르</td></tr>
+        <tr><td class="num">45</td><td><b>로메오 라비아</b></td><td>벨기에</td></tr>
+        <tr><td class="num">—</td><td><b>발렌틴 바르코</b></td><td>아르헨티나</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>페드루 네투</b></td><td>포르투갈</td></tr>
+        <tr><td class="num">9</td><td><b>리암 델랍</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>콜 파머</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">11</td><td><b>제이미 기튼스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">15</td><td><b>니콜라 잭슨</b></td><td>세네갈</td></tr>
+        <tr><td class="num">20</td><td><b>주앙 페드루</b></td><td>브라질</td></tr>
+        <tr><td class="num">41</td><td><b>이스테방</b></td><td>브라질</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-ful-home">
+  <h2 class="sec">풀럼</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">풀럼 <span>Fulham</span></div>
+    <div class="ch-meta">크레이븐 코티지 · 27,782석 · 감독 <b>알바로 아르벨로아</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">11위</div><div class="note">승점 52 · 득실 +4</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">15-7-16</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">8명</div><div class="note">영입 4 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">마르코 실바 5년 체제가 끝나고 레알 마드리드 출신 아르벨로아가 부임한 첫 시즌. 팀 득점 관여의 57%를 책임졌던 해리 윌슨과 히메네스가 떠나, £70m을 쓴 곤살로 가르시아·셰이 찰스가 그 공백을 메워야 한다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.25 (화) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">첼시 <span class="muted">· 홈 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 원정 · 스타디움 오브 라이트</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 홈 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>곤살로 가르시아</b></td><td>FW</td><td>레알 마드리드</td><td>£34.3m</td></tr>
+        <tr><td><b>셰이 찰스</b></td><td>MF</td><td>사우샘프턴</td><td>£30m</td></tr>
+        <tr><td><b>조나 쿠시아사레</b></td><td>FW</td><td>바이에른 뮌헨</td><td>£5.2m</td></tr>
+        <tr><td><b>세사르 팔라시오스</b></td><td>MF</td><td>레알 마드리드</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>해리 윌슨</b></td><td>MF</td><td>리즈 유나이티드</td><td>자유계약</td></tr>
+        <tr><td><b>라울 히메네스</b></td><td>FW</td><td>울버햄튼</td><td>자유계약</td></tr>
+        <tr><td><b>사샤 루키치</b></td><td>MF</td><td>입스위치 타운</td><td>비공개</td></tr>
+        <tr><td><b>이사 디오프</b></td><td>DF</td><td>입스위치 타운</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-ful-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.25 (화) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">첼시 <span class="muted">· 홈 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 원정 · 스타디움 오브 라이트</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 홈 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.12</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">풀럼 <span class="score">2-2</span> 말라가</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.7</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">풀럼 <span class="score">1-2</span> 크리스탈 팰리스</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">7.31</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">풀럼 <span class="score">2-1</span> 파렌스</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 풀럼 기준(앞이 풀럼).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-ful-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 21명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>베른트 레노</b></td><td>독일</td></tr>
+        <tr><td class="num">23</td><td><b>뱅자맹 르콩트</b></td><td>프랑스</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>케니 테테</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">3</td><td><b>칼빈 배시</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">5</td><td><b>요아킴 안데르센</b></td><td>덴마크</td></tr>
+        <tr><td class="num">15</td><td><b>호르헤 쿠엔카</b></td><td>스페인</td></tr>
+        <tr><td class="num">21</td><td><b>카스타뉴</b></td><td>벨기에</td></tr>
+        <tr><td class="num">30</td><td><b>세세뇽</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">33</td><td><b>안토니 로빈슨</b></td><td>미국</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">6</td><td><b>해리슨 리드</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>톰 케어니</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">14</td><td><b>오스카 보브</b></td><td>노르웨이</td></tr>
+        <tr><td class="num">16</td><td><b>산데르 베르게</b></td><td>노르웨이</td></tr>
+        <tr><td class="num">24</td><td><b>조시 킹</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">32</td><td><b>에밀 스미스 로우</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>셰이 찰스</b></td><td>북아일랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>호드리구 무니스</b></td><td>브라질</td></tr>
+        <tr><td class="num">17</td><td><b>알렉스 이워비</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">18</td><td><b>쿠시아사레</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">22</td><td><b>케빈</b></td><td>브라질</td></tr>
+        <tr><td class="num">—</td><td><b>곤살로 가르시아</b></td><td>스페인</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-new-home">
+  <h2 class="sec">뉴캐슬 유나이티드</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">뉴캐슬 유나이티드 <span>Newcastle United</span></div>
+    <div class="ch-meta">세인트 제임스 파크 · 52,305석 · 감독 <b>마티아스 야이슬레</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">12위</div><div class="note">승점 49 · 득실 -2</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">14-7-17</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">9명</div><div class="note">영입 5 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">에디 하우가 물러난 뒤 알아흘리에서 부임한 야이슬레의 첫 시즌. 토날리·기마랑이스·고든 등 £240m 이상을 매각해 25인 명단에 최소 9자리가 빈 채로 개막을 맞는다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.24 (월) 00:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">리버풀 <span class="muted">· 홈 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 01:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 원정 · 토트넘 홋스퍼 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 20:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">본머스 <span class="muted">· 홈 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>바주마나 투레</b></td><td>FW</td><td>호펜하임</td><td>£43m</td></tr>
+        <tr><td><b>루카시 호르니체크</b></td><td>GK</td><td>브라가</td><td>£25.7m</td></tr>
+        <tr><td><b>에웬 자우엔</b></td><td>GK</td><td>랭스</td><td>£24m</td></tr>
+        <tr><td><b>션 스퇴르</b></td><td>MF</td><td>아약스</td><td>£23m</td></tr>
+        <tr><td><b>알라지 밤바</b></td><td>MF</td><td>모나코</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>산드로 토날리</b></td><td>MF</td><td>토트넘</td><td>£100m</td></tr>
+        <tr><td><b>브루누 기마랑이스</b></td><td>MF</td><td>아스날</td><td>£75m</td></tr>
+        <tr><td><b>앤서니 고든</b></td><td>FW</td><td>바르셀로나</td><td>£69.3m</td></tr>
+        <tr><td><b>키어런 트리피어</b></td><td>DF</td><td>울버햄튼</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-new-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.24 (월) 00:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">리버풀 <span class="muted">· 홈 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 01:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 원정 · 토트넘 홋스퍼 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 20:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">본머스 <span class="muted">· 홈 · 세인트 제임스 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.12</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="score">1-3</span> 에버턴</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="score">2-1</span> 발렌시아</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.29</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="score">4-1</span> 브리스톨 시티</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 뉴캐슬 유나이티드 기준(앞이 뉴캐슬 유나이티드).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-new-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>닉 포프</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">24</td><td><b>에웬 자우엔</b></td><td>프랑스</td></tr>
+        <tr><td class="num">—</td><td><b>호르니체크</b></td><td>체코</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>티노 리브라멘투</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">3</td><td><b>루이스 홀</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">4</td><td><b>스벤 보트만</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">5</td><td><b>파비안 셰어</b></td><td>스위스</td></tr>
+        <tr><td class="num">12</td><td><b>말릭 티아우</b></td><td>독일</td></tr>
+        <tr><td class="num">33</td><td><b>댄 번</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>조엘린통</b></td><td>브라질</td></tr>
+        <tr><td class="num">8</td><td><b>알라지 밤바</b></td><td>—</td></tr>
+        <tr><td class="num">14</td><td><b>션 스퇴르</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">23</td><td><b>제이컵 머피</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">28</td><td><b>조 윌록</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">41</td><td><b>제이컵 램지</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">67</td><td><b>루이스 마일리</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>요안 위사</b></td><td>콩고민주공화국</td></tr>
+        <tr><td class="num">10</td><td><b>윌 오술라</b></td><td>덴마크</td></tr>
+        <tr><td class="num">11</td><td><b>하비 반스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">17</td><td><b>바주마나 투레</b></td><td>코트디부아르</td></tr>
+        <tr><td class="num">19</td><td><b>안토니 엘랑가</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">27</td><td><b>닉 볼테마데</b></td><td>독일</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-eve-home">
+  <h2 class="sec">에버턴</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">에버턴 <span>Everton</span></div>
+    <div class="ch-meta">힐 디킨슨 스타디움 · 52,888석 · 감독 <b>데이비드 모예스</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">13위</div><div class="note">승점 49 · 득실 -3</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">13-10-15</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">8명</div><div class="note">영입 5 · 방출 3</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">2년 연속 13위(49점)에 그친 뒤 힐 디킨슨 스타디움 두 번째 시즌. 노르고르·해크니·룔·조지 등 중원과 공격을 대거 보강해 6년 만의 top 10 복귀를 노린다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 홈 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">본머스 <span class="muted">· 원정 · 비탈리티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 22:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 홈 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>타이릭 조지</b></td><td>FW</td><td>첼시</td><td>£24m</td></tr>
+        <tr><td><b>메를린 룔</b></td><td>MF</td><td>프라이부르크</td><td>£19m</td></tr>
+        <tr><td><b>헤이든 해크니</b></td><td>MF</td><td>미들즈브러</td><td>£16.5m</td></tr>
+        <tr><td><b>크리스티안 노르고르</b></td><td>MF</td><td>아스날</td><td>£7m</td></tr>
+        <tr><td><b>브레넌 존슨</b></td><td>FW</td><td>크리스탈 팰리스</td><td>맞교환</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>드와이트 맥닐</b></td><td>MF</td><td>크리스탈 팰리스</td><td>맞교환</td></tr>
+        <tr><td><b>이드리사 게예</b></td><td>MF</td><td>계약 만료</td><td>-</td></tr>
+        <tr><td><b>셰이머스 콜먼</b></td><td>DF</td><td>계약 만료</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-eve-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">크리스탈 팰리스 <span class="muted">· 홈 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">본머스 <span class="muted">· 원정 · 비탈리티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 22:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 홈 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.12</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">에버턴 <span class="score">3-1</span> 뉴캐슬 유나이티드</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">에버턴 <span class="score">1-3</span> 슈투트가르트</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">에버턴 <span class="score">2-1</span> 함부르크</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 에버턴 기준(앞이 에버턴).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-eve-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>조던 픽포드</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">12</td><td><b>마크 트래버스</b></td><td>아일랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>네이선 패터슨</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">5</td><td><b>마이클 킨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">6</td><td><b>제임스 타코스키</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">15</td><td><b>제이크 오브라이언</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">16</td><td><b>미콜렌코</b></td><td>우크라이나</td></tr>
+        <tr><td class="num">32</td><td><b>브랜스웨이트</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">39</td><td><b>아담 아즈누</b></td><td>모로코</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>헤이든 해크니</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">22</td><td><b>듀스버리홀</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">24</td><td><b>카를로스 알카라스</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">34</td><td><b>메를린 룔</b></td><td>독일</td></tr>
+        <tr><td class="num">37</td><td><b>제임스 가너</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">42</td><td><b>이로에그부남</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>노르고르</b></td><td>덴마크</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>베투</b></td><td>기니비사우</td></tr>
+        <tr><td class="num">10</td><td><b>일리망 은디아예</b></td><td>세네갈</td></tr>
+        <tr><td class="num">11</td><td><b>티에르노 바리</b></td><td>프랑스</td></tr>
+        <tr><td class="num">19</td><td><b>타이릭 조지</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">20</td><td><b>타일러 디블링</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>브레넌 존슨</b></td><td>웨일스</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-lee-home">
+  <h2 class="sec">리즈 유나이티드</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">리즈 유나이티드 <span>Leeds United</span></div>
+    <div class="ch-meta">엘런드 로드 · 37,645석 · 감독 <b>다니엘 파르케</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">14위</div><div class="note">승점 47 · 득실 -7</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">11-14-13</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">7명</div><div class="note">영입 3 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">14위(47점)로 잔류에 성공한 파르케의 프리미어리그 2년차. 구단 최고 이적료 £40m 골키퍼 트래퍼드와 £34.1m 센터백 무하레모비치를 영입해 지난 시즌 최대 약점이던 수비 라인을 통째로 재편했다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 원정 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 홈 · 엘런드 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 원정 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>제임스 트래퍼드</b></td><td>GK</td><td>맨체스터 시티</td><td>£40m</td></tr>
+        <tr><td><b>무하레모비치</b></td><td>DF</td><td>사수올로</td><td>£34.1m</td></tr>
+        <tr><td><b>해리 윌슨</b></td><td>MF</td><td>풀럼</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>파스칼 스트라윅</b></td><td>DF</td><td>브라이턴</td><td>£18m</td></tr>
+        <tr><td><b>일랑 메슬리에</b></td><td>GK</td><td>아스날</td><td>자유계약</td></tr>
+        <tr><td><b>칼 달로</b></td><td>GK</td><td>맨체스터 유나이티드</td><td>자유계약</td></tr>
+        <tr><td><b>잭 해리슨</b></td><td>FW</td><td>뉴잉글랜드 레볼루션</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-lee-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 원정 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 22:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 홈 · 엘런드 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">브라이턴 앤 호브 알비온 <span class="muted">· 원정 · 아멕스 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.12</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리즈 유나이티드 <span class="score">1-1</span> 맨체스터 유나이티드</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리즈 유나이티드 <span class="score">2-0</span> 라이프치히</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.2</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">리즈 유나이티드 <span class="score">4-2</span> 리버풀</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 리즈 유나이티드 기준(앞이 리즈 유나이티드).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-lee-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>루카스 페리</b></td><td>브라질</td></tr>
+        <tr><td class="num">—</td><td><b>제임스 트래퍼드</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>제이든 보글</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">3</td><td><b>구드문드손</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">5</td><td><b>무하레모비치</b></td><td>보스니아</td></tr>
+        <tr><td class="num">6</td><td><b>조 로던</b></td><td>웨일스</td></tr>
+        <tr><td class="num">15</td><td><b>야카 비욜</b></td><td>슬로베니아</td></tr>
+        <tr><td class="num">24</td><td><b>제임스 저스틴</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">33</td><td><b>보르나우</b></td><td>벨기에</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">4</td><td><b>이선 암파두</b></td><td>웨일스</td></tr>
+        <tr><td class="num">8</td><td><b>션 롱스타프</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">11</td><td><b>브렌던 애런슨</b></td><td>미국</td></tr>
+        <tr><td class="num">17</td><td><b>해리 윌슨</b></td><td>웨일스</td></tr>
+        <tr><td class="num">18</td><td><b>안톤 슈타흐</b></td><td>독일</td></tr>
+        <tr><td class="num">22</td><td><b>다나카 아오</b></td><td>일본</td></tr>
+        <tr><td class="num">44</td><td><b>일리야 그루예프</b></td><td>불가리아</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>대니얼 제임스</b></td><td>웨일스</td></tr>
+        <tr><td class="num">9</td><td><b>칼버트르윈</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>요엘 피로</b></td><td>수리남</td></tr>
+        <tr><td class="num">14</td><td><b>루카스 은메차</b></td><td>독일</td></tr>
+        <tr><td class="num">19</td><td><b>노아 오카포르</b></td><td>스위스</td></tr>
+        <tr><td class="num">29</td><td><b>윌프리드 뇬토</b></td><td>이탈리아</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-cry-home">
+  <h2 class="sec">크리스탈 팰리스</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">크리스탈 팰리스 <span>Crystal Palace</span></div>
+    <div class="ch-meta">셀허스트 파크 · 25,486석 · 감독 <b>피에르 사주</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">15위</div><div class="note">승점 45 · 득실 -10</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">11-12-15</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">유로파리그</div><div class="note">2026-27 유럽대항전</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">8명</div><div class="note">영입 4 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">컨퍼런스리그 우승으로 유로파리그에 나서지만, 12개월간 3개 트로피를 안긴 글라스너가 노팅엄으로 떠나고 프로 통산 100경기 미만의 피에르 사주가 지휘봉을 잡았다. 라크루아를 £52m에 팔고 여름 이적료 지출은 0원.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">에버턴 <span class="muted">· 원정 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 홈 · 셀허스트 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">풀럼 <span class="muted">· 원정 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>오스카르 밍게사</b></td><td>DF</td><td>셀타 비고</td><td>자유계약</td></tr>
+        <tr><td><b>도미야스 다케히로</b></td><td>DF</td><td>아스날</td><td>자유계약</td></tr>
+        <tr><td><b>드와이트 맥닐</b></td><td>FW</td><td>에버턴</td><td>맞교환</td></tr>
+        <tr><td><b>에방 게상</b></td><td>FW</td><td>아스톤 빌라</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>막상스 라크루아</b></td><td>DF</td><td>첼시</td><td>£52m</td></tr>
+        <tr><td><b>브레넌 존슨</b></td><td>FW</td><td>에버턴</td><td>맞교환</td></tr>
+        <tr><td><b>대니 임레이</b></td><td>DF</td><td>렉섬</td><td>비공개</td></tr>
+        <tr><td><b>너새니얼 클라인</b></td><td>DF</td><td>방출</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-cry-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">에버턴 <span class="muted">· 원정 · 힐 디킨슨 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 04:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 홈 · 셀허스트 파크</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">풀럼 <span class="muted">· 원정 · 크레이븐 코티지</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.7</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">크리스탈 팰리스 <span class="score">2-1</span> 풀럼</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.31</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">크리스탈 팰리스 <span class="score">3-1</span> 알 울라</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.28</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">크리스탈 팰리스 <span class="score">0-3</span> 랑스</div>
+        <span class="badge low">패</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 크리스탈 팰리스 기준(앞이 크리스탈 팰리스).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-cry-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>딘 헨더슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">31</td><td><b>레미 매튜스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">44</td><td><b>발테르 베니테스</b></td><td>아르헨티나</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>다니엘 무뇨스</b></td><td>콜롬비아</td></tr>
+        <tr><td class="num">3</td><td><b>타이릭 미첼</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">23</td><td><b>제이디 캉보</b></td><td>프랑스</td></tr>
+        <tr><td class="num">24</td><td><b>보르나 소사</b></td><td>크로아티아</td></tr>
+        <tr><td class="num">26</td><td><b>크리스 리처즈</b></td><td>미국</td></tr>
+        <tr><td class="num">34</td><td><b>샤디 리아드</b></td><td>모로코</td></tr>
+        <tr><td class="num">—</td><td><b>밍게사</b></td><td>스페인</td></tr>
+        <tr><td class="num">—</td><td><b>도미야스</b></td><td>일본</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">8</td><td><b>헤페르손 레르마</b></td><td>콜롬비아</td></tr>
+        <tr><td class="num">19</td><td><b>윌 휴스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">20</td><td><b>애덤 와튼</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">28</td><td><b>셰이크 두쿠레</b></td><td>말리</td></tr>
+        <tr><td class="num">—</td><td><b>가마다 다이치</b></td><td>일본</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>이스마일라 사르</b></td><td>세네갈</td></tr>
+        <tr><td class="num">9</td><td><b>에디 은케티아</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>예레미 피노</b></td><td>스페인</td></tr>
+        <tr><td class="num">14</td><td><b>마테타</b></td><td>프랑스</td></tr>
+        <tr><td class="num">22</td><td><b>스트란 라르센</b></td><td>노르웨이</td></tr>
+        <tr><td class="num">—</td><td><b>드와이트 맥닐</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-nfo-home">
+  <h2 class="sec">노팅엄 포레스트</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">노팅엄 포레스트 <span>Nottingham Forest</span></div>
+    <div class="ch-meta">시티 그라운드 · 30,404석 · 감독 <b>올리버 글라스너</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">16위</div><div class="note">승점 44 · 득실 -3</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">11-11-16</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">7명</div><div class="note">영입 3 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">한 시즌에 감독을 네 번 바꾼 혼란 끝에 팰리스를 컨퍼런스리그 우승으로 이끈 글라스너를 구단 최고 연봉으로 선임했다. 앤더슨을 영국 기록 £116m에 맨시티로 보낸 자금을 디오망드 등에 재투자했다.</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 홈 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 20:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">리버풀 <span class="muted">· 원정 · 안필드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 홈 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>우스만 디오망드</b></td><td>DF</td><td>스포르팅</td><td>£34m</td></tr>
+        <tr><td><b>구스타부 사</b></td><td>MF</td><td>파말리캉</td><td>£17.1m</td></tr>
+        <tr><td><b>자버 슐라거</b></td><td>MF</td><td>라이프치히</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>엘리엇 앤더슨</b></td><td>MF</td><td>맨체스터 시티</td><td>£116m</td></tr>
+        <tr><td><b>다비드 카르모</b></td><td>DF</td><td>올림피아코스</td><td>비공개</td></tr>
+        <tr><td><b>조타 실바</b></td><td>FW</td><td>올림피아코스</td><td>임대</td></tr>
+        <tr><td><b>윌리 볼리</b></td><td>DF</td><td>방출</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-nfo-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">리즈 유나이티드 <span class="muted">· 홈 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 20:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">리버풀 <span class="muted">· 원정 · 안필드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">토트넘 홋스퍼 <span class="muted">· 홈 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.12</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">노팅엄 포레스트 <span class="score">2-1</span> 레버쿠젠</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">노팅엄 포레스트 <span class="score">0-1</span> 바르셀로나</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">노팅엄 포레스트 <span class="score">0-1</span> 우디네세</div>
+        <span class="badge low">패</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 노팅엄 포레스트 기준(앞이 노팅엄 포레스트).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-nfo-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 23명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">12</td><td><b>존 빅토르</b></td><td>브라질</td></tr>
+        <tr><td class="num">26</td><td><b>마츠 셀스</b></td><td>벨기에</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>디오망드</b></td><td>코트디부아르</td></tr>
+        <tr><td class="num">3</td><td><b>네코 윌리엄스</b></td><td>웨일스</td></tr>
+        <tr><td class="num">4</td><td><b>모라투</b></td><td>브라질</td></tr>
+        <tr><td class="num">5</td><td><b>무릴루</b></td><td>브라질</td></tr>
+        <tr><td class="num">25</td><td><b>루카 네츠</b></td><td>독일</td></tr>
+        <tr><td class="num">31</td><td><b>밀렌코비치</b></td><td>세르비아</td></tr>
+        <tr><td class="num">34</td><td><b>올라 아이나</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">37</td><td><b>니콜로 사보나</b></td><td>이탈리아</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">6</td><td><b>이브라힘 상가레</b></td><td>코트디부아르</td></tr>
+        <tr><td class="num">8</td><td><b>도밍게스</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">10</td><td><b>모건 깁스화이트</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">20</td><td><b>오마리 허친슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">21</td><td><b>자버 슐라거</b></td><td>오스트리아</td></tr>
+        <tr><td class="num">22</td><td><b>라이언 예이츠</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">24</td><td><b>제임스 맥아티</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">6명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>허드슨오도이</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">9</td><td><b>타이워 아워니이</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">11</td><td><b>크리스 우드</b></td><td>뉴질랜드</td></tr>
+        <tr><td class="num">14</td><td><b>단 은도예</b></td><td>스위스</td></tr>
+        <tr><td class="num">15</td><td><b>칼리무엔도</b></td><td>프랑스</td></tr>
+        <tr><td class="num">19</td><td><b>이고르 제주스</b></td><td>브라질</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-tot-home">
+  <h2 class="sec">토트넘 홋스퍼</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">토트넘 홋스퍼 <span>Tottenham Hotspur</span></div>
+    <div class="ch-meta">토트넘 홋스퍼 스타디움 · 62,850석 · 감독 <b>로베르토 데 제르비</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 최종</div><div class="value">17위</div><div class="note">승점 41 · 득실 -9</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">10-11-17</div><div class="note">38경기 승·무·패</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">11명</div><div class="note">영입 6 · 방출 5</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">17위(41점)로 강등권 근처에서 마감한 뒤 맞는 데 제르비의 첫 풀시즌. 토날리(£100m)·페르난드스(£85m) 포함 총 £237m를 쓴 리빌드가 통할지가 관건. 주장 로메로는 아틀레티코행 원칙적 합의 상태(공식 발표 전).</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.23 (일) 01:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 원정 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 01:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 홈 · 토트넘 홋스퍼 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 원정 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">6명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>산드로 토날리</b></td><td>MF</td><td>뉴캐슬</td><td>£100m</td></tr>
+        <tr><td><b>마테우스 페르난드스</b></td><td>MF</td><td>웨스트햄</td><td>£85m</td></tr>
+        <tr><td><b>얀 파울 판 헤케</b></td><td>DF</td><td>브라이턴</td><td>£52m</td></tr>
+        <tr><td><b>앤드루 로버트슨</b></td><td>DF</td><td>리버풀</td><td>자유계약</td></tr>
+        <tr><td><b>마르코스 세네시</b></td><td>DF</td><td>본머스</td><td>자유계약</td></tr>
+        <tr><td><b>마르틴 두브라브카</b></td><td>GK</td><td>번리</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>루카 부슈코비치</b></td><td>DF</td><td>브라이턴</td><td>£46m</td></tr>
+        <tr><td><b>윌 랭크시어</b></td><td>FW</td><td>미들즈브러</td><td>£10m</td></tr>
+        <tr><td><b>마노르 솔로몬</b></td><td>FW</td><td>웨스트햄</td><td>£5m</td></tr>
+        <tr><td><b>이브 비수마</b></td><td>MF</td><td>방출</td><td>자유계약</td></tr>
+        <tr><td><b>라두 드라구신</b></td><td>DF</td><td>피오렌티나</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-tot-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.23 (일) 01:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">브렌트포드 <span class="muted">· 원정 · 지테크 커뮤니티 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.30 (일) 01:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">뉴캐슬 유나이티드 <span class="muted">· 홈 · 토트넘 홋스퍼 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">노팅엄 포레스트 <span class="muted">· 원정 · 시티 그라운드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">토트넘 홋스퍼 <span class="score">1-1</span> 헤타페</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">토트넘 홋스퍼 <span class="score">2-1</span> 첼시</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">7.29</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">토트넘 홋스퍼 <span class="score">1-1</span> 시드니 FC</div>
+        <span class="badge up">무</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 토트넘 홋스퍼 기준(앞이 토트넘 홋스퍼).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-tot-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">2명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>비카리오</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">31</td><td><b>안토닌 킨스키</b></td><td>체코</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>로버트슨</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">4</td><td><b>케빈 단소</b></td><td>오스트리아</td></tr>
+        <tr><td class="num">5</td><td><b>마르코스 세네시</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">6</td><td><b>판 헤케</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">13</td><td><b>우도지</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">17</td><td><b>로메로</b></td><td>아르헨티나</td></tr>
+        <tr><td class="num">23</td><td><b>페드로 포로</b></td><td>스페인</td></tr>
+        <tr><td class="num">37</td><td><b>판 더 펜</b></td><td>네덜란드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>사비 시몬스</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">8</td><td><b>코너 갤러거</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>제임스 매디슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">14</td><td><b>아치 그레이</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">15</td><td><b>루카스 베리발</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">16</td><td><b>산드로 토날리</b></td><td>이탈리아</td></tr>
+        <tr><td class="num">18</td><td><b>페르난드스</b></td><td>포르투갈</td></tr>
+        <tr><td class="num">29</td><td><b>파페 사르</b></td><td>세네갈</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">4명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>히샬리송</b></td><td>브라질</td></tr>
+        <tr><td class="num">11</td><td><b>마티스 텔</b></td><td>프랑스</td></tr>
+        <tr><td class="num">19</td><td><b>도미닉 솔란케</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">20</td><td><b>모하메드 쿠두스</b></td><td>가나</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-cov-home">
+  <h2 class="sec">코번트리 시티</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">코번트리 시티 <span>Coventry City</span></div>
+    <div class="ch-meta">코번트리 빌딩 소사이어티 아레나 · 32,609석 · 감독 <b>프랭크 램파드</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 챔피언십</div><div class="value">승격</div><div class="note">2026-27 프리미어리그 복귀</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">1부</div><div class="note">2026-27 프리미어리그</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">8명</div><div class="note">영입 5 · 방출 3</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">여름에만 £83.8m를 지출하며 구단 이적료 기록을 여러 차례 경신했지만, 25년 만의 1부 복귀 스쿼드 대부분이 프리미어리그 무경험자다. 램파드가 챔피언십식 공격 축구를 1부에서 유지할 수 있느냐가 관건.</p>
+    <p class="small" style="margin-top:10px;"><b>승격 경로 —</b> 챔피언십 우승 · 승점 95 (2위 입스위치에 11점 차) · 25년 만의 1부 복귀</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">아스날 <span class="muted">· 원정 · 에미레이츠 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">헐 시티 <span class="muted">· 홈 · 코번트리 빌딩 소사이어티 아레나</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 원정 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">5명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>케일럽 이렌키</b></td><td>MF</td><td>노르셸란</td><td>£26m</td></tr>
+        <tr><td><b>칼 러시워스</b></td><td>GK</td><td>브라이턴</td><td>£22.5m</td></tr>
+        <tr><td><b>룸 차우나</b></td><td>FW</td><td>번리</td><td>£20m</td></tr>
+        <tr><td><b>오렐 아멘다</b></td><td>DF</td><td>프랑크푸르트</td><td>£15.3m</td></tr>
+        <tr><td><b>프랭크 온예카</b></td><td>MF</td><td>브렌트포드</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">3명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>야노아 마르켈로</b></td><td>FW</td><td>샤밥 알아흘리</td><td>비공개</td></tr>
+        <tr><td><b>노먼 바세트</b></td><td>FW</td><td>베스테를로</td><td>임대</td></tr>
+        <tr><td><b>브래들리 콜린스</b></td><td>GK</td><td>방출</td><td>자유계약</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-cov-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 04:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">아스날 <span class="muted">· 원정 · 에미레이츠 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">헐 시티 <span class="muted">· 홈 · 코번트리 빌딩 소사이어티 아레나</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 23:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">맨체스터 시티 <span class="muted">· 원정 · 에티하드 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">코번트리 시티 <span class="score">3-1</span> 에스파뇰</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.4</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">코번트리 시티 <span class="score">1-1</span> 웨스트브롬</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">코번트리 시티 <span class="score">1-0</span> 레스터 시티</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 코번트리 시티 기준(앞이 코번트리 시티).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-cov-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 23명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>올리버 도빈</b></td><td>스웨덴</td></tr>
+        <tr><td class="num">13</td><td><b>벤 윌슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>칼 러시워스</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>제이 다실바</b></td><td>웨일스</td></tr>
+        <tr><td class="num">4</td><td><b>보비 토머스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">15</td><td><b>리암 키칭</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">20</td><td><b>케슬러-헤이든</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">21</td><td><b>제이크 비드웰</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">26</td><td><b>루크 울펜든</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">27</td><td><b>판 에베이크</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">—</td><td><b>오렐 아멘다</b></td><td>스위스</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">5</td><td><b>잭 루도니</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">6</td><td><b>맷 그라임스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">10</td><td><b>메이슨-클라크</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">16</td><td><b>프랭크 온예카</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">29</td><td><b>빅토르 토르프</b></td><td>덴마크</td></tr>
+        <tr><td class="num">38</td><td><b>구스타보 하메르</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">—</td><td><b>케일럽 이렌키</b></td><td>가나</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>사카모토</b></td><td>일본</td></tr>
+        <tr><td class="num">9</td><td><b>엘리스 심스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">11</td><td><b>하지 라이트</b></td><td>미국</td></tr>
+        <tr><td class="num">23</td><td><b>토머스-아산테</b></td><td>가나</td></tr>
+        <tr><td class="num">—</td><td><b>룸 차우나</b></td><td>프랑스</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-ips-home">
+  <h2 class="sec">입스위치 타운</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">입스위치 타운 <span>Ipswich Town</span></div>
+    <div class="ch-meta">포트먼 로드 · 29,673석 · 감독 <b>게리 오닐</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 챔피언십</div><div class="value">승격</div><div class="note">2026-27 프리미어리그 복귀</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">1부</div><div class="note">2026-27 프리미어리그</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">10명</div><div class="note">영입 6 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">승격을 이끈 키어런 맥케나가 6월 사임하고 게리 오닐이 부임한 상황에서, 2024-25시즌 승점 22로 강등됐던 팀이 £66m 이상을 투자한 스쿼드로 두 번째 잔류에 도전한다.</p>
+    <p class="small" style="margin-top:10px;"><b>승격 경로 —</b> 챔피언십 2위 · 승점 84 · 자동 승격 (2025년 강등 후 한 시즌 만의 복귀)</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 홈 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.31 (월) 00:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 원정 · 올드 트래퍼드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 04:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">리버풀 <span class="muted">· 홈 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">6명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>이사하쿠 파타우</b></td><td>FW</td><td>레스터 시티</td><td>£20m</td></tr>
+        <tr><td><b>플로렌티누 루이스</b></td><td>MF</td><td>번리</td><td>£16m</td></tr>
+        <tr><td><b>마에다 다이젠</b></td><td>FW</td><td>셀틱</td><td>£10m</td></tr>
+        <tr><td><b>셸 스헤르펀</b></td><td>GK</td><td>위니옹 생질루아즈</td><td>£8.5m</td></tr>
+        <tr><td><b>추바 아콤</b></td><td>FW</td><td>아약스</td><td>£8m</td></tr>
+        <tr><td><b>세드리크 키프레</b></td><td>DF</td><td>랭스</td><td>£3.9m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>아리야네트 무리치</b></td><td>GK</td><td>사수올로</td><td>£6m</td></tr>
+        <tr><td><b>웨스 번스</b></td><td>FW</td><td>레스터 시티</td><td>비공개</td></tr>
+        <tr><td><b>코너 채플린</b></td><td>MF</td><td>레스터 시티</td><td>자유계약</td></tr>
+        <tr><td><b>새미 슈모딕스</b></td><td>MF</td><td>더비 카운티</td><td>임대</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-ips-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 23:00</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">선덜랜드 <span class="muted">· 홈 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.31 (월) 00:30</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 원정 · 올드 트래퍼드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.5 (토) 04:00</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">리버풀 <span class="muted">· 홈 · 포트먼 로드</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">입스위치 타운 <span class="score">3-0</span> 라요 바예카노</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.4</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">입스위치 타운 <span class="score">1-0</span> 르아브르</div>
+        <span class="badge win">승</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">입스위치 타운 <span class="score">2-1</span> 와이컴</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 입스위치 타운 기준(앞이 입스위치 타운).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-ips-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">1</td><td><b>알렉스 파머</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">28</td><td><b>크리스천 월턴</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>셸 스헤르펀</b></td><td>네덜란드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">3</td><td><b>레이프 데이비스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">18</td><td><b>벤 존슨</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">19</td><td><b>다넬 펄롱</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">24</td><td><b>제이컵 그리브스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">26</td><td><b>다라 오셰이</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">—</td><td><b>이사 디오프</b></td><td>—</td></tr>
+        <tr><td class="num">—</td><td><b>세드리크 키프레</b></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">5</td><td><b>아조르 마투시와</b></td><td>네덜란드</td></tr>
+        <tr><td class="num">14</td><td><b>잭 테일러</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">20</td><td><b>케이시 맥아티어</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">32</td><td><b>마르셀리노 누녜스</b></td><td>칠레</td></tr>
+        <tr><td class="num">33</td><td><b>아니스 메흐메티</b></td><td>알바니아</td></tr>
+        <tr><td class="num">—</td><td><b>사샤 루키치</b></td><td>세르비아</td></tr>
+        <tr><td class="num">—</td><td><b>플로렌티누 루이스</b></td><td>포르투갈</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">5명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">9</td><td><b>조지 허스트</b></td><td>—</td></tr>
+        <tr><td class="num">11</td><td><b>제이든 필로진</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">29</td><td><b>추바 아콤</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>마에다 다이젠</b></td><td>일본</td></tr>
+        <tr><td class="num">—</td><td><b>이사하쿠 파타우</b></td><td>가나</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="panel-hul-home">
+  <h2 class="sec">헐 시티</h2>
+  <p class="sec-sub">아스날·맨유 외 구단은 <b>홈 · 경기 · 선수단</b> 3개 탭으로 제공돼요. 칼럼·기자회견·팬 여론 같은 심층 콘텐츠는 아스날·맨유만 다뤄요.</p>
+  <div class="club-hero">
+    <div class="ch-name">헐 시티 <span>Hull City</span></div>
+    <div class="ch-meta">MKM 스타디움 · 25,586석 · 감독 <b>세르게이 야키로비치</b></div>
+  </div>
+  <div class="tiles">
+    <div class="tile accent"><div class="label">2025-26 챔피언십</div><div class="value">승격</div><div class="note">2026-27 프리미어리그 복귀</div></div>
+    <div class="tile"><div class="label">승 · 무 · 패</div><div class="value">1부</div><div class="note">2026-27 프리미어리그</div></div>
+    <div class="tile"><div class="label">2026-27</div><div class="value">—</div><div class="note">유럽대항전 없음</div></div>
+    <div class="tile"><div class="label">여름 이적</div><div class="value">10명</div><div class="note">영입 6 · 방출 4</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>2026-27 시즌 화두</h3>
+      <p class="small">승격 3팀 중 정규리그 순위가 가장 낮았고 순수 이적료 지출도 약 £3m 수준으로 가장 적다. 자유계약·저비용 영입으로 잔류를 노려야 한다.</p>
+    <p class="small" style="margin-top:10px;"><b>승격 경로 —</b> 챔피언십 6위 · 승점 73 · 플레이오프 우승 (5/23 웸블리 결승 미들즈브러 1-0, 맥버니 후반 추가시간 결승골) · 2016-17 이후 첫 1부 복귀</p>
+    </div>
+    <div class="card">
+      <h3>다가오는 일정 <span class="muted">개막 3라운드</span></h3>
+      <div class="match">
+        <div class="date">8.22 (토) 20:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 홈 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">코번트리 시티 <span class="muted">· 원정 · 코번트리 빌딩 소사이어티 아레나</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 01:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">아스톤 빌라 <span class="muted">· 홈 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <p class="muted" style="margin-top:8px;">모든 시각은 한국시간(KST). 중계 편성에 따라 바뀔 수 있어요.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>2026년 여름 이적</h3>
+    <div class="grid2">
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">영입 <span class="muted" style="font-weight:600;">6명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>전 소속</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>콘스탄티노스 촐라키스</b></td><td>GK</td><td>올림피아코스</td><td>비공개</td></tr>
+        <tr><td><b>잭 버틀런드</b></td><td>GK</td><td>레인저스</td><td>£3m</td></tr>
+        <tr><td><b>모리타 히데마사</b></td><td>MF</td><td>스포르팅</td><td>자유계약</td></tr>
+        <tr><td><b>오스카르 삼브라노</b></td><td>MF</td><td>마리보르</td><td>비공개</td></tr>
+        <tr><td><b>맷 타겟</b></td><td>DF</td><td>뉴캐슬</td><td>자유계약</td></tr>
+        <tr><td><b>엘리엇 스트라우드</b></td><td>MF</td><td>미엘뷔</td><td>£2.1m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="font-size:13.5px;font-weight:800;margin:0 0 8px;">방출 <span class="muted" style="font-weight:600;">4명</span></h4>
+      <table class="tbl">
+        <thead><tr><th>선수</th><th>포지션</th><th>행선지</th><th>이적료</th></tr></thead>
+        <tbody>
+        <tr><td><b>이보르 판두르</b></td><td>GK</td><td>레인저스</td><td>£6m</td></tr>
+        <tr><td><b>카일 조지프</b></td><td>FW</td><td>미들즈브러</td><td>비공개</td></tr>
+        <tr><td><b>케이시 파머</b></td><td>MF</td><td>루턴 타운</td><td>비공개</td></tr>
+        <tr><td><b>아부 카마라</b></td><td>FW</td><td>포츠머스</td><td>비공개</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p class="muted" style="margin-top:10px;">확인된 건만 실었어요. 이적시장은 한국시간 9월 2일 오전 7시 마감이라 이후 변동될 수 있어요.</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-hul-matches">
+  <h2 class="sec">경기 결과 &amp; 일정</h2>
+  <p class="sec-sub">2026-27 개막 3라운드 일정과 2026년 프리시즌 최근 경기예요. 모든 시각은 한국시간.</p>
+  <div class="card">
+    <h3>2026-27 개막 3라운드</h3>
+      <div class="match">
+        <div class="date">8.22 (토) 20:30</div>
+        <div class="comp">EPL 1R</div>
+        <div class="teams">맨체스터 유나이티드 <span class="muted">· 홈 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">8.29 (토) 23:00</div>
+        <div class="comp">EPL 2R</div>
+        <div class="teams">코번트리 시티 <span class="muted">· 원정 · 코번트리 빌딩 소사이어티 아레나</span></div>
+        <span class="badge up">예정</span>
+      </div>
+      <div class="match">
+        <div class="date">9.6 (일) 01:30</div>
+        <div class="comp">EPL 3R</div>
+        <div class="teams">아스톤 빌라 <span class="muted">· 홈 · MKM 스타디움</span></div>
+        <span class="badge up">예정</span>
+      </div>
+  </div>
+  <div class="card">
+    <h3>프리시즌 최근 경기 <span class="muted">2026년 여름</span></h3>
+      <div class="match">
+        <div class="date">8.8</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">헐 시티 <span class="score">0-2</span> 프랑크푸르트</div>
+        <span class="badge low">패</span>
+      </div>
+      <div class="match">
+        <div class="date">8.1</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">헐 시티 <span class="score">1-1</span> 카슴파샤</div>
+        <span class="badge up">무</span>
+      </div>
+      <div class="match">
+        <div class="date">7.28</div>
+        <div class="comp">프리시즌</div>
+        <div class="teams">헐 시티 <span class="score">2-1</span> 차이쿠르 리제스포르</div>
+        <span class="badge win">승</span>
+      </div>
+    <p class="muted" style="margin-top:8px;">스코어는 헐 시티 기준(앞이 헐 시티).</p>
+  </div>
+</section>
+
+<section class="panel" id="panel-hul-squad">
+  <h2 class="sec">선수단</h2>
+  <p class="sec-sub">2026-27 시즌 1군 주요 선수 22명. 등번호가 확정되지 않은 신입 선수는 <b>—</b>로 표시했어요(추측해서 채우지 않았습니다).</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>골키퍼 <span class="muted">3명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">12</td><td><b>딜런 필립스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>촐라키스</b></td><td>그리스</td></tr>
+        <tr><td class="num">—</td><td><b>잭 버틀런드</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>수비수 <span class="muted">8명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">2</td><td><b>루이 코일</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">3</td><td><b>라이언 자일스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">4</td><td><b>찰리 휴스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">6</td><td><b>세미 아자이</b></td><td>나이지리아</td></tr>
+        <tr><td class="num">15</td><td><b>존 이건</b></td><td>아일랜드</td></tr>
+        <tr><td class="num">18</td><td><b>코디 드라메</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">37</td><td><b>패디 맥네어</b></td><td>북아일랜드</td></tr>
+        <tr><td class="num">—</td><td><b>맷 타겟</b></td><td>잉글랜드</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>미드필더 <span class="muted">7명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">8</td><td><b>엘리엇 마타조</b></td><td>벨기에</td></tr>
+        <tr><td class="num">25</td><td><b>맷 크룩스</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">26</td><td><b>키어런 다월</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">27</td><td><b>리건 슬레이터</b></td><td>잉글랜드</td></tr>
+        <tr><td class="num">—</td><td><b>모리타 히데마사</b></td><td>일본</td></tr>
+        <tr><td class="num">—</td><td><b>오스카르 삼브라노</b></td><td>에콰도르</td></tr>
+        <tr><td class="num">—</td><td><b>외뮈르</b></td><td>튀르키예</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>공격수 <span class="muted">4명</span></h3>
+      <table class="tbl">
+        <thead><tr><th class="num">번호</th><th>선수</th><th>국적</th></tr></thead>
+        <tbody>
+        <tr><td class="num">7</td><td><b>리암 밀라</b></td><td>캐나다</td></tr>
+        <tr><td class="num">9</td><td><b>올리 맥버니</b></td><td>스코틀랜드</td></tr>
+        <tr><td class="num">10</td><td><b>벨루미</b></td><td>알제리</td></tr>
+        <tr><td class="num">11</td><td><b>아킨톨라</b></td><td>나이지리아</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div><!-- /teamOther -->
+
 </main>
 
 <footer class="site">
   <div class="cols">
     <div>
       <h4>아스날 팬 허브</h4>
-      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 14일 20:50 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
+      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 14일 23:10 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
     </div>
     <div>
       <h4>주요 출처</h4>
@@ -2714,15 +6139,43 @@
 const tabs = document.getElementById('tabs');
 let curTeam = 'ars';
 let curTab = 'home';
+/* 아스날·맨유는 10탭 전부, 나머지 18팀은 홈·경기·선수단 + EPL 전체만 */
+const FULL_TEAMS = ['ars', 'mun'];
+const LIGHT_HDR = ['mci', 'hul', 'cov'];   /* 헤더 배경이 밝아 글씨를 검게 쓰는 구단 */
+const LITE_TABS = ['home', 'matches', 'squad', 'league'];
+const BAR_FULL = ['home', 'matches', 'transfers', 'fans'];
+const BAR_LITE = ['home', 'matches', 'squad', 'league'];
+function isLite() { return FULL_TEAMS.indexOf(curTeam) === -1; }
+
+function syncTabVisibility() {
+  const lite = isLite();
+  document.querySelectorAll('#tabs button[data-tab]').forEach(b => {
+    b.hidden = lite && LITE_TABS.indexOf(b.dataset.tab) === -1;
+  });
+  document.querySelectorAll('#sheetGrid button[data-mtab]').forEach(b => {
+    b.hidden = lite && LITE_TABS.indexOf(b.dataset.mtab) === -1;
+  });
+  const bar = lite ? BAR_LITE : BAR_FULL;
+  document.querySelectorAll('.mtab button[data-mtab]').forEach(b => {
+    b.hidden = bar.indexOf(b.dataset.mtab) === -1;
+  });
+}
+
 function showPanel() {
-  /* 'league'는 구단 무관 공용 패널 — mun- 접두사를 붙이지 않고 두 팀 래퍼를 모두 숨긴다 */
+  /* 'league'는 구단 무관 공용 패널 — 접두사를 붙이지 않고 모든 팀 래퍼를 숨긴다 */
+  if (isLite() && LITE_TABS.indexOf(curTab) === -1) curTab = 'home';
+  syncTabVisibility();
   const isLeague = curTab === 'league';
-  const prefix = (curTeam === 'mun' && !isLeague) ? 'mun-' : '';
+  let prefix = '';
+  if (!isLeague && curTeam !== 'ars') prefix = curTeam + '-';
   document.querySelectorAll('section.panel').forEach(p =>
     p.classList.toggle('active', p.id === 'panel-' + prefix + curTab));
+  document.querySelectorAll('#tabs button[data-tab]').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === curTab));
   document.getElementById('teamArs').hidden = isLeague || curTeam !== 'ars';
   document.getElementById('teamMun').hidden = isLeague || curTeam !== 'mun';
   document.getElementById('teamLeague').hidden = !isLeague;
+  document.getElementById('teamOther').hidden = isLeague || !isLite();
 }
 tabs.addEventListener('click', e => {
   const btn = e.target.closest('button[data-tab]');
@@ -2735,25 +6188,52 @@ tabs.addEventListener('click', e => {
 
 const TEAM_META = {
   ars: { pill: '아스날 팬 허브', champ: '★ 2025-26 프리미어리그 챔피언', wm: 'Arsenal Fan Hub' },
+  mci: { pill: '맨체스터 시티', champ: '2025-26 2위 · 승점 78 · 챔피언스리그', wm: 'Manchester City' },
   mun: { pill: '맨유 팬 허브', champ: '★ 2025-26 3위 · 챔피언스리그 복귀', wm: 'Manchester United Fan Hub' },
+  avl: { pill: '아스톤 빌라', champ: '2025-26 4위 · 승점 65 · 챔피언스리그', wm: 'Aston Villa' },
+  liv: { pill: '리버풀', champ: '2025-26 5위 · 승점 60 · 챔피언스리그', wm: 'Liverpool' },
+  bou: { pill: '본머스', champ: '2025-26 6위 · 승점 57 · 유로파리그', wm: 'AFC Bournemouth' },
+  sun: { pill: '선덜랜드', champ: '2025-26 7위 · 승점 54 · 유로파리그', wm: 'Sunderland' },
+  bha: { pill: '브라이턴 앤 호브 알비온', champ: '2025-26 8위 · 승점 53 · 컨퍼런스리그', wm: 'Brighton & Hove Albion' },
+  bre: { pill: '브렌트포드', champ: '2025-26 9위 · 승점 53', wm: 'Brentford' },
+  che: { pill: '첼시', champ: '2025-26 10위 · 승점 52', wm: 'Chelsea' },
+  ful: { pill: '풀럼', champ: '2025-26 11위 · 승점 52', wm: 'Fulham' },
+  new: { pill: '뉴캐슬 유나이티드', champ: '2025-26 12위 · 승점 49', wm: 'Newcastle United' },
+  eve: { pill: '에버턴', champ: '2025-26 13위 · 승점 49', wm: 'Everton' },
+  lee: { pill: '리즈 유나이티드', champ: '2025-26 14위 · 승점 47', wm: 'Leeds United' },
+  cry: { pill: '크리스탈 팰리스', champ: '2025-26 15위 · 승점 45 · 유로파리그', wm: 'Crystal Palace' },
+  nfo: { pill: '노팅엄 포레스트', champ: '2025-26 16위 · 승점 44', wm: 'Nottingham Forest' },
+  tot: { pill: '토트넘 홋스퍼', champ: '2025-26 17위 · 승점 41', wm: 'Tottenham Hotspur' },
+  cov: { pill: '코번트리 시티', champ: '2026-27 승격', wm: 'Coventry City' },
+  ips: { pill: '입스위치 타운', champ: '2026-27 승격', wm: 'Ipswich Town' },
+  hul: { pill: '헐 시티', champ: '2026-27 승격', wm: 'Hull City' },
 };
 const teamSwitch = document.getElementById('teamSwitch');
-teamSwitch.addEventListener('click', e => {
-  const btn = e.target.closest('button[data-team-btn]');
-  if (!btn || btn.dataset.teamBtn === curTeam) return;
-  curTeam = btn.dataset.teamBtn;
+const teamSel = document.getElementById('teamSel');
+function setTeam(key) {
+  if (!key || key === curTeam || !TEAM_META[key]) return;
+  curTeam = key;
   document.documentElement.dataset.team = curTeam;
+  document.documentElement.dataset.hdr = LIGHT_HDR.indexOf(curTeam) === -1 ? 'dark' : 'light';
   teamSwitch.querySelectorAll('button').forEach(b =>
     b.classList.toggle('on', b.dataset.teamBtn === curTeam));
+  if (teamSel.value !== curTeam) teamSel.value = curTeam;
   const meta = TEAM_META[curTeam];
   document.getElementById('brandPill').textContent = meta.pill;
   document.querySelector('#utilLine .champ').textContent = meta.champ;
   document.getElementById('wordmark').innerHTML =
-    meta.wm + '<span class="wm-sub">경기 · 순위 · 통계 · 이적시장 · 여론</span>';
+    meta.wm + '<span class="wm-sub">' +
+    (isLite() ? '홈 · 경기 · 선수단' : '경기 · 순위 · 통계 · 이적시장 · 여론') + '</span>';
   showPanel();
   window.scrollTo({ top: 0 });
+}
+teamSwitch.addEventListener('click', e => {
+  const btn = e.target.closest('button[data-team-btn]');
+  if (btn) setTeam(btn.dataset.teamBtn);
 });
+teamSel.addEventListener('change', () => setTeam(teamSel.value));
 document.documentElement.dataset.team = 'ars';
+syncTabVisibility();
 
 /* ── 다크모드 토글 ── */
 const themeBtn = document.getElementById('themeToggle');
@@ -3269,6 +6749,8 @@ renderXI('pitchMun', XI_MUN);
   <button data-mtab="matches"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.2" width="18" height="15.6" rx="2.2"/><path d="M3 10.2h18M8 3.2v4M16 3.2v4"/></svg>경기</button>
   <button data-mtab="transfers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.2h13M14.2 5.2l3 3-3 3"/><path d="M20 15.8H7M9.8 12.8l-3 3 3 3"/></svg>이적시장</button>
   <button data-mtab="fans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6a2.2 2.2 0 0 1-2.2 2.2H8.4L4 21V6.2A2.2 2.2 0 0 1 6.2 4h11.8a2.2 2.2 0 0 1 2.2 2.2z"/></svg>팬 여론</button>
+  <button data-mtab="squad" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.4"/><path d="M4.8 20.4c0-3.6 3.2-6.2 7.2-6.2s7.2 2.6 7.2 6.2"/></svg>선수단</button>
+  <button data-mtab="league" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M9.3 20V4.5M14.7 20v-8M20 20V7"/></svg>EPL 전체</button>
   <button id="moreBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="dots"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></g></svg>더보기</button>
 </nav>
 
@@ -3276,9 +6758,27 @@ renderXI('pitchMun', XI_MUN);
   <div class="sheet" role="dialog" aria-label="전체 메뉴" aria-modal="true">
     <div class="sheet-grip"></div>
     <div class="sheet-lab">구단 선택</div>
-    <div class="sheet-team" id="sheetTeam">
+    <div class="sheet-team sheet-team-20" id="sheetTeam">
       <button data-steam="ars" class="on">아스날</button>
+      <button data-steam="mci">맨체스터 시티</button>
       <button data-steam="mun">맨체스터 유나이티드</button>
+      <button data-steam="avl">아스톤 빌라</button>
+      <button data-steam="liv">리버풀</button>
+      <button data-steam="bou">본머스</button>
+      <button data-steam="sun">선덜랜드</button>
+      <button data-steam="bha">브라이턴 앤 호브 알비온</button>
+      <button data-steam="bre">브렌트포드</button>
+      <button data-steam="che">첼시</button>
+      <button data-steam="ful">풀럼</button>
+      <button data-steam="new">뉴캐슬 유나이티드</button>
+      <button data-steam="eve">에버턴</button>
+      <button data-steam="lee">리즈 유나이티드</button>
+      <button data-steam="cry">크리스탈 팰리스</button>
+      <button data-steam="nfo">노팅엄 포레스트</button>
+      <button data-steam="tot">토트넘 홋스퍼</button>
+      <button data-steam="cov">코번트리 시티</button>
+      <button data-steam="ips">입스위치 타운</button>
+      <button data-steam="hul">헐 시티</button>
     </div>
     <div class="sheet-lab" style="margin-top:16px;">전체 메뉴</div>
     <div class="sheet-grid" id="sheetGrid">
@@ -3332,7 +6832,9 @@ renderXI('pitchMun', XI_MUN);
     '클럽 브뤼헤': '브뤼헤', '베르더 브레멘': '브레멘', '파리 생제르맹': 'PSG',
     '라싱 산탄데르': '산탄데르', '바이에른 뮌헨': '뮌헨', '인터 밀란': '인터',
     '보루시아 도르트문트': '도르트문트', '아약스 암스테르담': '아약스',
-    '헐 시티': '헐'
+    '헐 시티': '헐', '코번트리 시티': '코번트리', '크리스탈 팰리스': '팰리스',
+    '브라이턴 앤 호브 알비온': '브라이턴', '노팅엄 포레스트': '노팅엄',
+    '토트넘 홋스퍼': '토트넘', '리즈 유나이티드': '리즈', '입스위치 타운': '입스위치'
   };
   var cells = null;
   function shortNames(on) {

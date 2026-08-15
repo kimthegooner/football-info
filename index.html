@@ -924,6 +924,21 @@
   /* ══════ 18팀 선수 카드·사진 (2026-08-15) ══════ */
   .xi img { background: #fff; }
 </style>
+
+<style id="fixStyle">
+  /* ══════ 사진 스택 (2026-08-15) ══════
+     lazy 이미지에 display:none 을 걸면 뷰포트에 절대 안 들어가 영영 로딩되지 않는다.
+     그래서 이미지를 숨기지 않고, 이니셜 폴백을 절대배치로 뒤에 깔아 자연스럽게 가려지게 한다. */
+  .p-photo-wrap.stack { position: relative; }
+  .p-photo-wrap.stack .p-fallback { position: absolute; inset: 0; }
+  .p-photo-wrap.stack .p-photo { position: relative; z-index: 1; background: transparent; }
+  .mgr .p-photo-wrap { position: relative; }
+  .mgr .p-fallback.mgr-fb { position: absolute; inset: 0; }
+  .mgr .p-photo.mgr-img { position: relative; z-index: 1; background: transparent; }
+  .xi { position: relative; }
+  .xi .xi-fb { position: absolute; left: 0; right: 0; top: 0; }
+  .xi img { position: relative; z-index: 1; background: transparent; }
+</style>
 </head>
 <body>
 
@@ -931,7 +946,7 @@
   <div class="util">
     <div class="site-inner util-in">
       <span class="pill-link" id="brandPill">아스날 팬 허브</span>
-      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.15 01:55 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
+      <span class="util-links" id="utilLine"><span class="u-hide-m">비공식 팬 사이트 · </span><span id="syncStamp">2026.8.15 03:10 동기화</span><span class="champ">★ 2025-26 프리미어리그 챔피언</span></span>
       <div class="team-switch" id="teamSwitch" hidden aria-hidden="true" style="display:none;">
     <button data-team-btn="ars" class="on">아스날</button>
     <button data-team-btn="mci">맨체스터 시티</button>
@@ -5157,10 +5172,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="엔조 마레스카"
+          <img class="p-photo mgr-img" loading="lazy" alt="엔조 마레스카"
             src="https://images.fotmob.com/image_resources/playerimages/34000.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">엔</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">엔</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">엔조 마레스카</div>
@@ -5205,13 +5220,13 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["mci"] = [
-  { n: '돈나룸마', p: 'GK', x: 50, y: 88, id: 618878 },
-  { n: '리코 루이스', p: 'RB', x: 83, y: 71, id: 1288450 },
-  { n: '후사노프', p: 'CB', x: 36, y: 75, id: 1362998 },
-  { n: '후벵 디아스', p: 'CB', x: 64, y: 75, id: 614006 },
-  { n: '그바르디올', p: 'LB', x: 17, y: 71, id: 1070712 },
-  { n: '엘리엇 앤더슨', p: 'DM', x: 50, y: 58, id: 1089691 },
-  { n: '레인더르스', p: 'CM', x: 50, y: 47, id: 868344 },
+  { n: '돈나룸마', nat: '이탈리아', p: 'GK', x: 50, y: 88, id: 618878 },
+  { n: '리코 루이스', nat: '잉글랜드', p: 'RB', x: 83, y: 71, id: 1288450 },
+  { n: '후사노프', nat: '우즈베키스탄', p: 'CB', x: 36, y: 75, id: 1362998 },
+  { n: '후벵 디아스', nat: '포르투갈', p: 'CB', x: 64, y: 75, id: 614006 },
+  { n: '그바르디올', nat: '크로아티아', p: 'LB', x: 17, y: 71, id: 1070712 },
+  { n: '엘리엇 앤더슨', nat: '잉글랜드', p: 'DM', x: 50, y: 58, id: 1089691 },
+  { n: '레인더르스', nat: '네덜란드', p: 'CM', x: 50, y: 47, id: 868344 },
   { n: '세메뇨', p: 'RW', x: 82, y: 27, id: 933576 },
   { n: '셰르키', p: 'AM', x: 50, y: 33, id: 1104053 },
   { n: '도쿠', p: 'LW', x: 18, y: 27, id: 942368 },
@@ -5227,10 +5242,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="우나이 에메리"
+          <img class="p-photo mgr-img" loading="lazy" alt="우나이 에메리"
             src="https://images.fotmob.com/image_resources/playerimages/96940.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">우</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">우</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">우나이 에메리</div>
@@ -5275,16 +5290,16 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["avl"] = [
-  { n: '에밀리아노 마르티네스', p: 'GK', x: 50, y: 88, id: 268375 },
-  { n: '매티 캐시', p: 'RB', x: 83, y: 71, id: 729731 },
+  { n: '에밀리아노 마르티네스', nat: '아르헨티나', p: 'GK', x: 50, y: 88, id: 268375 },
+  { n: '매티 캐시', nat: '폴란드', p: 'RB', x: 83, y: 71, id: 729731 },
   { n: '콘사', p: 'CB', x: 36, y: 75, id: 710159 },
-  { n: '파우 토레스', p: 'CB', x: 64, y: 75, id: 792645 },
+  { n: '파우 토레스', nat: '스페인', p: 'CB', x: 64, y: 75, id: 792645 },
   { n: '마천', p: 'LB', x: 17, y: 71, id: 966026 },
   { n: '카마라', p: 'DM', x: 50, y: 58, id: 816325 },
-  { n: '주앙 고메스', p: 'CM', x: 50, y: 47, id: 1174672 },
+  { n: '주앙 고메스', nat: '브라질', p: 'CM', x: 50, y: 47, id: 1174672 },
   { n: '맥긴', p: 'RW', x: 82, y: 27, id: 356406 },
-  { n: '부엔디아', p: 'AM', x: 50, y: 33, id: 610184 },
-  { n: '가르나초', p: 'LW', x: 18, y: 27, id: 1203665 },
+  { n: '부엔디아', nat: '아르헨티나', p: 'AM', x: 50, y: 33, id: 610184 },
+  { n: '가르나초', nat: '아르헨티나', p: 'LW', x: 18, y: 27, id: 1203665 },
   { n: '왓킨스', p: 'ST', x: 50, y: 17, id: 540088 }
 ];</script>
 </section>
@@ -5297,10 +5312,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="안도니 이라올라"
+          <img class="p-photo mgr-img" loading="lazy" alt="안도니 이라올라"
             src="https://images.fotmob.com/image_resources/playerimages/33025.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">안</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">안</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">안도니 이라올라</div>
@@ -5350,9 +5365,9 @@
   { n: '반다이크', p: 'CB', x: 36, y: 75, id: 209405 },
   { n: '아라우호', p: 'CB', x: 64, y: 75, id: 921253 },
   { n: '케르케즈', p: 'LB', x: 17, y: 71, id: 1195281 },
-  { n: '흐라번베르흐', p: 'DM', x: 50, y: 58, id: 956683 },
-  { n: '매캘리스터', p: 'CM', x: 50, y: 47, id: 831489 },
-  { n: '소보슬라이', p: 'RW', x: 82, y: 27, id: 846005 },
+  { n: '흐라번베르흐', nat: '네덜란드', p: 'DM', x: 50, y: 58, id: 956683 },
+  { n: '매캘리스터', nat: '아르헨티나', p: 'CM', x: 50, y: 47, id: 831489 },
+  { n: '소보슬라이', nat: '헝가리', p: 'RW', x: 82, y: 27, id: 846005 },
   { n: '비르츠', p: 'AM', x: 50, y: 33, id: 1152455 },
   { n: '학포', p: 'LW', x: 18, y: 27, id: 806552 },
   { n: '이사크', p: 'ST', x: 50, y: 17, id: 690107 }
@@ -5367,10 +5382,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="마르코 로제"
+          <img class="p-photo mgr-img" loading="lazy" alt="마르코 로제"
             src="https://images.fotmob.com/image_resources/playerimages/27493.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">마</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">마</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">마르코 로제</div>
@@ -5415,17 +5430,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["bou"] = [
-  { n: '페트로비치', p: 'GK', x: 50, y: 88, id: 1067256 },
-  { n: '애덤 스미스', p: 'RB', x: 83, y: 71, id: 160447 },
-  { n: '안토니우 실바', p: 'CB', x: 36, y: 75, id: 1292092 },
-  { n: '바포데 디아키테', p: 'CB', x: 64, y: 75, id: 979752 },
-  { n: '트뤼페르', p: 'LB', x: 17, y: 71, id: 1177358 },
-  { n: '알렉스 스콧', p: 'DM', x: 34, y: 58, id: 1233655 },
-  { n: '타일러 애덤스', p: 'DM', x: 66, y: 58, id: 729769 },
-  { n: '벤 도크', p: 'RW', x: 82, y: 27, id: 1324871 },
-  { n: '클라위베르트', p: 'AM', x: 50, y: 33, id: 794253 },
-  { n: '아민 아들리', p: 'LW', x: 18, y: 27, id: 1079557 },
-  { n: '에바닐송', p: 'ST', x: 50, y: 17, id: 1098096 }
+  { n: '페트로비치', nat: '세르비아', p: 'GK', x: 50, y: 88, id: 1067256 },
+  { n: '애덤 스미스', nat: '잉글랜드', p: 'RB', x: 83, y: 71, id: 160447 },
+  { n: '안토니우 실바', nat: '포르투갈', p: 'CB', x: 36, y: 75, id: 1292092 },
+  { n: '바포데 디아키테', nat: '프랑스', p: 'CB', x: 64, y: 75, id: 979752 },
+  { n: '트뤼페르', nat: '프랑스', p: 'LB', x: 17, y: 71, id: 1177358 },
+  { n: '알렉스 스콧', nat: '잉글랜드', p: 'DM', x: 34, y: 58, id: 1233655 },
+  { n: '타일러 애덤스', nat: '미국', p: 'DM', x: 66, y: 58, id: 729769 },
+  { n: '벤 도크', nat: '스코틀랜드', p: 'RW', x: 82, y: 27, id: 1324871 },
+  { n: '클라위베르트', nat: '네덜란드', p: 'AM', x: 50, y: 33, id: 794253 },
+  { n: '아민 아들리', nat: '모로코', p: 'LW', x: 18, y: 27, id: 1079557 },
+  { n: '에바닐송', nat: '브라질', p: 'ST', x: 50, y: 17, id: 1098096 }
 ];</script>
 </section>
 
@@ -5437,10 +5452,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="레지스 르 브리"
+          <img class="p-photo mgr-img" loading="lazy" alt="레지스 르 브리"
             src="https://images.fotmob.com/image_resources/playerimages/1381583.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">레</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">레</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">레지스 르 브리</div>
@@ -5485,17 +5500,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["sun"] = [
-  { n: '로빈 루프스', p: 'GK', x: 50, y: 88, id: 1125720 },
-  { n: '토마 뫼니에', p: 'RB', x: 83, y: 71, id: 277771 },
-  { n: '댄 밸러드', p: 'CB', x: 36, y: 75, id: 974268 },
-  { n: '루크 오니엔', p: 'CB', x: 64, y: 75, id: 480253 },
-  { n: '헤이닐두 만다바', p: 'LB', x: 17, y: 71, id: 600524 },
-  { n: '그라니트 자카', p: 'DM', x: 50, y: 58, id: 207236 },
-  { n: '노아 사디키', p: 'CM', x: 34, y: 47, id: 1359649 },
-  { n: '엔조 르 페', p: 'CM', x: 66, y: 47, id: 1049999 },
-  { n: '트라이 흄', p: 'RW', x: 82, y: 27, id: 1067763 },
-  { n: '셈스딘 탈비', p: 'LW', x: 18, y: 27, id: 1368654 },
-  { n: '브라이언 브로베이', p: 'ST', x: 50, y: 17, id: 940446 }
+  { n: '로빈 루프스', nat: '네덜란드', p: 'GK', x: 50, y: 88, id: 1125720 },
+  { n: '토마 뫼니에', nat: '벨기에', p: 'RB', x: 83, y: 71, id: 277771 },
+  { n: '댄 밸러드', nat: '북아일랜드', p: 'CB', x: 36, y: 75, id: 974268 },
+  { n: '루크 오니엔', nat: '잉글랜드', p: 'CB', x: 64, y: 75, id: 480253 },
+  { n: '헤이닐두 만다바', nat: '모잠비크', p: 'LB', x: 17, y: 71, id: 600524 },
+  { n: '그라니트 자카', nat: '스위스', p: 'DM', x: 50, y: 58, id: 207236 },
+  { n: '노아 사디키', nat: '콩고민주공화국', p: 'CM', x: 34, y: 47, id: 1359649 },
+  { n: '엔조 르 페', nat: '프랑스', p: 'CM', x: 66, y: 47, id: 1049999 },
+  { n: '트라이 흄', nat: '북아일랜드', p: 'RW', x: 82, y: 27, id: 1067763 },
+  { n: '셈스딘 탈비', nat: '모로코', p: 'LW', x: 18, y: 27, id: 1368654 },
+  { n: '브라이언 브로베이', nat: '네덜란드', p: 'ST', x: 50, y: 17, id: 940446 }
 ];</script>
 </section>
 
@@ -5507,10 +5522,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="파비안 휘르첼러"
+          <img class="p-photo mgr-img" loading="lazy" alt="파비안 휘르첼러"
             src="https://images.fotmob.com/image_resources/playerimages/208516.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">파</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">파</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">파비안 휘르첼러</div>
@@ -5555,17 +5570,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["bha"] = [
-  { n: '페르브뤼헌', p: 'GK', x: 50, y: 88, id: 1131987 },
-  { n: '카디오을루', p: 'RB', x: 83, y: 71, id: 774448 },
-  { n: '부슈코비치', p: 'CB', x: 36, y: 75 },
-  { n: '보스칼리', p: 'CB', x: 64, y: 75, id: 613715 },
-  { n: '이고르 줄리우', p: 'LB', x: 17, y: 71, id: 768331 },
-  { n: '파스칼 그로스', p: 'DM', x: 50, y: 58, id: 167008 },
-  { n: '야신 아야리', p: 'CM', x: 50, y: 47, id: 1168311 },
-  { n: '얀쿠바 민테', p: 'RW', x: 82, y: 27, id: 1400227 },
-  { n: '힌셜우드', p: 'AM', x: 50, y: 33, id: 1251334 },
-  { n: '디에고 고메스', p: 'LW', x: 18, y: 27, id: 1354561 },
-  { n: '조르지뇨 뤼테르', p: 'ST', x: 50, y: 17, id: 956925 }
+  { n: '페르브뤼헌', nat: '네덜란드', p: 'GK', x: 50, y: 88, id: 1131987 },
+  { n: '카디오을루', nat: '튀르키예', p: 'RB', x: 83, y: 71, id: 774448 },
+  { n: '부슈코비치', nat: '크로아티아', p: 'CB', x: 36, y: 75 },
+  { n: '보스칼리', nat: '프랑스', p: 'CB', x: 64, y: 75, id: 613715 },
+  { n: '이고르 줄리우', nat: '브라질', p: 'LB', x: 17, y: 71, id: 768331 },
+  { n: '파스칼 그로스', nat: '독일', p: 'DM', x: 50, y: 58, id: 167008 },
+  { n: '야신 아야리', nat: '스웨덴', p: 'CM', x: 50, y: 47, id: 1168311 },
+  { n: '얀쿠바 민테', nat: '감비아', p: 'RW', x: 82, y: 27, id: 1400227 },
+  { n: '힌셜우드', nat: '잉글랜드', p: 'AM', x: 50, y: 33, id: 1251334 },
+  { n: '디에고 고메스', nat: '파라과이', p: 'LW', x: 18, y: 27, id: 1354561 },
+  { n: '조르지뇨 뤼테르', nat: '프랑스', p: 'ST', x: 50, y: 17, id: 956925 }
 ];</script>
 </section>
 
@@ -5577,10 +5592,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="키스 앤드루스"
+          <img class="p-photo mgr-img" loading="lazy" alt="키스 앤드루스"
             src="https://images.fotmob.com/image_resources/playerimages/38711.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">키</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">키</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">키스 앤드루스</div>
@@ -5625,17 +5640,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["bre"] = [
-  { n: '키비언 켈러허', p: 'GK', x: 50, y: 88, id: 776689 },
-  { n: '미카엘 카요데', p: 'RB', x: 83, y: 71, id: 1429912 },
-  { n: '네이선 콜린스', p: 'CB', x: 36, y: 75, id: 961306 },
-  { n: '판 덴 베르흐', p: 'CB', x: 64, y: 75, id: 919435 },
-  { n: '루이스포터', p: 'LB', x: 17, y: 71, id: 1010426 },
-  { n: '마마두 상가레', p: 'DM', x: 50, y: 58 },
-  { n: '야르몰류크', p: 'CM', x: 50, y: 47, id: 1185211 },
-  { n: '당고 와타라', p: 'RW', x: 82, y: 27, id: 1250253 },
-  { n: '담스고르', p: 'AM', x: 50, y: 33, id: 888912 },
-  { n: '케빈 샤데', p: 'LW', x: 18, y: 27, id: 1083796 },
-  { n: '이고르 치아구', p: 'ST', x: 50, y: 17, id: 1302005 }
+  { n: '키비언 켈러허', nat: '아일랜드', p: 'GK', x: 50, y: 88, id: 776689 },
+  { n: '미카엘 카요데', nat: '이탈리아', p: 'RB', x: 83, y: 71, id: 1429912 },
+  { n: '네이선 콜린스', nat: '아일랜드', p: 'CB', x: 36, y: 75, id: 961306 },
+  { n: '판 덴 베르흐', nat: '네덜란드', p: 'CB', x: 64, y: 75, id: 919435 },
+  { n: '루이스포터', nat: '잉글랜드', p: 'LB', x: 17, y: 71, id: 1010426 },
+  { n: '마마두 상가레', nat: '말리', p: 'DM', x: 50, y: 58 },
+  { n: '야르몰류크', nat: '우크라이나', p: 'CM', x: 50, y: 47, id: 1185211 },
+  { n: '당고 와타라', nat: '부르키나파소', p: 'RW', x: 82, y: 27, id: 1250253 },
+  { n: '담스고르', nat: '덴마크', p: 'AM', x: 50, y: 33, id: 888912 },
+  { n: '케빈 샤데', nat: '독일', p: 'LW', x: 18, y: 27, id: 1083796 },
+  { n: '이고르 치아구', nat: '브라질', p: 'ST', x: 50, y: 17, id: 1302005 }
 ];</script>
 </section>
 
@@ -5647,10 +5662,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="사비 알론소"
+          <img class="p-photo mgr-img" loading="lazy" alt="사비 알론소"
             src="https://images.fotmob.com/image_resources/playerimages/30889.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">사</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">사</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">사비 알론소</div>
@@ -5695,17 +5710,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["che"] = [
-  { n: '로베르트 산체스', p: 'GK', x: 50, y: 88, id: 789571 },
+  { n: '로베르트 산체스', nat: '스페인', p: 'GK', x: 50, y: 88, id: 789571 },
   { n: '포파나', p: 'CB', x: 26, y: 75, id: 917802 },
-  { n: '라크루아', p: 'CB', x: 50, y: 75 },
+  { n: '라크루아', nat: '프랑스', p: 'CB', x: 50, y: 75 },
   { n: '콜윌', p: 'CB', x: 74, y: 75, id: 1096400 },
-  { n: '팔레스트라', p: 'RWB', x: 88, y: 56, id: 1473806 },
-  { n: '카이세도', p: 'DM', x: 50, y: 58, id: 1137668 },
+  { n: '팔레스트라', nat: '이탈리아', p: 'RWB', x: 88, y: 56, id: 1473806 },
+  { n: '카이세도', nat: '에콰도르', p: 'DM', x: 50, y: 58, id: 1137668 },
   { n: '라비아', p: 'CM', x: 50, y: 47, id: 1190867 },
   { n: '하토', p: 'LWB', x: 12, y: 56, id: 1413846 },
-  { n: '콜 파머', p: 'AM', x: 34, y: 33, id: 1096353 },
-  { n: '모건 로저스', p: 'AM', x: 66, y: 33, id: 883080 },
-  { n: '주앙 페드루', p: 'ST', x: 50, y: 17, id: 1021382 }
+  { n: '콜 파머', nat: '잉글랜드', p: 'AM', x: 34, y: 33, id: 1096353 },
+  { n: '모건 로저스', nat: '잉글랜드', p: 'AM', x: 66, y: 33, id: 883080 },
+  { n: '주앙 페드루', nat: '브라질', p: 'ST', x: 50, y: 17, id: 1021382 }
 ];</script>
 </section>
 
@@ -5717,10 +5732,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="알바로 아르벨로아"
+          <img class="p-photo mgr-img" loading="lazy" alt="알바로 아르벨로아"
             src="https://images.fotmob.com/image_resources/playerimages/37442.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">알</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">알</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">알바로 아르벨로아</div>
@@ -5765,17 +5780,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["ful"] = [
-  { n: '베른트 레노', p: 'GK', x: 50, y: 88, id: 215168 },
-  { n: '카스타뉴', p: 'RB', x: 83, y: 71, id: 465750 },
-  { n: '요아킴 안데르센', p: 'CB', x: 36, y: 75, id: 503659 },
-  { n: '칼빈 배시', p: 'CB', x: 64, y: 75, id: 877401 },
-  { n: '안토니 로빈슨', p: 'LB', x: 17, y: 71, id: 662428 },
-  { n: '산데르 베르게', p: 'DM', x: 50, y: 58, id: 540963 },
-  { n: '알렉스 이워비', p: 'CM', x: 50, y: 47, id: 604785 },
-  { n: '케빈', p: 'RW', x: 82, y: 27 },
-  { n: '에밀 스미스 로우', p: 'AM', x: 50, y: 33, id: 889534 },
-  { n: '오스카 보브', p: 'LW', x: 18, y: 27, id: 1113790 },
-  { n: '곤살로 가르시아', p: 'ST', x: 50, y: 17 }
+  { n: '베른트 레노', nat: '독일', p: 'GK', x: 50, y: 88, id: 215168 },
+  { n: '카스타뉴', nat: '벨기에', p: 'RB', x: 83, y: 71, id: 465750 },
+  { n: '요아킴 안데르센', nat: '덴마크', p: 'CB', x: 36, y: 75, id: 503659 },
+  { n: '칼빈 배시', nat: '나이지리아', p: 'CB', x: 64, y: 75, id: 877401 },
+  { n: '안토니 로빈슨', nat: '미국', p: 'LB', x: 17, y: 71, id: 662428 },
+  { n: '산데르 베르게', nat: '노르웨이', p: 'DM', x: 50, y: 58, id: 540963 },
+  { n: '알렉스 이워비', nat: '나이지리아', p: 'CM', x: 50, y: 47, id: 604785 },
+  { n: '케빈', nat: '브라질', p: 'RW', x: 82, y: 27 },
+  { n: '에밀 스미스 로우', nat: '잉글랜드', p: 'AM', x: 50, y: 33, id: 889534 },
+  { n: '오스카 보브', nat: '노르웨이', p: 'LW', x: 18, y: 27, id: 1113790 },
+  { n: '곤살로 가르시아', nat: '스페인', p: 'ST', x: 50, y: 17 }
 ];</script>
 </section>
 
@@ -5787,10 +5802,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="마티아스 야이슬레"
+          <img class="p-photo mgr-img" loading="lazy" alt="마티아스 야이슬레"
             src="https://images.fotmob.com/image_resources/playerimages/59582.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">마</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">마</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">마티아스 야이슬레</div>
@@ -5835,16 +5850,16 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["new"] = [
-  { n: '호르니체크', p: 'GK', x: 50, y: 88 },
+  { n: '호르니체크', nat: '체코', p: 'GK', x: 50, y: 88 },
   { n: '리브라멘투', p: 'RB', x: 83, y: 71 },
   { n: '티아우', p: 'CB', x: 36, y: 75, id: 1137407 },
   { n: '보트만', p: 'CB', x: 64, y: 75, id: 956682 },
-  { n: '루이스 홀', p: 'LB', x: 17, y: 71, id: 1197655 },
+  { n: '루이스 홀', nat: '잉글랜드', p: 'LB', x: 17, y: 71, id: 1197655 },
   { n: '밤바', p: 'DM', x: 50, y: 58, id: 1695681 },
-  { n: '조엘린통', p: 'CM', x: 50, y: 47, id: 535936 },
+  { n: '조엘린통', nat: '브라질', p: 'CM', x: 50, y: 47, id: 535936 },
   { n: '엘랑가', p: 'RW', x: 82, y: 27, id: 1050166 },
-  { n: '제이컵 램지', p: 'AM', x: 50, y: 33, id: 1021929 },
-  { n: '바주마나 투레', p: 'LW', x: 18, y: 27, id: 1624586 },
+  { n: '제이컵 램지', nat: '잉글랜드', p: 'AM', x: 50, y: 33, id: 1021929 },
+  { n: '바주마나 투레', nat: '코트디부아르', p: 'LW', x: 18, y: 27, id: 1624586 },
   { n: '볼테마데', p: 'ST', x: 50, y: 17, id: 1106563 }
 ];</script>
 </section>
@@ -5857,10 +5872,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="데이비드 모예스"
+          <img class="p-photo mgr-img" loading="lazy" alt="데이비드 모예스"
             src="https://images.fotmob.com/image_resources/playerimages/78626.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">데</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">데</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">데이비드 모예스</div>
@@ -5908,14 +5923,14 @@
   { n: '픽퍼드', p: 'GK', x: 50, y: 88 },
   { n: '오브라이언', p: 'RB', x: 83, y: 71, id: 1098607 },
   { n: '타코스키', p: 'CB', x: 36, y: 75, id: 243138 },
-  { n: '브랜스웨이트', p: 'CB', x: 64, y: 75, id: 1030829 },
-  { n: '미콜렌코', p: 'LB', x: 17, y: 71, id: 874025 },
-  { n: '노르고르', p: 'DM', x: 50, y: 58 },
+  { n: '브랜스웨이트', nat: '잉글랜드', p: 'CB', x: 64, y: 75, id: 1030829 },
+  { n: '미콜렌코', nat: '우크라이나', p: 'LB', x: 17, y: 71, id: 874025 },
+  { n: '노르고르', nat: '덴마크', p: 'DM', x: 50, y: 58 },
   { n: '해크니', p: 'CM', x: 50, y: 47, id: 982394 },
-  { n: '타이릭 조지', p: 'RW', x: 82, y: 27, id: 1424875 },
-  { n: '듀스버리홀', p: 'AM', x: 50, y: 33, id: 1076756 },
+  { n: '타이릭 조지', nat: '잉글랜드', p: 'RW', x: 82, y: 27, id: 1424875 },
+  { n: '듀스버리홀', nat: '잉글랜드', p: 'AM', x: 50, y: 33, id: 1076756 },
   { n: '은디아예', p: 'LW', x: 18, y: 27, id: 965764 },
-  { n: '베투', p: 'ST', x: 50, y: 17, id: 1079485 }
+  { n: '베투', nat: '기니비사우', p: 'ST', x: 50, y: 17, id: 1079485 }
 ];</script>
 </section>
 
@@ -5927,10 +5942,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="다니엘 파르케"
+          <img class="p-photo mgr-img" loading="lazy" alt="다니엘 파르케"
             src="https://images.fotmob.com/image_resources/playerimages/849545.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">다</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">다</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">다니엘 파르케</div>
@@ -5975,17 +5990,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["lee"] = [
-  { n: '제임스 트래퍼드', p: 'GK', x: 50, y: 88 },
-  { n: '제이든 보글', p: 'RB', x: 83, y: 71, id: 789646 },
-  { n: '무하레모비치', p: 'CB', x: 36, y: 75, id: 1250485 },
-  { n: '야카 비욜', p: 'CB', x: 64, y: 75, id: 861805 },
-  { n: '제임스 저스틴', p: 'LB', x: 17, y: 71, id: 710158 },
-  { n: '이선 암파두', p: 'DM', x: 50, y: 58, id: 780432 },
-  { n: '안톤 슈타흐', p: 'CM', x: 34, y: 47, id: 881735 },
-  { n: '다나카 아오', p: 'CM', x: 66, y: 47, id: 935728 },
-  { n: '대니얼 제임스', p: 'RW', x: 82, y: 27, id: 717176 },
-  { n: '브렌던 애런슨', p: 'LW', x: 18, y: 27, id: 952322 },
-  { n: '루카스 은메차', p: 'ST', x: 50, y: 17, id: 861197 }
+  { n: '제임스 트래퍼드', nat: '잉글랜드', p: 'GK', x: 50, y: 88 },
+  { n: '제이든 보글', nat: '잉글랜드', p: 'RB', x: 83, y: 71, id: 789646 },
+  { n: '무하레모비치', nat: '보스니아', p: 'CB', x: 36, y: 75, id: 1250485 },
+  { n: '야카 비욜', nat: '슬로베니아', p: 'CB', x: 64, y: 75, id: 861805 },
+  { n: '제임스 저스틴', nat: '잉글랜드', p: 'LB', x: 17, y: 71, id: 710158 },
+  { n: '이선 암파두', nat: '웨일스', p: 'DM', x: 50, y: 58, id: 780432 },
+  { n: '안톤 슈타흐', nat: '독일', p: 'CM', x: 34, y: 47, id: 881735 },
+  { n: '다나카 아오', nat: '일본', p: 'CM', x: 66, y: 47, id: 935728 },
+  { n: '대니얼 제임스', nat: '웨일스', p: 'RW', x: 82, y: 27, id: 717176 },
+  { n: '브렌던 애런슨', nat: '미국', p: 'LW', x: 18, y: 27, id: 952322 },
+  { n: '루카스 은메차', nat: '독일', p: 'ST', x: 50, y: 17, id: 861197 }
 ];</script>
 </section>
 
@@ -5997,10 +6012,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="피에르 사주"
+          <img class="p-photo mgr-img" loading="lazy" alt="피에르 사주"
             src="https://images.fotmob.com/image_resources/playerimages/1586853.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">피</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">피</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">피에르 사주</div>
@@ -6045,17 +6060,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["cry"] = [
-  { n: '딘 헨더슨', p: 'GK', x: 50, y: 88, id: 719330 },
-  { n: '크리스 리처즈', p: 'CB', x: 26, y: 75, id: 950829 },
-  { n: '샤디 리아드', p: 'CB', x: 50, y: 75, id: 1187506 },
-  { n: '제이디 캉보', p: 'CB', x: 74, y: 75 },
-  { n: '다니엘 무뇨스', p: 'RWB', x: 88, y: 56, id: 859282 },
-  { n: '애덤 와튼', p: 'CM', x: 34, y: 47, id: 1296650 },
-  { n: '윌 휴스', p: 'CM', x: 66, y: 47, id: 295067 },
-  { n: '타이릭 미첼', p: 'LWB', x: 12, y: 56, id: 1120224 },
-  { n: '이스마일라 사르', p: 'RW', x: 82, y: 27, id: 771294 },
-  { n: '마테타', p: 'ST', x: 50, y: 17, id: 706297 },
-  { n: '예레미 피노', p: 'LW', x: 18, y: 27, id: 1047676 }
+  { n: '딘 헨더슨', nat: '잉글랜드', p: 'GK', x: 50, y: 88, id: 719330 },
+  { n: '크리스 리처즈', nat: '미국', p: 'CB', x: 26, y: 75, id: 950829 },
+  { n: '샤디 리아드', nat: '모로코', p: 'CB', x: 50, y: 75, id: 1187506 },
+  { n: '제이디 캉보', nat: '프랑스', p: 'CB', x: 74, y: 75 },
+  { n: '다니엘 무뇨스', nat: '콜롬비아', p: 'RWB', x: 88, y: 56, id: 859282 },
+  { n: '애덤 와튼', nat: '잉글랜드', p: 'CM', x: 34, y: 47, id: 1296650 },
+  { n: '윌 휴스', nat: '잉글랜드', p: 'CM', x: 66, y: 47, id: 295067 },
+  { n: '타이릭 미첼', nat: '잉글랜드', p: 'LWB', x: 12, y: 56, id: 1120224 },
+  { n: '이스마일라 사르', nat: '세네갈', p: 'RW', x: 82, y: 27, id: 771294 },
+  { n: '마테타', nat: '프랑스', p: 'ST', x: 50, y: 17, id: 706297 },
+  { n: '예레미 피노', nat: '스페인', p: 'LW', x: 18, y: 27, id: 1047676 }
 ];</script>
 </section>
 
@@ -6067,10 +6082,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="올리버 글라스너"
+          <img class="p-photo mgr-img" loading="lazy" alt="올리버 글라스너"
             src="https://images.fotmob.com/image_resources/playerimages/43009.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">올</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">올</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">올리버 글라스너</div>
@@ -6115,17 +6130,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["nfo"] = [
-  { n: '마츠 셀스', p: 'GK', x: 50, y: 88, id: 181069 },
-  { n: '디오망드', p: 'CB', x: 26, y: 75, id: 1425182 },
-  { n: '밀렌코비치', p: 'CB', x: 50, y: 75, id: 766611 },
-  { n: '무릴루', p: 'CB', x: 74, y: 75, id: 1458711 },
-  { n: '올라 아이나', p: 'RWB', x: 88, y: 56, id: 682548 },
-  { n: '이브라힘 상가레', p: 'DM', x: 50, y: 58, id: 795371 },
-  { n: '자버 슐라거', p: 'CM', x: 50, y: 47, id: 620027 },
-  { n: '네코 윌리엄스', p: 'LWB', x: 12, y: 56, id: 1078788 },
-  { n: '모건 깁스화이트', p: 'AM', x: 34, y: 33, id: 789502 },
-  { n: '단 은도예', p: 'AM', x: 66, y: 33, id: 1022649 },
-  { n: '이고르 제주스', p: 'ST', x: 50, y: 17, id: 1082102 }
+  { n: '마츠 셀스', nat: '벨기에', p: 'GK', x: 50, y: 88, id: 181069 },
+  { n: '디오망드', nat: '코트디부아르', p: 'CB', x: 26, y: 75, id: 1425182 },
+  { n: '밀렌코비치', nat: '세르비아', p: 'CB', x: 50, y: 75, id: 766611 },
+  { n: '무릴루', nat: '브라질', p: 'CB', x: 74, y: 75, id: 1458711 },
+  { n: '올라 아이나', nat: '나이지리아', p: 'RWB', x: 88, y: 56, id: 682548 },
+  { n: '이브라힘 상가레', nat: '코트디부아르', p: 'DM', x: 50, y: 58, id: 795371 },
+  { n: '자버 슐라거', nat: '오스트리아', p: 'CM', x: 50, y: 47, id: 620027 },
+  { n: '네코 윌리엄스', nat: '웨일스', p: 'LWB', x: 12, y: 56, id: 1078788 },
+  { n: '모건 깁스화이트', nat: '잉글랜드', p: 'AM', x: 34, y: 33, id: 789502 },
+  { n: '단 은도예', nat: '스위스', p: 'AM', x: 66, y: 33, id: 1022649 },
+  { n: '이고르 제주스', nat: '브라질', p: 'ST', x: 50, y: 17, id: 1082102 }
 ];</script>
 </section>
 
@@ -6137,10 +6152,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="로베르토 데 제르비"
+          <img class="p-photo mgr-img" loading="lazy" alt="로베르토 데 제르비"
             src="https://images.fotmob.com/image_resources/playerimages/42044.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">로</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">로</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">로베르토 데 제르비</div>
@@ -6187,15 +6202,15 @@
   <script>XI18["tot"] = [
   { n: '킨스키', p: 'GK', x: 50, y: 88, id: 1341475 },
   { n: '포로', p: 'RB', x: 83, y: 71, id: 941573 },
-  { n: '판 헤케', p: 'CB', x: 36, y: 75, id: 974618 },
-  { n: '판 더 펜', p: 'CB', x: 64, y: 75, id: 1097466 },
-  { n: '로버트슨', p: 'LB', x: 17, y: 71, id: 357880 },
+  { n: '판 헤케', nat: '네덜란드', p: 'CB', x: 36, y: 75, id: 974618 },
+  { n: '판 더 펜', nat: '네덜란드', p: 'CB', x: 64, y: 75, id: 1097466 },
+  { n: '로버트슨', nat: '스코틀랜드', p: 'LB', x: 17, y: 71, id: 357880 },
   { n: '토날리', p: 'DM', x: 50, y: 58, id: 867414 },
-  { n: '페르난드스', p: 'CM', x: 50, y: 47, id: 1356312 },
+  { n: '페르난드스', nat: '포르투갈', p: 'CM', x: 50, y: 47, id: 1356312 },
   { n: '쿠두스', p: 'RW', x: 82, y: 27, id: 891743 },
-  { n: '사비 시몬스', p: 'AM', x: 50, y: 33, id: 1173787 },
-  { n: '마티스 텔', p: 'LW', x: 18, y: 27, id: 1288111 },
-  { n: '히샬리송', p: 'ST', x: 50, y: 17, id: 654908 }
+  { n: '사비 시몬스', nat: '네덜란드', p: 'AM', x: 50, y: 33, id: 1173787 },
+  { n: '마티스 텔', nat: '프랑스', p: 'LW', x: 18, y: 27, id: 1288111 },
+  { n: '히샬리송', nat: '브라질', p: 'ST', x: 50, y: 17, id: 654908 }
 ];</script>
 </section>
 
@@ -6207,10 +6222,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="프랭크 램파드"
+          <img class="p-photo mgr-img" loading="lazy" alt="프랭크 램파드"
             src="https://images.fotmob.com/image_resources/playerimages/30631.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">프</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">프</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">프랭크 램파드</div>
@@ -6255,17 +6270,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["cov"] = [
-  { n: '칼 러시워스', p: 'GK', x: 50, y: 88 },
-  { n: '판 에베이크', p: 'RB', x: 83, y: 71, id: 1074750 },
-  { n: '오렐 아멘다', p: 'CB', x: 36, y: 75 },
-  { n: '리암 키칭', p: 'CB', x: 64, y: 75, id: 914399 },
-  { n: '제이 다실바', p: 'LB', x: 17, y: 71, id: 759814 },
-  { n: '프랭크 온예카', p: 'DM', x: 50, y: 58, id: 856685 },
-  { n: '맷 그라임스', p: 'CM', x: 50, y: 47, id: 478357 },
-  { n: '룸 차우나', p: 'RW', x: 82, y: 27 },
-  { n: '토머스-아산테', p: 'AM', x: 50, y: 33, id: 776184 },
-  { n: '사카모토', p: 'LW', x: 18, y: 27, id: 1025603 },
-  { n: '하지 라이트', p: 'ST', x: 50, y: 17, id: 848268 }
+  { n: '칼 러시워스', nat: '잉글랜드', p: 'GK', x: 50, y: 88 },
+  { n: '판 에베이크', nat: '네덜란드', p: 'RB', x: 83, y: 71, id: 1074750 },
+  { n: '오렐 아멘다', nat: '스위스', p: 'CB', x: 36, y: 75 },
+  { n: '리암 키칭', nat: '잉글랜드', p: 'CB', x: 64, y: 75, id: 914399 },
+  { n: '제이 다실바', nat: '웨일스', p: 'LB', x: 17, y: 71, id: 759814 },
+  { n: '프랭크 온예카', nat: '나이지리아', p: 'DM', x: 50, y: 58, id: 856685 },
+  { n: '맷 그라임스', nat: '잉글랜드', p: 'CM', x: 50, y: 47, id: 478357 },
+  { n: '룸 차우나', nat: '프랑스', p: 'RW', x: 82, y: 27 },
+  { n: '토머스-아산테', nat: '가나', p: 'AM', x: 50, y: 33, id: 776184 },
+  { n: '사카모토', nat: '일본', p: 'LW', x: 18, y: 27, id: 1025603 },
+  { n: '하지 라이트', nat: '미국', p: 'ST', x: 50, y: 17, id: 848268 }
 ];</script>
 </section>
 
@@ -6277,10 +6292,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="게리 오닐"
+          <img class="p-photo mgr-img" loading="lazy" alt="게리 오닐"
             src="https://images.fotmob.com/image_resources/playerimages/24393.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">게</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">게</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">게리 오닐</div>
@@ -6325,16 +6340,16 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["ips"] = [
-  { n: '셸 스헤르펀', p: 'GK', x: 50, y: 88 },
-  { n: '다넬 펄롱', p: 'RB', x: 83, y: 71, id: 609733 },
-  { n: '다라 오셰이', p: 'CB', x: 36, y: 75, id: 789578 },
+  { n: '셸 스헤르펀', nat: '네덜란드', p: 'GK', x: 50, y: 88 },
+  { n: '다넬 펄롱', nat: '잉글랜드', p: 'RB', x: 83, y: 71, id: 609733 },
+  { n: '다라 오셰이', nat: '아일랜드', p: 'CB', x: 36, y: 75, id: 789578 },
   { n: '이사 디오프', p: 'CB', x: 64, y: 75 },
-  { n: '레이프 데이비스', p: 'LB', x: 17, y: 71, id: 980381 },
-  { n: '아조르 마투시와', p: 'DM', x: 50, y: 58, id: 797594 },
-  { n: '사샤 루키치', p: 'CM', x: 50, y: 47 },
-  { n: '이사하쿠 파타우', p: 'RW', x: 82, y: 27 },
-  { n: '마르셀리노 누녜스', p: 'AM', x: 50, y: 33, id: 1129081 },
-  { n: '마에다 다이젠', p: 'LW', x: 18, y: 27 },
+  { n: '레이프 데이비스', nat: '잉글랜드', p: 'LB', x: 17, y: 71, id: 980381 },
+  { n: '아조르 마투시와', nat: '네덜란드', p: 'DM', x: 50, y: 58, id: 797594 },
+  { n: '사샤 루키치', nat: '세르비아', p: 'CM', x: 50, y: 47 },
+  { n: '이사하쿠 파타우', nat: '가나', p: 'RW', x: 82, y: 27 },
+  { n: '마르셀리노 누녜스', nat: '칠레', p: 'AM', x: 50, y: 33, id: 1129081 },
+  { n: '마에다 다이젠', nat: '일본', p: 'LW', x: 18, y: 27 },
   { n: '조지 허스트', p: 'ST', x: 50, y: 17, id: 750033 }
 ];</script>
 </section>
@@ -6347,10 +6362,10 @@
       <h3>감독</h3>
       <div class="mgr">
         <div class="p-photo-wrap">
-          <img class="p-photo" loading="lazy" style="display:none" alt="세르게이 야키로비치"
+          <img class="p-photo mgr-img" loading="lazy" alt="세르게이 야키로비치"
             src="https://images.fotmob.com/image_resources/playerimages/9012.png"
-            onload="this.style.display='block';this.nextElementSibling.style.display='none'">
-          <div class="p-fallback" style="display:flex;">세</div>
+            >
+          <div class="p-fallback mgr-fb" style="display:flex;">세</div>
         </div>
         <div class="mgr-info">
           <div class="mgr-name">세르게이 야키로비치</div>
@@ -6395,17 +6410,17 @@
     <p class="muted" style="margin-top:10px;">부상·이적시장 마감(한국시간 9월 2일)에 따라 바뀔 수 있어요.</p>
   </div>
   <script>XI18["hul"] = [
-  { n: '촐라키스', p: 'GK', x: 50, y: 88 },
-  { n: '루이 코일', p: 'RB', x: 83, y: 71, id: 709148 },
-  { n: '세미 아자이', p: 'CB', x: 36, y: 75, id: 410836 },
-  { n: '존 이건', p: 'CB', x: 64, y: 75, id: 295062 },
-  { n: '라이언 자일스', p: 'LB', x: 17, y: 71, id: 933635 },
-  { n: '리건 슬레이터', p: 'DM', x: 50, y: 58, id: 807930 },
-  { n: '맷 크룩스', p: 'CM', x: 50, y: 47, id: 280507 },
-  { n: '벨루미', p: 'RW', x: 82, y: 27, id: 1231090 },
-  { n: '키어런 다월', p: 'AM', x: 50, y: 33, id: 605262 },
-  { n: '아킨톨라', p: 'LW', x: 18, y: 27, id: 656495 },
-  { n: '올리 맥버니', p: 'ST', x: 50, y: 17, id: 509151 }
+  { n: '촐라키스', nat: '그리스', p: 'GK', x: 50, y: 88 },
+  { n: '루이 코일', nat: '잉글랜드', p: 'RB', x: 83, y: 71, id: 709148 },
+  { n: '세미 아자이', nat: '나이지리아', p: 'CB', x: 36, y: 75, id: 410836 },
+  { n: '존 이건', nat: '아일랜드', p: 'CB', x: 64, y: 75, id: 295062 },
+  { n: '라이언 자일스', nat: '잉글랜드', p: 'LB', x: 17, y: 71, id: 933635 },
+  { n: '리건 슬레이터', nat: '잉글랜드', p: 'DM', x: 50, y: 58, id: 807930 },
+  { n: '맷 크룩스', nat: '잉글랜드', p: 'CM', x: 50, y: 47, id: 280507 },
+  { n: '벨루미', nat: '알제리', p: 'RW', x: 82, y: 27, id: 1231090 },
+  { n: '키어런 다월', nat: '잉글랜드', p: 'AM', x: 50, y: 33, id: 605262 },
+  { n: '아킨톨라', nat: '나이지리아', p: 'LW', x: 18, y: 27, id: 656495 },
+  { n: '올리 맥버니', nat: '스코틀랜드', p: 'ST', x: 50, y: 17, id: 509151 }
 ];</script>
 </section>
 
@@ -6416,152 +6431,152 @@ const SQUAD18 = {
   mci: [
     { g: '골키퍼', players: [
       { n: '돈나룸마', p: '1번', id: 618878 },
-      { n: '베티넬리', p: '13번', id: 363357 },
-      { n: '헤로니모 룰리', p: '28번', id: 245555 }
+      { n: '베티넬리', nat: '잉글랜드', p: '13번', id: 363357 },
+      { n: '헤로니모 룰리', nat: '아르헨티나', p: '28번', id: 245555 }
     ] },
     { g: '수비수', players: [
       { n: '후벵 디아스', p: '3번', id: 614006 },
-      { n: '마르크 게히', p: '6번', id: 844425 },
-      { n: '아이트누리', p: '21번', id: 933845 },
+      { n: '마르크 게히', nat: '잉글랜드', p: '6번', id: 844425 },
+      { n: '아이트누리', nat: '알제리', p: '21번', id: 933845 },
       { n: '그바르디올', p: '24번', id: 1070712 },
-      { n: '마테우스 누네스', p: '27번', id: 955529 },
+      { n: '마테우스 누네스', nat: '포르투갈', p: '27번', id: 955529 },
       { n: '후사노프', p: '45번', id: 1362998 },
       { n: '리코 루이스', p: '82번', id: 1288450 },
-      { n: '비토르 헤이스', p: '번호 미정', id: null }
+      { n: '비토르 헤이스', nat: '브라질', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
       { n: '레인더르스', p: '4번', id: 868344 },
       { n: '엘리엇 앤더슨', p: '5번', id: 1089691 },
-      { n: '코바치치', p: '8번', id: 239219 },
-      { n: '라얀 셰르키', p: '10번', id: 1104053 },
-      { n: '로드리', p: '16번', id: 675088 },
-      { n: '니코 곤살레스', p: '번호 미정', id: null }
+      { n: '코바치치', nat: '크로아티아', p: '8번', id: 239219 },
+      { n: '라얀 셰르키', nat: '프랑스', p: '10번', id: 1104053 },
+      { n: '로드리', nat: '스페인', p: '16번', id: 675088 },
+      { n: '니코 곤살레스', nat: '스페인', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
-      { n: '오마르 마르무시', p: '7번', id: 839204 },
-      { n: '엘링 홀란', p: '9번', id: 737066 },
-      { n: '제레미 도쿠', p: '11번', id: 942368 },
-      { n: '사비뉴', p: '26번', id: 1174337 },
-      { n: '앙투안 세메뇨', p: '42번', id: 933576 },
-      { n: '필 포든', p: '47번', id: 815006 }
+      { n: '오마르 마르무시', nat: '이집트', p: '7번', id: 839204 },
+      { n: '엘링 홀란', nat: '노르웨이', p: '9번', id: 737066 },
+      { n: '제레미 도쿠', nat: '벨기에', p: '11번', id: 942368 },
+      { n: '사비뉴', nat: '브라질', p: '26번', id: 1174337 },
+      { n: '앙투안 세메뇨', nat: '가나', p: '42번', id: 933576 },
+      { n: '필 포든', nat: '잉글랜드', p: '47번', id: 815006 }
     ] }
   ],
   avl: [
     { g: '골키퍼', players: [
       { n: '에밀리아노 마르티네스', p: '23번', id: 268375 },
-      { n: '마르코 비조트', p: '40번', id: 195782 }
+      { n: '마르코 비조트', nat: '네덜란드', p: '40번', id: 195782 }
     ] },
     { g: '수비수', players: [
       { n: '매티 캐시', p: '2번', id: 729731 },
-      { n: '린델로프', p: '3번', id: 258269 },
-      { n: '에즈리 콘사', p: '4번', id: 710159 },
-      { n: '타이런 밍스', p: '5번', id: 419664 },
+      { n: '린델로프', nat: '스웨덴', p: '3번', id: 258269 },
+      { n: '에즈리 콘사', nat: '잉글랜드', p: '4번', id: 710159 },
+      { n: '타이런 밍스', nat: '잉글랜드', p: '5번', id: 419664 },
       { n: '파우 토레스', p: '14번', id: 792645 },
-      { n: '이안 마천', p: '22번', id: 966026 },
-      { n: '네델코비치', p: '32번', id: 1513910 },
-      { n: '케바 시세', p: '48번', id: 1714552 }
+      { n: '이안 마천', nat: '네덜란드', p: '22번', id: 966026 },
+      { n: '네델코비치', nat: '세르비아', p: '32번', id: 1513910 },
+      { n: '케바 시세', nat: '세네갈', p: '48번', id: 1714552 }
     ] },
     { g: '미드필더', players: [
-      { n: '로스 바클리', p: '6번', id: 215384 },
-      { n: '존 맥긴', p: '7번', id: 356406 },
-      { n: '부바카르 카마라', p: '8번', id: 816325 },
-      { n: '아마두 오나나', p: '24번', id: 1185748 },
+      { n: '로스 바클리', nat: '잉글랜드', p: '6번', id: 215384 },
+      { n: '존 맥긴', nat: '스코틀랜드', p: '7번', id: 356406 },
+      { n: '부바카르 카마라', nat: '프랑스', p: '8번', id: 816325 },
+      { n: '아마두 오나나', nat: '벨기에', p: '24번', id: 1185748 },
       { n: '주앙 고메스', p: '35번', id: 1174672 },
-      { n: '요한 만잠비', p: '44번', id: 1520063 }
+      { n: '요한 만잠비', nat: '스위스', p: '44번', id: 1520063 }
     ] },
     { g: '공격수', players: [
       { n: '부엔디아', p: '10번', id: 610184 },
-      { n: '올리 왓킨스', p: '11번', id: 540088 },
+      { n: '올리 왓킨스', nat: '잉글랜드', p: '11번', id: 540088 },
       { n: '가르나초', p: '17번', id: 1203665 },
-      { n: '태미 에이브러햄', p: '18번', id: 749661 },
-      { n: '리온 베일리', p: '31번', id: 671331 }
+      { n: '태미 에이브러햄', nat: '잉글랜드', p: '18번', id: 749661 },
+      { n: '리온 베일리', nat: '자메이카', p: '31번', id: 671331 }
     ] }
   ],
   liv: [
     { g: '골키퍼', players: [
-      { n: '알리송 베케르', p: '1번', id: 319784 },
-      { n: '마마르다슈빌리', p: '25번', id: 948800 },
-      { n: '프레디 우드먼', p: '28번', id: 582276 }
+      { n: '알리송 베케르', nat: '브라질', p: '1번', id: 319784 },
+      { n: '마마르다슈빌리', nat: '조지아', p: '25번', id: 948800 },
+      { n: '프레디 우드먼', nat: '잉글랜드', p: '28번', id: 582276 }
     ] },
     { g: '수비수', players: [
-      { n: '조 고메스', p: '2번', id: 568571 },
-      { n: '버질 반다이크', p: '4번', id: 209405 },
-      { n: '제레미 자케', p: '5번', id: 1473534 },
-      { n: '밀로시 케르케즈', p: '6번', id: 1195281 },
-      { n: '코너 브래들리', p: '12번', id: 1113690 },
-      { n: '조반니 레오니', p: '15번', id: 1609209 },
-      { n: '제레미 프림퐁', p: '30번', id: 966018 },
-      { n: '로날드 아라우호', p: '33번', id: 921253 }
+      { n: '조 고메스', nat: '잉글랜드', p: '2번', id: 568571 },
+      { n: '버질 반다이크', nat: '네덜란드', p: '4번', id: 209405 },
+      { n: '제레미 자케', nat: '프랑스', p: '5번', id: 1473534 },
+      { n: '밀로시 케르케즈', nat: '헝가리', p: '6번', id: 1195281 },
+      { n: '코너 브래들리', nat: '북아일랜드', p: '12번', id: 1113690 },
+      { n: '조반니 레오니', nat: '이탈리아', p: '15번', id: 1609209 },
+      { n: '제레미 프림퐁', nat: '네덜란드', p: '30번', id: 966018 },
+      { n: '로날드 아라우호', nat: '우루과이', p: '33번', id: 921253 }
     ] },
     { g: '미드필더', players: [
-      { n: '엔도 와타루', p: '3번', id: 202643 },
+      { n: '엔도 와타루', nat: '일본', p: '3번', id: 202643 },
       { n: '소보슬라이', p: '8번', id: 846005 },
       { n: '매캘리스터', p: '10번', id: 831489 },
-      { n: '커티스 존스', p: '17번', id: 933768 },
+      { n: '커티스 존스', nat: '잉글랜드', p: '17번', id: 933768 },
       { n: '흐라번베르흐', p: '38번', id: 956683 },
-      { n: '트레이 뇨니', p: '42번', id: 1436258 }
+      { n: '트레이 뇨니', nat: '잉글랜드', p: '42번', id: 1436258 }
     ] },
     { g: '공격수', players: [
-      { n: '플로리안 비르츠', p: '7번', id: 1152455 },
-      { n: '알렉산더 이사크', p: '9번', id: 690107 },
-      { n: '페데리코 키에사', p: '14번', id: 784510 },
-      { n: '코디 학포', p: '18번', id: 806552 },
-      { n: '위고 에키티케', p: '22번', id: 1197030 },
-      { n: '빅토르 무뇨스', p: '23번', id: 1553105 }
+      { n: '플로리안 비르츠', nat: '독일', p: '7번', id: 1152455 },
+      { n: '알렉산더 이사크', nat: '스웨덴', p: '9번', id: 690107 },
+      { n: '페데리코 키에사', nat: '이탈리아', p: '14번', id: 784510 },
+      { n: '코디 학포', nat: '네덜란드', p: '18번', id: 806552 },
+      { n: '위고 에키티케', nat: '프랑스', p: '22번', id: 1197030 },
+      { n: '빅토르 무뇨스', nat: '스페인', p: '23번', id: 1553105 }
     ] }
   ],
   bou: [
     { g: '골키퍼', players: [
       { n: '페트로비치', p: '1번', id: 1067256 },
-      { n: '프레이저 포스터', p: '17번', id: 95336 }
+      { n: '프레이저 포스터', nat: '잉글랜드', p: '17번', id: 95336 }
     ] },
     { g: '수비수', players: [
-      { n: '훌리안 아라우호', p: '2번', id: 1027447 },
+      { n: '훌리안 아라우호', nat: '멕시코', p: '2번', id: 1027447 },
       { n: '트뤼페르', p: '3번', id: 1177358 },
-      { n: '제임스 힐', p: '5번', id: 959407 },
-      { n: '훌리오 솔레르', p: '6번', id: 1358655 },
+      { n: '제임스 힐', nat: '잉글랜드', p: '5번', id: 959407 },
+      { n: '훌리오 솔레르', nat: '아르헨티나', p: '6번', id: 1358655 },
       { n: '안토니우 실바', p: '14번', id: 1292092 },
       { n: '애덤 스미스', p: '15번', id: 160447 },
       { n: '바포데 디아키테', p: '18번', id: 979752 },
-      { n: '밀로사블례비치', p: '44번', id: 1666977 },
-      { n: '후안루 산체스', p: '번호 미정', id: null }
+      { n: '밀로사블례비치', nat: '세르비아', p: '44번', id: 1666977 },
+      { n: '후안루 산체스', nat: '스페인', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
-      { n: '루이스 쿡', p: '4번', id: 562724 },
+      { n: '루이스 쿡', nat: '잉글랜드', p: '4번', id: 562724 },
       { n: '알렉스 스콧', p: '8번', id: 1233655 },
-      { n: '라이언 크리스티', p: '10번', id: 439369 },
+      { n: '라이언 크리스티', nat: '스코틀랜드', p: '10번', id: 439369 },
       { n: '타일러 애덤스', p: '12번', id: 729769 },
-      { n: '태버니어', p: '16번', id: 789630 },
+      { n: '태버니어', nat: '잉글랜드', p: '16번', id: 789630 },
       { n: '클라위베르트', p: '19번', id: 794253 }
     ] },
     { g: '공격수', players: [
       { n: '에바닐송', p: '9번', id: 1098096 },
       { n: '벤 도크', p: '11번', id: 1324871 },
       { n: '아민 아들리', p: '21번', id: 1079557 },
-      { n: '엘리 크루피', p: '22번', id: 1460534 },
-      { n: '하이안', p: '37번', id: 1478295 },
-      { n: '알바로 로드리게스', p: '번호 미정', id: null }
+      { n: '엘리 크루피', nat: '프랑스', p: '22번', id: 1460534 },
+      { n: '하이안', nat: '브라질', p: '37번', id: 1478295 },
+      { n: '알바로 로드리게스', nat: '우루과이', p: '번호 미정', id: null }
     ] }
   ],
   sun: [
     { g: '골키퍼', players: [
       { n: '로빈 루프스', p: '22번', id: 1125720 },
-      { n: '사이먼 무어', p: '21번', id: 180646 }
+      { n: '사이먼 무어', nat: '잉글랜드', p: '21번', id: 180646 }
     ] },
     { g: '수비수', players: [
       { n: '댄 밸러드', p: '5번', id: 974268 },
       { n: '토마 뫼니에', p: '12번', id: 277771 },
       { n: '루크 오니엔', p: '13번', id: 480253 },
-      { n: '오마르 알데레테', p: '15번', id: 751998 },
+      { n: '오마르 알데레테', nat: '파라과이', p: '15번', id: 751998 },
       { n: '헤이닐두 만다바', p: '17번', id: 600524 },
-      { n: '노르디 무키엘레', p: '20번', id: 602304 },
-      { n: '옌손 셀트', p: '23번', id: 1203192 },
+      { n: '노르디 무키엘레', nat: '프랑스', p: '20번', id: 602304 },
+      { n: '옌손 셀트', nat: '네덜란드', p: '23번', id: 1203192 },
       { n: '트라이 흄', p: '32번', id: 1067763 }
     ] },
     { g: '미드필더', players: [
-      { n: '앨런 브라운', p: '8번', id: 434498 },
-      { n: '크리스 리그', p: '11번', id: 1327319 },
-      { n: '아비브 디아라', p: '19번', id: 1285866 },
+      { n: '앨런 브라운', nat: '아일랜드', p: '8번', id: 434498 },
+      { n: '크리스 리그', nat: '잉글랜드', p: '11번', id: 1327319 },
+      { n: '아비브 디아라', nat: '세네갈', p: '19번', id: 1285866 },
       { n: '노아 사디키', p: '27번', id: 1359649 },
       { n: '엔조 르 페', p: '28번', id: 1049999 },
       { n: '그라니트 자카', p: '34번', id: 207236 }
@@ -6569,358 +6584,358 @@ const SQUAD18 = {
     { g: '공격수', players: [
       { n: '셈스딘 탈비', p: '7번', id: 1368654 },
       { n: '브라이언 브로베이', p: '9번', id: 940446 },
-      { n: '닐손 앙굴로', p: '10번', id: 1287010 },
-      { n: '로메인 먼들', p: '14번', id: 1123947 },
-      { n: '윌슨 이시도르', p: '18번', id: 887703 },
-      { n: '시몽 아딩그라', p: '24번', id: 1227012 }
+      { n: '닐손 앙굴로', nat: '에콰도르', p: '10번', id: 1287010 },
+      { n: '로메인 먼들', nat: '잉글랜드', p: '14번', id: 1123947 },
+      { n: '윌슨 이시도르', nat: '아이티', p: '18번', id: 887703 },
+      { n: '시몽 아딩그라', nat: '코트디부아르', p: '24번', id: 1227012 }
     ] }
   ],
   bha: [
     { g: '골키퍼', players: [
       { n: '페르브뤼헌', p: '1번', id: 1131987 },
-      { n: '제이슨 스틸', p: '23번', id: 107917 }
+      { n: '제이슨 스틸', nat: '잉글랜드', p: '23번', id: 107917 }
     ] },
     { g: '수비수', players: [
       { n: '이고르 줄리우', p: '3번', id: 768331 },
-      { n: '루이스 덩크', p: '5번', id: 201690 },
+      { n: '루이스 덩크', nat: '잉글랜드', p: '5번', id: 201690 },
       { n: '보스칼리', p: '21번', id: 613715 },
       { n: '카디오을루', p: '24번', id: 774448 },
-      { n: '더 카위퍼르', p: '29번', id: 1134871 },
-      { n: '스트라윅', p: '번호 미정', id: null },
+      { n: '더 카위퍼르', nat: '벨기에', p: '29번', id: 1134871 },
+      { n: '스트라윅', nat: '네덜란드', p: '번호 미정', id: null },
       { n: '부슈코비치', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
       { n: '힌셜우드', p: '13번', id: 1251334 },
-      { n: '카를로스 발레바', p: '17번', id: 1352713 },
+      { n: '카를로스 발레바', nat: '카메룬', p: '17번', id: 1352713 },
       { n: '디에고 고메스', p: '25번', id: 1354561 },
       { n: '야신 아야리', p: '26번', id: 1168311 },
       { n: '파스칼 그로스', p: '30번', id: 167008 },
-      { n: '맷 오라일리', p: '33번', id: 866686 }
+      { n: '맷 오라일리', nat: '덴마크', p: '33번', id: 866686 }
     ] },
     { g: '공격수', players: [
-      { n: '치마스', p: '9번', id: 1423616 },
+      { n: '치마스', nat: '그리스', p: '9번', id: 1423616 },
       { n: '조르지뇨 뤼테르', p: '10번', id: 956925 },
       { n: '얀쿠바 민테', p: '11번', id: 1400227 },
-      { n: '코스툴라스', p: '19번', id: 1561249 },
-      { n: '미토마 카오루', p: '22번', id: 862608 },
-      { n: '에번 퍼거슨', p: '번호 미정', id: null }
+      { n: '코스툴라스', nat: '그리스', p: '19번', id: 1561249 },
+      { n: '미토마 카오루', nat: '일본', p: '22번', id: 862608 },
+      { n: '에번 퍼거슨', nat: '아일랜드', p: '번호 미정', id: null }
     ] }
   ],
   bre: [
     { g: '골키퍼', players: [
       { n: '키비언 켈러허', p: '1번', id: 776689 },
-      { n: '발디마르손', p: '12번', id: 850962 }
+      { n: '발디마르손', nat: '아이슬란드', p: '12번', id: 850962 }
     ] },
     { g: '수비수', players: [
-      { n: '에런 히키', p: '2번', id: 1002039 },
-      { n: '리코 헨리', p: '3번', id: 562892 },
+      { n: '에런 히키', nat: '스코틀랜드', p: '2번', id: 1002039 },
+      { n: '리코 헨리', nat: '잉글랜드', p: '3번', id: 562892 },
       { n: '판 덴 베르흐', p: '4번', id: 919435 },
-      { n: '이선 피녹', p: '5번', id: 711357 },
-      { n: '크리스토페르 아예르', p: '20번', id: 552718 },
+      { n: '이선 피녹', nat: '자메이카', p: '5번', id: 711357 },
+      { n: '크리스토페르 아예르', nat: '노르웨이', p: '20번', id: 552718 },
       { n: '네이선 콜린스', p: '22번', id: 961306 },
       { n: '미카엘 카요데', p: '33번', id: 1429912 }
     ] },
     { g: '미드필더', players: [
-      { n: '마티아스 옌센', p: '8번', id: 650616 },
-      { n: '안토니 밀람보', p: '17번', id: 1276312 },
+      { n: '마티아스 옌센', nat: '덴마크', p: '8번', id: 650616 },
+      { n: '안토니 밀람보', nat: '네덜란드', p: '17번', id: 1276312 },
       { n: '야르몰류크', p: '18번', id: 1185211 },
       { n: '담스고르', p: '24번', id: 888912 },
-      { n: '비탈리 야넬트', p: '27번', id: 688273 },
+      { n: '비탈리 야넬트', nat: '독일', p: '27번', id: 688273 },
       { n: '마마두 상가레', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
       { n: '케빈 샤데', p: '7번', id: 1083796 },
       { n: '이고르 치아구', p: '9번', id: 1302005 },
       { n: '당고 와타라', p: '11번', id: 1250253 },
-      { n: '제이던 앤서니', p: '19번', id: 1171140 },
+      { n: '제이던 앤서니', nat: '잉글랜드', p: '19번', id: 1171140 },
       { n: '루이스포터', p: '23번', id: 1010426 },
-      { n: '칼럼 윌슨', p: '30번', id: 184321 }
+      { n: '칼럼 윌슨', nat: '잉글랜드', p: '30번', id: 184321 }
     ] }
   ],
   che: [
     { g: '골키퍼', players: [
       { n: '로베르트 산체스', p: '1번', id: 789571 },
-      { n: '미케 펜더르스', p: '39번', id: 1319972 }
+      { n: '미케 펜더르스', nat: '벨기에', p: '39번', id: 1319972 }
     ] },
     { g: '수비수', players: [
       { n: '팔레스트라', p: '2번', id: 1473806 },
-      { n: '아다라비오요', p: '4번', id: 683402 },
-      { n: '리바이 콜윌', p: '6번', id: 1096400 },
-      { n: '요럴 하토', p: '21번', id: 1413846 },
-      { n: '리스 제임스', p: '24번', id: 807729 },
-      { n: '말로 귀스토', p: '27번', id: 1197250 },
-      { n: '웨슬리 포파나', p: '29번', id: 917802 },
+      { n: '아다라비오요', nat: '잉글랜드', p: '4번', id: 683402 },
+      { n: '리바이 콜윌', nat: '잉글랜드', p: '6번', id: 1096400 },
+      { n: '요럴 하토', nat: '네덜란드', p: '21번', id: 1413846 },
+      { n: '리스 제임스', nat: '잉글랜드', p: '24번', id: 807729 },
+      { n: '말로 귀스토', nat: '프랑스', p: '27번', id: 1197250 },
+      { n: '웨슬리 포파나', nat: '프랑스', p: '29번', id: 917802 },
       { n: '라크루아', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
-      { n: '엔소 페르난데스', p: '8번', id: 1137705 },
+      { n: '엔소 페르난데스', nat: '아르헨티나', p: '8번', id: 1137705 },
       { n: '모건 로저스', p: '17번', id: 883080 },
       { n: '카이세도', p: '25번', id: 1137668 },
-      { n: '로메오 라비아', p: '45번', id: 1190867 },
-      { n: '발렌틴 바르코', p: '번호 미정', id: null }
+      { n: '로메오 라비아', nat: '벨기에', p: '45번', id: 1190867 },
+      { n: '발렌틴 바르코', nat: '아르헨티나', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
-      { n: '페드루 네투', p: '7번', id: 843040 },
-      { n: '리암 델랍', p: '9번', id: 1113903 },
+      { n: '페드루 네투', nat: '포르투갈', p: '7번', id: 843040 },
+      { n: '리암 델랍', nat: '잉글랜드', p: '9번', id: 1113903 },
       { n: '콜 파머', p: '10번', id: 1096353 },
-      { n: '제이미 기튼스', p: '11번', id: 1113692 },
-      { n: '니콜라 잭슨', p: '15번', id: 1197347 },
+      { n: '제이미 기튼스', nat: '잉글랜드', p: '11번', id: 1113692 },
+      { n: '니콜라 잭슨', nat: '세네갈', p: '15번', id: 1197347 },
       { n: '주앙 페드루', p: '20번', id: 1021382 },
-      { n: '이스테방', p: '41번', id: 1580774 }
+      { n: '이스테방', nat: '브라질', p: '41번', id: 1580774 }
     ] }
   ],
   ful: [
     { g: '골키퍼', players: [
       { n: '베른트 레노', p: '1번', id: 215168 },
-      { n: '뱅자맹 르콩트', p: '23번', id: 210114 }
+      { n: '뱅자맹 르콩트', nat: '프랑스', p: '23번', id: 210114 }
     ] },
     { g: '수비수', players: [
-      { n: '케니 테테', p: '2번', id: 469804 },
+      { n: '케니 테테', nat: '네덜란드', p: '2번', id: 469804 },
       { n: '칼빈 배시', p: '3번', id: 877401 },
       { n: '요아킴 안데르센', p: '5번', id: 503659 },
-      { n: '호르헤 쿠엔카', p: '15번', id: null },
+      { n: '호르헤 쿠엔카', nat: '스페인', p: '15번', id: null },
       { n: '카스타뉴', p: '21번', id: 465750 },
-      { n: '세세뇽', p: '30번', id: 773991 },
+      { n: '세세뇽', nat: '잉글랜드', p: '30번', id: 773991 },
       { n: '안토니 로빈슨', p: '33번', id: 662428 }
     ] },
     { g: '미드필더', players: [
-      { n: '해리슨 리드', p: '6번', id: 502420 },
-      { n: '톰 케어니', p: '10번', id: 182962 },
+      { n: '해리슨 리드', nat: '잉글랜드', p: '6번', id: 502420 },
+      { n: '톰 케어니', nat: '스코틀랜드', p: '10번', id: 182962 },
       { n: '오스카 보브', p: '14번', id: 1113790 },
       { n: '산데르 베르게', p: '16번', id: 540963 },
-      { n: '조시 킹', p: '24번', id: 1422593 },
+      { n: '조시 킹', nat: '잉글랜드', p: '24번', id: 1422593 },
       { n: '에밀 스미스 로우', p: '32번', id: 889534 },
-      { n: '셰이 찰스', p: '번호 미정', id: null }
+      { n: '셰이 찰스', nat: '북아일랜드', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
-      { n: '호드리구 무니스', p: '9번', id: 1128945 },
+      { n: '호드리구 무니스', nat: '브라질', p: '9번', id: 1128945 },
       { n: '알렉스 이워비', p: '17번', id: 604785 },
-      { n: '쿠시아사레', p: '18번', id: 1532672 },
+      { n: '쿠시아사레', nat: '스웨덴', p: '18번', id: 1532672 },
       { n: '케빈', p: '22번', id: null },
       { n: '곤살로 가르시아', p: '번호 미정', id: null }
     ] }
   ],
   new: [
     { g: '골키퍼', players: [
-      { n: '닉 포프', p: '1번', id: 280484 },
-      { n: '에웬 자우엔', p: '24번', id: 1438570 },
+      { n: '닉 포프', nat: '잉글랜드', p: '1번', id: 280484 },
+      { n: '에웬 자우엔', nat: '프랑스', p: '24번', id: 1438570 },
       { n: '호르니체크', p: '번호 미정', id: null }
     ] },
     { g: '수비수', players: [
-      { n: '티노 리브라멘투', p: '2번', id: null },
+      { n: '티노 리브라멘투', nat: '잉글랜드', p: '2번', id: null },
       { n: '루이스 홀', p: '3번', id: 1197655 },
-      { n: '스벤 보트만', p: '4번', id: 956682 },
-      { n: '파비안 셰어', p: '5번', id: 189982 },
-      { n: '말릭 티아우', p: '12번', id: 1137407 },
-      { n: '댄 번', p: '33번', id: 188058 }
+      { n: '스벤 보트만', nat: '네덜란드', p: '4번', id: 956682 },
+      { n: '파비안 셰어', nat: '스위스', p: '5번', id: 189982 },
+      { n: '말릭 티아우', nat: '독일', p: '12번', id: 1137407 },
+      { n: '댄 번', nat: '잉글랜드', p: '33번', id: 188058 }
     ] },
     { g: '미드필더', players: [
       { n: '조엘린통', p: '7번', id: 535936 },
       { n: '알라지 밤바', p: '8번', id: 1695681 },
-      { n: '션 스퇴르', p: '14번', id: 1643770 },
-      { n: '제이컵 머피', p: '23번', id: 521148 },
-      { n: '조 윌록', p: '28번', id: 860975 },
+      { n: '션 스퇴르', nat: '네덜란드', p: '14번', id: 1643770 },
+      { n: '제이컵 머피', nat: '잉글랜드', p: '23번', id: 521148 },
+      { n: '조 윌록', nat: '잉글랜드', p: '28번', id: 860975 },
       { n: '제이컵 램지', p: '41번', id: 1021929 },
-      { n: '루이스 마일리', p: '67번', id: 1296763 }
+      { n: '루이스 마일리', nat: '잉글랜드', p: '67번', id: 1296763 }
     ] },
     { g: '공격수', players: [
-      { n: '요안 위사', p: '9번', id: 666857 },
-      { n: '윌 오술라', p: '10번', id: 1258092 },
-      { n: '하비 반스', p: '11번', id: 760359 },
+      { n: '요안 위사', nat: '콩고민주공화국', p: '9번', id: 666857 },
+      { n: '윌 오술라', nat: '덴마크', p: '10번', id: 1258092 },
+      { n: '하비 반스', nat: '잉글랜드', p: '11번', id: 760359 },
       { n: '바주마나 투레', p: '17번', id: 1624586 },
-      { n: '안토니 엘랑가', p: '19번', id: 1050166 },
-      { n: '닉 볼테마데', p: '27번', id: 1106563 }
+      { n: '안토니 엘랑가', nat: '스웨덴', p: '19번', id: 1050166 },
+      { n: '닉 볼테마데', nat: '독일', p: '27번', id: 1106563 }
     ] }
   ],
   eve: [
     { g: '골키퍼', players: [
-      { n: '조던 픽포드', p: '1번', id: 303919 },
-      { n: '마크 트래버스', p: '12번', id: 731855 }
+      { n: '조던 픽포드', nat: '잉글랜드', p: '1번', id: 303919 },
+      { n: '마크 트래버스', nat: '아일랜드', p: '12번', id: 731855 }
     ] },
     { g: '수비수', players: [
-      { n: '네이선 패터슨', p: '2번', id: 1112684 },
-      { n: '마이클 킨', p: '5번', id: 290410 },
-      { n: '제임스 타코스키', p: '6번', id: 243138 },
-      { n: '제이크 오브라이언', p: '15번', id: 1098607 },
+      { n: '네이선 패터슨', nat: '스코틀랜드', p: '2번', id: 1112684 },
+      { n: '마이클 킨', nat: '잉글랜드', p: '5번', id: 290410 },
+      { n: '제임스 타코스키', nat: '잉글랜드', p: '6번', id: 243138 },
+      { n: '제이크 오브라이언', nat: '아일랜드', p: '15번', id: 1098607 },
       { n: '미콜렌코', p: '16번', id: 874025 },
       { n: '브랜스웨이트', p: '32번', id: 1030829 },
-      { n: '아담 아즈누', p: '39번', id: 1573563 }
+      { n: '아담 아즈누', nat: '모로코', p: '39번', id: 1573563 }
     ] },
     { g: '미드필더', players: [
-      { n: '헤이든 해크니', p: '7번', id: 982394 },
+      { n: '헤이든 해크니', nat: '잉글랜드', p: '7번', id: 982394 },
       { n: '듀스버리홀', p: '22번', id: 1076756 },
-      { n: '카를로스 알카라스', p: '24번', id: 1128965 },
-      { n: '메를린 룔', p: '34번', id: 1210384 },
-      { n: '제임스 가너', p: '37번', id: 950474 },
-      { n: '이로에그부남', p: '42번', id: 1203512 },
+      { n: '카를로스 알카라스', nat: '아르헨티나', p: '24번', id: 1128965 },
+      { n: '메를린 룔', nat: '독일', p: '34번', id: 1210384 },
+      { n: '제임스 가너', nat: '잉글랜드', p: '37번', id: 950474 },
+      { n: '이로에그부남', nat: '잉글랜드', p: '42번', id: 1203512 },
       { n: '노르고르', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
       { n: '베투', p: '9번', id: 1079485 },
-      { n: '일리망 은디아예', p: '10번', id: 965764 },
-      { n: '티에르노 바리', p: '11번', id: 1398392 },
+      { n: '일리망 은디아예', nat: '세네갈', p: '10번', id: 965764 },
+      { n: '티에르노 바리', nat: '프랑스', p: '11번', id: 1398392 },
       { n: '타이릭 조지', p: '19번', id: 1424875 },
-      { n: '타일러 디블링', p: '20번', id: 1292833 },
-      { n: '브레넌 존슨', p: '번호 미정', id: null }
+      { n: '타일러 디블링', nat: '잉글랜드', p: '20번', id: 1292833 },
+      { n: '브레넌 존슨', nat: '웨일스', p: '번호 미정', id: null }
     ] }
   ],
   lee: [
     { g: '골키퍼', players: [
-      { n: '루카스 페리', p: '1번', id: null },
+      { n: '루카스 페리', nat: '브라질', p: '1번', id: null },
       { n: '제임스 트래퍼드', p: '번호 미정', id: null }
     ] },
     { g: '수비수', players: [
       { n: '제이든 보글', p: '2번', id: 789646 },
-      { n: '구드문드손', p: '3번', id: 744494 },
+      { n: '구드문드손', nat: '스웨덴', p: '3번', id: 744494 },
       { n: '무하레모비치', p: '5번', id: 1250485 },
-      { n: '조 로던', p: '6번', id: 717174 },
+      { n: '조 로던', nat: '웨일스', p: '6번', id: 717174 },
       { n: '야카 비욜', p: '15번', id: 861805 },
       { n: '제임스 저스틴', p: '24번', id: 710158 },
-      { n: '보르나우', p: '33번', id: 922892 }
+      { n: '보르나우', nat: '벨기에', p: '33번', id: 922892 }
     ] },
     { g: '미드필더', players: [
       { n: '이선 암파두', p: '4번', id: 780432 },
-      { n: '션 롱스타프', p: '8번', id: 820024 },
+      { n: '션 롱스타프', nat: '잉글랜드', p: '8번', id: 820024 },
       { n: '브렌던 애런슨', p: '11번', id: 952322 },
-      { n: '해리 윌슨', p: '17번', id: 494417 },
+      { n: '해리 윌슨', nat: '웨일스', p: '17번', id: 494417 },
       { n: '안톤 슈타흐', p: '18번', id: 881735 },
       { n: '다나카 아오', p: '22번', id: 935728 },
-      { n: '일리야 그루예프', p: '44번', id: 1080983 }
+      { n: '일리야 그루예프', nat: '불가리아', p: '44번', id: 1080983 }
     ] },
     { g: '공격수', players: [
       { n: '대니얼 제임스', p: '7번', id: 717176 },
-      { n: '칼버트르윈', p: '9번', id: 612150 },
-      { n: '요엘 피로', p: '10번', id: 792540 },
+      { n: '칼버트르윈', nat: '잉글랜드', p: '9번', id: 612150 },
+      { n: '요엘 피로', nat: '수리남', p: '10번', id: 792540 },
       { n: '루카스 은메차', p: '14번', id: 861197 },
-      { n: '노아 오카포르', p: '19번', id: 915797 },
-      { n: '윌프리드 뇬토', p: '29번', id: 1107286 }
+      { n: '노아 오카포르', nat: '스위스', p: '19번', id: 915797 },
+      { n: '윌프리드 뇬토', nat: '이탈리아', p: '29번', id: 1107286 }
     ] }
   ],
   cry: [
     { g: '골키퍼', players: [
       { n: '딘 헨더슨', p: '1번', id: 719330 },
-      { n: '레미 매튜스', p: '31번', id: 562726 },
-      { n: '발테르 베니테스', p: '44번', id: 448897 }
+      { n: '레미 매튜스', nat: '잉글랜드', p: '31번', id: 562726 },
+      { n: '발테르 베니테스', nat: '아르헨티나', p: '44번', id: 448897 }
     ] },
     { g: '수비수', players: [
       { n: '다니엘 무뇨스', p: '2번', id: 859282 },
       { n: '타이릭 미첼', p: '3번', id: 1120224 },
       { n: '제이디 캉보', p: '23번', id: null },
-      { n: '보르나 소사', p: '24번', id: 622091 },
+      { n: '보르나 소사', nat: '크로아티아', p: '24번', id: 622091 },
       { n: '크리스 리처즈', p: '26번', id: 950829 },
       { n: '샤디 리아드', p: '34번', id: 1187506 },
-      { n: '밍게사', p: '번호 미정', id: null },
-      { n: '도미야스', p: '번호 미정', id: null }
+      { n: '밍게사', nat: '스페인', p: '번호 미정', id: null },
+      { n: '도미야스', nat: '일본', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
-      { n: '헤페르손 레르마', p: '8번', id: 466672 },
+      { n: '헤페르손 레르마', nat: '콜롬비아', p: '8번', id: 466672 },
       { n: '윌 휴스', p: '19번', id: 295067 },
       { n: '애덤 와튼', p: '20번', id: 1296650 },
-      { n: '셰이크 두쿠레', p: '28번', id: 951954 },
-      { n: '가마다 다이치', p: '번호 미정', id: null }
+      { n: '셰이크 두쿠레', nat: '말리', p: '28번', id: 951954 },
+      { n: '가마다 다이치', nat: '일본', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
       { n: '이스마일라 사르', p: '7번', id: 771294 },
-      { n: '에디 은케티아', p: '9번', id: 860920 },
+      { n: '에디 은케티아', nat: '잉글랜드', p: '9번', id: 860920 },
       { n: '예레미 피노', p: '10번', id: 1047676 },
       { n: '마테타', p: '14번', id: 706297 },
-      { n: '스트란 라르센', p: '22번', id: 821100 },
-      { n: '드와이트 맥닐', p: '번호 미정', id: null }
+      { n: '스트란 라르센', nat: '노르웨이', p: '22번', id: 821100 },
+      { n: '드와이트 맥닐', nat: '잉글랜드', p: '번호 미정', id: null }
     ] }
   ],
   nfo: [
     { g: '골키퍼', players: [
-      { n: '존 빅토르', p: '12번', id: 749834 },
+      { n: '존 빅토르', nat: '브라질', p: '12번', id: 749834 },
       { n: '마츠 셀스', p: '26번', id: 181069 }
     ] },
     { g: '수비수', players: [
       { n: '디오망드', p: '2번', id: 1425182 },
       { n: '네코 윌리엄스', p: '3번', id: 1078788 },
-      { n: '모라투', p: '4번', id: 1053838 },
+      { n: '모라투', nat: '브라질', p: '4번', id: 1053838 },
       { n: '무릴루', p: '5번', id: 1458711 },
-      { n: '루카 네츠', p: '25번', id: 1155130 },
+      { n: '루카 네츠', nat: '독일', p: '25번', id: 1155130 },
       { n: '밀렌코비치', p: '31번', id: 766611 },
       { n: '올라 아이나', p: '34번', id: 682548 },
-      { n: '니콜로 사보나', p: '37번', id: 1622290 }
+      { n: '니콜로 사보나', nat: '이탈리아', p: '37번', id: 1622290 }
     ] },
     { g: '미드필더', players: [
       { n: '이브라힘 상가레', p: '6번', id: 795371 },
-      { n: '도밍게스', p: '8번', id: 827315 },
+      { n: '도밍게스', nat: '아르헨티나', p: '8번', id: 827315 },
       { n: '모건 깁스화이트', p: '10번', id: 789502 },
-      { n: '오마리 허친슨', p: '20번', id: 1215652 },
+      { n: '오마리 허친슨', nat: '잉글랜드', p: '20번', id: 1215652 },
       { n: '자버 슐라거', p: '21번', id: 620027 },
-      { n: '라이언 예이츠', p: '22번', id: 775614 },
-      { n: '제임스 맥아티', p: '24번', id: 1107648 }
+      { n: '라이언 예이츠', nat: '잉글랜드', p: '22번', id: 775614 },
+      { n: '제임스 맥아티', nat: '잉글랜드', p: '24번', id: 1107648 }
     ] },
     { g: '공격수', players: [
-      { n: '허드슨오도이', p: '7번', id: 846383 },
-      { n: '타이워 아워니이', p: '9번', id: 643717 },
-      { n: '크리스 우드', p: '11번', id: 169719 },
+      { n: '허드슨오도이', nat: '잉글랜드', p: '7번', id: 846383 },
+      { n: '타이워 아워니이', nat: '나이지리아', p: '9번', id: 643717 },
+      { n: '크리스 우드', nat: '뉴질랜드', p: '11번', id: 169719 },
       { n: '단 은도예', p: '14번', id: 1022649 },
-      { n: '칼리무엔도', p: '15번', id: 1095445 },
+      { n: '칼리무엔도', nat: '프랑스', p: '15번', id: 1095445 },
       { n: '이고르 제주스', p: '19번', id: 1082102 }
     ] }
   ],
   tot: [
     { g: '골키퍼', players: [
-      { n: '비카리오', p: '1번', id: 538501 },
-      { n: '안토닌 킨스키', p: '31번', id: 1341475 }
+      { n: '비카리오', nat: '이탈리아', p: '1번', id: 538501 },
+      { n: '안토닌 킨스키', nat: '체코', p: '31번', id: 1341475 }
     ] },
     { g: '수비수', players: [
       { n: '로버트슨', p: '3번', id: 357880 },
-      { n: '케빈 단소', p: '4번', id: 754126 },
-      { n: '마르코스 세네시', p: '5번', id: 785411 },
+      { n: '케빈 단소', nat: '오스트리아', p: '4번', id: 754126 },
+      { n: '마르코스 세네시', nat: '아르헨티나', p: '5번', id: 785411 },
       { n: '판 헤케', p: '6번', id: 974618 },
-      { n: '우도지', p: '13번', id: 1052898 },
-      { n: '로메로', p: '17번', id: 789066 },
-      { n: '페드로 포로', p: '23번', id: 941573 },
+      { n: '우도지', nat: '이탈리아', p: '13번', id: 1052898 },
+      { n: '로메로', nat: '아르헨티나', p: '17번', id: 789066 },
+      { n: '페드로 포로', nat: '스페인', p: '23번', id: 941573 },
       { n: '판 더 펜', p: '37번', id: 1097466 }
     ] },
     { g: '미드필더', players: [
       { n: '사비 시몬스', p: '7번', id: 1173787 },
-      { n: '코너 갤러거', p: '8번', id: 966027 },
-      { n: '제임스 매디슨', p: '10번', id: 493165 },
-      { n: '아치 그레이', p: '14번', id: 1323305 },
-      { n: '루카스 베리발', p: '15번', id: 1386775 },
-      { n: '산드로 토날리', p: '16번', id: 867414 },
+      { n: '코너 갤러거', nat: '잉글랜드', p: '8번', id: 966027 },
+      { n: '제임스 매디슨', nat: '잉글랜드', p: '10번', id: 493165 },
+      { n: '아치 그레이', nat: '잉글랜드', p: '14번', id: 1323305 },
+      { n: '루카스 베리발', nat: '스웨덴', p: '15번', id: 1386775 },
+      { n: '산드로 토날리', nat: '이탈리아', p: '16번', id: 867414 },
       { n: '페르난드스', p: '18번', id: 1356312 },
-      { n: '파페 사르', p: '29번', id: 1107280 }
+      { n: '파페 사르', nat: '세네갈', p: '29번', id: 1107280 }
     ] },
     { g: '공격수', players: [
       { n: '히샬리송', p: '9번', id: 654908 },
       { n: '마티스 텔', p: '11번', id: 1288111 },
-      { n: '도미닉 솔란케', p: '19번', id: 591734 },
-      { n: '모하메드 쿠두스', p: '20번', id: 891743 }
+      { n: '도미닉 솔란케', nat: '잉글랜드', p: '19번', id: 591734 },
+      { n: '모하메드 쿠두스', nat: '가나', p: '20번', id: 891743 }
     ] }
   ],
   cov: [
     { g: '골키퍼', players: [
-      { n: '올리버 도빈', p: '1번', id: 1051407 },
-      { n: '벤 윌슨', p: '13번', id: 302783 },
+      { n: '올리버 도빈', nat: '스웨덴', p: '1번', id: 1051407 },
+      { n: '벤 윌슨', nat: '잉글랜드', p: '13번', id: 302783 },
       { n: '칼 러시워스', p: '번호 미정', id: null }
     ] },
     { g: '수비수', players: [
       { n: '제이 다실바', p: '3번', id: 759814 },
-      { n: '보비 토머스', p: '4번', id: 1161885 },
+      { n: '보비 토머스', nat: '잉글랜드', p: '4번', id: 1161885 },
       { n: '리암 키칭', p: '15번', id: 914399 },
-      { n: '케슬러-헤이든', p: '20번', id: 1089686 },
-      { n: '제이크 비드웰', p: '21번', id: 191174 },
-      { n: '루크 울펜든', p: '26번', id: 866688 },
+      { n: '케슬러-헤이든', nat: '잉글랜드', p: '20번', id: 1089686 },
+      { n: '제이크 비드웰', nat: '잉글랜드', p: '21번', id: 191174 },
+      { n: '루크 울펜든', nat: '잉글랜드', p: '26번', id: 866688 },
       { n: '판 에베이크', p: '27번', id: 1074750 },
       { n: '오렐 아멘다', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
-      { n: '잭 루도니', p: '5번', id: 1030830 },
+      { n: '잭 루도니', nat: '잉글랜드', p: '5번', id: 1030830 },
       { n: '맷 그라임스', p: '6번', id: 478357 },
-      { n: '메이슨-클라크', p: '10번', id: 798654 },
+      { n: '메이슨-클라크', nat: '잉글랜드', p: '10번', id: 798654 },
       { n: '프랭크 온예카', p: '16번', id: 856685 },
-      { n: '빅토르 토르프', p: '29번', id: 845985 },
-      { n: '구스타보 하메르', p: '38번', id: null },
-      { n: '케일럽 이렌키', p: '번호 미정', id: null }
+      { n: '빅토르 토르프', nat: '덴마크', p: '29번', id: 845985 },
+      { n: '구스타보 하메르', nat: '네덜란드', p: '38번', id: null },
+      { n: '케일럽 이렌키', nat: '가나', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
       { n: '사카모토', p: '7번', id: 1025603 },
-      { n: '엘리스 심스', p: '9번', id: 982284 },
+      { n: '엘리스 심스', nat: '잉글랜드', p: '9번', id: 982284 },
       { n: '하지 라이트', p: '11번', id: 848268 },
       { n: '토머스-아산테', p: '23번', id: 776184 },
       { n: '룸 차우나', p: '번호 미정', id: null }
@@ -6928,63 +6943,63 @@ const SQUAD18 = {
   ],
   ips: [
     { g: '골키퍼', players: [
-      { n: '알렉스 파머', p: '1번', id: 643228 },
-      { n: '크리스천 월턴', p: '28번', id: 512013 },
+      { n: '알렉스 파머', nat: '잉글랜드', p: '1번', id: 643228 },
+      { n: '크리스천 월턴', nat: '잉글랜드', p: '28번', id: 512013 },
       { n: '셸 스헤르펀', p: '번호 미정', id: null }
     ] },
     { g: '수비수', players: [
       { n: '레이프 데이비스', p: '3번', id: 980381 },
-      { n: '벤 존슨', p: '18번', id: 770267 },
+      { n: '벤 존슨', nat: '잉글랜드', p: '18번', id: 770267 },
       { n: '다넬 펄롱', p: '19번', id: 609733 },
-      { n: '제이컵 그리브스', p: '24번', id: 1079103 },
+      { n: '제이컵 그리브스', nat: '잉글랜드', p: '24번', id: 1079103 },
       { n: '다라 오셰이', p: '26번', id: 789578 },
       { n: '이사 디오프', p: '번호 미정', id: null },
       { n: '세드리크 키프레', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
       { n: '아조르 마투시와', p: '5번', id: 797594 },
-      { n: '잭 테일러', p: '14번', id: 789507 },
-      { n: '케이시 맥아티어', p: '20번', id: 1320949 },
+      { n: '잭 테일러', nat: '아일랜드', p: '14번', id: 789507 },
+      { n: '케이시 맥아티어', nat: '아일랜드', p: '20번', id: 1320949 },
       { n: '마르셀리노 누녜스', p: '32번', id: 1129081 },
-      { n: '아니스 메흐메티', p: '33번', id: 1198007 },
+      { n: '아니스 메흐메티', nat: '알바니아', p: '33번', id: 1198007 },
       { n: '사샤 루키치', p: '번호 미정', id: null },
-      { n: '플로렌티누 루이스', p: '번호 미정', id: null }
+      { n: '플로렌티누 루이스', nat: '포르투갈', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
       { n: '조지 허스트', p: '9번', id: 750033 },
-      { n: '제이든 필로진', p: '11번', id: 1089645 },
-      { n: '추바 아콤', p: '29번', id: 413158 },
+      { n: '제이든 필로진', nat: '잉글랜드', p: '11번', id: 1089645 },
+      { n: '추바 아콤', nat: '잉글랜드', p: '29번', id: 413158 },
       { n: '마에다 다이젠', p: '번호 미정', id: null },
       { n: '이사하쿠 파타우', p: '번호 미정', id: null }
     ] }
   ],
   hul: [
     { g: '골키퍼', players: [
-      { n: '딜런 필립스', p: '12번', id: 518500 },
+      { n: '딜런 필립스', nat: '잉글랜드', p: '12번', id: 518500 },
       { n: '촐라키스', p: '번호 미정', id: null },
-      { n: '잭 버틀런드', p: '번호 미정', id: null }
+      { n: '잭 버틀런드', nat: '잉글랜드', p: '번호 미정', id: null }
     ] },
     { g: '수비수', players: [
       { n: '루이 코일', p: '2번', id: 709148 },
       { n: '라이언 자일스', p: '3번', id: 933635 },
-      { n: '찰리 휴스', p: '4번', id: 1331703 },
+      { n: '찰리 휴스', nat: '잉글랜드', p: '4번', id: 1331703 },
       { n: '세미 아자이', p: '6번', id: 410836 },
       { n: '존 이건', p: '15번', id: 295062 },
-      { n: '코디 드라메', p: '18번', id: 1356264 },
-      { n: '패디 맥네어', p: '37번', id: 575780 },
-      { n: '맷 타겟', p: '번호 미정', id: null }
+      { n: '코디 드라메', nat: '잉글랜드', p: '18번', id: 1356264 },
+      { n: '패디 맥네어', nat: '북아일랜드', p: '37번', id: 575780 },
+      { n: '맷 타겟', nat: '잉글랜드', p: '번호 미정', id: null }
     ] },
     { g: '미드필더', players: [
-      { n: '엘리엇 마타조', p: '8번', id: 1178514 },
+      { n: '엘리엇 마타조', nat: '벨기에', p: '8번', id: 1178514 },
       { n: '맷 크룩스', p: '25번', id: 280507 },
       { n: '키어런 다월', p: '26번', id: 605262 },
       { n: '리건 슬레이터', p: '27번', id: 807930 },
-      { n: '모리타 히데마사', p: '번호 미정', id: null },
-      { n: '오스카르 삼브라노', p: '번호 미정', id: null },
-      { n: '외뮈르', p: '번호 미정', id: null }
+      { n: '모리타 히데마사', nat: '일본', p: '번호 미정', id: null },
+      { n: '오스카르 삼브라노', nat: '에콰도르', p: '번호 미정', id: null },
+      { n: '외뮈르', nat: '튀르키예', p: '번호 미정', id: null }
     ] },
     { g: '공격수', players: [
-      { n: '리암 밀라', p: '7번', id: 932308 },
+      { n: '리암 밀라', nat: '캐나다', p: '7번', id: 932308 },
       { n: '올리 맥버니', p: '9번', id: 509151 },
       { n: '벨루미', p: '10번', id: 1231090 },
       { n: '아킨톨라', p: '11번', id: 656495 }
@@ -7006,15 +7021,15 @@ function renderSquad18() {
         + '<div class="p-grid">' + group.players.map(function (pl) {
           /* 사진이 뜨기 전/실패 시에도 빈 원이 보이지 않도록, 기본은 이니셜이고 사진이 로드되면 교체한다 */
           var img = pl.id
-            ? '<img class="p-photo" loading="lazy" style="display:none" alt="' + pl.n + '" src="https://images.fotmob.com/image_resources/playerimages/' + pl.id + '.png"'
-              + ' onload="this.style.display=\'block\';this.nextElementSibling.style.display=\'none\'">'
+            ? '<img class="p-photo" loading="lazy" alt="' + pl.n + '" src="https://images.fotmob.com/image_resources/playerimages/' + pl.id + '.png">'
             : '';
           return '<div class="p-card">'
-            + '<div class="p-photo-wrap">' + img
-            + '<div class="p-fallback" style="display:flex;">' + pl.n.charAt(0) + '</div>'
+            + '<div class="p-photo-wrap stack">'
+            + '<div class="p-fallback" style="display:flex;">' + pl.n.charAt(0) + '</div>' + img
             + '</div>'
             + '<div class="p-name">' + pl.n + '</div>'
             + '<div class="p-pos">' + pl.p + '</div>'
+            + (pl.id ? '<button class="p-detail" data-pid="' + pl.id + '">상세</button>' : '')
             + '</div>';
         }).join('') + '</div>';
       root.appendChild(card);
@@ -7022,6 +7037,28 @@ function renderSquad18() {
   });
 }
 renderSquad18();
+
+const TEAM18_INFO = {
+  liv: { ko: "리버풀", mgr: "안도니 이라올라", st: "안필드", story: "아르네 슬롯 경질 후 부임한 이라올라 감독의 첫 시즌. 살라·코나테·로버트슨이 모두 자유계약으로 떠난 자리를 자케·아라우호·무뇨스로 메운 재편이 최대 과제다." },
+  mci: { ko: "맨체스터 시티", mgr: "엔조 마레스카", st: "에티하드 스타디움", story: "10년을 이끈 과르디올라가 떠난 뒤 마레스카가 3년 계약으로 지휘봉을 잡은 첫 시즌. 구단 최고액 £116m 엘리엇 앤더슨을 중심으로 스톤스·아칸지·베르나르두 실바가 한꺼번에 빠진 중원·수비를 재건해야 한다." },
+  new: { ko: "뉴캐슬 유나이티드", mgr: "마티아스 야이슬레", st: "세인트 제임스 파크", story: "에디 하우가 물러난 뒤 알아흘리에서 부임한 야이슬레의 첫 시즌. 토날리·기마랑이스·고든 등 £240m 이상을 매각해 25인 명단에 최소 9자리가 빈 채로 개막을 맞는다." },
+  tot: { ko: "토트넘 홋스퍼", mgr: "로베르토 데 제르비", st: "토트넘 홋스퍼 스타디움", story: "17위(41점)로 강등권 근처에서 마감한 뒤 맞는 데 제르비의 첫 풀시즌. 토날리(£100m)·페르난드스(£85m) 포함 총 £237m를 쓴 리빌드가 통할지가 관건. 주장 로메로는 아틀레티코행 원칙적 합의 상태(공식 발표 전)." },
+  che: { ko: "첼시", mgr: "사비 알론소", st: "스탬퍼드 브리지", story: "10위(52점)로 유럽대항전 진출에 실패한 뒤 맞는 사비 알론소의 첫 시즌. 유럽 일정이 없는 대신 £117m 모건 로저스를 비롯한 대형 영입진을 곧바로 상위권 경쟁으로 되돌려놓아야 한다." },
+  avl: { ko: "아스톤 빌라", mgr: "우나이 에메리", st: "빌라 파크", story: "4위(65점)로 챔피언스리그에 복귀했지만 핵심 모건 로저스를 £117m에 팔아 PSR을 맞췄고, 노스 스탠드 재건축으로 홈 수용인원이 3만7천 명으로 줄어든 상태에서 UCL을 병행해야 한다." },
+  eve: { ko: "에버턴", mgr: "데이비드 모예스", st: "힐 디킨슨 스타디움", story: "2년 연속 13위(49점)에 그친 뒤 힐 디킨슨 스타디움 두 번째 시즌. 노르고르·해크니·룔·조지 등 중원과 공격을 대거 보강해 6년 만의 top 10 복귀를 노린다." },
+  bha: { ko: "브라이턴 앤 호브 알비온", mgr: "파비안 휘르첼러", st: "아멕스 스타디움", story: "8위(53점)로 구단 사상 첫 컨퍼런스리그 진출권을 따냈다. 판 헤케·코폴라·웰벡이 빠진 자리를 구단 최고 이적료 부슈코비치(£46m)와 스트라윅으로 메우며 유럽 대항전과 리그 병행을 시험한다." },
+  bre: { ko: "브렌트포드", mgr: "키스 앤드루스", st: "지테크 커뮤니티 스타디움", story: "토마스 프랑크 이탈 후에도 9위(53점)를 찍은 앤드루스가 2032년까지 재계약을 맺고 맞는 2년차 시즌. 헨더슨·오녜카가 빠진 자리를 윌슨·앤서니·상가레로 메우며 유럽 진출에 도전한다." },
+  ful: { ko: "풀럼", mgr: "알바로 아르벨로아", st: "크레이븐 코티지", story: "마르코 실바 5년 체제가 끝나고 레알 마드리드 출신 아르벨로아가 부임한 첫 시즌. 팀 득점 관여의 57%를 책임졌던 해리 윌슨과 히메네스가 떠나, £70m을 쓴 곤살로 가르시아·셰이 찰스가 그 공백을 메워야 한다." },
+  cry: { ko: "크리스탈 팰리스", mgr: "피에르 사주", st: "셀허스트 파크", story: "컨퍼런스리그 우승으로 유로파리그에 나서지만, 12개월간 3개 트로피를 안긴 글라스너가 노팅엄으로 떠나고 프로 통산 100경기 미만의 피에르 사주가 지휘봉을 잡았다. 라크루아를 £52m에 팔고 여름 이적료 지출은 0원." },
+  nfo: { ko: "노팅엄 포레스트", mgr: "올리버 글라스너", st: "시티 그라운드", story: "한 시즌에 감독을 네 번 바꾼 혼란 끝에 팰리스를 컨퍼런스리그 우승으로 이끈 글라스너를 구단 최고 연봉으로 선임했다. 앤더슨을 영국 기록 £116m에 맨시티로 보낸 자금을 디오망드 등에 재투자했다." },
+  bou: { ko: "본머스", mgr: "마르코 로제", st: "비탈리티 스타디움", story: "6위(57점)로 구단 역사상 첫 유럽대회(유로파리그) 진출을 확정한 뒤, 리버풀로 떠난 이라올라의 후임 마르코 로제 체제로 첫 시즌을 맞는다. 리그 최소 규모 홈구장은 2만석 확장 공사를 시즌 중 병행한다." },
+  sun: { ko: "선덜랜드", mgr: "레지스 르 브리", st: "스타디움 오브 라이트", story: "승격팀으로 7위(54점)를 찍고 1973년 이후 53년 만에 유럽대회(유로파리그)로 복귀했다. 다만 여름 영입은 자유계약 뫼니에 한 명뿐인 반면 마옌다·패터슨이 빠져나가 스쿼드 뎁스 확보가 최대 과제다." },
+  lee: { ko: "리즈 유나이티드", mgr: "다니엘 파르케", st: "엘런드 로드", story: "14위(47점)로 잔류에 성공한 파르케의 프리미어리그 2년차. 구단 최고 이적료 £40m 골키퍼 트래퍼드와 £34.1m 센터백 무하레모비치를 영입해 지난 시즌 최대 약점이던 수비 라인을 통째로 재편했다." },
+  cov: { ko: "코번트리 시티", mgr: "프랭크 램파드", st: "코번트리 빌딩 소사이어티 아레나", story: "여름에만 £83.8m를 지출하며 구단 이적료 기록을 여러 차례 경신했지만, 25년 만의 1부 복귀 스쿼드 대부분이 프리미어리그 무경험자다. 램파드가 챔피언십식 공격 축구를 1부에서 유지할 수 있느냐가 관건." },
+  ips: { ko: "입스위치 타운", mgr: "게리 오닐", st: "포트먼 로드", story: "승격을 이끈 키어런 맥케나가 6월 사임하고 게리 오닐이 부임한 상황에서, 2024-25시즌 승점 22로 강등됐던 팀이 £66m 이상을 투자한 스쿼드로 두 번째 잔류에 도전한다." },
+  hul: { ko: "헐 시티", mgr: "세르게이 야키로비치", st: "MKM 스타디움", story: "승격 3팀 중 정규리그 순위가 가장 낮았고 순수 이적료 지출도 약 £3m 수준으로 가장 적다. 자유계약·저비용 영입으로 잔류를 노려야 한다." }
+};
+
 </script>
 
 </main>
@@ -7030,7 +7067,7 @@ renderSquad18();
   <div class="cols">
     <div>
       <h4>아스날 팬 허브</h4>
-      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 15일 01:55 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
+      <p>비공식 팬 사이트. 아스날 FC · 맨체스터 유나이티드 FC 및 프리미어리그와 무관하며, 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">마지막 동기화: 2026년 8월 15일 03:10 (KST)</span> · 매일 04·12·20시 자동 갱신</p>
     </div>
     <div>
       <h4>주요 출처</h4>
@@ -7343,6 +7380,10 @@ const SQUAD = [
       pc: '나이 대비 경기 경험이 풍부하고 성장 여지가 크다. 다만 리즈 시절 보여준 경기력 기복, 특히 압박 상황에서의 판단이 과제.' },
   ]},
   { g: '수비수', players: [
+    { id: 1243239, n: '토미 세트포드', p: 'GK', tag: ['유스', 'up'],
+      f: '2006년생 잉글랜드 유스 골키퍼. 아약스 아카데미를 거쳐 아스날에 합류했고, 2026-27 시즌 등번호 35번을 받아 1군 명단에 이름을 올렸다.',
+      st: '또래 대비 체격과 리치가 좋은 정통 골키퍼 유형. 컵대회 로테이션에서 기회를 노리는 단계다.',
+      pc: '성장 곡선이 가파르다는 평가지만 1군 출전 기록이 사실상 없어 현 시점 평가는 유보적이다. 라야·케파·메슬리에에 이은 네 번째 옵션.' },
     { id: 955406, n: '윌리암 살리바', p: 'CB', tag: ['부상 · 등', 'hot'],
       f: '프랑스 국가대표 센터백. 2030년까지 5년 재계약을 마쳤고, 현재 등 부상으로 복귀 시점이 불투명하다(FotMob 기준).',
       st: '스피드·피지컬·빌드업을 모두 갖춘 현시대 최고 수준의 CB. 넓은 뒷공간을 혼자 지워버려 아스날의 높은 수비 라인을 가능하게 만드는 존재다.',
@@ -7393,10 +7434,10 @@ const SQUAD = [
       f: '스페인 국가대표. 레알 소시에다드에서 2024년 합류했고, 유로 2024 우승 멤버다.',
       st: '공중볼 경합 승률이 미드필더 중 리그 정상급인 피지컬 몬스터. 비상시엔 임시 스트라이커로도 뛰며 의외의 득점력을 보여준 적도 있다.',
       pc: '경합·헤더·박스 침투 등 "높이가 필요한 순간"의 해결사. 발밑 템포는 다소 느려 빠른 원터치 전개가 필요한 경기에선 존재감이 줄어든다.' },
-    { id: 266520, n: '크리스티안 뇌르고르', p: 'DM',
-      f: '덴마크 국가대표. 브렌트포드 주장 출신으로 2025년 여름 합류한 베테랑 수비형 미드필더다.',
-      st: '인터셉트와 세컨볼 회수에 특화된 살림꾼. 요란하지 않게 중원 뒷문을 잠그는 유형으로, 로테이션과 클로징 전문 요원이다.',
-      pc: '위치 선정과 경기 읽기는 백전노장답게 안정적. 30대에 접어든 나이와 제한적인 공격 기여가 주전 경쟁에서의 한계다.' },
+    { id: 850354, n: '브루누 기마랑이스', p: 'DM', tag: ['신입', 'win'],
+      f: '브라질 국가대표. 2026년 8월 8일 £75m(라이온 세일온 약 £7m 별도)에 뉴캐슬에서 합류한 이번 여름 최대어로, 등번호 39번에 4년+옵션 1년 계약. 뉴캐슬에서 195경기 31골 32도움을 남겼고 2025 리그컵 우승 주장이었다. 8월 13일 코모전에서 하프타임 교체로 데뷔해 승부차기까지 성공시켰다.',
+      st: '중원 어디든 서는 전천후 미드필더. 볼을 끊어내는 수비 능력과 한 번에 전진시키는 패스를 함께 갖췄고, 아르테타는 "엄청난 타이밍과 직관"이라 평했다. 라이스와의 더블 피벗, 수비멘디 대체, 우측 8번까지 세 가지 배치가 거론된다.',
+      pc: '볼 경합 승률과 리더십이 최대 강점 — 본인도 "여러분의 전사가 될 준비가 됐다"고 했다. 다만 프리미어리그 상위권 팀의 높은 라인에서 뛰는 것은 처음이라 적응 기간이 필요하고, 카드 관리가 헐거운 편이라는 지적도 있다.' },
     { id: 818975, n: '에베레치 에제', p: 'AM',
       f: '잉글랜드 국가대표. 크리스탈 팰리스의 2025년 FA컵 우승 주역으로, 그해 여름 아스날 유니폼을 입었다.',
       st: '리듬을 깨는 드리블러. 정형화된 아스날의 패턴 공격에 즉흥성을 더하는 조커로, 왼쪽 측면과 10번 자리를 오가며 직접 마무리까지 한다.',
@@ -7451,10 +7492,6 @@ const SQUAD = [
 ];
 const MUN_SQUAD = [
   { g: '골키퍼', players: [
-    { id: 866967, n: '알타이 바인디르', p: 'GK',
-      f: '튀르키예 국가대표. 오나나가 임대로 떠난 뒤 사실상 넘버원 자리를 맡고 있다.',
-      st: '큰 체격과 반사신경이 무기인 정통파 키퍼. 페널티킥 선방 장면으로 강한 인상을 남겨왔다.',
-      pc: '슛스토핑과 공중 장악은 안정적. 발밑 빌드업 관여는 상대적으로 투박해 캐릭 축구에서의 과제로 꼽힌다.' },
     { id: 1178602, n: '세너 라멘스', p: 'GK',
       f: '벨기에 출신의 영건 키퍼. 장신 체격으로 차세대 넘버원 후보로 육성 중이다.',
       st: '나이 대비 침착한 볼 처리와 넓은 커버 범위가 강점인 모던 키퍼 유형.',
@@ -7465,6 +7502,14 @@ const MUN_SQUAD = [
       pc: '검증된 안정감이 장점이지만 주전 경쟁보다는 뎁스 자원 성격이 짙다.' },
   ]},
   { g: '수비수', players: [
+    { id: 24155, n: '톰 히튼', p: 'GK',
+      f: '잉글랜드 출신 베테랑. 등번호 22번으로 2026-27 시즌에도 1군 명단에 남아 있다. 2026년 8월 PSG전에서 햄스트링 부상으로 교체돼 나갔다.',
+      st: '출전 시간보다 라커룸에서의 역할이 큰 유형. 오랜 프리미어리그 경험을 바탕으로 어린 골키퍼들을 관리하는 멘토 포지션이다.',
+      pc: '경험과 프로 의식은 흠잡을 데 없다. 다만 나이와 잦은 부상으로 실제 출전은 컵대회 일부에 그칠 가능성이 크다.' },
+    { id: 1367699, n: '데르못 미', p: 'GK', tag: ['유스', 'up'],
+      f: '아일랜드 유스 골키퍼. 등번호 45번으로 2026-27 시즌 1군 명단에 포함됐다.',
+      st: '아카데미를 거쳐 올라온 성장 단계의 키퍼로, 현재는 훈련 파트너 겸 비상 옵션에 가깝다.',
+      pc: '1군 출전 기록이 거의 없어 현 시점 평가는 유보. 라멘스·달로우·히튼 뒤 네 번째 순번.' },
     { id: 751550, n: '디오구 달롯', p: 'RB',
       f: '포르투갈 국가대표. 2018년 합류 후 좌우 풀백을 모두 소화하는 주전 자원으로 자리잡았다.',
       st: '왕성한 오버랩과 크로스, 반대발 풀백 소화까지 가능한 멀티 자원. 캐릭의 가변 백3에서 접는 역할도 맡는다.',
@@ -7523,6 +7568,14 @@ const MUN_SQUAD = [
       f: '아카데미 출신 잉글랜드 국가대표. 아모림 체제에서 밀려났다가 캐릭 부임 후 복권됐고, 재계약 수순이라는 보도가 이어진다. 현재 부상으로 복귀 시점 미정.',
       st: '좁은 공간에서의 탈압박과 침착한 전진이 강점인 홈그로운 미드필더. 팬들이 가장 아끼는 선수 중 하나다.',
       pc: '테크닉과 축구 지능은 또래 최상급. 부상 복귀 후 새 중원 경쟁(틸레만스·산토스)을 뚫는 게 과제다.' },
+    { id: 1575707, n: '잭 플레처', p: 'CM', tag: ['유스', 'up'],
+      f: '2007년생, 대런 플레처 전 맨유 주장의 아들. 등번호 38번. 2026년 8월 13일 더블린 크로크 파크 리즈전에서 승부차기 결승 페널티를 성공시키며 이름을 알렸다.',
+      st: '중원 어디서든 뛰는 유틸리티 미드필더. 담대한 성격이 강점으로 꼽힌다.',
+      pc: '프리시즌에서 강한 인상을 남겼지만 표본이 작다. 정규 리그 무대에서의 검증은 아직 남아 있다.' },
+    { id: 1676985, n: '타일러 플레처', p: 'CM', tag: ['유스', 'up'],
+      f: '잭 플레처의 쌍둥이 형제. 등번호 39번으로 2026-27 시즌 1군 명단에 포함됐다.',
+      st: '형제와 마찬가지로 중원 자원. 아카데미 단계에서 함께 성장해 왔다.',
+      pc: '유망주 단계로, 현 시점에서 1군 기여를 단정하기는 이르다.' },
     { id: 750032, n: '메이슨 마운트', p: 'AM',
       f: '잉글랜드 국가대표. 첼시에서 2023년 합류했으나 부상으로 온전한 시즌을 보내지 못했다.',
       st: '전방 압박과 하프스페이스 침투가 강점인 공격형 미드필더. 브루노 백업이자 로테이션 자원이다.',
@@ -7565,10 +7618,6 @@ const MUN_SQUAD = [
       f: '아카데미 출신 유망주 윙어. 이번 프리시즌 득점 포함 활약으로 "캐릭의 아이들"의 선두주자가 됐다.',
       st: '민첩한 방향 전환과 마무리 침착성이 돋보이는 테크니션형 윙어.',
       pc: '프리시즌 기준으로는 1군 로테이션 진입이 유력. 시즌 강도에서의 검증이 남았다.' },
-    { id: 1557220, n: '치도 오비', p: 'ST', tag: ['유망주', 'mid'],
-      f: '아스날 아카데미에서 2025년 초 건너온 2007년생 스트라이커. 유스 레벨에서 득점 기계로 불렸다.',
-      st: '골 결정력 하나로 연령대를 지배해온 정통 피니셔 유형.',
-      pc: '박스 안 마무리는 이미 정평. 성인 무대 피지컬 적응이 관건인 장기 프로젝트다.' },
   ]},
 ];
 
@@ -7604,6 +7653,27 @@ renderSquad('squadGroupsMun', MUN_SQUAD);
 const PLAYER_MAP = {};
 [SQUAD, MUN_SQUAD].forEach(sq =>
   sq.forEach(g => g.players.forEach(pl => { PLAYER_MAP[pl.id] = { ...pl, group: g.g }; })));
+
+/* 18팀도 선수 카드에서 상세를 열 수 있게 한다. 아스날·맨유는 선수별 편집부 코멘트가 있지만
+   나머지 구단은 아직 없으므로, 확인된 사실(구단·등번호·포지션·국적)과 팀 맥락만 보여주고
+   그 사실을 모달 안에 분명히 밝힌다. 없는 것을 지어내지 않는다. */
+Object.keys(SQUAD18).forEach(function (key) {
+  var info = TEAM18_INFO[key] || {};
+  SQUAD18[key].forEach(function (g) {
+    g.players.forEach(function (pl) {
+      if (!pl.id || PLAYER_MAP[pl.id]) return;
+      PLAYER_MAP[pl.id] = {
+        n: pl.n, p: pl.p, group: g.g, id: pl.id,
+        f: info.ko + ' 소속 · ' + g.g + ' · ' + pl.p
+           + (pl.nat ? ' · ' + pl.nat : '')
+           + '. 홈구장 ' + info.st + ' · 감독 ' + info.mgr + '.',
+        st: info.story || '',
+        pc: '아스날·맨유는 선수별 편집부 코멘트를 싣고 있지만, 나머지 18개 구단은 아직 개별 평가를 준비하지 못했어요. 지금은 확인된 사실과 팀 맥락만 보여드립니다.'
+      };
+    });
+  });
+});
+
 const modalOv = document.getElementById('playerModal');
 function openPlayer(pid) {
   const pl = PLAYER_MAP[pid];
@@ -7687,11 +7757,9 @@ function renderXI18() {
       d.style.left = pl.x + '%';
       d.style.top = pl.y + '%';
       var img = pl.id
-        ? '<img loading="lazy" style="display:none" alt="' + pl.n + '" src="https://images.fotmob.com/image_resources/playerimages/' + pl.id + '.png"'
-          + ' onload="this.style.display=\'block\';this.nextElementSibling.style.display=\'none\'">'
+        ? '<img loading="lazy" alt="' + pl.n + '" src="https://images.fotmob.com/image_resources/playerimages/' + pl.id + '.png">'
         : '';
-      d.innerHTML = img
-        + '<div class="xi-fb" style="display:flex;">' + pl.n.charAt(0) + '</div>'
+      d.innerHTML = '<div class="xi-fb" style="display:flex;">' + pl.n.charAt(0) + '</div>' + img
         + '<span class="xi-n">' + pl.n + '</span>'
         + '<span class="xi-p">' + pl.p + '</span>';
       el.appendChild(d);

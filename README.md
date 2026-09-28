@@ -2,7 +2,7 @@
 
 아스날 FC의 경기·순위·통계·선수단·이적시장·여론을 한 페이지에 모은 비공식 팬 사이트입니다.
 
-화면은 `index.html` 한 파일이고, 빌드 과정은 없습니다. 선수 사진이 파일 안에 들어 있습니다.
+화면은 `index.html` 한 파일이고, 빌드 과정은 없습니다. 디자인 시스템 CSS(색·글꼴·간격 토큰과 컴포넌트)도 이 파일 맨 앞에 들어 있습니다. 선수는 사진 대신 이니셜로 표시합니다.
 일정·순위·요약 같은 자주 바뀌는 값은 `data/` 의 JSON 파일에서 읽고, 파일을 못 읽으면 HTML 에 적어 둔 내용을 그대로 보여 줍니다.
 
 ## 메뉴
@@ -24,6 +24,7 @@
 | `data/standings.json` | EPL 순위표 |
 | `data/content.json` | 첫 화면 문구, 경기 요약, 헤드라인, 이적 보드 |
 | `arsenal.ics` | 휴대폰 달력 구독 파일 |
+| `assets/crests/` | 구단 엠블럼(출처·상표 안내는 `assets/crests/README.md`) |
 | `scripts/build-ics.mjs` | `data/fixtures.json` 으로 `arsenal.ics` 를 다시 만듭니다 (`node scripts/build-ics.mjs`) |
 
 ## 표기 원칙
@@ -37,11 +38,13 @@
 
 일정 [PremierLeague.com](https://www.premierleague.com) · [Arsenal.com](https://www.arsenal.com) ·
 순위 [BBC](https://www.bbc.co.uk/sport/football/premier-league/table) · [Guardian](https://www.theguardian.com/football/premierleague/table) ·
-선수 사진 [FotMob](https://www.fotmob.com) ·
+구단 엠블럼 이미지 [football-data.org](https://www.football-data.org) ·
 기사 [Arsenal.com](https://www.arsenal.com) · [Sky Sports](https://www.skysports.com) · [BBC](https://www.bbc.com/sport/football) · [ESPN](https://www.espn.com/soccer/) · [Guardian](https://www.theguardian.com/football) · [Arseblog](https://arseblog.com) · [Opta Analyst](https://theanalyst.com) 등 ·
 국내 반응 베스트일레븐 등 국내 스포츠 매체
 
+글꼴: [Pretendard](https://github.com/orioncactus/pretendard) · [Archivo](https://fonts.google.com/specimen/Archivo) (SIL Open Font License 1.1)
+
 ## 고지
 
-아스날 FC 및 프리미어리그와 무관한 비공식 팬 페이지입니다.
+비공식 팬 사이트입니다. 구단 엠블럼은 각 구단의 상표이며, 구단·리그와 관계가 없습니다.
 모든 내용은 공개된 보도를 요약한 것이며, 상표와 이미지의 권리는 각 권리자에게 있습니다.

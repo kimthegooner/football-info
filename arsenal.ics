@@ -1,0 +1,716 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//football-info//Arsenal fixtures KST//KO
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:아스날 경기 일정 (한국시간)
+X-WR-CALDESC:아스날 팬 허브 — 한국시간 경기 일정. 시간 
+ 미정 경기는 종일 일정으로 들어갑니다.
+X-WR-TIMEZONE:Asia/Seoul
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Asia/Seoul
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0900
+TZOFFSETTO:+0900
+TZNAME:KST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-09-06-EPL-CHE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20260907T003000
+DTEND;TZID=Asia/Seoul:20260907T023000
+SUMMARY:아스날 2-1 첼시 · 프리미어리그 3R
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-09-07 00:30 (현지 16:30 BST)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-09-09-UCL-NAP@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20260910T040000
+DTEND;TZID=Asia/Seoul:20260910T060000
+SUMMARY:나폴리 0-1 아스날 · 챔피언스리그 리그 페이즈 1R
+LOCATION:Stadio Diego Armando Maradona
+DESCRIPTION:한국시간 2026-09-10 04:00 (현지 21:00 CEST)\n한국시간
+  새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://k
+ imthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-09-12-EPL-SUN@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20260913T040000
+DTEND;TZID=Asia/Seoul:20260913T060000
+SUMMARY:선덜랜드 0-2 아스날 · 프리미어리그 4R
+LOCATION:Stadium of Light
+DESCRIPTION:한국시간 2026-09-13 04:00 (현지 20:00 BST)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-09-15-EFL-IPS@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20260916T040000
+DTEND;TZID=Asia/Seoul:20260916T060000
+SUMMARY:입스위치 타운 2-4 아스날 · 카라바오컵 3R
+LOCATION:Portman Road
+DESCRIPTION:한국시간 2026-09-16 04:00 (현지 20:00 BST)\n한국시간 
+ 새벽 경기\n국내 중계: 미확정\n일정 전체: https://kimthegoon
+ er.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-09-19-EPL-BHA@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20260919T230000
+DTEND;TZID=Asia/Seoul:20260920T010000
+SUMMARY:브라이턴 3-0 아스날 · 프리미어리그 5R
+LOCATION:Amex Stadium
+DESCRIPTION:한국시간 2026-09-19 23:00 (현지 15:00 BST)\n국내 중계
+ : 쿠팡플레이\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-10-EPL-LEE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261010T203000
+DTEND;TZID=Asia/Seoul:20261010T223000
+SUMMARY:아스날 vs 리즈 유나이티드 · 프리미어리그 6R
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-10-10 20:30 (현지 12:30 BST)\n국내 중계
+ : 쿠팡플레이\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-13-UCL-LIL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261014T040000
+DTEND;TZID=Asia/Seoul:20261014T060000
+SUMMARY:아스날 vs 릴 · 챔피언스리그 리그 페이즈 2R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-10-14 04:00 (현지 20:00 BST)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-18-EPL-NFO@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261019T003000
+DTEND;TZID=Asia/Seoul:20261019T023000
+SUMMARY:노팅엄 포레스트 vs 아스날 · 프리미어리그 7R (새
+ 벽)
+LOCATION:City Ground
+DESCRIPTION:한국시간 2026-10-19 00:30 (현지 16:30 BST)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n원래 10/17(토) → 10/18
+ (일)로 변경\n일정 전체: https://kimthegooner.github.io/football-in
+ fo/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-21-UCL-BAY@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261022T040000
+DTEND;TZID=Asia/Seoul:20261022T060000
+SUMMARY:바이에른 뮌헨 vs 아스날 · 챔피언스리그 리그 페
+ 이즈 3R (새벽)
+LOCATION:Allianz Arena
+DESCRIPTION:한국시간 2026-10-22 04:00 (현지 21:00 CEST)\n한국시간
+  새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://k
+ imthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-24-EPL-EVE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261024T230000
+DTEND;TZID=Asia/Seoul:20261025T010000
+SUMMARY:아스날 vs 에버턴 · 프리미어리그 8R
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-10-24 23:00 (현지 15:00 BST)\n국내 중계
+ : 쿠팡플레이\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-EFL-FLE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261028T050000
+DTEND;TZID=Asia/Seoul:20261028T070000
+SUMMARY:플리트우드 타운 vs 아스날 · 카라바오컵 4R(16강) (
+ 새벽)
+LOCATION:Highbury Stadium (Fleetwood)
+DESCRIPTION:한국시간 2026-10-28 05:00 (현지 20:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 미확정\n일정 전체: https://kimthegoon
+ er.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-01-EPL-LIV@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261102T013000
+DTEND;TZID=Asia/Seoul:20261102T033000
+SUMMARY:리버풀 vs 아스날 · 프리미어리그 9R (새벽)
+LOCATION:Anfield
+DESCRIPTION:한국시간 2026-11-02 01:30 (현지 16:30 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n원래 10/31(토) → 11/1(
+ 일)로 변경\n일정 전체: https://kimthegooner.github.io/football-inf
+ o/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-UCL-SLA@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261105T050000
+DTEND;TZID=Asia/Seoul:20261105T070000
+SUMMARY:슬라비아 프라하 vs 아스날 · 챔피언스리그 리그 
+ 페이즈 4R (새벽)
+LOCATION:Fortuna Arena (Eden)
+DESCRIPTION:한국시간 2026-11-05 05:00 (현지 21:00 CET)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-07-EPL-HUL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261108T000000
+DTEND;TZID=Asia/Seoul:20261108T020000
+SUMMARY:아스날 vs 헐 시티 · 프리미어리그 10R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-11-08 00:00 (현지 15:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-21-EPL-NEW@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261122T023000
+DTEND;TZID=Asia/Seoul:20261122T043000
+SUMMARY:뉴캐슬 유나이티드 vs 아스날 · 프리미어리그 11R (
+ 새벽)
+LOCATION:St James' Park
+DESCRIPTION:한국시간 2026-11-22 02:30 (현지 17:30 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-24-UCL-BVB@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261125T050000
+DTEND;TZID=Asia/Seoul:20261125T070000
+SUMMARY:아스날 vs 보루시아 도르트문트 · 챔피언스리그 리
+ 그 페이즈 5R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-11-25 05:00 (현지 20:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-29-EPL-MCI@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261130T013000
+DTEND;TZID=Asia/Seoul:20261130T033000
+SUMMARY:아스날 vs 맨체스터 시티 · 프리미어리그 12R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-11-30 01:30 (현지 16:30 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n원래 11/28(토) → 11/29
+ (일)로 변경\n일정 전체: https://kimthegooner.github.io/football-in
+ fo/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-02-EPL-BRE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+TRANSP:TRANSPARENT
+SUMMARY:브렌트퍼드 vs 아스날 · 프리미어리그 13R (시간 미
+ 정)
+LOCATION:Gtech Community Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정
+ (아스날 공식). 주중 경기 기본값 20:00(영국)\, TV 선택 시 
+ 19:30 또는 20:15로 바뀜\n일정 전체: https://kimthegooner.github.i
+ o/football-info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-05-EPL-TOT@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+TRANSP:TRANSPARENT
+SUMMARY:토트넘 홋스퍼 vs 아스날 · 프리미어리그 14R (시간 
+ 미정)
+LOCATION:Tottenham Hotspur Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정
+ (아스날 공식)\n일정 전체: https://kimthegooner.github.io/football
+ -info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-UCL-RMA@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261210T050000
+DTEND;TZID=Asia/Seoul:20261210T070000
+SUMMARY:아스날 vs 레알 마드리드 · 챔피언스리그 리그 페
+ 이즈 6R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2026-12-10 05:00 (현지 20:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-12-EPL-BOU@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 본머스 · 프리미어리그 15R (시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정
+ (아스날 공식). 본머스의 직전 목요일 유로파리그 경기 
+ 때문에 토요일에서 옮겨질 예정(아스날 공식)\n일정 전
+ 체: https://kimthegooner.github.io/football-info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-19-EPL-MUN@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 맨체스터 유나이티드 · 프리미어리그 16R
+  (시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정
+ (아스날 공식)\n일정 전체: https://kimthegooner.github.io/football
+ -info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-27-EPL-CRY@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261228T040000
+DTEND;TZID=Asia/Seoul:20261228T060000
+SUMMARY:크리스탈 팰리스 vs 아스날 · 프리미어리그 17R (새
+ 벽)
+LOCATION:Selhurst Park
+DESCRIPTION:한국시간 2026-12-28 04:00 (현지 19:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n원래 12/26(토) → 12/27
+ (일)로 변경\n일정 전체: https://kimthegooner.github.io/football-in
+ fo/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-30-EPL-FUL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20261231T043000
+DTEND;TZID=Asia/Seoul:20261231T063000
+SUMMARY:풀럼 vs 아스날 · 프리미어리그 18R (새벽)
+LOCATION:Craven Cottage
+DESCRIPTION:한국시간 2026-12-31 04:30 (현지 19:30 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-02-EPL-IPS@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20270103T000000
+DTEND;TZID=Asia/Seoul:20270103T020000
+SUMMARY:아스날 vs 입스위치 타운 · 프리미어리그 19R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2027-01-03 00:00 (현지 15:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-05-EPL-BRE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20270106T043000
+DTEND;TZID=Asia/Seoul:20270106T063000
+SUMMARY:아스날 vs 브렌트퍼드 · 프리미어리그 20R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2027-01-06 04:30 (현지 19:30 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n원래 1/6(수) → 1/5(화
+ )로 변경\n일정 전체: https://kimthegooner.github.io/football-info/#
+ matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-16-EPL-HUL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+TRANSP:TRANSPARENT
+SUMMARY:헐 시티 vs 아스날 · 프리미어리그 21R (시간 미정)
+LOCATION:MKM Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-20-UCL-BET@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20270121T050000
+DTEND;TZID=Asia/Seoul:20270121T070000
+SUMMARY:레알 베티스 vs 아스날 · 챔피언스리그 리그 페이
+ 즈 7R (새벽)
+DESCRIPTION:한국시간 2027-01-21 05:00 (현지 21:00 CET)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-23-EPL-NEW@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 뉴캐슬 유나이티드 · 프리미어리그 22R (
+ 시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-UCL-SAB@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20270128T050000
+DTEND;TZID=Asia/Seoul:20270128T070000
+SUMMARY:아스날 vs 사바흐 · 챔피언스리그 리그 페이즈 8R (
+ 새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2027-01-28 05:00 (현지 20:00 GMT)\n한국시간 
+ 새벽 경기\n국내 중계: SPOTV (SPOTV NOW)\n일정 전체: https://ki
+ mthegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-30-EPL-MCI@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+TRANSP:TRANSPARENT
+SUMMARY:맨체스터 시티 vs 아스날 · 프리미어리그 23R (시간 
+ 미정)
+LOCATION:Etihad Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-06-EPL-LIV@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 리버풀 · 프리미어리그 24R (시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-10-EPL-IPS@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+TRANSP:TRANSPARENT
+SUMMARY:입스위치 타운 vs 아스날 · 프리미어리그 25R (시간 
+ 미정)
+LOCATION:Portman Road
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 주중 경기 기본값 20:00(영국)\n일정 전체: h
+ ttps://kimthegooner.github.io/football-info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-20-EPL-FUL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 풀럼 · 프리미어리그 26R (시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-27-EPL-MUN@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+TRANSP:TRANSPARENT
+SUMMARY:맨체스터 유나이티드 vs 아스날 · 프리미어리그 27R
+  (시간 미정)
+LOCATION:Old Trafford
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-03-EPL-CRY@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270304
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 크리스탈 팰리스 · 프리미어리그 28R (시
+ 간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정. 주중 경기 기본값 20:00(영국)\n일정 전체: h
+ ttps://kimthegooner.github.io/football-info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-13-EPL-CHE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+TRANSP:TRANSPARENT
+SUMMARY:첼시 vs 아스날 · 프리미어리그 29R (시간 미정)
+LOCATION:Stamford Bridge
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-03-20-EPL-SUN@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270320
+DTEND;VALUE=DATE:20270321
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 선덜랜드 · 프리미어리그 30R (시간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-10-EPL-COV@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270410
+DTEND;VALUE=DATE:20270411
+TRANSP:TRANSPARENT
+SUMMARY:코번트리 시티 vs 아스날 · 프리미어리그 31R (시간 
+ 미정)
+LOCATION:Coventry Building Society Arena
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-17-EPL-AVL@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270417
+DTEND;VALUE=DATE:20270418
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 애스턴 빌라 · 프리미어리그 32R (시간 미
+ 정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-04-24-EPL-BOU@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+TRANSP:TRANSPARENT
+SUMMARY:본머스 vs 아스날 · 프리미어리그 33R (시간 미정)
+LOCATION:Vitality Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-01-EPL-TOT@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 토트넘 홋스퍼 · 프리미어리그 34R (시간 
+ 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-08-EPL-LEE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270509
+TRANSP:TRANSPARENT
+SUMMARY:리즈 유나이티드 vs 아스날 · 프리미어리그 35R (시
+ 간 미정)
+LOCATION:Elland Road
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-15-EPL-NFO@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270515
+DTEND;VALUE=DATE:20270516
+TRANSP:TRANSPARENT
+SUMMARY:아스날 vs 노팅엄 포레스트 · 프리미어리그 36R (시
+ 간 미정)
+LOCATION:Emirates Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-23-EPL-EVE@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;VALUE=DATE:20270523
+DTEND;VALUE=DATE:20270524
+TRANSP:TRANSPARENT
+SUMMARY:에버턴 vs 아스날 · 프리미어리그 37R (시간 미정)
+LOCATION:Hill Dickinson Stadium
+DESCRIPTION:킥오프 시간 미정 — 날짜는 영국 현지 기준 잠
+ 정. 방송 편성이 나오면 이 일정이 바뀝니다.\n국내 중계
+ : 쿠팡플레이\nTV 중계 선택 대기 — 날짜는 잠정\, 킥오
+ 프 시각 미정\n일정 전체: https://kimthegooner.github.io/football-
+ info/#matches
+STATUS:TENTATIVE
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-05-30-EPL-BHA@kimthegooner.github.io
+DTSTAMP:20260928T063255Z
+DTSTART;TZID=Asia/Seoul:20270531T000000
+DTEND;TZID=Asia/Seoul:20270531T020000
+SUMMARY:아스날 vs 브라이턴 · 프리미어리그 38R (새벽)
+LOCATION:Emirates Stadium
+DESCRIPTION:한국시간 2027-05-31 00:00 (현지 16:00 BST)\n한국시간 
+ 새벽 경기\n국내 중계: 쿠팡플레이\n최종전은 전 경기 동
+ 시 16:00(영국) 킥오프(아스날 공식)\n일정 전체: https://kimt
+ hegooner.github.io/football-info/#matches
+STATUS:CONFIRMED
+URL:https://kimthegooner.github.io/football-info/#matches
+END:VEVENT
+END:VCALENDAR

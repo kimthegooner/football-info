@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>아스날 팬 허브</title>
+<script>try{var __t=localStorage.getItem("theme");if(__t==="dark"||__t==="light")document.documentElement.dataset.theme=__t;}catch(e){}</script>
 <style>
   :root {
     color-scheme: light;
@@ -966,6 +967,179 @@
   .xi .xi-fb { display: flex; }
   .xi img { position: absolute; left: 0; right: 0; top: 0; margin: 0 auto; z-index: 1; background: transparent; }
 </style>
+<style id="s2Style">
+  /* ══════ 2단계 (2026-09-28): 메뉴 5개 · 헤드라인형 첫 화면 · 일정·요약·이적 보드·헤드라인 ══════ */
+  [hidden] { display: none !important; }
+  .h3-more { float: right; font-size: 12.5px; font-weight: 800; color: var(--ars-red); text-decoration: none; }
+  .h3-more:hover { text-decoration: underline; }
+  .fb-note { font-size: 12.5px; color: var(--warn); background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 10px; }
+  .more-btn {
+    display: block; width: 100%; margin-top: 10px; min-height: 42px; border: 1px solid var(--grid); border-radius: 10px;
+    background: var(--surface-1); color: var(--ink-2); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
+  }
+  .more-btn:hover { border-color: var(--ink-3); color: var(--ink-1); }
+
+  /* 첫 화면 B안 — 헤드라인 + 숫자 3칸 */
+  .hb { background: var(--surface-1); border: 1px solid var(--ring); border-top: 6px solid var(--ars-red); border-radius: 14px; padding: 26px 30px 20px; margin-bottom: 18px; }
+  .hb-k { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: var(--ars-red); }
+  .hb-head { font-size: clamp(24px, 3.2vw, 36px); font-weight: 900; letter-spacing: -.02em; line-height: 1.25; margin: 8px 0 6px; max-width: 22em; word-break: keep-all; }
+  .hb-sub { color: var(--ink-2); font-size: 15px; max-width: 40em; }
+  .hb-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 20px; border-top: 1px solid var(--grid); }
+  .hb-cell { display: block; padding: 14px 18px 2px 0; text-decoration: none; color: inherit; min-width: 0; }
+  .hb-cell + .hb-cell { padding-left: 18px; border-left: 1px solid var(--grid); }
+  .hb-cell:hover .hb-l { color: var(--ars-red); }
+  .hb-l { font-size: 12px; font-weight: 800; color: var(--ink-3); }
+  .hb-v { font-size: 30px; font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.25; margin-top: 2px; }
+  .hb-v.red { color: var(--ars-red); }
+  .hb-n { font-size: 13px; color: var(--ink-2); }
+  .form { display: flex; gap: 4px; margin: 8px 0 5px; }
+  .form i { width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 900; color: #fff; background: var(--good); }
+  .form i.l { background: var(--critical); }
+  .form i.d { background: var(--ink-3); }
+  .tiles.t3 { grid-template-columns: repeat(3, 1fr); }
+
+  /* 승무패 칩 · 대회 배지 · 상태 칩 */
+  .res { flex: none; display: inline-grid; place-items: center; min-width: 26px; height: 24px; padding: 0 6px; border-radius: 6px; font-size: 12px; font-weight: 900; background: var(--chip-bg); color: var(--ink-2); }
+  .res.w { background: var(--good-bg); color: var(--good-text); }
+  .res.l { background: color-mix(in srgb, var(--critical) 13%, transparent); color: var(--critical); }
+  .cb { display: inline-block; border-radius: 6px; padding: 2px 8px 2px 9px; font-size: 11px; font-weight: 800; white-space: nowrap; color: var(--ink-1);
+        background: color-mix(in srgb, var(--cb) 15%, transparent); box-shadow: inset 3px 0 0 var(--cb); }
+  .cb-epl { --cb: #8a4fc4; } .cb-ucl { --cb: #2a78d6; } .cb-efl { --cb: #1f9a52; } .cb-etc { --cb: #8a8a8a; }
+  .tag { display: inline-flex; align-items: center; gap: 3px; border-radius: 999px; padding: 2px 9px; font-size: 11px; font-weight: 800; white-space: nowrap; background: var(--chip-bg); color: var(--ink-2); }
+  .tag.dawn { background: var(--warn-bg); color: var(--warn); }
+  .tag.tbd { background: transparent; box-shadow: inset 0 0 0 1px var(--baseline); color: var(--ink-3); }
+  .tag.next { background: var(--ars-red); color: #fff; }
+
+  /* 홈 최근 경기 한 줄 */
+  .r1 { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--grid); }
+  .r1:last-child { border-bottom: 0; }
+  .r1-b { min-width: 0; }
+  .r1-h b { font-size: 14.5px; }
+  .r1-t { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+
+  /* 일정 목록 + 달력 */
+  .cal-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+  .btn-cal { display: inline-flex; align-items: center; min-height: 42px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--grid);
+             font-size: 13px; font-weight: 800; text-decoration: none; color: var(--ink-1); background: var(--surface-1); }
+  .btn-cal:hover { border-color: var(--ink-3); }
+  .btn-cal.primary { background: var(--ars-red); border-color: var(--ars-red); color: #fff; }
+  .cal-help { margin-bottom: 10px; }
+  .seg { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 4px; }
+  .seg button { border: 1px solid var(--grid); background: var(--surface-1); color: var(--ink-2); border-radius: 999px; padding: 6px 13px; min-height: 36px;
+                font: inherit; font-size: 12.5px; font-weight: 800; cursor: pointer; }
+  .seg button.on { background: var(--ink-1); color: var(--page); border-color: var(--ink-1); }
+  .fx-month { font-weight: 900; font-size: 13px; color: var(--ink-3); margin: 16px 0 0; letter-spacing: .04em; }
+  .fx { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 3px 14px; align-items: center; padding: 11px 4px; border-bottom: 1px solid var(--grid); }
+  .fx.is-next { background: color-mix(in srgb, var(--ars-red) 6%, transparent); border-radius: 8px; }
+  .fx-when b { display: block; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .fx-when .t { font-size: 13.5px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .fx-when .loc { display: block; font-size: 11px; color: var(--ink-3); }
+  .fx-opp { font-weight: 800; font-size: 15px; margin-top: 3px; }
+  .fx-meta { font-size: 12px; color: var(--ink-3); }
+  .fx-tags { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+  .sched-foot { margin-top: 10px; }
+
+  /* 경기 3줄 요약 */
+  .sum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .sum { border: 1px solid var(--ring); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+  .sum-top { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--ink-3); }
+  .sum-score { font-size: 17px; font-weight: 900; margin: 7px 0 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+  .sum ol { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+  .sum ol li + li { margin-top: 3px; }
+  .sum-goals { font-size: 12px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+
+  /* 다음 상대 · 확률 */
+  .sec-2 { font-size: 20px; margin-top: 4px; }
+  .pv-points { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
+  .pv-num { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0 10px; }
+  .pv-num div { background: var(--chip-bg); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; color: var(--ink-2); }
+  .pv-num b { display: block; font-size: 17px; color: var(--ink-1); }
+  .pb { display: flex; height: 34px; border-radius: 8px; overflow: hidden; margin: 10px 0 6px; font-size: 12.5px; font-weight: 900; }
+  .pb span { display: flex; align-items: center; justify-content: center; color: #fff; min-width: 0; white-space: nowrap; overflow: hidden; }
+  .pb .w { background: var(--ars-red); } .pb .d { background: #7a7a7a; } .pb .l { background: #33507a; }
+  .pb-legend { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--ink-2); flex-wrap: wrap; }
+  .pb-legend b { color: var(--ink-1); }
+  .pb-how { font-size: 12px; color: var(--ink-3); margin-top: 8px; line-height: 1.6; }
+
+  /* 부상자 카드 */
+  .inj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .inj { border: 1px solid var(--ring); border-radius: 10px; padding: 12px 14px; min-width: 0; }
+  .inj-h { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .inj-h b { font-size: 14.5px; }
+  .inj-part { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+  .inj p { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.6; }
+
+  /* 순위표: 구역 표시 · 폰 축약 */
+  tr.ucl:not(.hl) .pos-badge { background: transparent; color: var(--chart-blue); box-shadow: inset 0 0 0 1.5px var(--chart-blue); }
+  .zone-legend { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); margin-top: 10px; }
+  .zl { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-left: 4px; }
+  .zl.ucl { box-shadow: inset 0 0 0 1.5px var(--chart-blue); }
+  .zl.rel { box-shadow: inset 0 0 0 1.5px var(--critical); }
+  .tn-short { display: none; }
+  .sec-divider { margin: 34px 0 14px; padding-top: 22px; border-top: 2px solid var(--rule-strong); }
+  .sd-kicker { font-size: 11px; font-weight: 800; letter-spacing: .16em; color: var(--ars-red); margin-bottom: 4px; }
+
+  /* 소식: 헤드라인 · 작은 탭 */
+  .hl-list { list-style: none; }
+  .hl-item { padding: 10px 0; border-bottom: 1px solid var(--grid); }
+  .hl-item:last-child { border-bottom: 0; }
+  .hl-ko { font-size: 14px; font-weight: 800; color: var(--ink-1); line-height: 1.5; }
+  .hl-orig { display: inline-block; font-size: 12.5px; color: var(--ink-2); margin-top: 2px; text-decoration: none; overflow-wrap: anywhere; }
+  .hl-orig:hover { color: var(--ars-red); text-decoration: underline; }
+  .hl-meta { font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
+  .subtabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 4px 0 22px; padding: 2px 0; scroll-margin-top: 100px; }
+  .subtabs::-webkit-scrollbar { display: none; }
+  .subtabs button { flex: none; border: 1px solid var(--grid); background: var(--surface-1); color: var(--ink-2); border-radius: 999px; padding: 8px 16px; min-height: 40px;
+                    font: inherit; font-size: 13.5px; font-weight: 800; cursor: pointer; }
+  .subtabs button.on { background: var(--ars-red); border-color: var(--ars-red); color: #fff; }
+  #panel-news.active + section.panel.active { animation: none; }
+
+  /* 이적 보드 */
+  .tb-guide { font-size: 12.5px; color: var(--ink-2); background: var(--chip-bg); border-radius: 8px; padding: 9px 12px; margin: 4px 0 12px; line-height: 1.7; }
+  .tb-guide b { color: var(--ink-1); }
+  .tb-h { font-size: 12px; font-weight: 800; letter-spacing: .08em; color: var(--ink-3); margin: 16px 0 2px; }
+  .tb { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 12px; padding: 11px 0; border-bottom: 1px solid var(--grid); }
+  .tb-name { font-weight: 800; font-size: 14.5px; }
+  .tb-meta { font-size: 12.5px; color: var(--ink-3); }
+  .tb-badges { display: flex; gap: 5px; align-items: flex-start; justify-content: flex-end; flex-wrap: wrap; }
+  .tb-note { grid-column: 1 / -1; font-size: 13px; color: var(--ink-2); }
+  .tb-src { grid-column: 1 / -1; font-size: 12px; color: var(--ink-3); }
+  .tb-src a { color: var(--ink-3); }
+  .gr { display: inline-grid; place-items: center; min-width: 24px; height: 22px; padding: 0 5px; border-radius: 6px; font-size: 11.5px; font-weight: 900; }
+  .gr-A { background: var(--good-bg); color: var(--good-text); }
+  .gr-B { background: color-mix(in srgb, var(--chart-blue) 15%, transparent); color: var(--chart-blue); }
+  .gr-C { background: var(--warn-bg); color: var(--warn); }
+  .gr-D { background: var(--chip-bg); color: var(--ink-3); }
+
+  @media (max-width: 768px) {
+    .theme-toggle { display: inline-block; margin-left: auto !important; flex: none; padding: 2px 9px; font-size: 10.5px; }
+    .h3-more { float: none; display: inline-block; margin-left: 6px; font-size: 12px; }
+    .hb { padding: 18px 16px 12px; border-radius: 12px; margin-bottom: 14px; }
+    .hb-head { font-size: 23px; }
+    .hb-sub { font-size: 13.5px; }
+    .hb-strip { margin-top: 14px; }
+    .hb-cell { padding: 11px 8px 2px 0; }
+    .hb-cell + .hb-cell { padding-left: 9px; }
+    .hb-l { font-size: 11px; }
+    .hb-v { font-size: 22px; }
+    .hb-n { font-size: 11px; line-height: 1.45; word-break: keep-all; }
+    .form { gap: 3px; margin: 6px 0 4px; }
+    .form i { width: 17px; height: 20px; border-radius: 4px; font-size: 10px; }
+    .tiles.t3 .tile:nth-child(3) { grid-column: 1 / -1; }
+    .fx { grid-template-columns: 78px minmax(0, 1fr); padding: 10px 2px; }
+    .fx-tags { grid-column: 2; justify-content: flex-start; }
+    .fx-opp { font-size: 14px; }
+    .sum-grid { grid-template-columns: 1fr; }
+    .inj-grid { grid-template-columns: 1fr; }
+    .st-note { display: none; }
+    .tn-full { display: none; }
+    .tn-short { display: inline; }
+    .pv-num { grid-template-columns: 1fr 1fr; }
+    .btn-cal { flex: 1 1 auto; justify-content: center; }
+    .tb { grid-template-columns: 1fr; }
+    .tb-badges { justify-content: flex-start; order: -1; }
+  }
+</style>
 </head>
 <body>
 
@@ -978,18 +1152,13 @@
     </div>
   </div>
   <div class="site-inner mainbar-in">
-    <div class="wordmark" id="wordmark">Arsenal Fan Hub<span class="wm-sub">경기 · 순위 · 통계 · 이적시장 · 여론</span></div>
-    <nav class="tabs" id="tabs">
+    <div class="wordmark" id="wordmark">Arsenal Fan Hub<span class="wm-sub">경기 · 순위·기록 · 선수단 · 소식</span></div>
+    <nav class="tabs" id="tabs" aria-label="메뉴">
       <button data-tab="home" class="active">홈</button>
       <button data-tab="matches">경기</button>
-      <button data-tab="table">순위표</button>
-      <button data-tab="stats">통계</button>
+      <button data-tab="table">순위·기록</button>
       <button data-tab="squad">선수단</button>
-      <button data-tab="opponent">다음 상대</button>
-      <button data-tab="columns">칼럼</button>
-      <button data-tab="press">기자회견·인터뷰</button>
-      <button data-tab="fans">팬 여론</button>
-      <button data-tab="transfers">이적시장</button>
+      <button data-tab="news">소식</button>
     </nav>
   </div>
 </header>
@@ -999,18 +1168,19 @@
 <div id="teamArs">
 
 <!-- ═══════════ 홈 ═══════════ -->
-<section class="panel active" id="panel-home">
-  <div class="hero">
-    <div class="dday"><span id="ddayNum">D-17</span><br><small>다음 경기까지</small></div>
-    <div class="info">
-      <div class="t1">EPL 6R · 홈</div>
-      <div class="t2">아스날 vs 리즈 유나이티드</div>
-      <div class="t3">10월 10일(토) 20:30 KST · 에미레이츠 스타디움 (홈) · 그 전까지 3주간 국제 A매치 브레이크</div>
+<section class="panel active" id="panel-home" data-group="home">
+  <div class="hb" id="heroB">
+    <div class="hb-k" id="hbKicker">지금 아스날 · 9.28</div>
+    <h1 class="hb-head" id="hbHead">첫 패배 뒤 휴식기, 10일 리즈전에서 반등 노린다</h1>
+    <p class="hb-sub" id="hbSub">브라이턴 원정 0-3으로 7연승 마감. EPL 2위, 1위와 3점 차.</p>
+    <div class="hb-strip">
+      <a class="hb-cell" href="#matches"><div class="hb-l">다음 경기</div><div class="hb-v" id="hbDday" data-ko="2026-10-10T20:30:00+09:00">D-12</div><div class="hb-n" id="hbNext">리즈 · 10.10 (토) 20:30</div></a>
+      <a class="hb-cell" href="#table"><div class="hb-l">EPL 순위</div><div class="hb-v red" id="hbPos">2위</div><div class="hb-n" id="hbPts">승점 12 · 1위와 3점 차</div></a>
+      <a class="hb-cell" href="#matches"><div class="hb-l">최근 5경기</div><div class="form" id="hbForm"><i title="9.7 첼시 2-1 승">승</i><i title="9.10 나폴리 1-0 승">승</i><i title="9.13 선덜랜드 2-0 승">승</i><i title="9.16 입스위치 4-2 승">승</i><i class="l" title="9.19 브라이턴 0-3 패">패</i></div><div class="hb-n">전 대회 · 오른쪽이 최근</div></a>
     </div>
   </div>
 
-  <div class="tiles">
-    <div class="tile accent"><div class="label">2026-27 현재 순위</div><div class="value">2위</div><div class="note">승점 12 · 맨시티(15)에 3점 차 · 지난 시즌 우승(승점85)</div></div>
+  <div class="tiles t3">
     <div class="tile"><div class="label">지난 시즌(2025-26) 득실</div><div class="value">71 : 27</div><div class="note">+44 · 리그 최소 실점</div></div>
     <div class="tile"><div class="label">여름 영입</div><div class="value">5명</div><div class="note">인카피에 · 촐리스 · 메슬리에 · 기마랑이스 · 콘사</div></div>
     <div class="tile"><div class="label">이적시장</div><div class="value" id="twDday">마감</div><div class="note">9월 2일 07:00 KST 마감 완료 · 제주스·비에이라·은와네리 오피셜, 알바레스 잔류</div></div>
@@ -1018,98 +1188,21 @@
 
   <div class="grid2">
     <div class="card">
-      <h3>최근 경기</h3>
-      <div class="match">
-        <div class="date">9.19 (토) 23:00</div>
-        <div class="comp">EPL 5R</div>
-        <div class="teams">브라이턴 <span class="score">3 : 0</span> 아스날 <span class="muted">(원정)</span></div>
-        <span class="badge low">시즌 첫 패배</span>
+      <h3>최근 경기 <a class="h3-more" href="#matches">전체 보기 →</a></h3>
+      <div id="homeRecent">
+        <div class="r1"><span class="res l">패</span><div class="r1-b"><div class="r1-h"><b>브라이턴 3 : 0 아스날</b> <span class="muted">9.19 (토) · EPL 5R · 원정</span></div><div class="r1-t">브라이턴 원정에서 0-3으로 져 시즌 첫 패배를 안았다.</div></div></div>
+        <div class="r1"><span class="res w">승</span><div class="r1-b"><div class="r1-h"><b>입스위치 타운 2 : 4 아스날</b> <span class="muted">9.16 (수) · 카라바오컵 3R · 원정</span></div><div class="r1-t">입스위치 원정에서 4-2로 이겨 카라바오컵 4라운드에 올랐다.</div></div></div>
+        <div class="r1"><span class="res w">승</span><div class="r1-b"><div class="r1-h"><b>선덜랜드 0 : 2 아스날</b> <span class="muted">9.13 (일) · EPL 4R · 원정</span></div><div class="r1-t">선덜랜드 원정에서 2-0으로 이겨 리그 개막 4연승을 이어갔다.</div></div></div>
       </div>
-      <p class="small" style="margin-bottom:10px;"><b>🚨 브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>카랄람포스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. 다음 경기까지 <b>3주간 국제 A매치 브레이크</b>가 이어진다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
-      <div class="match">
-        <div class="date">9.16 (수) 04:00</div>
-        <div class="comp">카라바오컵 3R</div>
-        <div class="teams">입스위치 타운 <span class="score">2 : 4</span> 아스날 <span class="muted">(원정)</span></div>
-        <span class="badge win">4라운드 진출</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;"><b>카라바오컵 3라운드 입스위치 원정 2-4 승리, 4라운드 진출.</b> 선덜랜드전에서 9명을 로테이션한 스쿼드로 나서 <b>16세 맥스 다우먼이 시즌 첫 출장 만에 2골(7'·47')</b>을 터뜨리며 화제를 모았고, 노니 마두에케(16')·미켈 메리노(58')가 추가골을 보탰다(입스위치는 아니스 메흐메티(62')·추바 아콤포(90+1')가 만회골). 아르테타는 "16세이므로 신중하게 관리해야 한다"면서도 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 다우먼을 평가했다. <span class="muted">(Sky Sports 9/16)</span></p>
-      <div class="match">
-        <div class="date">9.13 (일) 04:00</div>
-        <div class="comp">EPL 4R</div>
-        <div class="teams">선덜랜드 <span class="score">0 : 2</span> 아스날 <span class="muted">(원정)</span></div>
-        <span class="badge win">4연승 · 무패 유지</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;"><b>선덜랜드 원정 2-0 승리(4R), 시즌 6전 전승(전 대회 통산).</b> 초반 선덜랜드에게 PK 기회가 났으나 <b>엔조 르 페(Le Fée)의 페널티킥을 다비드 라야가 선방</b>해 맨오브더매치를 차지했다. 이후 <b>브루누 기마랑이스가 중거리포로 선제골</b>을 넣었고(라야 선방 직후), 후반 <b>부카요 사카가 PK를 성공시켜 쐐기골</b>을 추가했다. 아르테타는 심판 판정(선덜랜드 PK 선언 자체)에 불만을 표한 것으로 전해진다. 이 결과로 아스날은 EPL 4연승 무실점급 안정감 속에 <b>전 대회 통산 6경기 전승</b>을 이어갔다. <span class="muted">(Arseblog News·ESPN 9/12 · FOX Sports 9/12)</span></p>
-      <div class="match">
-        <div class="date">9.10 (목) 04:00</div>
-        <div class="comp">UCL 리그페이즈 1R</div>
-        <div class="teams">나폴리 <span class="score">0 : 1</span> 아스날 <span class="muted">(원정)</span></div>
-        <span class="badge win">챔스 개막전 승리</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;"><b>나폴리 원정 1-0 승리(UCL 리그페이즈 1R).</b> 76% 점유율로 완전히 압도했으나 메리노 6m 헤더 무산, 사카 단독 찬스 무산, 인카피에 2m 거리 슈팅 크로스바 위로, 마두에케 슈팅을 선방당하고 촐리스 후속 슈팅이 골라인에서 걷어내지는 등 결정력 부재로 고전했다. 전반 케빈 데 브라위너의 슈팅을 라야가 선방하기도 했다. 그러나 <b>75분 외데고르가 화이트-촐리스와의 좁은 공간 연계 패스를 받아 골포스트를 맞고 들어가는 환상적인 중거리슛으로 결승골</b>을 터뜨렸다. 나폴리 골키퍼 메레트는 부상으로 하프타임 밀린코비치-사비치와 교체됐다. 아르테타 "매우, 매우 만족스럽다"면서도 26개의 슈팅을 기록한 점을 들어 "스코어는 더 큰 격차를 반영했어야 한다"고 아쉬움을 표했다. 알레그리 나폴리 감독은 "훌륭한 팀"이라며 인정했다. 외데고르는 5경기 4골째로 "훌륭한 축구였다"고 소감을 밝혔고, 라이스는 "정말 힘든 상대였지만 더 많이 넣을 수 있었다"고 말했다. 키언(평론가)은 외데고르를 "화룡점정"이라 평가했다. 선발: 라야, 화이트, 콘사, 가브리엘, 인카피에, 라이스, 메리노, 사카, 외데고르, 에제, 요케레스. <span class="muted">(Arseblog News 9/9 · Sky Sports·VAVEL 9/9)</span></p>
-      <div class="match">
-        <div class="date">9.7 (월) 00:30</div>
-        <div class="comp">EPL 3R</div>
-        <div class="teams">아스날 <span class="score win">2 : 1</span> 첼시 <span class="muted">(홈)</span></div>
-        <span class="badge win">3연승 · 무패 유지</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;"><b>첼시전 2-1 승리(3R).</b> 킥오프 77초 만에 모건 로저스에게 선제골을 내줬지만 25분 하베르츠가 근접거리 슈팅으로 동점을 만들었고, 50분 외데고르가 하베르츠의 도움을 받아 역전골을 넣었다. 칼라피오리의 골이 오프사이드로 취소됐고, 네투가 전반 막판 골대를 맞혔으며, 라야가 후반 막판 결정적 선방으로 승리를 지켰다. 이 결과로 아스날은 EPL 3경기 전승(무실점급 안정감은 아니었으나 무패)으로 맨시티와 승점 9 동률 공동 선두에 올랐다. 아르테타는 "실점 장면은 아쉬웠지만 경기 내내 보여준 침착함과 인성이 자랑스럽다"고 총평하며 "작년 우승 시즌보다 지금이 더 높은 수준일 수 있다"는 대담한 평가도 내놓았다. 자비 알론소 첼시 감독은 "패배는 아플 수밖에 없다"고 인정했다. <span class="muted">(Sky Sports·Arseblog News 9/6~9/7)</span></p>
-      <div class="match">
-        <div class="date">9.1 (화) 04:00</div>
-        <div class="comp">EPL 2R</div>
-        <div class="teams">애스턴 빌라 <span class="score">0 : 1</span> 아스날 <span class="muted">(원정)</span></div>
-        <span class="badge win">2연승 · 무실점</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">빌라 파크. 12분 부엔디아의 슈팅이 크로스바를 강타했고, 56분 사카의 PK 판정이 VAR 리뷰로 매트선의 파울이 박스 밖이었다는 이유로 번복됐다. 그러나 59분 <b>칼라피오리의 크로스를 사카가 밀어넣어 결승골</b>을 만들었다. 아르테타 "정말 기쁘다. 원정에서 힘겹게 승점 3점을 따냈다." 후반 교체 투입된 <b>크리스티안 모스케라가 부상으로 실려나가 수 주 결장이 우려</b>된다(경기 직후엔 발목 부상이 거론됐으나 이후 허벅지 문제로 확인됐다). 이 결과로 EPL 2R이 완전히 종료돼 아스날은 승점6·득실+4로 2위(맨시티와 동률이나 다득점에서 밀림). 다음 경기는 9/6(일) 첼시 홈전.</p>
-      <div class="match">
-        <div class="date">8.22 (토) 04:00</div>
-        <div class="comp">EPL 1R</div>
-        <div class="teams">아스날 <span class="score win">3 : 0</span> 코번트리 시티 <span class="muted">(홈 · 현지 8.21 20:00)</span></div>
-        <span class="badge win">개막전 승리</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">에미레이츠, 관중 60,098명. 하베르츠(15'), 사카(23'), 외데고르(49') 득점으로 타이틀 디펜스를 승리로 출발했다. 아르테타는 "지배력·명확성·이해도·성장이 인상적이었다"며 화이트-사카-외데고르 조합을 특히 칭찬, 사카를 "탁월했다"고 평가했다. 여름 영입생 <b>크리스토스 촐리스의 저돌적 움직임</b>도 긍정 평가. 살리바·팀버 결장으로 가브리엘-모스케라 조합이 중앙 수비를 소화했고, <b>브루누 기마랑이스는 월드컵 이후 짧은 프리시즌 여파로 얻은 사타구니 긴장으로 이 경기에 결장</b>했다(텔레그래프 루크 에드워즈 "몇 주 결장 예상"). 이날 오피셜 발표된 콘사는 등록 시점상 출전하지 못했다.</p>
-      <div class="match">
-        <div class="date">8.16 (일) 23:00</div>
-        <div class="comp">커뮤니티실드</div>
-        <div class="teams">아스날 <span class="score">3 : 0</span> 맨체스터 시티</div>
-        <span class="badge win">우승</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">카디프 프린시팰리티 스타디움에서 열린 시즌 개막 트로피전. 칼라피오리가 킥오프 24초 만에 루이스-스켈리의 패스를 마무리하며 선제골(1968년 이후 커뮤니티실드 최단시간 득점), 하베르츠가 전반 29분 추가골, 주장 외데고르가 후반 3분(48분) 그바르디올과 돈나룸마를 제치고 빈 골대에 밀어 넣어 3-0 완승. 정규시간 승부가 갈려 승부차기는 없었고 아스날이 트로피를 가져갔다.</p>
-      <div class="match">
-        <div class="date">8.13 (목) 03:30</div>
-        <div class="comp">프리시즌</div>
-        <div class="teams">아스날 <span class="score">1 : 1</span> 코모 <span class="muted">(PK 4-3 승)</span></div>
-        <span class="badge win">무승부 · PK승</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">홈 에미레이츠. 루이스-스켈리(33')가 선제골, 코모 바투리나(43')가 동점. 승부차기 4-3 승. <b>£75m 영입생 브루누 기마랑이스가 하프타임 교체로 데뷔전</b>을 치르고 승부차기에서도 성공, 아르테타는 "정말 좋았다, 팬들과 즉시 강한 연결감을 느낄 수 있다"고 평가했다. 16세 마를리 샬몬도 안정된 수비로 눈도장. 사카·라이스·수비멘디는 미출전(사유 미공개).</p>
-      <div class="match">
-        <div class="date">8.9 (일) 22:00</div>
-        <div class="comp">에미레이츠컵</div>
-        <div class="teams">아스날 <span class="score">2 : 3</span> 도르트문트</div>
-        <span class="badge low">패배</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">홈 에미레이츠. 은와네리(55')·요케레스(69' PK)가 따라붙었지만 이나시우(7')·카레차스(29')·가두(59')에게 3실점. 마르티넬리의 90+3분 동점골은 오프사이드 취소. <b>촐리스가 어시스트+PK 유도로 최고 평점</b>을 받았으나, <b>수비 불안이 베티스전에 이어 반복</b>됐다. 정규시간 후 열린 승부차기는 <b>아스날 5-4 승</b>(트로피 귀속은 보도 엇갈림, 경기 탭 참고).</p>
-      <div class="match">
-        <div class="date">8.6 (목) 03:45</div>
-        <div class="comp">프리시즌</div>
-        <div class="teams">아스날 <span class="score">1 : 3</span> 레알 베티스</div>
-        <span class="badge low">패배</span>
-      </div>
-      <p class="small" style="margin-bottom:10px;">더블린 아비바 스타디움, 관중 5만. 인카피에(32' 헤더)가 만회했으나 리켈메(9')·데오사(26')·포르날스(43')에게 전반에만 3실점. 후반 시작과 함께 7명을 동시 교체했다. 아르테타는 <b>"경쟁 수준이 기준에 못 미쳤다"</b>고 자책했고, <b>루이 콥리(19세)가 무릎 부상</b>으로 이탈했다.</p>
-      <div class="match">
-        <div class="date">8.2 (일) 새벽</div>
-        <div class="comp">프리시즌</div>
-        <div class="teams">지로나 <span class="score win">1 : 4</span> 아스날</div>
-        <span class="badge win">승리</span>
-      </div>
-      <p class="small">하베르츠(16'), 촐리스(32' 데뷔골), 다우먼(53'), 제주스(55'). 16세 맥스 다우먼이 어시스트+득점으로 프리시즌 첫 경기 최고 평점.</p>
     </div>
     <div class="card">
-      <h3>다가오는 일정</h3>
+      <h3>다가오는 일정 <a class="h3-more" href="#matches">전체 일정·달력 구독 →</a></h3>
+      <div id="homeNext">
       <div class="match"><div class="date">10.10 (토) 20:30</div><div class="comp">EPL 6R</div><div class="teams">리즈 유나이티드전 · 홈</div><span class="badge up">3주 브레이크 후</span></div>
       <div class="match"><div class="date">10.14 (수) 04:00</div><div class="comp">UCL 리그페이즈 2R</div><div class="teams">릴전 · 홈</div></div>
       <div class="match"><div class="date">10.19 (월) 00:30</div><div class="comp">EPL 7R</div><div class="teams">노팅엄 포레스트전 · 원정</div></div>
-      <p class="small" style="margin-top:8px;"><b>🚨 브라이턴전 0-3 패배로 시즌 첫 패배, 이후 3주간 국제 A매치 브레이크(9/21~10/9) 돌입.</b> 다음 공식 경기는 <b>국제 A매치 브레이크 이후 EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST, 에미레이츠)</b>. 카라바오컵 4라운드(리그투 플릿우드 타운 원정)는 10월 26일 주간으로 이보다 뒤에 열린다. 브레이크 기간 동안 살리바(장기 결장)·화이트·모스케라·인카피에 등 부상자들의 재정비 시간이 될 전망이다.</p>
+      </div>
+      <p class="small" style="margin-top:8px;"><b>🚨 브라이턴전 0-3 패배로 시즌 첫 패배, 이후 3주간 국제 A매치 브레이크(9/21~10/6) 돌입.</b> 다음 공식 경기는 <b>국제 A매치 브레이크 이후 EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST, 에미레이츠)</b>. 카라바오컵 4라운드(리그투 플리트우드 타운 원정)는 <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00)로 확정됐다. 브레이크 기간 동안 살리바(장기 결장)·화이트·모스케라·인카피에 등 부상자들의 재정비 시간이 될 전망이다.</p>
       <p class="muted" style="margin-top:8px;">* 모든 일정은 한국시간(KST) 기준.</p>
     </div>
   </div>
@@ -1128,7 +1221,7 @@
     </div>
     <div class="card">
       <h3>순위 <span class="badge up">2위</span></h3>
-      <p class="small">5R 종료 기준 승점 12, 득실차 +4. 1위 맨체스터 시티(승점15)에 3점 뒤진 2위다. <span class="muted">(khelnow.com·SI.com 9/20~21 교차 확인)</span></p>
+      <p class="small">5R 종료 기준 승점 12, 득실차 +4. 1위 맨체스터 시티(승점15)에 3점 뒤진 2위다. <span class="muted">(BBC·가디언 순위표 교차 확인)</span></p>
     </div>
     <div class="card">
       <h3>부상·결장</h3>
@@ -1146,31 +1239,87 @@
 </section>
 
 <!-- ═══════════ 경기 ═══════════ -->
-<section class="panel" id="panel-matches">
-  <h2 class="sec">경기 결과 & 일정</h2>
-  <p class="sec-sub">프리시즌부터 EPL 5라운드·챔스 리그페이즈 1라운드·카라바오컵 3라운드까지(2026.9.23 기준) — <b>모든 날짜·시간은 한국시간(KST) 기준</b>이에요.</p>
+<section class="panel" id="panel-matches" data-group="matches">
+  <h2 class="sec">경기</h2>
+  <p class="sec-sub">다음 상대 미리보기, 한국시간 일정·달력 구독, 경기 요약, 부상자, 지난 경기 기록까지. <b>모든 날짜·시간은 한국시간(KST)</b>이고 현지 시각을 함께 적어요.</p>
+
+  <div id="oppBlock" class="opp-block">
+    <h2 class="sec sec-2" id="oppTitle">다음 상대 — 리즈 유나이티드</h2>
+    <p class="sec-sub" id="oppSub">EPL 6R · 10.10 (토) 20:30 KST(현지 12:30) · 에미레이츠 스타디움 (홈) · 쿠팡플레이</p>
+    <div class="grid2">
+      <div class="card" id="pvCard">
+        <h3>미리보기</h3>
+        <p class="small">다니엘 파르케 감독 체제의 리즈는 개막 5경기 2승 3무 무패로 5위에 올라 있다.</p>
+        <p class="small">구단 최고 이적료로 데려온 골키퍼 트래퍼드를 중심으로 수비를 다시 짜며 쉽게 지지 않는 팀이 됐다.</p>
+        <ul class="pv-points">
+          <li>휴식기 3주, 브라이턴전에서 드러난 압박 대응과 세트피스 수비를 얼마나 고쳤나</li>
+          <li>5경기 무패 리즈의 단단한 수비를 아스날 공격이 뚫을 수 있나</li>
+        </ul>
+      </div>
+      <div class="card" id="probCard">
+        <h3>승무패 확률 <span class="badge low">참고용</span></h3>
+        <p class="small">순위표 데이터를 불러오면 이번 시즌 득점·실점과 홈 이점으로 계산한 확률을 보여 드려요.</p>
+        <p class="small">5R 기준 — 아스날 2위(승점 12, 8득 4실) · 리즈 5위(승점 9, 7득 3실).</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+      <h3>리즈는 어떤 팀?</h3>
+      <p class="small" style="margin-bottom:8px;"><b>개막 5경기 2승3무로 무패 행진</b>을 이어가며 5위에 올라 있다. 크리스탈 팰리스전(5R)은 0-0으로 비겼지만 beIN Sports는 "팰리스가 더 좋은 기회를 놓쳤을 뿐, 파르케의 팀이 다소 운이 따랐다"고 평가했다. 앞서 밀렸던 4R 뉴캐슬 홈전에서는 4-1 대승을 거뒀다. 파르케 감독은 A매치 브레이크를 앞두고 "무패로 시즌을 시작한 데 만족한다"고 밝혔다.</p>
+      <p class="small">구단 역대 최고 이적료(금액 비공개, £40m+보너스 보도)로 영입한 골키퍼 트래퍼드와 약 £34m을 들인 센터백 무하레모비치가 지난 시즌 최대 약점이던 수비를 재편하며 안정감을 더하고 있다는 평가다.</p>
+    </div>
+      <div class="card">
+    <h3>예상 시나리오</h3>
+    <p class="small">브라이턴 원정 0-3 완패로 시즌 첫 패배를 당한 아스날이 3주 휴식기 이후 홈에서 반등을 노리는 경기다. 리즈는 무패 행진 중이라 만만치 않은 상대로 꼽힌다. 아르테타의 프리뷰 기자회견·확정 선발·부상자 복귀 현황(화이트·모스케라·인카피에 등)은 경기가 임박하면 갱신할 예정이다. <span class="muted">(beIN Sports·Sky Sports 9/20 · SI.com 9/19~20)</span></p>
+  </div>
+    </div>
+  </div>
+
+  <div class="card" id="schedCard">
+    <h3>한국시간 일정 <span class="muted" id="schedAsOf">2026.9.28 기준</span></h3>
+    <div class="cal-actions">
+      <a class="btn-cal primary" id="calSub" href="webcal://kimthegooner.github.io/football-info/arsenal.ics">휴대폰 달력에 구독</a>
+      <a class="btn-cal" id="calFile" href="arsenal.ics" download="arsenal.ics">달력 파일 받기 (.ics)</a>
+      <a class="btn-cal" id="calG" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fkimthegooner.github.io%2Ffootball-info%2Farsenal.ics" target="_blank" rel="noopener">구글 캘린더에 추가</a>
+    </div>
+    <p class="muted cal-help">구독하면 일정이 바뀔 때 달력도 따라 바뀌어요(달력 앱이 몇 시간~하루 간격으로 다시 받아요). 시간 미정 경기는 날짜만 종일 일정으로 들어가요.</p>
+    <div class="seg" id="schedSeg" hidden>
+      <button data-f="all" class="on">전체</button><button data-f="EPL">프리미어리그</button><button data-f="UCL">챔피언스리그</button><button data-f="CUP">컵</button>
+    </div>
+    <div id="schedList">
+      <div class="match"><div class="date">10.10 (토) 20:30</div><div class="comp">EPL 6R</div><div class="teams">아스날 vs 리즈 유나이티드 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.10 12:30)</span></div></div>
+      <div class="match"><div class="date">10.14 (수) 04:00</div><div class="comp">UCL 리그페이즈 2R</div><div class="teams">아스날 vs 릴 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.13 20:00)</span></div></div>
+      <div class="match"><div class="date">10.19 (월) 00:30</div><div class="comp">EPL 7R</div><div class="teams">노팅엄 포레스트 vs 아스날 <span class="muted">· 시티 그라운드 (원정 · 현지 10.18 16:30)</span></div></div>
+      <p class="small" style="margin-top:8px;">브라이턴 원정 0-3 패배(5R)로 시즌 첫 패배를 당했다(상세는 아래 «경기 결과» 참고). 다음 경기까지 <b>3주간 국제 A매치 브레이크(9/21~10/6)</b>가 이어지며, 복귀전은 <b>EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST)</b>이다. 카라바오컵 4라운드는 리그투 플리트우드 타운 원정, <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00, 하이버리 스타디움)로 확정됐다. 그 뒤 리그 일정은 방송 편성으로 시각이 확정되는 대로 추가한다.</p>
+    </div>
+    <p class="fb-note" data-fb hidden>전체 일정을 불러오지 못해 가까운 경기만 보여 드려요. 새로고침하거나 달력 파일로 받아 보세요.</p>
+    <button class="more-btn" id="schedMore" hidden>전체 일정 보기</button>
+    <p class="muted sched-foot">새벽 = 한국시간 00:00~06:59 킥오프 · 시간 미정 = 방송 편성 전(날짜는 영국 현지 기준 잠정) · 중계: 프리미어리그 쿠팡플레이, 챔피언스리그 SPOTV(SPOTV NOW), 카라바오컵 미확정</p>
+  </div>
+
+  <div class="card" id="sumCard">
+    <h3>경기 3줄 요약 <span class="muted">최근 5경기</span></h3>
+    <div class="sum-grid" id="sumGrid"><p class="small">요약을 불러오는 중이에요. 아래 «경기 결과 기록»에 같은 경기 해설이 있어요.</p></div>
+  </div>
 
   <div class="card" id="inj-ars">
-    <h3>🏥 부상자·결장 현황 <span class="muted">리즈 유나이티드전(10.10, EPL 6R) 기준 · 2026.9.23 20시 갱신</span></h3>
-    <div class="tbl-scroll"><table class="tbl">
-      <thead><tr><th>선수</th><th>부상</th><th>상태</th><th>복귀 전망</th></tr></thead>
-      <tbody>
-        <tr><td><b>윌리엄 살리바</b></td><td>허리</td><td><span class="badge low">장기 결장</span></td><td>readarsenal(9/21): "장기 결장자(longer-term absentees)" 범주로 재확인, 구체 복귀 시점은 원문에 없음 — 기존 Sports Mole의 11/21 뉴캐슬전 목표는 참고 전망치일 뿐 이번 업데이트에서 재확인되지 않았다</td></tr>
-        <tr><td><b>벤 화이트</b></td><td>사타구니(그로인)</td><td><span class="badge low">출전 불투명</span></td><td>readarsenal(9/21): 런던 콜니에서 "방해받지 않는 회복 기간"을 갖는 중, 확정 복귀일 없음 — 브라이턴전 결장에 이어 계속 결장 중</td></tr>
-        <tr><td><b>크리스티안 모스케라</b></td><td>허벅지(타이) 근육 문제</td><td><span class="badge up">복귀 목표 구체화</span></td><td>readarsenal(9/21): 복귀를 향해 진전 중("pushing towards return"), <b>10/10 리즈전 복귀가 목표</b> — 3명 중 가장 낙관적</td></tr>
-        <tr><td><b>피에로 인카피에</b></td><td>근육 문제</td><td><span class="badge low">출전 불투명</span></td><td>readarsenal(9/21): 에콰도르 대표팀 명단에서 제외되고 클럽에서 재활 중 — 확정 복귀일 없음</td></tr>
-        <tr><td><b>데클란 라이스</b></td><td>미공개(FPL «unspecified»)</td><td><span class="badge mid">출전 불투명</span></td><td>9/21 잉글랜드 대표팀에서 하차. FPL 출전 확률 75% — 리즈전 출전 <b>미확정</b> (readarsenal 9/21 · FPL 9/21)</td></tr>
-        <tr><td><b>위리엔 팀버</b></td><td>부상 아님(워크로드 관리)</td><td><span class="badge win">출전 가능</span></td><td>브라이턴전 선발 복귀 — 변동 없음</td></tr>
-        <tr><td><b>브루누 기마랑이스</b></td><td>부상 아님</td><td><span class="badge win">출전 가능</span></td><td>변동 없음</td></tr>
-        <tr><td><b>루이 콥리</b></td><td>무릎(ACL)</td><td><span class="badge low">시즌 아웃</span></td><td>2026-27 사실상 전체 결장 — 구체 복귀 시점·구단 공식 성명 여전히 없음, 변동 없음</td></tr>
-      </tbody>
-    </table></div>
-    <p class="small" style="margin-top:8px;">✅ <b>아스날은 9/7 챔피언스리그 22인 UEFA 등록 명단(GK 3·DF 8·MF 8·FW 3)을 확정 발표</b>했다. <b>징계: 없음(3주 A매치 브레이크 기간).</b> 🚨 <b>3주 국제 A매치 브레이크(9/21~10/9) 기간이라 프리뷰 기자회견이 없어, 이번 업데이트는 readarsenal 등 매체 재확인 보도로만 표를 갱신했다</b> — 아르테타의 직접 코멘트는 브레이크 종료 후 리즈전 프리뷰(10월 초)에서 재확인 필요.</p>
+    <h3>부상자·결장 현황 <span class="muted">리즈 유나이티드전(10.10, EPL 6R) 기준 · 2026.9.23 20시 갱신</span></h3>
+    <div class="inj-grid">
+      <div class="inj"><div class="inj-h"><b>윌리엄 살리바</b><span class="badge low">장기 결장</span></div><div class="inj-part">허리</div><p>readarsenal(9/21): "장기 결장자(longer-term absentees)" 범주로 재확인, 구체 복귀 시점은 원문에 없음 — 기존 Sports Mole의 11/21 뉴캐슬전 목표는 참고 전망치일 뿐 이번 업데이트에서 재확인되지 않았다</p></div>
+      <div class="inj"><div class="inj-h"><b>벤 화이트</b><span class="badge low">출전 불투명</span></div><div class="inj-part">사타구니(그로인)</div><p>readarsenal(9/21): 런던 콜니에서 "방해받지 않는 회복 기간"을 갖는 중, 확정 복귀일 없음 — 브라이턴전 결장에 이어 계속 결장 중</p></div>
+      <div class="inj"><div class="inj-h"><b>크리스티안 모스케라</b><span class="badge up">복귀 목표 구체화</span></div><div class="inj-part">허벅지(타이) 근육 문제</div><p>readarsenal(9/21): 복귀를 향해 진전 중("pushing towards return"), <b>10/10 리즈전 복귀가 목표</b> — 3명 중 가장 낙관적</p></div>
+      <div class="inj"><div class="inj-h"><b>피에로 인카피에</b><span class="badge low">출전 불투명</span></div><div class="inj-part">근육 문제</div><p>readarsenal(9/21): 에콰도르 대표팀 명단에서 제외되고 클럽에서 재활 중 — 확정 복귀일 없음</p></div>
+      <div class="inj"><div class="inj-h"><b>데클란 라이스</b><span class="badge mid">출전 불투명</span></div><div class="inj-part">미공개(FPL «unspecified»)</div><p>9/21 잉글랜드 대표팀에서 하차. FPL 출전 확률 75% — 리즈전 출전 <b>미확정</b> (readarsenal 9/21 · FPL 9/21)</p></div>
+      <div class="inj"><div class="inj-h"><b>위리엔 팀버</b><span class="badge win">출전 가능</span></div><div class="inj-part">부상 아님(워크로드 관리)</div><p>브라이턴전 선발 복귀 — 변동 없음</p></div>
+      <div class="inj"><div class="inj-h"><b>브루누 기마랑이스</b><span class="badge win">출전 가능</span></div><div class="inj-part">부상 아님</div><p>변동 없음</p></div>
+      <div class="inj"><div class="inj-h"><b>루이 콥리</b><span class="badge low">시즌 아웃</span></div><div class="inj-part">무릎(ACL)</div><p>2026-27 사실상 전체 결장 — 구체 복귀 시점·구단 공식 성명 여전히 없음, 변동 없음</p></div>
+    </div>
+    <p class="small" style="margin-top:8px;">✅ <b>아스날은 9/7 챔피언스리그 22인 UEFA 등록 명단(GK 3·DF 8·MF 6·FW 5)을 확정 발표</b>했다. <b>징계: 없음(3주 A매치 브레이크 기간).</b> 🚨 <b>3주 국제 A매치 브레이크(9/21~10/6) 기간이라 프리뷰 기자회견이 없어, 이번 업데이트는 readarsenal 등 매체 재확인 보도로만 표를 갱신했다</b> — 아르테타의 직접 코멘트는 브레이크 종료 후 리즈전 프리뷰(10월 초)에서 재확인 필요.</p>
     <p class="muted" style="margin-top:6px;">* 최신 보도·기자회견 기준으로 갱신하는 코너예요.</p>
   </div>
 
   <div class="card">
-    <h3>경기 결과</h3>
+    <h3>경기 결과 기록 <span class="muted">프리시즌부터 · 긴 해설</span></h3>
     <div id="resultsList">
       <div class="match">
         <div class="date">9.19 (토) 23:00</div>
@@ -1178,14 +1327,14 @@
         <div class="teams">브라이턴 <span class="score">3 : 0</span> 아스날 <span class="muted">(원정)</span></div>
         <span class="badge low">시즌 첫 패배</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">그로스(31')·코스툴라스(45')·안드레스(57')에게 실점, 전 대회 통산 7전 전승 행진이 끝났다. 아르테타는 몸싸움 열세·기술적 미흡·세트피스 취약을 자평("이런 일이 다시 일어나선 안 된다"). 상세는 홈 탭 참고.</p>
+      <p class="small" style="margin-bottom:10px;"><b>브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>카랄람포스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. 다음 경기까지 <b>3주간 국제 A매치 브레이크</b>가 이어진다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
       <div class="match">
         <div class="date">9.16 (수) 04:00</div>
         <div class="comp">카라바오컵 3R</div>
         <div class="teams">입스위치 타운 <span class="score">2 : 4</span> 아스날 <span class="muted">· 포트만 로드 (원정)</span></div>
         <span class="badge win">4라운드 진출</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">9명을 로테이션한 스쿼드로 나서 16세 맥스 다우먼이 2골(7'·47'), 노니 마두에케(16')·미켈 메리노(58')가 추가골을 넣었다(입스위치는 메흐메티(62')·아콤포(90+1') 만회골). 아르테타는 다우먼의 활약을 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 평가했다.</p>
+      <p class="small" style="margin-bottom:10px;">9명을 로테이션한 스쿼드로 나서 16세 맥스 다우먼이 2골(7'·47'), 노니 마두에케(16')·미켈 메리노(58')가 추가골을 넣었다(입스위치는 메흐메티(62')·아크폼(90+1') 만회골). 아르테타는 다우먼의 활약을 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 평가했다.</p>
       <div class="match">
         <div class="date">9.13 (일) 04:00</div>
         <div class="comp">EPL 4R</div>
@@ -1213,7 +1362,7 @@
         <div class="teams">애스턴 빌라 <span class="score">0 : 1</span> 아스날 <span class="muted">· 빌라 파크 (원정 · 현지 8.31 20:00)</span></div>
         <span class="badge win">2연승 · 무실점</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">원정 1-0 승리. 상세는 홈 탭 «최근 경기» 참고.</p>
+      <p class="small" style="margin-bottom:10px;">빌라 파크. 12분 부엔디아의 슈팅이 크로스바를 강타했고, 56분 사카의 PK 판정이 VAR 리뷰로 매트선의 파울이 박스 밖이었다는 이유로 번복됐다. 그러나 59분 <b>칼라피오리의 크로스를 사카가 밀어넣어 결승골</b>을 만들었다. 아르테타 "정말 기쁘다. 원정에서 힘겹게 승점 3점을 따냈다." 후반 교체 투입된 <b>크리스티안 모스케라가 부상으로 실려나가 수 주 결장이 우려</b>된다(경기 직후엔 발목 부상이 거론됐으나 이후 허벅지 문제로 확인됐다). 이 결과로 EPL 2R이 완전히 종료돼 아스날은 승점6·득실+4로 2위(맨시티와 동률이나 다득점에서 밀림). 다음 경기는 9/6(일) 첼시 홈전.</p>
       <div class="match">
         <div class="date">8.22 (토) 04:00</div>
         <div class="comp">EPL 1R</div>
@@ -1256,73 +1405,66 @@
     <p class="small" style="margin-top:8px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>⚠️ 트로피 귀속 — 보도 엇갈림, 양쪽 병기.</b> 정규시간 종료 후 친선 성격의 <b>승부차기가 이어졌고 아스날이 5-4로 승리</b>했다. 다만 이 승부차기가 실제 우승팀 결정에 반영되는지를 두고 매체 보도가 갈린다 — <b>Outlook India는 "도르트문트가 정규시간 결과로 우승했고, 승부차기는 트로피와 무관하게 사전 합의된 이벤트였다"</b>고 명시한 반면, <b>다른 매체들은 승부차기 결과(아스날 승)를 경기의 최종 결론처럼 다뤘다.</b> 어느 쪽이 맞는지 단정할 근거가 부족해 <b>양쪽 보도를 그대로 병기</b>한다 — 잠정적으로는 "정규시간 기준 도르트문트 우승, 승부차기는 별도 이벤트로 아스날 승"으로 정리한다.</p>
     <p class="small" style="margin-top:8px;"><b>베티스전 득점:</b> 리켈메 9' · 데오사 26' · 포르날스 43' (실점) / 인카피에 32' 헤더 (득점). 후반 46분 아르테타가 7명을 한꺼번에 교체(가브리엘·마르티넬리 등 부상 복귀 조 투입). 관중 5만 명, 더블린 아비바 스타디움.</p>
     <p class="small">득점(지로나전): 하베르츠 16' · 촐리스 32'(데뷔골) · 다우먼 53' · 제주스 55' (실점: 아르나우 마르티네스 50')</p>
-    <p class="small">포인트: 여름 영입생 촐리스가 데뷔전 데뷔골. 2010년생 맥스 다우먼은 선제골 어시스트 후 직접 득점하며 "하베르츠보다 눈에 띈" 프리시즌 1호 스타.</p>
+    <p class="small">포인트: 여름 영입생 촐리스가 데뷔전 데뷔골. 2009년 12월 31일생 맥스 다우먼은 선제골 어시스트 후 직접 득점하며 "하베르츠보다 눈에 띈" 프리시즌 1호 스타.</p>
     <p class="small" style="margin-top:8px;"><b>코모전 포인트:</b> 루이스-스켈리 33'(코모 골키퍼 실수 유발) · 코모 바투리나 43'. 승부차기 4-3 승. <b>기마랑이스가 하프타임 교체로 아스날 데뷔전</b>을 치르고 승부차기에서도 성공, 아르테타는 "정말 좋았다, 팬들과 즉시 강한 연결감을 느낄 수 있다"고 평가(Sky Sports 8/12~13). 16세 마를리 샬몬이 13번의 매치업 중 9번 승리·패스 성공률 42/43으로 눈도장. 사카·라이스·수비멘디는 미출전(사유 미공개).</p>
-  </div>
-
-  <div class="card">
-    <h3>다가오는 일정</h3>
-    <div class="match"><div class="date">10.10 (토) 20:30</div><div class="comp">EPL 6R</div><div class="teams">아스날 vs 리즈 유나이티드 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.10 12:30)</span></div><span class="badge up">3주 브레이크 후</span></div>
-    <div class="match"><div class="date">10.14 (수) 04:00</div><div class="comp">UCL 리그페이즈 2R</div><div class="teams">아스날 vs 릴 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.13 20:00)</span></div></div>
-    <div class="match"><div class="date">10.19 (월) 00:30</div><div class="comp">EPL 7R</div><div class="teams">노팅엄 포레스트 vs 아스날 <span class="muted">· 시티 그라운드 (원정 · 현지 10.18 16:30)</span></div></div>
-    <p class="small" style="margin-top:8px;">브라이턴 원정 0-3 패배(5R)로 시즌 첫 패배를 당했다(상세는 홈 탭·최근 경기 참고). 다음 경기까지 <b>3주간 국제 A매치 브레이크(9/21~10/9)</b>가 이어지며, 복귀전은 <b>EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST)</b>이다. 카라바오컵 4라운드는 리그투 플릿우드 타운 원정(10월 26일 주간, 날짜·시각 미확정). 그 뒤 리그 일정은 방송 편성으로 시각이 확정되는 대로 추가한다.</p>
-    <p class="muted" style="margin-top:8px;">* 모든 시각은 한국시간(KST) 기준.</p>
   </div>
 </section>
 
-<!-- ═══════════ 순위표 ═══════════ -->
-<section class="panel" id="panel-table">
-  <h2 class="sec">EPL 순위표</h2>
-  <p class="sec-sub">2026-27 시즌이 8월 21일(현지) 개막했어요. <b>5라운드(MD5)가 9/18~9/20 완전히 종료</b>됐어요(아스날은 브라이턴 원정에서 시즌 첫 패배). 아래는 <b>9/21 업데이트 기준 전 20개 팀 실시간 순위</b>(khelnow.com·SI.com 9/20~21 교차 확인)이며, 라운드가 끝날 때마다 갱신해요. 다음 라운드(6R)는 <b>3주 국제 A매치 브레이크 후 10/10~11</b>. 아래 표에 <b>2026-27 시즌 20개 팀 순위 전체</b>가 담겨 있어요.</p>
+<!-- ═══════════ 순위·기록 (+ 지난 시즌 결산) ═══════════ -->
+<section class="panel" id="panel-table" data-group="table">
+  <h2 class="sec">순위·기록</h2>
+  <p class="sec-sub">2026-27 시즌이 8월 21일(현지) 개막했어요. <b>5라운드(MD5)가 9/18~9/20 완전히 종료</b>됐어요(아스날은 브라이턴 원정에서 시즌 첫 패배). 아래는 <b>9/21 업데이트 기준 전 20개 팀 실시간 순위</b>(BBC·가디언 순위표 교차 확인)이며, 라운드가 끝날 때마다 갱신해요. 다음 라운드(6R)는 <b>국제 A매치 브레이크(9/21~10/6) 뒤 10/10~11</b>. 아래 표에 <b>2026-27 시즌 20개 팀 순위 전체</b>가 담겨 있어요.</p>
 
   <div class="card">
-    <h3 id="tableTitle">2026-27 순위 <span class="muted">5R 완전 종료 기준</span></h3>
+    <h3 id="tableTitle">2026-27 EPL 순위 <span class="muted" id="tableRound">5R 종료 기준</span></h3>
     <table class="tbl" id="standingsTbl">
-      <thead><tr><th>#</th><th>팀</th><th class="num">경기</th><th class="num">승</th><th class="num">무</th><th class="num">패</th><th class="num">득실차</th><th class="num">승점</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td><span class="pos-badge">1</span></td><td>맨체스터 시티</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">+8</td><td class="num">15</td><td class="small">선덜랜드 홈 5-3 승(홀란 활약, 수비 불안 노출), 개막 5연승 단독 선두</td></tr>
-        <tr class="hl"><td><span class="pos-badge">2</span></td><td>아스날</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">1</td><td class="num">+4</td><td class="num">12</td><td class="small">🚨 브라이턴 원정 0-3 완패, 시즌 첫 패배 · 2위로 하락</td></tr>
-        <tr><td><span class="pos-badge">3</span></td><td>브라이턴 앤 호브 알비온</td><td class="num">5</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">+11</td><td class="num">10</td><td class="small">아스날 홈 3-0 완승(그로스·코스툴라스·안드레스), 리그 최다 득점급</td></tr>
-        <tr><td><span class="pos-badge">4</span></td><td>브렌트포드</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+6</td><td class="num">9</td><td class="small">첼시 홈 3-0 승(후반 3골 몰아치기), 개막 5경기 무패</td></tr>
-        <tr><td><span class="pos-badge">5</span></td><td>리즈 유나이티드</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+4</td><td class="num">9</td><td class="small">크리스탈 팰리스 원정 0-0 무승부, 개막 5경기 무패 지속(다음 상대: 아스날)</td></tr>
-        <tr><td><span class="pos-badge">6</span></td><td>리버풀</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+3</td><td class="num">9</td><td class="small">본머스 원정 1-0 승, 3경기 연속 무실점</td></tr>
-        <tr><td><span class="pos-badge">7</span></td><td>에버턴</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+3</td><td class="num">9</td><td class="small">입스위치 홈 1-0 승, 개막 5경기 무패 유지</td></tr>
-        <tr><td><span class="pos-badge">8</span></td><td>헐 시티</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">+2</td><td class="num">8</td><td class="small">뉴캐슬 원정 1-2 패, 승격팀 반란은 계속되나 첫 패배</td></tr>
-        <tr><td><span class="pos-badge">9</span></td><td>뉴캐슬 유나이티드</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">8</td><td class="small">헐 시티 홈 2-1 승(윌록 활약)</td></tr>
-        <tr><td><span class="pos-badge">10</span></td><td>첼시</td><td class="num">5</td><td class="num">2</td><td class="num">1</td><td class="num">2</td><td class="num">-2</td><td class="num">7</td><td class="small">브렌트포드 원정 0-3 패, 후반 급격히 무너짐</td></tr>
-        <tr><td><span class="pos-badge">11</span></td><td>입스위치 타운</td><td class="num">5</td><td class="num">2</td><td class="num">0</td><td class="num">3</td><td class="num">-4</td><td class="num">6</td><td class="small">에버턴 원정 0-1 패(10명으로도 선전)</td></tr>
-        <tr><td><span class="pos-badge">12</span></td><td>맨체스터 유나이티드</td><td class="num">5</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">0</td><td class="num">5</td><td class="small">풀럼 원정 1-1(마르티네스 자책→쿤야 막판 동점), 5경기 5점 최악급 출발</td></tr>
-        <tr><td><span class="pos-badge">13</span></td><td>노팅엄 포레스트</td><td class="num">5</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">-1</td><td class="num">5</td><td class="small">코번트리 원정 0-1 패</td></tr>
-        <tr><td><span class="pos-badge">14</span></td><td>선덜랜드</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-4</td><td class="num">4</td><td class="small">맨시티 원정 3-5 패(브로비 해트트릭에도 패)</td></tr>
-        <tr><td><span class="pos-badge">15</span></td><td>크리스탈 팰리스</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-5</td><td class="num">4</td><td class="small">리즈 홈 0-0 무승부, 무실점은 진전</td></tr>
-        <tr><td><span class="pos-badge">16</span></td><td>애스턴 빌라</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-5</td><td class="num">4</td><td class="small">토트넘 원정 3-2 승(잭슨 결승골), 시즌 첫 승</td></tr>
-        <tr><td><span class="pos-badge">17</span></td><td>본머스</td><td class="num">5</td><td class="num">0</td><td class="num">3</td><td class="num">2</td><td class="num">-2</td><td class="num">3</td><td class="small">리버풀 홈 0-1 패, 여전히 무승</td></tr>
-        <tr><td><span class="pos-badge">18</span></td><td>코번트리 시티</td><td class="num">5</td><td class="num">1</td><td class="num">0</td><td class="num">4</td><td class="num">-9</td><td class="num">3</td><td class="small">🎉 노팅엄 홈 1-0 첫 승(다실바), 복귀 후 첫 프리미어리그 승리</td></tr>
-        <tr><td><span class="pos-badge">19</span></td><td>풀럼</td><td class="num">5</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td class="num">-3</td><td class="num">2</td><td class="small">맨유와 홈 1-1, 여전히 무승</td></tr>
-        <tr><td><span class="pos-badge">20</span></td><td>토트넘 홋스퍼</td><td class="num">5</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td class="num">-6</td><td class="num">2</td><td class="small">🚨 홈에서 빌라에 2-3 패 후 투도르 경질, 데 제르비 신임 감독(5년 계약, 시즌 3번째 감독)</td></tr>
+      <thead><tr><th>#</th><th>팀</th><th class="num">경기</th><th class="num">승</th><th class="num">무</th><th class="num">패</th><th class="num">득실차</th><th class="num">승점</th><th class="st-note">비고</th></tr></thead>
+      <tbody id="stBody">
+        <tr class="ucl"><td><span class="pos-badge">1</span></td><td>맨체스터 시티</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">+8</td><td class="num">15</td><td class="small st-note">선덜랜드 홈 5-3 승(홀란 활약, 수비 불안 노출), 개막 5연승 단독 선두</td></tr>
+        <tr class="hl ucl"><td><span class="pos-badge">2</span></td><td>아스날</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">1</td><td class="num">+4</td><td class="num">12</td><td class="small st-note">🚨 브라이턴 원정 0-3 완패, 시즌 첫 패배 · 2위로 하락</td></tr>
+        <tr class="ucl"><td><span class="pos-badge">3</span></td><td>브라이턴 앤 호브 알비온</td><td class="num">5</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td class="num">+11</td><td class="num">10</td><td class="small st-note">아스날 홈 3-0 완승(그로스·코스툴라스·안드레스), 리그 최다 득점급</td></tr>
+        <tr class="ucl"><td><span class="pos-badge">4</span></td><td>브렌트포드</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+6</td><td class="num">9</td><td class="small st-note">첼시 홈 3-0 승(후반 3골 몰아치기), 개막 5경기 무패</td></tr>
+        <tr><td><span class="pos-badge">5</span></td><td>리즈 유나이티드</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+4</td><td class="num">9</td><td class="small st-note">크리스탈 팰리스와 홈 0-0 무승부, 개막 5경기 무패 지속(다음 상대: 아스날)</td></tr>
+        <tr><td><span class="pos-badge">6</span></td><td>리버풀</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+3</td><td class="num">9</td><td class="small st-note">본머스 원정 1-0 승, 3경기 연속 무실점</td></tr>
+        <tr><td><span class="pos-badge">7</span></td><td>에버턴</td><td class="num">5</td><td class="num">2</td><td class="num">3</td><td class="num">0</td><td class="num">+3</td><td class="num">9</td><td class="small st-note">입스위치 홈 1-0 승, 개막 5경기 무패 유지</td></tr>
+        <tr><td><span class="pos-badge">8</span></td><td>헐 시티</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">+2</td><td class="num">8</td><td class="small st-note">뉴캐슬 원정 1-2 패, 승격팀 반란은 계속되나 첫 패배</td></tr>
+        <tr><td><span class="pos-badge">9</span></td><td>뉴캐슬 유나이티드</td><td class="num">5</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">8</td><td class="small st-note">헐 시티 홈 2-1 승(윌록 활약)</td></tr>
+        <tr><td><span class="pos-badge">10</span></td><td>첼시</td><td class="num">5</td><td class="num">2</td><td class="num">1</td><td class="num">2</td><td class="num">-2</td><td class="num">7</td><td class="small st-note">브렌트포드 원정 0-3 패, 후반 급격히 무너짐</td></tr>
+        <tr><td><span class="pos-badge">11</span></td><td>입스위치 타운</td><td class="num">5</td><td class="num">2</td><td class="num">0</td><td class="num">3</td><td class="num">-4</td><td class="num">6</td><td class="small st-note">에버턴 원정 0-1 패(10명으로도 선전)</td></tr>
+        <tr><td><span class="pos-badge">12</span></td><td>맨체스터 유나이티드</td><td class="num">5</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">0</td><td class="num">5</td><td class="small st-note">풀럼 원정 1-1(마르티네스 자책→쿤야 막판 동점), 5경기 5점 최악급 출발</td></tr>
+        <tr><td><span class="pos-badge">13</span></td><td>노팅엄 포레스트</td><td class="num">5</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">-1</td><td class="num">5</td><td class="small st-note">코번트리에 홈 0-1 패</td></tr>
+        <tr><td><span class="pos-badge">14</span></td><td>선덜랜드</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-4</td><td class="num">4</td><td class="small st-note">맨시티 원정 3-5 패(브로비 해트트릭에도 패)</td></tr>
+        <tr><td><span class="pos-badge">15</span></td><td>크리스탈 팰리스</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-5</td><td class="num">4</td><td class="small st-note">리즈 원정 0-0 무승부, 무실점은 진전</td></tr>
+        <tr><td><span class="pos-badge">16</span></td><td>애스턴 빌라</td><td class="num">5</td><td class="num">1</td><td class="num">1</td><td class="num">3</td><td class="num">-5</td><td class="num">4</td><td class="small st-note">토트넘 원정 3-2 승, 시즌 첫 승(결승골 득점자 미확정)</td></tr>
+        <tr><td><span class="pos-badge">17</span></td><td>본머스</td><td class="num">5</td><td class="num">0</td><td class="num">3</td><td class="num">2</td><td class="num">-2</td><td class="num">3</td><td class="small st-note">리버풀 홈 0-1 패, 여전히 무승</td></tr>
+        <tr class="releg"><td><span class="pos-badge">18</span></td><td>코번트리 시티</td><td class="num">5</td><td class="num">1</td><td class="num">0</td><td class="num">4</td><td class="num">-9</td><td class="num">3</td><td class="small st-note">노팅엄 원정 1-0 첫 승(다실바), 복귀 후 첫 프리미어리그 승리</td></tr>
+        <tr class="releg"><td><span class="pos-badge">19</span></td><td>풀럼</td><td class="num">5</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td class="num">-3</td><td class="num">2</td><td class="small st-note">맨유와 홈 1-1, 여전히 무승</td></tr>
+        <tr class="releg"><td><span class="pos-badge">20</span></td><td>토트넘 홋스퍼</td><td class="num">5</td><td class="num">0</td><td class="num">2</td><td class="num">3</td><td class="num">-6</td><td class="num">2</td><td class="small st-note">홈에서 빌라에 2-3 패, 개막 5경기 무승(데 제르비 감독 체제)</td></tr>
       </tbody>
     </table>
-    <p class="muted" style="margin-top:10px;">전 20개 팀 · 5R 완전 종료 기준(2026-09-21 KST 집계). 출처: khelnow.com·SI.com 9/20~21 교차 확인.</p>
+    <p class="zone-legend"><span class="zl ucl"></span>1~4위 챔피언스리그권 <span class="zl rel"></span>18~20위 강등권 <span class="muted">(잉글랜드 추가 출전권에 따라 바뀔 수 있음)</span></p>
+    <p class="muted" id="tableFoot" style="margin-top:6px;">전 20개 팀 · 5R 완전 종료 기준(2026-09-21 KST 집계). 출처: BBC·가디언 순위표 교차 확인.</p>
   </div>
 
+  <div class="sec-divider" id="dataroom">
+    <div class="sd-kicker">아스날 데이터룸</div>
+    <h2 class="sec">지난 시즌 결산 <span class="badge low">2025-26</span></h2>
+    <p class="sec-sub">아스날의 <b>2025-26 우승 시즌 결산</b>이에요 — 이번(2026-27) 시즌 진행 기록이 아니에요. 이번 시즌 순위는 위 표, 결과는 경기 탭에서 보세요. (출처: 2025-26 최종 순위표(위키백과·TheSportsDB), Arsenal.com·Opta Analyst 시즌 결산)</p>
+  </div>
   <div class="card">
     <h3>상위 6팀 승점 비교 <span class="muted">2025-26 최종</span></h3>
     <div class="chart" id="ptsChart"></div>
     <p class="axis-note">가로축: 승점(0–90). 아스날은 2위 맨시티와 7점 차 우승.</p>
   </div>
-</section>
 
-<!-- ═══════════ 통계 ═══════════ -->
-<section class="panel" id="panel-stats">
-  <h2 class="sec">통계</h2>
-  <p class="sec-sub">아스날의 <b>2025-26 우승 시즌 결산</b>이에요 — 이번(2026-27) 시즌 진행 기록이 아니에요. 이번 시즌 순위·결과는 순위표·경기 탭에서 보세요. (출처: 2025-26 최종 순위표(위키백과·TheSportsDB), Arsenal.com·Opta Analyst 시즌 결산)</p>
+  
 
   <div class="fmhub">
     <div class="fm-head">
       <div>
         <div class="fm-kicker">DATA HUB</div>
         <div class="fm-title">아스날 2025-26 시즌 결산</div>
-        <div class="fm-comp">Compiled by 개집 데이터룸 · 2025-26 최종(38경기) · SRC: 최종 순위표 / ARSENAL.COM / OPTA</div>
+        <div class="fm-comp">Compiled by 아스날 데이터룸 · 2025-26 최종(38경기) · SRC: 최종 순위표 / ARSENAL.COM / OPTA</div>
       </div>
     </div>
 
@@ -1419,7 +1561,7 @@
 </section>
 
 <!-- ═══════════ 선수단 ═══════════ -->
-<section class="panel" id="panel-squad">
+<section class="panel" id="panel-squad" data-group="squad">
   <h2 class="sec">선수단 소개</h2>
   <p class="sec-sub">2026-27 아스날 1군 스쿼드 (2026.9.23 기준 · 9/2 이적시장 마감 반영 · 감독: 미켈 아르테타). 부상 상태는 경기 탭 «부상자·결장 현황»과 같은 기준이에요.</p>
   <div id="squadGroups"></div>
@@ -1483,39 +1625,23 @@
   <p class="muted" style="margin-top:4px;">* 유스 스쿼드 일부는 제외. 선수·감독 사진 출처: FotMob (images.fotmob.com)</p>
 </section>
 
-<!-- ═══════════ 다음 상대 ═══════════ -->
-<section class="panel" id="panel-opponent">
-  <h2 class="sec">다음 상대 분석 — 리즈 유나이티드</h2>
-  <p class="sec-sub">🆕 EPL 6R · 2026년 10월 10일(토) 20:30 KST(현지 12:30) · 에미레이츠 스타디움 (홈) · 브라이턴전 패배 이후 3주간 국제 A매치 브레이크를 거쳐 열리는 경기</p>
-
-  <div class="tiles" style="grid-template-columns: repeat(3,1fr);">
-    <div class="tile"><div class="label">현재 순위</div><div class="value" style="font-size:22px;">5위</div><div class="note">5R 기준 · 2승3무 무패</div></div>
-    <div class="tile"><div class="label">감독</div><div class="value" style="font-size:22px;">다니엘 파르케</div><div class="note">잔류 성공 후 PL 2년차</div></div>
-    <div class="tile accent"><div class="label">최근 결과</div><div class="value" style="font-size:22px;">0 : 0</div><div class="note">크리스탈 팰리스와 무승부(5R, 9/20)</div></div>
+<!-- ═══════════ 소식 (헤드라인 + 칼럼·기자회견·팬 여론·이적) ═══════════ -->
+<section class="panel" id="panel-news" data-group="news">
+  <h2 class="sec">소식</h2>
+  <p class="sec-sub">칼럼·기자회견·팬 여론·이적 소식을 한곳에 모았어요.</p>
+  <div class="card" id="hlCard">
+    <h3>헤드라인 모음 <span class="muted" id="hlAsOf">BBC · 가디언 · Arseblog</span></h3>
+    <ul class="hl-list" id="hlList"></ul>
+    <p class="fb-note" data-fb hidden>헤드라인을 불러오지 못했어요. <a href="https://www.bbc.co.uk/sport/football/teams/arsenal" target="_blank" rel="noopener">BBC</a> · <a href="https://www.theguardian.com/football/arsenal" target="_blank" rel="noopener">가디언</a> · <a href="https://arseblog.news/" target="_blank" rel="noopener">Arseblog</a>에서 바로 보세요.</p>
+    <button class="more-btn" id="hlMore" hidden>헤드라인 더 보기</button>
+    <p class="muted" id="hlNote"></p>
   </div>
-
-  <div class="grid2">
-    <div class="card">
-      <h3>리즈는 어떤 팀?</h3>
-      <p class="small" style="margin-bottom:8px;"><b>개막 5경기 2승3무로 무패 행진</b>을 이어가며 5위에 올라 있다. 크리스탈 팰리스전(5R)은 0-0으로 비겼지만 beIN Sports는 "팰리스가 더 좋은 기회를 놓쳤을 뿐, 파르케의 팀이 다소 운이 따랐다"고 평가했다. 앞서 밀렸던 4R 뉴캐슬 홈전에서는 4-1 대승을 거뒀다. 파르케 감독은 A매치 브레이크를 앞두고 "무패로 시즌을 시작한 데 만족한다"고 밝혔다.</p>
-      <p class="small">구단 역대 최고 이적료(£40m+가산)로 영입한 골키퍼 트래퍼드와 약 £34m을 들인 센터백 무하레모비치가 지난 시즌 최대 약점이던 수비를 재편하며 안정감을 더하고 있다는 평가다.</p>
-    </div>
-    <div class="card">
-      <h3>관전 포인트</h3>
-      <p class="small" style="margin-bottom:8px;">① <b>3주 A매치 브레이크 이후 컨디션</b> — 양 팀 모두 대표팀 차출 선수들의 피로도·부상 변수가 크다.</p>
-      <p class="small" style="margin-bottom:8px;">② <b>브라이턴전 완패 후 반등 여부</b> — 아르테타가 지적한 "기초 부족·세트피스 취약" 문제를 3주간 얼마나 보완했는지가 관건.</p>
-      <p class="small">③ <b>리즈의 무패 행진 저지</b> — 리즈는 5경기 무패(2승3무)로 견고한 수비를 보이고 있어 아스날의 득점력이 시험대에 오를 수 있다.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>예상 시나리오</h3>
-    <p class="small">브라이턴 원정 0-3 완패로 시즌 첫 패배를 당한 아스날이 3주 휴식기 이후 홈에서 반등을 노리는 경기다. 리즈는 무패 행진 중이라 만만치 않은 상대로 꼽힌다. 아르테타의 프리뷰 기자회견·확정 선발·부상자 복귀 현황(화이트·모스케라·인카피에 등)은 경기가 임박하면 갱신할 예정이다. <span class="muted">(beIN Sports·Sky Sports 9/20 · SI.com 9/19~20)</span></p>
-  </div>
+  <nav class="subtabs" id="newsSub" aria-label="소식 분류">
+    <button data-sub="columns" class="on">칼럼</button><button data-sub="press">기자회견</button><button data-sub="fans">팬 여론</button><button data-sub="transfers">이적</button>
+  </nav>
 </section>
 
-<!-- ═══════════ 칼럼 ═══════════ -->
-<section class="panel" id="panel-columns">
+<section class="panel" id="panel-columns" data-group="news" data-sub="columns">
   <h2 class="sec">전문가 칼럼</h2>
   <p class="sec-sub">해외 주요 매체의 2026-27 아스날 전망 — 원문 발행일을 확인해서 날짜별로 묶었어요. 제목을 누르면 원문으로 이동. <span class="muted">(9/21 업데이트)</span></p>
 
@@ -1552,7 +1678,7 @@
   </div>
   <div class="card">
     <h3><a href="https://arseblog.news/2026/09/post-chelsea-quotes-round-up-arteta-alonso-odegaard-konsa-havertz-wright-keown-more/" target="_blank">아스블로그 뉴스 — 첼시전 후 코멘트 총정리</a> <span class="muted">Arseblog News · 인용 모음</span></h3>
-    <p class="small">아르테타·알론소(첼시)·외데고르·콘사·하베르츠에 더해 이안 라이트·마틴 킨 등 방송 해설진의 코멘트까지 한데 모은 정리 칼럼(상세는 기자회견 탭 참고).</p>
+    <p class="small">아르테타·사비 알론소(첼시)·외데고르·콘사·하베르츠에 더해 이안 라이트·마틴 킨 등 방송 해설진의 코멘트까지 한데 모은 정리 칼럼(상세는 기자회견 탭 참고).</p>
   </div>
   <div class="card">
     <h3><a href="https://arseblog.com/2026/09/arsecast-extra-episode-711-07-09-2026/" target="_blank">아스캐스트 엑스트라 에피소드 711</a> <span class="muted">Arseblog · 팟캐스트</span></h3>
@@ -1566,13 +1692,13 @@
   <div class="dg-head"><span class="dot"></span>9월 6일 (일) <span class="dg-count">신규</span></div>
   <div class="card">
     <h3><a href="https://arseblog.com/2026/09/can-arteta-take-advantage-of-early-days-alonso-as-chelsea-visit/" target="_blank">아스블로그 — "초기 단계 알론소를 아르테타가 공략할 수 있을까?"</a> <span class="muted">Arseblog · 첼시전 프리뷰 칼럼</span></h3>
-    <p class="small">신임 첼시 감독 하비 알론소가 아직 시스템 정착 초기 단계라는 점에 주목하는 칼럼. 첼시가 최근 브라이턴전 3실점·풀럼전 2실점 등 수비 불안을 노출했다고 짚으며, 아직 자리 잡지 못한 첼시를 상대로 아스날의 안정된 조직력과 완성도가 우위를 가져갈 수 있다고 진단한다. 예상 선발로는 <b>에베레치 에제가 왼쪽 윙 자리</b>를 맡을 가능성을 거론했다.</p>
+    <p class="small">신임 첼시 감독 사비 알론소가 아직 시스템 정착 초기 단계라는 점에 주목하는 칼럼. 첼시가 최근 브라이턴전 3실점·풀럼전 2실점 등 수비 불안을 노출했다고 짚으며, 아직 자리 잡지 못한 첼시를 상대로 아스날의 안정된 조직력과 완성도가 우위를 가져갈 수 있다고 진단한다. 예상 선발로는 <b>에베레치 에제가 왼쪽 윙 자리</b>를 맡을 가능성을 거론했다.</p>
   </div>
 
   <div class="dg-head"><span class="dot"></span>9월 4일 (금) <span class="dg-count">신규</span></div>
   <div class="card">
     <h3>아스블로그 — "Goodbye to Little Gabi" <span class="muted">Arseblog · 작별 칼럼</span></h3>
-    <p class="small">알힐랄로 완전 이적한 가브리엘 마르티넬리를 다루는 작별 칼럼. 2019년 이투아노에서 입단해 7년간 <b>278경기 62골</b>을 기록했고 이번 이적으로 구단 역대 최고 매각가(Sky Sports 보도 기준 £55.7m)를 남겼다는 점을 되짚는다. 이안 라이트 등의 발언을 인용하며 최근 시즌 출전 시간이 줄어드는 과정에서 구단과 다소 온도차가 있었을 수 있다는 뉘앙스도 담았지만, 전반적으로는 그의 공헌과 인간적인 면모를 기리는 애정 어린 논조.</p>
+    <p class="small">알힐랄로 완전 이적한 가브리엘 마르티넬리를 다루는 작별 칼럼. 2019년 이투아노에서 입단해 7년간 <b>278경기 62골</b>을 기록했고 이번 이적으로 구단 역대 최고 매각가(최종 £60m, 합의 당시 보도 £55.7m)를 남겼다는 점을 되짚는다. 이안 라이트 등의 발언을 인용하며 최근 시즌 출전 시간이 줄어드는 과정에서 구단과 다소 온도차가 있었을 수 있다는 뉘앙스도 담았지만, 전반적으로는 그의 공헌과 인간적인 면모를 기리는 애정 어린 논조.</p>
   </div>
 
   <div class="dg-head"><span class="dot"></span>9월 3일 (목) <span class="dg-count">신규</span></div>
@@ -1748,7 +1874,7 @@
 </section>
 
 <!-- ═══════════ 기자회견·인터뷰 ═══════════ -->
-<section class="panel" id="panel-press">
+<section class="panel" id="panel-press" data-group="news" data-sub="press">
   <h2 class="sec">기자회견 · 인터뷰 요약</h2>
   <p class="sec-sub">아르테타 감독과 구단 관계자 발언 — 원문 발행일 기준으로 날짜별로 묶었어요. <span class="muted">(9/21 업데이트)</span></p>
 
@@ -1821,7 +1947,7 @@
       <div class="q">Tonight we see we are capable of performing at a higher level than the one in last season.</div>
       <div class="who">— 미켈 아르테타, 첼시전 2-1 역전승 후</div>
     </div>
-    <p class="small" style="margin-bottom:8px;">첼시전 2-1 역전승 후 기자회견. 아르테타는 실점 장면에는 아쉬움을 표하면서도 팀의 침착함과 인성, 우승 시즌보다 더 높아진 경기력을 강조했다. 6개월·5개월·(사카)3개월 반·(하베르츠)7개월씩 결장했던 선수들이 있었음을 언급하며 스쿼드 뎁스에 자신감을 보였고, 신입 촐리스와 라야를 특히 칭찬했다. <b>모스케라는 근육 문제로 재차 결장</b>했으며 "심하지 않길 바라지만 며칠 지켜봐야 한다"고 밝혔다(부상자 보드 참고). 상대팀 자비 알론소 감독은 "패배는 아플 수밖에 없다"고 인정했다. 외데고르는 "계속 싸우는 것"이 팀의 멘탈리티라고, 하베르츠는 "돌아온 외데고르는 언빌리버블한 선수"라고 평가했다.</p>
+    <p class="small" style="margin-bottom:8px;">첼시전 2-1 역전승 후 기자회견. 아르테타는 실점 장면에는 아쉬움을 표하면서도 팀의 침착함과 인성, 우승 시즌보다 더 높아진 경기력을 강조했다. 6개월·5개월·(사카)3개월 반·(하베르츠)7개월씩 결장했던 선수들이 있었음을 언급하며 스쿼드 뎁스에 자신감을 보였고, 신입 촐리스와 라야를 특히 칭찬했다. <b>모스케라는 근육 문제로 재차 결장</b>했으며 "심하지 않길 바라지만 며칠 지켜봐야 한다"고 밝혔다(부상자 보드 참고). 상대팀 사비 알론소 감독은 "패배는 아플 수밖에 없다"고 인정했다. 외데고르는 "계속 싸우는 것"이 팀의 멘탈리티라고, 하베르츠는 "돌아온 외데고르는 언빌리버블한 선수"라고 평가했다.</p>
     <p class="small">9/7 아스날은 <b>챔피언스리그 22인 UEFA 등록 명단을 공식 발표</b>했다(이번 여름 영입생 인카피에·촐리스·메슬리에·기마랑이스·콘사 전원 포함, 살리바·팀버·모스케라도 등록은 됐으나 나폴리전 실제 출전은 최종 컨디션 체크 대기). 나폴리 원정(9/10 04:00 KST) 프리뷰 기자회견은 통상 하루 전(9/9) 열려 아직 게재 전.</p>
   </div>
 
@@ -2009,7 +2135,7 @@
     <p class="src">출처: <a href="https://www.aol.co.uk/articles/every-word-mikel-arteta-said-155048000.html" target="_blank">AOL</a> · <a href="https://www.101greatgoals.com/football/premier-league/arteta-frustrated-another-pre-season-defeat-arsenal/" target="_blank">101greatgoals</a> · <a href="https://roundtable.io/sports/soccer/premier-league/arsenal/news/mikel-arteta-outlines-arsenal-transfer-stance-after-dortmund-defeat" target="_blank">roundtable.io</a> (arsenal.com 공식 전문 링크는 재인용 매체로 교차 확인)</p>
   </div>
 
-  <div class="dg-head"><span class="dot"></span>8월 9일 (일) 새벽 <span class="dg-count">기마랑이스 공식 발표 · 도르트문트전 팀 뉴스</span></div>
+  <div class="dg-head"><span class="dot"></span>8월 8일 (토) ~ 9일 (일) <span class="dg-count">기마랑이스 공식 발표(8/8) · 도르트문트전 팀 뉴스</span></div>
   <div class="card">
     <h3>✅✅ 기마랑이스, 아스날 입단 소감 <span class="muted">Arsenal.com 공식 발표</span></h3>
     <div class="quote">
@@ -2116,7 +2242,7 @@
 </section>
 
 <!-- ═══════════ 팬 여론 ═══════════ -->
-<section class="panel" id="panel-fans">
+<section class="panel" id="panel-fans" data-group="news" data-sub="fans">
   <h2 class="sec">팬 여론</h2>
   <p class="sec-sub">공개된 기사·칼럼을 바탕으로 한 분위기 요약이에요. 정량 데이터가 아니고, 커뮤니티 글은 원문을 옮기지 않아요. 카드마다 <b>기준일</b>을 적어 두었어요.</p>
 
@@ -2150,16 +2276,18 @@
 </section>
 
 <!-- ═══════════ 이적시장 ═══════════ -->
-<section class="panel" id="panel-transfers">
+<section class="panel" id="panel-transfers" data-group="news" data-sub="transfers">
   <h2 class="sec">2026 여름 이적시장 결산</h2>
   <p class="sec-sub">여름 창은 영국 9/1(화) 23:00 · 한국 9/2(수) 07:00에 닫혔어요. 구단 발표나 신뢰 매체 두 곳으로 확인된 것만 <b>오피셜</b>로 적고, 한 곳뿐이면 <b>보도</b>·<b>미확정</b>으로 적어요. <b>다음 창: 2027년 1월.</b> <span class="muted">(2026.9.23 기준)</span></p>
 
+  <div class="card" id="tbCard" hidden></div>
+  <div id="trStatic">
   <div class="card" style="border-left:4px solid var(--header-red);">
     <h3>한눈에 보기</h3>
     <div class="chips">
       <span class="chip red">영입 5명</span>
       <span class="chip red">방출 10명 (임대 2명 포함)</span>
-      <span class="chip">구단 역대 최고 매각 — 마르티넬리 £55.7m</span>
+      <span class="chip">구단 역대 최고 매각 — 마르티넬리 £60m</span>
     </div>
     <p class="small">중앙 수비(인카피에·콘사)와 중원(기마랑이스)을 보강하고, 왼쪽 윙은 촐리스로 세대교체했어요. 나간 쪽은 마르티넬리·제주스·트로사르 등 공격진이 많아요. 금액은 구단이 대부분 «비공개»로 발표해 <b>매체 보도 금액</b>을 적었어요 — 합계로 보면 영입 약 £198.5m(콘사 가산조항 £4m 포함), 매각 약 £96.3~97.1m(트로사르는 «비공개»라 합계에서 제외)예요.</p>
   </div>
@@ -2184,7 +2312,7 @@
       <table class="tbl">
         <thead><tr><th>선수</th><th>행선지</th><th class="num">이적료(보도)</th></tr></thead>
         <tbody>
-          <tr><td><b>가브리엘 마르티넬리</b></td><td>알힐랄 (완전)</td><td class="num">£55.7m</td></tr>
+          <tr><td><b>가브리엘 마르티넬리</b></td><td>알힐랄 (완전)</td><td class="num">£60m</td></tr>
           <tr><td><b>가브리엘 제주스</b></td><td>바르셀로나 (완전)</td><td class="num">£8.6m</td></tr>
           <tr><td><b>파비우 비에이라</b></td><td>함부르크 (완전)</td><td class="num">£7.7~8.5m</td></tr>
           <tr><td><b>크리스티안 뇌르고르</b></td><td>에버턴 (완전)</td><td class="num">£7m</td></tr>
@@ -2196,7 +2324,7 @@
           <tr><td><b>토미 세트포드</b></td><td>스티버니지 (임대)</td><td class="num">—</td></tr>
         </tbody>
       </table>
-      <p class="small" style="margin-top:8px;">마르티넬리 £55.7m은 구단 역대 최고 매각 — 종전 기록은 2017년 옥슬레이드-체임벌린(리버풀행) £40m이에요. 아스날 통산 278경기 62골. 비에이라 금액은 매체마다 달라 범위로 적었어요. 넬슨은 계약을 합의 해지한 뒤 자유계약으로, 은와네리는 이번 시즌 임대예요.</p>
+      <p class="small" style="margin-top:8px;">마르티넬리 £60m(고정, 재판매 조항 별도)은 구단 역대 최고 매각이에요. 8/30 합의 당시엔 £55.7m으로 보도됐어요. 종전 기록은 2017년 옥슬레이드-체임벌린(리버풀행)이고, 금액은 보도마다 £35~40m으로 갈려요. 아스날 통산 278경기 62골. 비에이라 금액은 매체마다 달라 범위로 적었어요. 넬슨은 계약을 합의 해지한 뒤 자유계약으로, 은와네리는 이번 시즌 임대예요.</p>
       <p class="src">확인: <a href="https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR" target="_blank">Arsenal.com 이적 목록</a> · <a href="https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html" target="_blank">Sports Mole</a> · 마르티넬리 <a href="https://www.arsenal.com/news/gabriel-martinelli-joins-al-hilal-aOqHc1P93HkF" target="_blank">Arsenal.com</a> · <a href="https://www.skysports.com/football/news/33694/13579053/arsenal-agree-lb55-7m-club-record-gabriel-martinelli-sale-to-al-hilal-with-deal-also-agreed-in-principle-with-barcelona-for-gabriel-jesus" target="_blank">Sky Sports</a> · 제주스 <a href="https://www.fcbarcelona.com/en/football/first-team/news/4570072/gabriel-jesus-signs-for-fc-barcelona" target="_blank">FC바르셀로나</a> · 은와네리 <a href="https://www.arsenal.com/news/ethan-nwaneri-joins-borussia-dortmund-on-loan-aQN7v3e8JvAT" target="_blank">Arsenal.com</a> · 넬슨 <a href="https://www.feyenoord.com/en/news/reiss-nelson-returns-to-feyenoord-0209261" target="_blank">Feyenoord</a></p>
     </div>
   </div>
@@ -2237,6 +2365,8 @@
     <h3>1월 창을 앞둔 보도 <span class="badge low" style="font-size:10px;">미확정</span></h3>
     <p class="small" style="margin-bottom:6px;"><b>훌리안 알바레스(아틀레티코) 1월 임대설</b> — 여름엔 아틀레티코 잔류로 끝났는데, 1월 임대 가능성이 다시 거론됐어요(Yahoo Sports 9/22, 한 곳). 구단 간 접촉 확인은 없어요.</p>
     <p class="small"><b>레알 마드리드의 라이스 관심설</b> — CaughtOffside(9/9) 보도. 라이스는 잔류 의사가 강하다는 보도가 먼저 나와 있어 가능성은 낮게 봐요.</p>
+  </div>
+
   </div>
 
   <div class="card">
@@ -2314,21 +2444,73 @@
 /* ── 탭 스위처 (아스날 전용, 2026-09-23 — 맨유·18팀·라리가 20팀·리그 전체
    패널을 빼면서 원래 있던 팀 스위처 로직도 걷어내고 최소화했다.
    원래 버전은 저장소 기록(git)에 있다. ── */
-const tabs = document.getElementById('tabs');
-let curTab = 'home';
-function showPanel() {
-  document.querySelectorAll('section.panel').forEach(p =>
-    p.classList.toggle('active', p.id === 'panel-' + curTab));
-  document.querySelectorAll('#tabs button[data-tab]').forEach(b =>
-    b.classList.toggle('active', b.dataset.tab === curTab));
+/* ── 메뉴 라우터 (2026-09-28 · 메뉴 5개) ──
+   주소 끝(#matches, #news/transfers)에 보던 탭을 남겨 새로고침해도 유지한다.
+   옛 탭 주소(#stats, #opponent, #columns, #press, #fans, #transfers)는 새 위치로 잇는다. */
+var TOPS = ['home', 'matches', 'table', 'squad', 'news'];
+var SUBS = ['columns', 'press', 'fans', 'transfers'];
+var LEGACY = { stats: ['table', 'dataroom'], opponent: ['matches', 'oppBlock'], schedule: ['matches', 'schedCard'] };
+var curSub = 'columns';
+function parseRoute() {
+  var h = (location.hash || '').replace(/^#/, '');
+  try { h = decodeURIComponent(h); } catch (e) {}
+  var parts = h.split('/'), top = parts[0], sub = parts[1], anchor = null, legacy = false;
+  if (top.indexOf('panel-') === 0) { top = top.slice(6); legacy = true; }
+  if (LEGACY[top]) { anchor = LEGACY[top][1]; top = LEGACY[top][0]; legacy = true; }
+  else if (SUBS.indexOf(top) > -1) { sub = top; top = 'news'; legacy = true; }
+  if (TOPS.indexOf(top) < 0) { top = 'home'; if (h) legacy = true; }
+  if (top === 'news' && SUBS.indexOf(sub) < 0) sub = curSub;
+  return { top: top, sub: sub, anchor: anchor, legacy: legacy };
 }
-tabs.addEventListener('click', e => {
-  const btn = e.target.closest('button[data-tab]');
-  if (!btn) return;
-  curTab = btn.dataset.tab;
-  showPanel();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function routeHash(r) { return '#' + r.top + (r.top === 'news' ? '/' + r.sub : ''); }
+function renderRoute(r) {
+  document.querySelectorAll('section.panel').forEach(function (p) {
+    var on = p.dataset.group === r.top && (!p.dataset.sub || p.dataset.sub === r.sub);
+    p.classList.toggle('active', on);
+  });
+  document.querySelectorAll('#tabs button[data-tab], #mtab button[data-mtab]').forEach(function (b) {
+    var on = (b.dataset.tab || b.dataset.mtab) === r.top;
+    b.classList.toggle('active', on); b.classList.toggle('on', on);
+    if (on) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('#newsSub button[data-sub]').forEach(function (b) {
+    var on = b.dataset.sub === r.sub;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  if (r.top === 'news') curSub = r.sub;
+}
+var lastTop = null, pendingAnchor = null;
+function route() {
+  var r = parseRoute();
+  if (r.legacy && history.replaceState) history.replaceState(null, '', routeHash(r));
+  renderRoute(r);
+  if (r.anchor) {
+    var el = document.getElementById(r.anchor);
+    pendingAnchor = r.anchor; /* 데이터가 그려진 뒤 한 번 더 맞춘다(새로고침 시 스크롤 복원에 밀리지 않게) */
+    if (el) setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0);
+  } else if (lastTop !== null && lastTop !== r.top) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else if (lastTop === 'news' && r.top === 'news') {
+    var bar = document.getElementById('newsSub');
+    if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({ block: 'start' });
+  }
+  lastTop = r.top;
+}
+function goRoute(hash) {
+  if (location.hash === hash) route(); else location.hash = hash;
+}
+function goTop(top) { goRoute(top === 'news' ? '#news/' + curSub : '#' + top); }
+window.addEventListener('hashchange', route);
+document.getElementById('tabs').addEventListener('click', function (e) {
+  var btn = e.target.closest('button[data-tab]');
+  if (btn) goTop(btn.dataset.tab);
 });
+document.getElementById('newsSub').addEventListener('click', function (e) {
+  var b = e.target.closest('button[data-sub]');
+  if (b) goRoute('#news/' + b.dataset.sub);
+});
+route();
 
 /* ── 다크모드 토글 ── */
 const themeBtn = document.getElementById('themeToggle');
@@ -2343,6 +2525,7 @@ themeBtn.addEventListener('click', () => {
   const dark = cur ? cur === 'dark'
     : window.matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', document.documentElement.dataset.theme); } catch (e) {}
   applyThemeLabel();
 });
 applyThemeLabel();
@@ -2355,7 +2538,7 @@ function dday(target) {
   const d = kstDay(target) - kstDay(new Date());
   return d > 0 ? 'D-' + d : (d === 0 ? '경기 당일' : '종료');
 }
-document.getElementById('ddayNum').textContent = dday(new Date('2026-10-10T11:30:00Z')); /* 20:30 KST, FPL·TheSportsDB 데이터대조 */
+(function () { var el = document.getElementById('hbDday'); if (el) el.textContent = dday(new Date(el.dataset.ko)); })(); /* 데이터를 못 받아도 날짜 차이는 맞게 */
 const twD = new Date('2026-09-01T23:00:00+01:00');
 const tw = Math.floor((twD.getTime() + 9 * 3600000) / 86400000) - Math.floor((Date.now() + 9 * 3600000) / 86400000);
 const twTxt = tw > 0 ? 'D-' + tw : '마감';
@@ -2565,8 +2748,8 @@ const SQUAD = [
       f: '헤일 엔드가 낳은 2007년생 신동. 15세 181일의 나이로 EPL 역대 최연소 출전 기록을 세웠고, 2026-27 시즌 보루시아 도르트문트로 임대를 떠났다(9/1 오피셜).',
       st: '왼발 컷인 후 감아차기가 시그니처인 공격형 미드필더. 오른쪽 측면과 10번을 오가며, 좁은 공간에서의 왼발 터치 하나로 슛 각을 만들어낸다.',
       pc: '나이를 감안하면 마무리 완성도가 무서울 정도. 도르트문트에서 출전 시간을 확보해 성장하는 것이 이번 임대의 목표다.' },
-    { id: 1635773, n: '맥스 다우먼', p: 'AM', tag: ['2010년생 유망주', 'mid'],
-      f: '2010년생, 이번 프리시즌 최대 화제의 유망주. 지로나전에서 어시스트와 골을 모두 기록하며 1군 데뷔 시즌 기대감을 폭발시켰다.',
+    { id: 1635773, n: '맥스 다우먼', p: 'AM', tag: ['2009년생 유망주', 'mid'],
+      f: '2009년 12월 31일생, 이번 프리시즌 최대 화제의 유망주. 지로나전에서 어시스트와 골을 모두 기록하며 1군 데뷔 시즌 기대감을 폭발시켰다.',
       st: '나이답지 않은 여유와 시야를 갖춘 공격형 미드필더. 하프스페이스에서 받아 도는 동작과 침투 타이밍이 이미 성인 무대에서 통한다는 걸 보여줬다.',
       pc: '기술·판단·대담함 모두 세대 최고 수준이라는 내부 평가. 당연히 피지컬 성장과 출전 관리가 필요한 단계로, 구단은 서두르지 않을 계획이다.' },
   ]},
@@ -2688,33 +2871,10 @@ renderXI('pitch', XI);
 <nav class="mtab" id="mtab" aria-label="모바일 메뉴">
   <button data-mtab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3.2l9 7.3"/><path d="M5.6 9.4V20.3h12.8V9.4"/></svg>홈</button>
   <button data-mtab="matches"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.2" width="18" height="15.6" rx="2.2"/><path d="M3 10.2h18M8 3.2v4M16 3.2v4"/></svg>경기</button>
-  <button data-mtab="transfers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.2h13M14.2 5.2l3 3-3 3"/><path d="M20 15.8H7M9.8 12.8l-3 3 3 3"/></svg>이적시장</button>
-  <button data-mtab="fans"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6a2.2 2.2 0 0 1-2.2 2.2H8.4L4 21V6.2A2.2 2.2 0 0 1 6.2 4h11.8a2.2 2.2 0 0 1 2.2 2.2z"/></svg>팬 여론</button>
-  <button data-mtab="squad" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.4"/><path d="M4.8 20.4c0-3.6 3.2-6.2 7.2-6.2s7.2 2.6 7.2 6.2"/></svg>선수단</button>
-  <button id="moreBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="dots"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></g></svg>더보기</button>
+  <button data-mtab="table"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>순위</button>
+  <button data-mtab="squad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.4"/><path d="M4.8 20.4c0-3.6 3.2-6.2 7.2-6.2s7.2 2.6 7.2 6.2"/></svg>선수단</button>
+  <button data-mtab="news"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.2"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg>소식</button>
 </nav>
-
-<div class="sheet-ov" id="sheetOv">
-  <div class="sheet" role="dialog" aria-label="전체 메뉴" aria-modal="true">
-    <div class="sheet-grip"></div>
-    <div class="sheet-grid" id="sheetGrid">
-      <button data-mtab="home">홈</button>
-      <button data-mtab="matches">경기</button>
-      <button data-mtab="table">순위표</button>
-      <button data-mtab="stats">통계</button>
-      <button data-mtab="squad">선수단</button>
-      <button data-mtab="opponent">다음 상대</button>
-      <button data-mtab="columns">칼럼</button>
-      <button data-mtab="press">기자회견·인터뷰</button>
-      <button data-mtab="fans">팬 여론</button>
-      <button data-mtab="transfers">이적시장</button>
-    </div>
-    <div class="sheet-foot">
-      <button id="sheetTheme">다크모드</button>
-      <button id="sheetClose">닫기</button>
-    </div>
-  </div>
-</div>
 
 <script>
 /* ══════════════════════════════════════════════════════════
@@ -2771,70 +2931,415 @@ renderXI('pitch', XI);
     });
   }
 
-  /* ── 3. 하단 탭바 ↔ 기존 데스크탑 내비 연결 ── */
-  var mtab = document.getElementById('mtab');
-  var sheetOv = document.getElementById('sheetOv');
-  var sheetGrid = document.getElementById('sheetGrid');
-  var BAR_TABS = ['home', 'matches', 'transfers', 'fans'];
-
-  function currentTab() {
-    var a = document.querySelector('#tabs button.active');
-    return a ? a.dataset.tab : 'home';
-  }
-  function sync() {
-    var cur = currentTab();
-    mtab.querySelectorAll('button[data-mtab]').forEach(function (b) {
-      b.classList.toggle('on', b.dataset.mtab === cur);
-    });
-    document.getElementById('moreBtn')
-      .classList.toggle('on', BAR_TABS.indexOf(cur) === -1);
-    sheetGrid.querySelectorAll('button').forEach(function (b) {
-      b.classList.toggle('on', b.dataset.mtab === cur);
-    });
-    document.getElementById('sheetTheme').textContent =
-      document.getElementById('themeToggle').textContent;
-  }
-  function goTab(tab) {
-    var btn = document.querySelector('#tabs button[data-tab="' + tab + '"]');
-    if (btn) btn.click();
-    sync();
-  }
-
-  function openSheet(open) {
-    sheetOv.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  mtab.addEventListener('click', function (e) {
-    var b = e.target.closest('button');
-    if (!b) return;
-    if (b.id === 'moreBtn') { sync(); openSheet(true); return; }
-    goTab(b.dataset.mtab);
-  });
-  sheetGrid.addEventListener('click', function (e) {
+  /* ── 3. 하단 탭바 5개 → 주소 라우터 (더보기 창 없음, 다크모드 버튼은 머리줄에) ── */
+  document.getElementById('mtab').addEventListener('click', function (e) {
     var b = e.target.closest('button[data-mtab]');
-    if (!b) return;
-    openSheet(false);
-    goTab(b.dataset.mtab);
+    if (b) goTop(b.dataset.mtab);
   });
-  document.getElementById('sheetTheme').addEventListener('click', function () {
-    document.getElementById('themeToggle').click();
-    sync();
-  });
-  document.getElementById('sheetClose').addEventListener('click', function () { openSheet(false); });
-  sheetOv.addEventListener('click', function (e) { if (e.target === sheetOv) openSheet(false); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && sheetOv.classList.contains('open')) openSheet(false);
-  });
-
-  /* 데스크탑 내비를 직접 눌러도 하단바가 따라오도록 */
-  document.getElementById('tabs').addEventListener('click', function () { setTimeout(sync, 0); });
-  document.getElementById('themeToggle').addEventListener('click', function () { setTimeout(sync, 0); });
+  renderRoute(parseRoute()); /* 하단 탭바는 라우터보다 늦게 그려지므로 한 번 더 맞춘다 */
 
   /* ── 4. 뷰포트 변화 대응 ── */
-  function onMQ() { shortNames(mq.matches); if (!mq.matches) openSheet(false); sync(); }
+  function onMQ() { shortNames(mq.matches); }
   mq.addEventListener ? mq.addEventListener('change', onMQ) : mq.addListener(onMQ);
   onMQ();
+})();
+</script>
+<script id="s2Data">
+/* ══════════════════════════════════════════════════════════
+   데이터 화면 (2026-09-28) — data/fixtures.json · standings.json · content.json 을 읽어
+   첫 화면 숫자, 일정, 경기 요약, 다음 상대 미리보기·확률, 순위표, 헤드라인, 이적 보드를 그린다.
+   파일을 못 읽으면(파일로 직접 열기, 네트워크 오류) HTML 에 박아 둔 9/28 기준 내용이 그대로 남는다.
+   숫자가 content.json 과 fixtures/standings 가 다르면 fixtures/standings 를 쓴다.
+   ══════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  var WD = ['일', '월', '화', '수', '목', '금', '토'];
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function safeUrl(u) { return /^https?:\/\//.test(u || '') ? u : null; }
+  function ext(u, label) {
+    var h = safeUrl(u);
+    return h ? '<a href="' + esc(h) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label);
+  }
+  /* 'YYYY-MM-DD…' 문자열의 날짜 부분을 그대로 읽는다(문자열이 이미 해당 시간대 기준) */
+  function dparts(str) {
+    var y = +str.slice(0, 4), m = +str.slice(5, 7), d = +str.slice(8, 10);
+    return { y: y, m: m, d: d, w: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
+  }
+  function dlabel(str) { var p = dparts(str); return p.m + '.' + p.d + ' (' + WD[p.w] + ')'; }
+  function hm(str) { return str.slice(11, 16); }
+  function kickoff(f) { return f.kickoff_kst ? new Date(f.kickoff_kst) : new Date(f.date_local + 'T23:59:00+09:00'); }
+  function timed(f) { return !!f.kickoff_kst && f.kickoff_status === '확정'; }
+
+  var COMP = { EPL: ['epl', 'EPL'], UCL: ['ucl', '챔스'], EFL: ['efl', '카라바오컵'], FAC: ['efl', 'FA컵'] };
+  function compShort(f) {
+    var c = COMP[f.competition];
+    var round = String(f.round || '').replace('리그 페이즈 ', '리그페이즈 ');
+    return (c ? c[1] : (f.competition_ko || f.competition)) + ' ' + round;
+  }
+  function compBadge(f) {
+    var c = COMP[f.competition] || ['etc'];
+    return '<span class="cb cb-' + c[0] + '">' + esc(compShort(f)) + '</span>';
+  }
+  function tv(f) { return f.kr_broadcast && f.kr_broadcast.name ? f.kr_broadcast.name : null; }
+  function scoreLine(f) {
+    var r = f.result, a = '아스날', o = f.opponent_ko;
+    return f.home_away === 'H' ? a + ' ' + r.arsenal + ' : ' + r.opponent + ' ' + o
+                               : o + ' ' + r.opponent + ' : ' + r.arsenal + ' ' + a;
+  }
+  var RES = { W: ['w', '승'], D: ['d', '무'], L: ['l', '패'] };
+  function resChip(f) { var r = RES[f.result.outcome] || ['d', '-']; return '<span class="res ' + r[0] + '">' + r[1] + '</span>'; }
+  function ha(f) { return f.home_away === 'H' ? '홈' : (f.home_away === 'A' ? '원정' : '중립'); }
+  function upcoming(FX) {
+    var now = Date.now() - 2 * 3600000; /* 킥오프 2시간 뒤까지는 «다음 경기»로 둔다 */
+    return FX.fixtures.filter(function (f) { return !f.result && kickoff(f).getTime() > now; })
+      .sort(function (a, b) { return kickoff(a) - kickoff(b); });
+  }
+  function recent(FX) {
+    return FX.recent_results.slice().sort(function (a, b) { return kickoff(b) - kickoff(a); });
+  }
+  function teamRow(ST, name) {
+    if (!ST) return null;
+    for (var i = 0; i < ST.table.length; i++) if (ST.table[i].team === name) return ST.table[i];
+    return null;
+  }
+  function shortTeam(name) {
+    return ({ '리즈 유나이티드': '리즈', '노팅엄 포레스트': '노팅엄', '바이에른 뮌헨': '뮌헨', '보루시아 도르트문트': '도르트문트',
+      '맨체스터 시티': '맨시티', '맨체스터 유나이티드': '맨유', '뉴캐슬 유나이티드': '뉴캐슬', '토트넘 홋스퍼': '토트넘',
+      '크리스탈 팰리스': '팰리스', '입스위치 타운': '입스위치', '플리트우드 타운': '플리트우드', '슬라비아 프라하': '슬라비아' })[name] || name;
+  }
+  function showFallback(cardId) {
+    var c = $(cardId); if (!c) return;
+    var n = c.querySelector('[data-fb]'); if (n) n.hidden = false;
+  }
+  function guard(name, fn) {
+    try { fn(); } catch (e) { if (window.console) console.warn('[' + name + '] 그리기 실패, 기존 내용 유지', e); }
+  }
+
+  /* ── 첫 화면 숫자 3칸 + 헤드라인 ── */
+  function renderHero(FX, ST, CT) {
+    if (CT && CT.hero) {
+      var h = null;
+      CT.hero.candidates.forEach(function (c) { if (c.id === CT.hero.recommended) h = c; });
+      if (h) { $('hbKicker').textContent = h.kicker; $('hbHead').textContent = h.head; $('hbSub').textContent = h.sub; }
+    }
+    if (FX) {
+      var nx = upcoming(FX)[0];
+      if (nx) {
+        $('hbDday').textContent = dday(kickoff(nx));
+        $('hbNext').textContent = shortTeam(nx.opponent_ko) + ' · ' + (timed(nx) ? dlabel(nx.kickoff_kst) + ' ' + hm(nx.kickoff_kst) : dlabel(nx.date_local) + ' 시간 미정');
+      }
+      var last5 = recent(FX).slice(0, 5).reverse();
+      $('hbForm').innerHTML = last5.map(function (f) {
+        var r = RES[f.result.outcome] || ['d', '-'];
+        var t = dlabel(f.kickoff_kst || f.date_local) + ' ' + f.opponent_ko + ' ' + f.result.arsenal + '-' + f.result.opponent + ' ' + r[1];
+        return '<i class="' + (r[0] === 'w' ? '' : r[0]) + '" title="' + esc(t) + '" aria-label="' + esc(t) + '">' + r[1] + '</i>';
+      }).join('');
+    }
+    if (ST) {
+      var me = teamRow(ST, 'Arsenal');
+      if (me) {
+        $('hbPos').textContent = me.pos + '위';
+        var ref = me.pos === 1 ? ST.table[1] : ST.table[0];
+        var gap = Math.abs(ref.pts - me.pts);
+        $('hbPts').textContent = '승점 ' + me.pts + ' · ' + (me.pos === 1 ? '2위와 ' + gap + '점 차' : '1위와 ' + gap + '점 차');
+      }
+    }
+  }
+
+  /* ── 홈: 최근 3경기 한 줄 + 다가오는 3경기 ── */
+  function summaryFor(CT, f) {
+    if (!CT || !CT.matchSummaries) return null;
+    var key = (f.kickoff_kst || f.date_local).slice(0, 10);
+    for (var i = 0; i < CT.matchSummaries.length; i++) {
+      if ((CT.matchSummaries[i].dateIso || '').slice(0, 10) === key) return CT.matchSummaries[i];
+    }
+    return null;
+  }
+  function renderHomeRecent(FX, CT) {
+    $('homeRecent').innerHTML = recent(FX).slice(0, 3).map(function (f) {
+      var sm = summaryFor(CT, f);
+      return '<div class="r1">' + resChip(f) + '<div class="r1-b"><div class="r1-h"><b>' + esc(scoreLine(f)) + '</b> <span class="muted">' +
+        esc(dlabel(f.kickoff_kst || f.date_local) + ' · ' + compShort(f) + ' · ' + ha(f)) + '</span></div>' +
+        (sm ? '<div class="r1-t">' + esc(sm.lines[0]) + '</div>' : '') + '</div></div>';
+    }).join('');
+  }
+  function renderHomeNext(FX) {
+    $('homeNext').innerHTML = upcoming(FX).slice(0, 3).map(function (f) {
+      return '<div class="match"><div class="date">' + esc(timed(f) ? dlabel(f.kickoff_kst) + ' ' + hm(f.kickoff_kst) : dlabel(f.date_local) + ' 시간 미정') + '</div>' +
+        '<div class="comp">' + esc(compShort(f)) + '</div><div class="teams">' + esc(f.opponent_ko) + '전 · ' + ha(f) + '</div>' +
+        (f.dawn_kst ? '<span class="tag dawn">새벽</span>' : '') + '</div>';
+    }).join('');
+  }
+
+  /* ── 경기 탭: 한국시간 일정 ── */
+  var schedFilter = 'all', schedAll = false;
+  function renderSchedule(FX) {
+    var list = upcoming(FX), nx = list[0];
+    var shown = list.filter(function (f) {
+      if (schedFilter === 'all') return true;
+      if (schedFilter === 'CUP') return f.competition !== 'EPL' && f.competition !== 'UCL';
+      return f.competition === schedFilter;
+    });
+    var LIMIT = 10, cut = !schedAll && shown.length > LIMIT;
+    var rows = cut ? shown.slice(0, LIMIT) : shown;
+    var html = '', month = '';
+    rows.forEach(function (f) {
+      var key = timed(f) ? f.kickoff_kst : f.date_local, p = dparts(key);
+      var mk = p.y + '.' + p.m;
+      if (mk !== month) { month = mk; html += '<div class="fx-month">' + p.y + '년 ' + p.m + '월</div>'; }
+      var when = timed(f)
+        ? '<b>' + esc(dlabel(f.kickoff_kst)) + '</b><span class="t">' + hm(f.kickoff_kst) + '</span><span class="loc">현지 ' + esc(hm(f.kickoff_local)) + '</span>'
+        : '<b>' + esc(dlabel(f.date_local)) + '</b><span class="t">시간 미정</span><span class="loc">영국 날짜 · 잠정</span>';
+      var tags = [];
+      if (f === nx) tags.push('<span class="tag next">다음 경기</span>');
+      if (timed(f) && f.dawn_kst) tags.push('<span class="tag dawn">새벽</span>');
+      if (!timed(f)) tags.push('<span class="tag tbd">시간 미정</span>');
+      tags.push('<span class="tag">' + esc(tv(f) || '중계 미확정') + '</span>');
+      html += '<div class="fx' + (f === nx ? ' is-next' : '') + '"><div class="fx-when">' + when + '</div>' +
+        '<div class="fx-main">' + compBadge(f) + '<div class="fx-opp">' + (f.home_away === 'H' ? '아스날 vs ' + esc(f.opponent_ko) : esc(f.opponent_ko) + ' vs 아스날') + '</div>' +
+        '<div class="fx-meta">' + ha(f) + (f.venue ? ' · ' + esc(f.venue) : '') + '</div></div>' +
+        '<div class="fx-tags">' + tags.join('') + '</div></div>';
+    });
+    if (!rows.length) html = '<p class="small">해당하는 경기가 없어요.</p>';
+    $('schedList').innerHTML = html;
+    var more = $('schedMore');
+    more.hidden = !cut && !schedAll;
+    more.textContent = cut ? '전체 일정 보기 (' + shown.length + '경기)' : '가까운 경기만 보기';
+    $('schedSeg').hidden = false;
+    var c = FX.counts || {};
+    $('schedAsOf').textContent = (FX.as_of_kst ? FX.as_of_kst.slice(0, 10).replace(/-/g, '.') + ' 기준 · ' : '') +
+      '남은 ' + list.length + '경기' + (c.upcoming_time_tbd ? ' (시간 미정 ' + list.filter(function (f) { return !timed(f); }).length + ')' : '');
+  }
+  function bindSchedule(FX) {
+    $('schedSeg').addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-f]'); if (!b) return;
+      schedFilter = b.dataset.f; schedAll = false;
+      Array.prototype.forEach.call($('schedSeg').children, function (x) { x.classList.toggle('on', x === b); });
+      renderSchedule(FX);
+    });
+    $('schedMore').addEventListener('click', function () {
+      schedAll = !schedAll; renderSchedule(FX);
+      if (!schedAll) $('schedCard').scrollIntoView({ block: 'start' });
+    });
+  }
+  function bindCalendar() {
+    if (!/^https?:$/.test(location.protocol)) return;
+    var base = location.href.replace(/[#?].*$/, '').replace(/[^/]*$/, '');
+    $('calSub').href = base.replace(/^https?:/, 'webcal:') + 'arsenal.ics';
+  }
+
+  /* ── 경기 탭: 3줄 요약 카드 ── */
+  function renderSummaries(FX, CT) {
+    $('sumGrid').innerHTML = recent(FX).slice(0, 5).map(function (f) {
+      var sm = summaryFor(CT, f);
+      var goals = (f.result.scorers || []).map(function (g) {
+        return (g.team === 'ARS' ? '' : '(상대) ') + g.player_ko + ' ' + g.minute + (g.type === 'PK' ? ' PK' : '');
+      });
+      var src = sm && safeUrl(sm.sourceUrl) ? ext(sm.sourceUrl, sm.sourceName) : null;
+      var fsrc = (f.sources || []).filter(function (u) { return /theguardian|bbc/.test(u); });
+      var report = fsrc.length ? ext(fsrc[fsrc.length - 1], /theguardian/.test(fsrc[fsrc.length - 1]) ? '가디언 경기 기사' : 'BBC') : '';
+      return '<article class="sum"><div class="sum-top">' + compBadge(f) + '<span>' + esc(dlabel(f.kickoff_kst || f.date_local) + (f.kickoff_kst ? ' ' + hm(f.kickoff_kst) : '') + ' · ' + ha(f)) + '</span></div>' +
+        '<div class="sum-score">' + resChip(f) + esc(scoreLine(f)) + '</div>' +
+        (sm ? '<ol>' + sm.lines.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ol>' : '<p class="small">요약 준비 중이에요.</p>') +
+        (goals.length ? '<div class="sum-goals">득점: ' + esc(goals.join(' · ')) + '</div>' : '') +
+        '<p class="src">출처: ' + [src, report].filter(Boolean).join(' · ') + '</p></article>';
+    }).join('');
+  }
+
+  /* ── 경기 탭: 다음 상대 미리보기 + 자체 승무패 확률 ──
+     기대 득점 = 리그 평균 × (우리 공격력) × (상대 수비 허용도) × 홈 이점.
+     공격력·수비 허용도는 이번 시즌 경기당 득점·실점에 리그 평균 5경기분을 섞어(초반 표본 보정) 리그 평균으로 나눈 값.
+     두 팀 득점을 서로 독립인 푸아송 분포로 보고 0~10골 스코어 확률을 더해 승·무·패를 낸다. */
+  var PRIOR = 5, HOME = 1.1;
+  function winProb(ST, us, them, isHome) {
+    var gp = 0, gf = 0;
+    ST.table.forEach(function (t) { gp += t.played; gf += t.gf; });
+    var avg = gf / gp;
+    function st(t) { return { a: (t.gf + PRIOR * avg) / (t.played + PRIOR) / avg, d: (t.ga + PRIOR * avg) / (t.played + PRIOR) / avg }; }
+    var U = st(us), T = st(them), h = isHome ? HOME : 1 / HOME;
+    var lu = avg * U.a * T.d * h, lt = avg * T.a * U.d / h;
+    function pois(l, k) { var p = Math.exp(-l); for (var i = 1; i <= k; i++) p *= l / i; return p; }
+    var w = 0, d = 0, l = 0;
+    for (var i = 0; i <= 10; i++) for (var j = 0; j <= 10; j++) {
+      var p = pois(lu, i) * pois(lt, j);
+      if (i > j) w += p; else if (i === j) d += p; else l += p;
+    }
+    var s = w + d + l;
+    return { w: w / s, d: d / s, l: l / s, xu: lu, xt: lt };
+  }
+  /* 미리보기 {{…}} 자리: 표에서 채울 수 없는 값(맞대결 기록 등)이 들어간 줄은 빼고 보여 준다 */
+  var INJURY_NOTE = '모스케라는 리즈전 복귀가 목표, 화이트·인카피에는 복귀일 미정, 살리바는 장기 결장'; /* 경기 탭 부상자 카드(9/21 보도)와 같은 내용 */
+  function fill(str, ctx) {
+    var miss = false;
+    var out = String(str).replace(/\{\{\s*([\w.]+)\s*\}\}/g, function (_, path) {
+      var v = path.split('.').reduce(function (o, k) { return o == null ? undefined : o[k]; }, ctx);
+      if (v == null || v === '') { miss = true; return ''; }
+      return v;
+    });
+    return miss ? null : out;
+  }
+  function renderPreview(FX, ST, CT) {
+    var nx = upcoming(FX)[0]; if (!nx) return;
+    $('oppTitle').textContent = '다음 상대 — ' + nx.opponent_ko;
+    $('oppSub').textContent = compShort(nx) + ' · ' +
+      (timed(nx) ? dlabel(nx.kickoff_kst) + ' ' + hm(nx.kickoff_kst) + ' KST(현지 ' + hm(nx.kickoff_local) + ')' : dlabel(nx.date_local) + ' 시간 미정') +
+      (nx.venue ? ' · ' + nx.venue : '') + ' (' + ha(nx) + ')' + (tv(nx) ? ' · ' + tv(nx) : '');
+    var me = teamRow(ST, 'Arsenal'), op = nx.competition === 'EPL' ? teamRow(ST, nx.opponent) : null;
+    var pv = CT && CT.preview;
+    if (pv && pv.kickoffIso && nx.kickoff_kst && pv.kickoffIso.slice(0, 16) === nx.kickoff_kst.slice(0, 16)) {
+      var o = op ? { played: op.played, won: op.won, drawn: op.drawn, lost: op.lost, position: op.pos, points: op.pts, unbeaten: op.lost === 0 ? op.played : null } : {};
+      var ctx = { leeds: o, opponent: o, arsenal: me ? { position: me.pos, points: me.pts, injuryUpdate: INJURY_NOTE } : { injuryUpdate: INJURY_NOTE }, h2h: {} };
+      var intro = pv.intro.map(function (x) { return fill(x, ctx); }).filter(Boolean);
+      var pts = pv.keyPoints.map(function (x) { return fill(x, ctx); }).filter(Boolean);
+      $('pvCard').innerHTML = '<h3>미리보기</h3>' + intro.map(function (x) { return '<p class="small">' + esc(x) + '</p>'; }).join('') +
+        (pts.length ? '<ul class="pv-points">' + pts.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '');
+    }
+    if (me && op) {
+      var p = winProb(ST, me, op, nx.home_away === 'H');
+      var pc = function (x) { return Math.round(x * 100); };
+      var W = pc(p.w), D = pc(p.d), L = 100 - W - D, on = shortTeam(nx.opponent_ko);
+      $('probCard').innerHTML = '<h3>승무패 확률 <span class="badge low">참고용</span></h3>' +
+        '<div class="pv-num"><div>아스날<b>' + me.pos + '위 · 승점 ' + me.pts + '</b>' + me.gf + '득 ' + me.ga + '실</div>' +
+        '<div>' + esc(on) + '<b>' + op.pos + '위 · 승점 ' + op.pts + '</b>' + op.gf + '득 ' + op.ga + '실</div></div>' +
+        '<div class="pb" role="img" aria-label="아스날 승 ' + W + '%, 무승부 ' + D + '%, ' + esc(on) + ' 승 ' + L + '%">' +
+        '<span class="w" style="width:' + W + '%">' + W + '%</span><span class="d" style="width:' + D + '%">' + D + '%</span><span class="l" style="width:' + L + '%">' + L + '%</span></div>' +
+        '<div class="pb-legend"><span><b>아스날 승</b> ' + W + '%</span><span><b>무승부</b> ' + D + '%</span><span><b>' + esc(on) + ' 승</b> ' + L + '%</span></div>' +
+        '<p class="pb-how">계산: 두 팀의 이번 시즌 경기당 득점·실점(리그 평균 5경기분을 섞어 초반 표본 보정)에 홈 이점 10%를 더해 기대 득점(아스날 ' +
+        p.xu.toFixed(1) + ' : ' + p.xt.toFixed(1) + ' ' + esc(on) + ')을 잡고, 푸아송 분포로 스코어별 확률을 더했어요. ' +
+        ST.round + 'R 순위표 기준이며 부상·일정은 반영하지 않은 참고용 수치예요.</p>';
+    }
+  }
+
+  /* ── 순위·기록: 순위표 ── */
+  var SHORT_T = { 'Manchester City': '맨시티', 'Brighton & Hove Albion': '브라이턴', 'Leeds United': '리즈', 'Newcastle United': '뉴캐슬',
+    'Ipswich Town': '입스위치', 'Manchester United': '맨유', 'Nottingham Forest': '노팅엄', 'Crystal Palace': '팰리스',
+    'Aston Villa': '빌라', 'Coventry City': '코번트리', 'Tottenham Hotspur': '토트넘', 'Hull City': '헐' };
+  /* 비고는 5R 경기 기준 글이라 순위표가 다른 라운드로 바뀌면 자동으로 뺀다 */
+  var NOTES = { round: 5, t: {
+    'Manchester City': '선덜랜드 홈 5-3 승, 개막 5연승 단독 선두',
+    'Arsenal': '브라이턴 원정 0-3 패, 시즌 첫 패배 · 2위로',
+    'Brighton & Hove Albion': '아스날에 홈 3-0 승(그로스·코스툴라스·안드레스)',
+    'Brentford': '첼시에 홈 3-0 승, 개막 5경기 무패',
+    'Leeds United': '크리스탈 팰리스와 홈 0-0, 개막 5경기 무패(다음 상대: 아스날)',
+    'Liverpool': '본머스 원정 1-0 승, 3경기 연속 무실점',
+    'Everton': '입스위치에 홈 1-0 승, 개막 5경기 무패',
+    'Hull City': '뉴캐슬 원정 1-2 패, 승격팀 첫 패배',
+    'Newcastle United': '헐 시티에 홈 2-1 승',
+    'Chelsea': '브렌트퍼드 원정 0-3 패',
+    'Ipswich Town': '에버턴 원정 0-1 패',
+    'Manchester United': '풀럼 원정 1-1',
+    'Nottingham Forest': '코번트리에 홈 0-1 패',
+    'Sunderland': '맨시티 원정 3-5 패',
+    'Crystal Palace': '리즈 원정 0-0',
+    'Aston Villa': '토트넘 원정 3-2 승, 시즌 첫 승(결승골 득점자 미확정)',
+    'AFC Bournemouth': '리버풀에 홈 0-1 패, 아직 무승',
+    'Coventry City': '노팅엄 원정 1-0, 복귀 후 첫 프리미어리그 승리',
+    'Fulham': '맨유와 홈 1-1, 아직 무승',
+    'Tottenham Hotspur': '홈에서 빌라에 2-3 패, 개막 5경기 무승(데 제르비 감독 체제)'
+  } };
+  function renderStandings(ST) {
+    var notes = ST.round === NOTES.round ? NOTES.t : {};
+    $('stBody').innerHTML = ST.table.map(function (t) {
+      var cls = [t.team === 'Arsenal' ? 'hl' : '', t.pos <= 4 ? 'ucl' : '', t.pos >= 18 ? 'releg' : ''].filter(Boolean).join(' ');
+      var sh = SHORT_T[t.team];
+      var name = sh ? '<span class="tn-full">' + esc(t.team_ko) + '</span><span class="tn-short">' + esc(sh) + '</span>' : '<span>' + esc(t.team_ko) + '</span>';
+      return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><td><span class="pos-badge">' + t.pos + '</span></td><td>' + name + '</td>' +
+        '<td class="num">' + t.played + '</td><td class="num">' + t.won + '</td><td class="num">' + t.drawn + '</td><td class="num">' + t.lost + '</td>' +
+        '<td class="num">' + (t.gd > 0 ? '+' : '') + t.gd + '</td><td class="num"><b>' + t.pts + '</b></td>' +
+        '<td class="small st-note">' + esc(notes[t.team] || '') + '</td></tr>';
+    }).join('');
+    $('tableRound').textContent = ST.round + 'R 종료 기준';
+    $('tableFoot').textContent = '전 20개 팀 · ' + ST.round + 'R 종료 기준(' + String(ST.as_of_kst || '').slice(0, 10) + ' KST 확인). 출처: BBC·가디언 순위표 교차 확인.';
+  }
+
+  /* ── 소식: 헤드라인 모음 ── */
+  var hlAll = false;
+  function renderHeadlines(CT) {
+    var H = CT.headlines; if (!H || !H.items) return;
+    var items = H.items.slice().sort(function (a, b) { return String(b.published).localeCompare(String(a.published)); });
+    var cut = !hlAll && items.length > 6;
+    $('hlList').innerHTML = (cut ? items.slice(0, 6) : items).map(function (h) {
+      var u = safeUrl(h.url);
+      var p = String(h.published || ''), when = p.length >= 16 ? dlabel(p) + ' ' + p.slice(11, 16) : p;
+      return '<li class="hl-item"><div class="hl-ko">' + esc(h.summaryKo) + '</div>' +
+        (u ? '<a class="hl-orig" href="' + esc(u) + '" target="_blank" rel="noopener" lang="en">' + esc(h.title) + ' ↗</a>' : '<span class="hl-orig" lang="en">' + esc(h.title) + '</span>') +
+        '<div class="hl-meta">' + esc(h.source) + ' · ' + esc(when) + ' KST</div></li>';
+    }).join('');
+    var more = $('hlMore');
+    more.hidden = items.length <= 6;
+    more.textContent = cut ? '헤드라인 더 보기 (' + items.length + '건)' : '헤드라인 접기';
+    $('hlAsOf').textContent = 'BBC · 가디언 · Arseblog' + (H.fetchedAt ? ' · ' + H.fetchedAt + ' 수집' : '');
+    $('hlNote').textContent = (H.note || '') + ' 제목을 누르면 원문이 새 창으로 열려요.';
+  }
+
+  /* ── 소식 > 이적: 신뢰도 이적 보드 ── */
+  var STAGE = { '오피셜': 'official', '합의': 'hot', '협상': 'mid', '루머': 'low' };
+  function tbRow(it) {
+    var meta = [];
+    if (it.direction) meta.push(it.direction === 'in' ? '영입' : '방출');
+    if (it.club) meta.push((it.direction === 'out' ? '→ ' : '← ') + it.club);
+    if (it.position) meta.push(it.position);
+    if (it.deal) meta.push(it.deal);
+    if (it.fee) meta.push(it.fee);
+    var srcs = (it.sources || []).map(function (s) { return ext(s.url, s.name) + (s.date ? ' ' + esc(s.date) : ''); });
+    return '<div class="tb"><div><div class="tb-name">' + esc(it.player) + '</div>' + (meta.length ? '<div class="tb-meta">' + esc(meta.join(' · ')) + '</div>' : '') + '</div>' +
+      '<div class="tb-badges"><span class="badge ' + (STAGE[it.stage] || 'low') + '">' + esc(it.stage) + '</span><span class="gr gr-' + esc(it.grade) + '" title="신뢰도 등급 ' + esc(it.grade) + '">' + esc(it.grade) + '</span></div>' +
+      (it.note ? '<div class="tb-note">' + esc(it.note) + '</div>' : '') +
+      (srcs.length ? '<div class="tb-src">출처: ' + srcs.join(' · ') + '</div>' : '') + '</div>';
+  }
+  function renderTransfers(CT) {
+    var T = CT.transferBoard; if (!T || !T.items) return;
+    var ins = T.items.filter(function (x) { return x.direction === 'in'; });
+    var outs = T.items.filter(function (x) { return x.direction === 'out'; });
+    var live = (T.contracts || []).concat(T.rumors || []);
+    var sm = T.summary || {};
+    $('tbCard').innerHTML = '<h3>이적 보드 <span class="muted">신뢰도 등급 · 단계</span></h3>' +
+      '<p class="tb-guide"><b>' + esc(T.gradeGuide) + '</b><br>' + esc(T.stageGuide) + ' · ' + esc(T.feeNote) + '</p>' +
+      '<div class="chips"><span class="chip red">영입 ' + esc(sm.in) + '명 · ' + esc(sm.inTotal) + '</span><span class="chip red">방출 ' + esc(sm.out) + '명(임대 ' + esc(sm.outLoan) + ') · ' + esc(sm.outTotal) + '</span></div>' +
+      '<p class="small">' + esc(T.window) + '</p>' +
+      '<div class="tb-h">진행 중 — 재계약·1월 창 보도</div>' + live.map(tbRow).join('') +
+      '<div class="tb-h">확정 영입</div>' + ins.map(tbRow).join('') +
+      '<div class="tb-h">확정 방출</div>' + outs.map(tbRow).join('');
+    $('tbCard').hidden = false;
+    $('trStatic').hidden = true;
+  }
+
+  function getJSON(u) {
+    return fetch(u, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); })
+      .catch(function (e) { if (window.console) console.warn('데이터를 불러오지 못함:', u); return null; });
+  }
+  guard('calendar', bindCalendar);
+  Promise.all([getJSON('data/fixtures.json'), getJSON('data/standings.json'), getJSON('data/content.json')]).then(function (a) {
+    var FX = a[0], ST = a[1], CT = a[2];
+    guard('hero', function () { renderHero(FX, ST, CT); });
+    if (FX) {
+      guard('homeRecent', function () { renderHomeRecent(FX, CT); });
+      guard('homeNext', function () { renderHomeNext(FX); });
+      guard('schedule', function () { renderSchedule(FX); bindSchedule(FX); });
+      guard('summaries', function () { renderSummaries(FX, CT); });
+      if (ST) guard('preview', function () { renderPreview(FX, ST, CT); });
+    } else {
+      showFallback('schedCard');
+      $('sumGrid').innerHTML = '<p class="small">요약을 불러오지 못했어요. 아래 «경기 결과 기록»에 같은 경기 해설이 있어요.</p>';
+    }
+    if (ST) guard('standings', function () { renderStandings(ST); });
+    if (CT) {
+      guard('headlines', function () { renderHeadlines(CT); });
+      guard('transfers', function () { renderTransfers(CT); });
+      $('hlMore').addEventListener('click', function () { hlAll = !hlAll; renderHeadlines(CT); });
+    } else {
+      showFallback('hlCard');
+    }
+    if (window.pendingAnchor) {
+      var el = $(window.pendingAnchor); window.pendingAnchor = null;
+      if (el) el.scrollIntoView({ block: 'start' });
+    }
+  });
 })();
 </script>
 </body>

@@ -2,27 +2,29 @@
 
 아스날 FC의 경기·순위·통계·선수단·이적시장·여론을 한 페이지에 모은 비공식 팬 사이트입니다.
 
-**단일 HTML 파일**로 동작합니다. 빌드 과정이나 외부 의존성이 없고,
-선수 사진이 파일 안에 내장되어 있어 인터넷 없이 열어도 그대로 보입니다.
+화면은 `index.html` 한 파일이고, 빌드 과정은 없습니다. 선수 사진이 파일 안에 들어 있습니다.
+일정·순위·요약 같은 자주 바뀌는 값은 `data/` 의 JSON 파일에서 읽고, 파일을 못 읽으면 HTML 에 적어 둔 내용을 그대로 보여 줍니다.
 
-## 구성
+## 메뉴
 
-아스날 전용 10개 탭을 제공합니다.
-
-| 탭 | 내용 |
+| 메뉴 | 내용 |
 |---|---|
-| 홈 | 최근 경기·다가오는 일정, 핵심 브리핑 |
-| 경기 | 프리시즌·리그 결과와 일정 (전부 한국시간 기준, 현지 시각 병기) |
-| 순위표 | EPL 20개 팀 순위 |
-| 통계 | 시즌 지표 대시보드 (레이더 차트, 순위 분포도, 주요 기록) |
-| 선수단 | 1군 스쿼드 사진·상세 프로필, 감독 소개, 전술, 베스트 11 |
-| 다음 상대 | 다음 경기 상대 분석과 관전 포인트 |
-| 칼럼 | 해외 매체 칼럼 요약 (발행일 기준 정렬) |
-| 기자회견·인터뷰 | 감독·선수 인터뷰 요약 |
-| 팬 여론 | 지금 분위기 · 지난 여론 기록 |
-| 이적시장 | 확정 영입·방출과 루머 (신뢰도 구분 표기) |
+| 홈 | 지금 아스날 한 줄 요약, 다음 경기·순위·최근 결과 |
+| 경기 | 한국시간 일정(현지 시각 병기)·결과, 경기 요약, 부상자, 다음 상대 미리보기 |
+| 순위·기록 | EPL 순위표와 기록 |
+| 선수단 | 1군 선수 명단과 선수별 정보 |
+| 소식 | 칼럼·기자회견·팬 여론·이적(신뢰도 등급 표기) |
 
-맨체스터 유나이티드·EPL 다른 팀·라리가 패널은 2026-09-23 아스날 전용화하며 뺐습니다. 이전 판은 저장소 기록에 있습니다.
+## 파일
+
+| 파일 | 내용 |
+|---|---|
+| `index.html` | 사이트 전체 |
+| `data/fixtures.json` | 일정·결과(한국시간·현지 시각, 중계) |
+| `data/standings.json` | EPL 순위표 |
+| `data/content.json` | 첫 화면 문구, 경기 요약, 헤드라인, 이적 보드 |
+| `arsenal.ics` | 휴대폰 달력 구독 파일 |
+| `scripts/build-ics.mjs` | `data/fixtures.json` 으로 `arsenal.ics` 를 다시 만듭니다 (`node scripts/build-ics.mjs`) |
 
 ## 표기 원칙
 
@@ -33,7 +35,8 @@
 
 ## 출처
 
-경기·순위 데이터 [TheSportsDB](https://www.thesportsdb.com) ·
+일정 [PremierLeague.com](https://www.premierleague.com) · [Arsenal.com](https://www.arsenal.com) ·
+순위 [BBC](https://www.bbc.co.uk/sport/football/premier-league/table) · [Guardian](https://www.theguardian.com/football/premierleague/table) ·
 선수 사진 [FotMob](https://www.fotmob.com) ·
 기사 [Arsenal.com](https://www.arsenal.com) · [Sky Sports](https://www.skysports.com) · [BBC](https://www.bbc.com/sport/football) · [ESPN](https://www.espn.com/soccer/) · [Guardian](https://www.theguardian.com/football) · [Arseblog](https://arseblog.com) · [Opta Analyst](https://theanalyst.com) 등 ·
 국내 반응 베스트일레븐 등 국내 스포츠 매체

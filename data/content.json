@@ -1,7 +1,5 @@
 {
   "_meta": {
-    "basis": "공개본 main 10f1584 화면 값 + 2026-09-28 RSS",
-    "check": "check:true 는 숫자·날짜·이적료를 출처 두 곳으로 대조해야 하는 항목. 화면에는 표시하지 않는다.",
     "placeholders": "{{...}} 는 데이터 파일(fixtures.json·standings.json) 값으로 채울 자리"
   },
   "dataroomLabel": "아스날 데이터룸",
@@ -9,33 +7,29 @@
     "candidates": [
       {
         "id": "h1",
-        "kicker": "지금 아스날 · 9.28",
+        "kicker": "지금 아스날 · 9/28",
         "head": "첫 패배 뒤 휴식기, 10일 리즈전에서 반등 노린다",
-        "sub": "브라이턴 원정 0-3으로 7연승 마감. EPL 2위, 1위와 3점 차.",
-        "check": true
+        "sub": "브라이턴 원정 0-3으로 7연승 마감. EPL 2위, 1위와 3점 차."
       },
       {
         "id": "h2",
-        "kicker": "지금 아스날 · 9.28",
+        "kicker": "지금 아스날 · 9/28",
         "head": "7연승 멈춘 챔피언, 리즈 홈에서 다시 시작",
-        "sub": "A매치 휴식 뒤 10월 10일(토) 20:30 에미레이츠에서 리즈전.",
-        "check": true
+        "sub": "A매치 휴식 뒤 10월 10일(토) 20:30 에미레이츠에서 리즈전."
       },
       {
         "id": "h3",
-        "kicker": "지금 아스날 · 9.28",
+        "kicker": "지금 아스날 · 9/28",
         "head": "브라이턴 0-3의 교훈, 답은 10월 10일 리즈전",
-        "sub": "시즌 첫 패배 뒤 3주 휴식. 무패 5위 리즈를 홈에서 맞는다.",
-        "check": true
+        "sub": "시즌 첫 패배 뒤 3주 휴식. 무패 5위 리즈를 홈에서 맞는다."
       }
     ],
-    "recommended": "h1",
-    "recommendedReason": "지난 결과(첫 패배)·지금(휴식기)·다음(리즈전 날짜)이 한 줄에 다 들어가고, 순위 숫자는 sub 에서 받쳐 준다."
+    "recommended": "h1"
   },
   "matchSummaries": [
     {
       "id": "2026-09-19-bha",
-      "date": "9.19 (토) 23:00",
+      "date": "9/19(토) 23:00",
       "dateIso": "2026-09-19T23:00+09:00",
       "competition": "프리미어리그 5R",
       "venue": "원정",
@@ -57,12 +51,11 @@
         ]
       },
       "sourceUrl": "https://www.skysports.com/football/news/11670/13589868/arsenal-boss-mikel-arteta-accuses-players-of-failing-to-respect-the-game-as-champions-suffer-first-defeat-of-season-to-brighton",
-      "sourceName": "Sky Sports",
-      "check": true
+      "sourceName": "Sky Sports"
     },
     {
       "id": "2026-09-16-ips",
-      "date": "9.16 (수) 04:00",
+      "date": "9/16(수) 04:00",
       "dateIso": "2026-09-16T04:00+09:00",
       "competition": "카라바오컵 3R",
       "venue": "원정",
@@ -88,13 +81,11 @@
         ]
       },
       "sourceUrl": null,
-      "sourceName": "Sky Sports (9/16)",
-      "check": true,
-      "_note": "공개본에 이 경기 출처 링크가 없음(매체명만). 가디언 RSS 경기 문자중계 https://www.theguardian.com/football/live/2026/sep/15/ipswich-town-v-arsenal-carabao-cup-third-round-live 를 대체 후보로 둠 — 확인 필요"
+      "sourceName": "Sky Sports (9/16)"
     },
     {
       "id": "2026-09-13-sun",
-      "date": "9.13 (일) 04:00",
+      "date": "9/13(일) 04:00",
       "dateIso": "2026-09-13T04:00+09:00",
       "competition": "프리미어리그 4R",
       "venue": "원정",
@@ -115,13 +106,11 @@
         "opponent": []
       },
       "sourceUrl": "https://arseblog.news/2026/09/post-sunderland-quotes-round-up-arteta-le-bris-raya-bruno-keown-upson-more/",
-      "sourceName": "Arseblog News",
-      "check": true,
-      "_note": "공개본에 득점 시각(분) 없음 — 채울 값 필요"
+      "sourceName": "Arseblog News"
     },
     {
       "id": "2026-09-10-nap",
-      "date": "9.10 (목) 04:00",
+      "date": "9/10(목) 04:00",
       "dateIso": "2026-09-10T04:00+09:00",
       "competition": "챔피언스리그 리그페이즈 1R",
       "venue": "원정",
@@ -141,12 +130,11 @@
         "opponent": []
       },
       "sourceUrl": "https://arseblog.news/2026/09/post-napoli-quotes-round-up-arteta-allegri-di-lorenzo-odegaard-rice-keown-more/",
-      "sourceName": "Arseblog News",
-      "check": true
+      "sourceName": "Arseblog News"
     },
     {
       "id": "2026-09-07-che",
-      "date": "9.7 (월) 00:30",
+      "date": "9/7(월) 00:30",
       "dateIso": "2026-09-07T00:30+09:00",
       "competition": "프리미어리그 3R",
       "venue": "홈",
@@ -169,15 +157,13 @@
         ]
       },
       "sourceUrl": "https://arseblog.news/2026/09/arsenal-2-1-chelsea-on-the-whistle/",
-      "sourceName": "Arseblog News",
-      "check": true,
-      "_note": "첼시 선제골 득점자(로저스)·시각(77초)은 사실 대조 목록에 있는 항목"
+      "sourceName": "Arseblog News"
     }
   ],
   "transferBoard": {
     "title": "이적 보드",
     "window": "2026 여름 창 마감: 9월 2일(수) 07:00 (영국 9월 1일 23:00). 다음 창: 2027년 1월.",
-    "gradeGuide": "등급 — A 구단 공식 발표 · B 신뢰 매체 두 곳 이상 · C 한 곳만 보도 · D 출처가 불분명한 소문",
+    "gradeGuide": "등급 — A 구단 공식 발표 · B 신뢰 매체 두 곳 이상 · C 한 곳만 보도했거나 주요 매체(BBC·가디언·Sky 등)는 아직 다루지 않음 · D 출처가 불분명한 소문",
     "stageGuide": "단계 — 루머 → 협상 → 합의 → 오피셜",
     "feeNote": "이적료는 구단이 대부분 공개하지 않아 매체 보도 금액을 적었어요.",
     "summary": {
@@ -185,8 +171,7 @@
       "out": 10,
       "outLoan": 2,
       "inTotal": "약 £198.5m (콘사 가산 £4m 포함)",
-      "outTotal": "약 £96.3~97.1m (트로사르 제외)",
-      "check": true
+      "outTotal": "약 £100.6~101.4m (트로사르 제외)"
     },
     "items": [
       {
@@ -207,8 +192,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "크리스토스 촐리스",
@@ -228,8 +212,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "일란 메슬리에",
@@ -249,8 +232,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "브루누 기마랑이스",
@@ -270,8 +252,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "에즈리 콘사",
@@ -291,8 +272,7 @@
             "url": "https://www.skysports.com/football/news/11670/13574990/ezri-konsa-arsenal-complete-51m-deal-for-aston-villa-and-england-defender"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "가브리엘 마르티넬리",
@@ -306,14 +286,9 @@
           {
             "name": "Arsenal.com",
             "url": "https://www.arsenal.com/news/gabriel-martinelli-joins-al-hilal-aOqHc1P93HkF"
-          },
-          {
-            "name": "Sky Sports",
-            "url": "https://www.skysports.com/football/news/33694/13579053/arsenal-agree-lb55-7m-club-record-gabriel-martinelli-sale-to-al-hilal-with-deal-also-agreed-in-principle-with-barcelona-for-gabriel-jesus"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "가브리엘 제주스",
@@ -333,8 +308,7 @@
             "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "파비우 비에이라",
@@ -354,8 +328,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "크리스티안 뇌르고르",
@@ -375,8 +348,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "레안드로 트로사르",
@@ -396,8 +368,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "야쿠프 키비오르",
@@ -417,8 +388,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "칼 헤인",
@@ -438,8 +408,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "리스 넬슨",
@@ -459,8 +428,7 @@
             "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "에단 은와네리",
@@ -480,8 +448,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       },
       {
         "player": "토미 세트포드",
@@ -501,8 +468,7 @@
             "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
           }
         ],
-        "updated": "2026-09-02",
-        "check": true
+        "updated": "2026-09-02"
       }
     ],
     "rumors": [
@@ -521,8 +487,7 @@
             "date": "2026-09-22"
           }
         ],
-        "updated": "2026-09-22",
-        "check": true
+        "updated": "2026-09-22"
       },
       {
         "player": "데클란 라이스",
@@ -539,8 +504,7 @@
             "date": "2026-09-09"
           }
         ],
-        "updated": "2026-09-09",
-        "check": true
+        "updated": "2026-09-09"
       }
     ],
     "contracts": [
@@ -571,8 +535,7 @@
             "date": "2026-09-23"
           }
         ],
-        "updated": "2026-09-23",
-        "check": true
+        "updated": "2026-09-23"
       },
       {
         "player": "라이스 · 외데고르 · 팀버",
@@ -591,8 +554,7 @@
             "date": "2026-09"
           }
         ],
-        "updated": "2026-09-23",
-        "check": true
+        "updated": "2026-09-23"
       },
       {
         "player": "카이 하베르츠",
@@ -606,8 +568,7 @@
             "date": "2026-09 초"
           }
         ],
-        "updated": "2026-09",
-        "check": true
+        "updated": "2026-09"
       }
     ],
     "closedRumors": [
@@ -792,10 +753,9 @@
   "preview": {
     "opponent": "리즈 유나이티드",
     "competition": "프리미어리그 6R",
-    "kickoff": "10.10 (토) 20:30 KST (현지 12:30)",
+    "kickoff": "10/10(토) 20:30 KST (현지 12:30)",
     "kickoffIso": "2026-10-10T20:30+09:00",
     "venue": "에미레이츠 스타디움 (홈)",
-    "check": true,
     "intro": [
       "다니엘 파르케 감독 체제의 리즈는 개막 {{leeds.played}}경기 {{leeds.won}}승 {{leeds.drawn}}무 무패로 {{leeds.position}}위에 올라 있다.",
       "구단 최고 이적료로 데려온 골키퍼 트래퍼드를 중심으로 수비를 다시 짜며 쉽게 지지 않는 팀이 됐다."
@@ -867,7 +827,6 @@
   },
   "broadcastNote": {
     "text": "중계: 프리미어리그 쿠팡플레이 · 챔피언스리그 {{broadcast.ucl}} · 카라바오컵 {{broadcast.carabao}}",
-    "short": "EPL 쿠팡플레이",
-    "check": true
+    "short": "EPL 쿠팡플레이"
   }
 }

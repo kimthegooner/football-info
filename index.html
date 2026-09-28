@@ -187,7 +187,6 @@
   .tile .label { font-size: 11px; color: var(--ink-3); font-weight:800; letter-spacing:.08em; text-transform: uppercase; }
   .tile .value { font-size: 34px; font-weight: 900; letter-spacing:-0.02em; margin-top:5px; line-height:1.15; }
   .tile .note { font-size: 12px; color: var(--ink-3); margin-top:3px; }
-  .tile.accent .value { color: var(--ars-red); }
 
   /* ── Tables ── */
   table.tbl { width:100%; border-collapse: collapse; font-size: 14px; }
@@ -199,7 +198,6 @@
   table.tbl td.num, table.tbl th.num { text-align:right; font-variant-numeric: tabular-nums; }
   tr.hl td { background: color-mix(in srgb, var(--red) 6%, transparent); font-weight:700; }
   tr.hl td:first-child { box-shadow: inset 3px 0 0 var(--ars-red); }
-  tr.dim td { color: var(--ink-3); }
   .pos-badge {
     display:inline-flex; width:26px; height:24px; border-radius: 6px; align-items:center;
     justify-content:center; font-size:12.5px; font-weight:800; background: var(--chip-bg);
@@ -239,44 +237,6 @@
   .dg-head .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ars-red); flex:none; }
   .dg-head .dg-count { font-size: 12px; color: var(--ink-3); font-weight: 600; }
   .dg-head::after { content:''; flex: 1; height: 1px; background: var(--grid); }
-
-  /* ── 팀 스위처 ── */
-  .team-switch { display:flex; gap:0; border:1.5px solid rgba(255,255,255,.6); border-radius:999px; overflow:hidden; }
-  .team-switch button {
-    background: transparent; border: none; color:#fff; padding: 3px 13px;
-    font-size: 11.5px; font-weight: 800; cursor: pointer; font-family: inherit;
-  }
-  .team-switch button.on { background:#fff; color: var(--header-red); }
-
-  /* ── 맨유 테마 (manutd.com 차용: 블랙 유틸바 + 화이트 내비 + 세리프 헤드라인 + 딥레드) ── */
-  :root[data-team="mun"] { --ars-red: #B01212; --ars-red-deep: #8a0d0d; --header-red: #B01212; --header-red-deep: #8a0d0d; }
-  :root[data-team="mun"][data-theme="dark"], :root[data-team="mun"].osdark { --ars-red: #ff5a52; --ars-red-deep: #ff7a73; }
-  [data-team="mun"] header.site { background: var(--page); color: var(--ink-1); border-bottom: 1px solid var(--grid); }
-  [data-team="mun"] .util { background: #000; border-bottom: none; }
-  [data-team="mun"] .util-in { color: #fff; }
-  [data-team="mun"] .pill-link { border-color:#fff; color:#fff; }
-  [data-team="mun"] .util .champ { color: #ffd400; }
-  [data-team="mun"] .theme-toggle { border-color: rgba(255,255,255,.6); color:#fff; }
-  [data-team="mun"] .theme-toggle:hover { background:#fff; color:#000; }
-  [data-team="mun"] .team-switch { border-color: rgba(255,255,255,.6); }
-  [data-team="mun"] .team-switch button { color:#fff; }
-  [data-team="mun"] .team-switch button.on { background:#B01212; color:#fff; }
-  [data-team="mun"] .wordmark { font-family: var(--serif); text-transform:none; font-size: 21px; color: var(--ink-1); }
-  [data-team="mun"] .wordmark .wm-sub { font-family: system-ui, sans-serif; color: var(--ink-3); }
-  [data-team="mun"] nav.tabs button { color: var(--ink-2); }
-  [data-team="mun"] nav.tabs button:hover { color: var(--ink-1); border-bottom-color: var(--grid); }
-  [data-team="mun"] nav.tabs button.active { color: var(--ars-red); border-bottom-color: var(--ars-red); }
-  [data-team="mun"] h2.sec { font-family: var(--serif); }
-  [data-team="mun"] .hero {
-    background: linear-gradient(115deg, #17171a 0%, #232326 70%, #1a1a1d 100%);
-  }
-  [data-team="mun"] .hero::after { border-color: rgba(176,18,18,.35); }
-  [data-team="mun"] .hero .dday { color: #ff9d96; font-family: var(--serif); }
-  [data-team="mun"] .hero .info .t1 { color: #ff9d96; }
-  [data-team="mun"] .hero .info .t2 { font-family: var(--serif); text-transform: none; }
-  [data-team="mun"] .pitch { background:
-      repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 11.1%, transparent 11.1% 22.2%),
-      linear-gradient(180deg, #127038 0%, #0c5c2b 100%); }
 
   /* ── FM 데이터 허브 (통계 탭 · 라이트 통일 스킨) ── */
   .fmhub {
@@ -436,58 +396,7 @@
   }
   .xi .xi-p { display:block; font-size: 9.5px; font-weight: 800; color: rgba(255,255,255,.75); letter-spacing:.08em; margin-top: 2px; }
 
-  /* ── 통계 콘솔 (대시보드 · 사이트 톤 통합) ── */
-  .console {
-    --c-red: var(--ars-red); --c-gold: var(--ars-gold); --c-green: var(--good-text);
-    background:
-      linear-gradient(color-mix(in srgb, var(--ink-1) 3%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--ink-1) 3%, transparent) 1px, transparent 1px),
-      var(--surface-1);
-    background-size: 26px 26px, 26px 26px, auto;
-    border: 1px solid var(--ring); border-radius: 14px; color: var(--ink-1);
-    padding: 22px; margin-bottom: 18px;
-  }
-  .con-head {
-    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-    padding-bottom: 14px; border-bottom: 1px solid var(--grid); margin-bottom: 18px;
-  }
-  .led {
-    width:9px; height:9px; border-radius:50%; background: var(--good);
-    animation: pulse 1.6s ease-in-out infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
-  .con-title { font-size: 13px; font-weight: 800; letter-spacing: .1em; }
-  .con-meta { margin-left:auto; font-size: 10.5px; color: var(--ink-3); letter-spacing: .06em; font-weight: 600; }
-  .con-kpis { display:grid; grid-template-columns: repeat(4,1fr); gap:12px; margin-bottom: 14px; }
-  @media (max-width: 860px){ .con-kpis { grid-template-columns: repeat(2,1fr);} }
-  .kpi {
-    background: var(--chip-bg); border: 1px solid var(--ring); border-radius: 8px;
-    padding: 14px 16px 12px; position: relative; overflow:hidden;
-  }
-  .kpi::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--kpi-accent, var(--baseline)); }
-  .kpi.red { --kpi-accent: var(--c-red); }
-  .kpi.gold { --kpi-accent: var(--c-gold); }
-  .kpi.green { --kpi-accent: var(--c-green); }
-  .kpi .k-label { font-size: 10px; color: var(--ink-3); letter-spacing: .12em; font-weight: 800; }
-  .kpi .k-value {
-    font-size: 34px; font-weight: 900; line-height: 1.2; letter-spacing: -0.01em;
-    margin-top: 4px; color: var(--kpi-accent, var(--ink-1)); font-variant-numeric: tabular-nums;
-  }
-  .kpi .k-note { font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
-  .con-grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-  @media (max-width: 860px){ .con-grid2 { grid-template-columns: 1fr; } }
-  .con-panel { background: var(--chip-bg); border:1px solid var(--ring); border-radius: 8px; padding: 16px 18px; }
-  .con-panel-title {
-    font-size: 11px; letter-spacing: .1em; color: var(--ink-3); font-weight: 800;
-    margin-bottom: 14px; display:flex; align-items:center; gap:8px;
-  }
-  .con-panel-title::before { content:'▮'; color: var(--c-red); font-size: 10px; }
-  .console .bar-row .bl { color: var(--ink-2); font-size: 12.5px; }
-  .console .bar-row .track { background: color-mix(in srgb, var(--ink-1) 5%, transparent); border-radius: 2px; }
-  .console .bar-row .fill { background: var(--baseline); border-radius: 0 3px 3px 0; }
-  .console .bar-row.is-hero .fill { background: var(--chart-red); }
-  .console .bar-row .val { color: var(--ink-1); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .console .axis-note { color: var(--ink-3); }
+  /* ── 게이지 · 기록 표 · 들고남 태그 ── */
   .gauge { margin-bottom: 14px; }
   .gauge .g-row { display:flex; justify-content:space-between; font-size: 12px; margin-bottom: 6px; }
   .gauge .g-row .g-label { color: var(--ink-3); letter-spacing:.04em; font-weight: 700; }
@@ -514,9 +423,6 @@
   }
   .io-tag.in { color: var(--good-text); border-color: color-mix(in srgb, var(--good-text) 40%, transparent); background: var(--good-bg); }
   .io-tag.out { color: var(--ink-3); border-color: var(--grid); background: var(--surface-1); }
-  .io-tag.re { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); background: var(--warn-bg); }
-  .con-note { font-size: 12.5px; color: var(--ink-2); line-height: 1.65; }
-  .con-note b { color: var(--ink-1); }
 
   /* ── Charts ── */
   .chart { margin-top: 8px; }
@@ -534,29 +440,6 @@
   }
   .bar-row .track { margin-right: 46px; }
   .axis-note { font-size: 11.5px; color: var(--ink-3); margin-top: 6px; }
-
-  /* ── 히어로 (네이비 매치 카드) ── */
-  .hero {
-    background: linear-gradient(115deg, var(--ars-navy) 0%, #01275a 70%, #012152 100%);
-    color: #fff; border-radius: 14px; border: none;
-    padding: 34px 36px; margin-bottom: 20px; position: relative; overflow: hidden;
-    display:flex; align-items:center; gap: 36px; flex-wrap: wrap;
-  }
-  .hero::after {
-    content:''; position:absolute; right:-60px; top:-60px; width: 240px; height: 240px;
-    border: 26px solid rgba(255,212,0,.14); border-radius: 50%; pointer-events:none;
-  }
-  .hero .dday {
-    font-size: 78px; font-weight: 900; letter-spacing:-3px; line-height:1; color: var(--ars-yellow);
-  }
-  .hero .dday small {
-    display:block; font-size: 11.5px; font-weight:800; letter-spacing:.12em;
-    color: rgba(255,255,255,.75); margin-top: 10px; text-transform: uppercase;
-  }
-  .hero .info { flex:1; min-width: 240px; position: relative; z-index:1; }
-  .hero .info .t1 { font-size: 11.5px; font-weight:800; color: var(--ars-yellow); letter-spacing:.14em; text-transform: uppercase; }
-  .hero .info .t2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 900; margin: 6px 0 8px; line-height:1.15; letter-spacing:-0.02em; text-transform: uppercase; }
-  .hero .info .t3 { font-size: 13.5px; color: rgba(255,255,255,.85); }
 
   /* ── 인용 ── */
   .quote { border-left: 4px solid var(--ars-red); padding: 2px 0 2px 16px; margin: 16px 0; }
@@ -603,7 +486,7 @@
   .tbl-scroll::-webkit-scrollbar { display: none; }
 
   /* 하단 탭바 — 기본은 숨김, 모바일에서만 노출 */
-  .mtab, .sheet-ov { display: none; }
+  .mtab { display: none; }
 
   @media (max-width: 768px) {
     html { scroll-padding-top: 96px; }
@@ -618,13 +501,9 @@
     .pill-link { font-size: 10.5px; padding: 2px 9px; }
     .util-links { font-size: 10.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
     .u-hide-m, .util .champ { display: none; }
-    .theme-toggle { display: none; }        /* → 더보기 시트로 이동 */
-    .team-switch { margin-left: auto; flex: none; }
-    .team-switch button { padding: 4px 12px; font-size: 11px; }
     .mainbar-in { gap: 0; flex-wrap: nowrap; }
     .wordmark { font-size: 15.5px; padding: 11px 0; }
     .wordmark .wm-sub { display: none; }
-    [data-team="mun"] .wordmark { font-size: 17px; }
     nav.tabs { display: none; }             /* → 하단 탭바로 대체 */
 
     /* ── 본문 여백·타이포 ── */
@@ -639,16 +518,6 @@
     /* 그리드 항목이 표(nowrap)의 min-content 때문에 늘어나 가로 넘침을 만들던 것 차단 */
     .grid2, .grid3 { gap: 12px; }
     .grid2 > *, .grid3 > *, .card { min-width: 0; }
-
-    /* ── 히어로: 화면 하나를 다 먹던 것 → 1/3로 ── */
-    .hero { padding: 20px 18px; gap: 4px 18px; margin-bottom: 14px; border-radius: 12px; }
-    .hero::after { right: -80px; top: -80px; width: 190px; height: 190px; border-width: 20px; }
-    .hero .dday { font-size: 46px; letter-spacing: -2px; }
-    .hero .dday small { font-size: 10px; margin-top: 4px; letter-spacing: .1em; }
-    .hero .info { min-width: 0; flex-basis: 100%; }
-    .hero .info .t1 { font-size: 10.5px; letter-spacing: .1em; }
-    .hero .info .t2 { font-size: 23px; margin: 4px 0 6px; }
-    .hero .info .t3 { font-size: 12.5px; line-height: 1.6; }
 
     /* ── 스탯 타일: 값 줄바꿈 방지 ── */
     /* 인라인 style로 3~4열이 박힌 타일도 강제로 2열 (인라인 우선순위 때문에 !important 필요) */
@@ -709,7 +578,7 @@
     .pitch-wrap { max-width: 100%; }
     .mgr { gap: 14px; }
     .mgr-info { min-width: 0; }
-    .fm-kpis, .con-kpis { gap: 9px; }
+    .fm-kpis { gap: 9px; }
     footer.site .cols { gap: 18px; }
   }
 
@@ -733,98 +602,15 @@
     }
     .mtab button svg { width: 21px; height: 21px; stroke: currentColor; fill: none;
       stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    .mtab button .dots { fill: currentColor; stroke: none; }
     .mtab button.on { color: var(--ars-red); }
     .mtab button.on svg { stroke-width: 2.1; }
     .mtab button:active { background: var(--chip-bg); }
-
-    /* ══════════ 더보기 시트 ══════════ */
-    .sheet-ov {
-      display: block; position: fixed; inset: 0; z-index: 110;
-      background: rgba(0,0,0,.45); opacity: 0; pointer-events: none;
-      transition: opacity .2s ease;
-    }
-    .sheet-ov.open { opacity: 1; pointer-events: auto; }
-    .sheet {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      background: var(--surface-1); border-radius: 18px 18px 0 0;
-      padding: 10px 16px calc(18px + env(safe-area-inset-bottom, 0px));
-      transform: translateY(102%); transition: transform .26s cubic-bezier(.22,.9,.3,1);
-      max-height: 86vh; overflow-y: auto;
-    }
-    .sheet-ov.open .sheet { transform: none; }
-    .sheet-grip { width: 38px; height: 4px; border-radius: 99px; background: var(--grid); margin: 0 auto 14px; }
-    .sheet-lab { font-size: 10.5px; font-weight: 800; color: var(--ink-3);
-      letter-spacing: .1em; text-transform: uppercase; margin: 2px 0 8px; }
-    .sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .sheet-grid button {
-      background: var(--chip-bg); border: 1px solid transparent; border-radius: 10px;
-      padding: 13px 12px; font-family: inherit; font-size: 13.5px; font-weight: 800;
-      color: var(--ink-1); text-align: left; cursor: pointer;
-    }
-    .sheet-grid button.on { background: var(--red-fill); color: var(--on-fill); }
-    .sheet-foot { display: flex; gap: 8px; margin-top: 14px; }
-    .sheet-foot button {
-      flex: 1; background: none; border: 1px solid var(--grid); border-radius: 10px;
-      padding: 12px; font-family: inherit; font-size: 13px; font-weight: 800;
-      color: var(--ink-2); cursor: pointer;
-    }
-    .sheet-team { display: flex; gap: 8px; }
-    .sheet-team button {
-      flex: 1; background: none; border: 1.5px solid var(--grid); border-radius: 10px;
-      padding: 12px; font-family: inherit; font-size: 13.5px; font-weight: 800;
-      color: var(--ink-2); cursor: pointer;
-    }
-    .sheet-team button.on { border-color: var(--ars-red); color: var(--ars-red); background: color-mix(in srgb, var(--ars-red) 8%, transparent); }
   }
 
 </style>
 
-<style id="lgStyle">
-  /* ══════ EPL 전체 탭 (2026-08-14) ══════ */
-  #tabs button.t-league::after {
-    content: '20'; margin-left: 5px; padding: 0 5px; border-radius: 99px;
-    border: 1px solid currentColor; opacity: .62;
-    font-size: 9.5px; font-weight: 900; vertical-align: 1.5px; letter-spacing: .02em;
-  }
-
-  .lg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .lg-card {
-    border: 1px solid var(--ring); border-radius: 12px; padding: 14px 14px 12px;
-    background: var(--page); min-width: 0; display: flex; flex-direction: column; gap: 7px;
-  }
-  .lg-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .lg-pos {
-    flex: none; display: inline-flex; align-items: center; justify-content: center;
-    min-width: 26px; height: 24px; padding: 0 6px; border-radius: 7px;
-    background: var(--chip-bg); color: var(--ink-2); font-size: 12.5px; font-weight: 900;
-    font-variant-numeric: tabular-nums;
-  }
-  .lg-pos.up { background: rgba(239,1,7,.09); color: var(--ars-red); font-size: 11px; }
-  .lg-name { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; min-width: 0; }
-  .lg-meta { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
-  .chips.lg-chips { margin: 0; gap: 5px; }
-  .chips.lg-chips .chip { padding: 3px 9px; font-size: 11px; }
-  .lg-next {
-    margin-top: auto; padding-top: 9px; border-top: 1px dashed var(--grid);
-    font-size: 12.5px; line-height: 1.6;
-  }
-  .lg-r1 {
-    display: inline-block; font-size: 9.5px; font-weight: 900; letter-spacing: .07em;
-    color: var(--ars-red); vertical-align: 1px; margin-right: 3px;
-  }
-
-  @media (max-width: 1024px) { .lg-grid { grid-template-columns: repeat(3, 1fr); } }
+<style id="wrapStyle">
   @media (max-width: 768px) {
-    .lg-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; }
-    .lg-card { padding: 12px 11px 11px; border-radius: 10px; gap: 6px; }
-    .lg-name { font-size: 13.5px; }
-    .lg-meta { font-size: 11px; }
-    .lg-next { font-size: 11.5px; padding-top: 8px; }
-    .chips.lg-chips .chip { padding: 2px 8px; font-size: 10px; }
-    /* 득점·도움 두 표는 모바일에서 위아래로 */
-    #panel-league .grid2 { grid-template-columns: 1fr; }
-
     /* ══════ 본문 가로 넘침 방지 (2026-08-14 발견) ══════
        'caughtoffside·thepeoplesperson·football365·sportbible' 처럼
        공백 없는 긴 영문 나열이 줄바꿈되지 않아 카드를 밀어내던 문제.
@@ -835,149 +621,11 @@
   }
 </style>
 
-<style id="llStyle">
-  /* ══════ 라리가 20팀 (2026-08-15) ══════ */
-  [data-team="bar"] { --header-red: #004D98; --header-red-deep: #004D98; --hdr-ink: #fff; }
-  [data-team="rma"] { --header-red: #FEBE10; --header-red-deep: #FEBE10; --hdr-ink: #111; }
-  [data-team="atm"] { --header-red: #CB3524; --header-red-deep: #CB3524; --hdr-ink: #fff; }
-  [data-team="ath"] { --header-red: #EE2523; --header-red-deep: #EE2523; --hdr-ink: #fff; }
-  [data-team="bet"] { --header-red: #00954C; --header-red-deep: #00954C; --hdr-ink: #fff; }
-  [data-team="vil"] { --header-red: #FFE667; --header-red-deep: #FFE667; --hdr-ink: #111; }
-  [data-team="rso"] { --header-red: #0067B1; --header-red-deep: #0067B1; --hdr-ink: #fff; }
-  [data-team="sev"] { --header-red: #D91A21; --header-red-deep: #D91A21; --hdr-ink: #fff; }
-  [data-team="val"] { --header-red: #F5A31A; --header-red-deep: #F5A31A; --hdr-ink: #111; }
-  [data-team="cel"] { --header-red: #8AC3EE; --header-red-deep: #8AC3EE; --hdr-ink: #111; }
-  [data-team="osa"] { --header-red: #0A346F; --header-red-deep: #0A346F; --hdr-ink: #fff; }
-  [data-team="ray"] { --header-red: #E53027; --header-red-deep: #E53027; --hdr-ink: #fff; }
-  [data-team="esp"] { --header-red: #0072BC; --header-red-deep: #0072BC; --hdr-ink: #fff; }
-  [data-team="get"] { --header-red: #005999; --header-red-deep: #005999; --hdr-ink: #fff; }
-  [data-team="ala"] { --header-red: #0761AF; --header-red-deep: #0761AF; --hdr-ink: #fff; }
-  [data-team="elc"] { --header-red: #00963F; --header-red-deep: #00963F; --hdr-ink: #fff; }
-  [data-team="lev"] { --header-red: #004B9B; --header-red-deep: #004B9B; --hdr-ink: #fff; }
-  [data-team="dep"] { --header-red: #0072BC; --header-red-deep: #0072BC; --hdr-ink: #fff; }
-  [data-team="mal"] { --header-red: #0053A0; --header-red-deep: #0053A0; --hdr-ink: #fff; }
-  [data-team="rac"] { --header-red: #009B3A; --header-red-deep: #009B3A; --hdr-ink: #fff; }
-  #panel-laliga .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  @media (max-width: 768px) { #teamLaliga .grid2 { grid-template-columns: 1fr; } }
-</style>
-<style id="t20Style">
-  /* ══════ 20팀 확장 (2026-08-14) ══════ */
-  [data-team="liv"] { --header-red: #C8102E; --header-red-deep: #C8102E; --hdr-ink: #fff; }
-  [data-team="mci"] { --header-red: #6CABDD; --header-red-deep: #6CABDD; --hdr-ink: #111; }
-  [data-team="new"] { --header-red: #241F20; --header-red-deep: #241F20; --hdr-ink: #fff; }
-  [data-team="tot"] { --header-red: #132257; --header-red-deep: #132257; --hdr-ink: #fff; }
-  [data-team="che"] { --header-red: #034694; --header-red-deep: #034694; --hdr-ink: #fff; }
-  [data-team="avl"] { --header-red: #670E36; --header-red-deep: #670E36; --hdr-ink: #fff; }
-  [data-team="eve"] { --header-red: #003399; --header-red-deep: #003399; --hdr-ink: #fff; }
-  [data-team="bha"] { --header-red: #0057B8; --header-red-deep: #0057B8; --hdr-ink: #fff; }
-  [data-team="bre"] { --header-red: #D20000; --header-red-deep: #D20000; --hdr-ink: #fff; }
-  [data-team="ful"] { --header-red: #000000; --header-red-deep: #000000; --hdr-ink: #fff; }
-  [data-team="cry"] { --header-red: #1B458F; --header-red-deep: #1B458F; --hdr-ink: #fff; }
-  [data-team="nfo"] { --header-red: #DD0000; --header-red-deep: #DD0000; --hdr-ink: #fff; }
-  [data-team="bou"] { --header-red: #DA291C; --header-red-deep: #DA291C; --hdr-ink: #fff; }
-  [data-team="sun"] { --header-red: #EB172B; --header-red-deep: #EB172B; --hdr-ink: #fff; }
-  [data-team="lee"] { --header-red: #1D428A; --header-red-deep: #1D428A; --hdr-ink: #fff; }
-  [data-team="cov"] { --header-red: #78D0F3; --header-red-deep: #78D0F3; --hdr-ink: #111; }
-  [data-team="ips"] { --header-red: #3A64A3; --header-red-deep: #3A64A3; --hdr-ink: #fff; }
-  [data-team="hul"] { --header-red: #F5A12D; --header-red-deep: #F5A12D; --hdr-ink: #111; }
-  /* 밝은 구단 컬러(맨시티·헐·코번트리)는 헤더 글씨를 검게 — html[data-hdr="light"] */
-  [data-hdr="light"] header.site { color: #101010; }
-  [data-hdr="light"] header.site nav.tabs button { color: inherit; }
-  [data-hdr="light"] header.site nav.tabs button.active { border-bottom-color: currentColor; }
-  [data-hdr="light"] header.site nav.tabs button:hover { border-bottom-color: rgba(0,0,0,.35); }
-  [data-hdr="light"] header.site .pill-link { border-color: currentColor; }
-  [data-hdr="light"] header.site .util { border-bottom-color: rgba(0,0,0,.18); }
-  [data-hdr="light"] header.site .theme-toggle { border-color: rgba(0,0,0,.45); color: inherit; }
-  [data-hdr="light"] header.site .theme-toggle:hover { background: #101010; color: #fff; border-color: #101010; }
-
-  /* 구단 선택 셀렉트 */
-  .team-sel-wrap { position: relative; flex: none; display: flex; align-items: center; }
-  .team-sel-wrap::after {
-    content: ''; position: absolute; right: 11px; top: 50%; width: 7px; height: 7px;
-    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-    transform: translateY(-70%) rotate(45deg); opacity: .75; pointer-events: none;
-  }
-  .team-sel {
-    -webkit-appearance: none; appearance: none;
-    background: rgba(255,255,255,.14); color: inherit; font: inherit;
-    font-size: 12px; font-weight: 800; letter-spacing: -0.01em;
-    border: 1px solid rgba(255,255,255,.42); border-radius: 999px;
-    padding: 5px 26px 5px 13px; cursor: pointer; max-width: 200px;
-    text-overflow: ellipsis;
-  }
-  .team-sel:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-  .team-sel option { color: #121212; background: #fff; font-weight: 700; }
-  [data-theme="dark"] .team-sel option { color: #f5f5f5; background: #1d1d1d; }
-  [data-hdr="light"] .team-sel { background: rgba(0,0,0,.09); border-color: rgba(0,0,0,.38); }
-  [data-hdr="light"] .team-sel-wrap::after { opacity: .8; }
-
-  /* hidden 속성이 display:flex 같은 규칙에 밀리지 않도록 (하단 탭바 버그) */
-  .mtab button[hidden], #tabs button[hidden], #sheetGrid button[hidden],
-  .sheet-team button[hidden] { display: none !important; }
-
-  /* 구단 헤더 카드 */
-  .club-hero {
-    background: var(--surface-1); border: 1px solid var(--ring); border-left: 5px solid var(--header-red);
-    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
-  }
-  .ch-name { font-size: 24px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; }
-  .ch-name span { font-size: 14px; font-weight: 700; color: var(--ink-3); margin-left: 7px; letter-spacing: 0; }
-  .ch-meta { font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.6; }
-
-  /* 시트 구단 선택 20팀 */
-  .sheet-team-20 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; max-height: 232px; overflow-y: auto; }
-  .sheet-team-20 button { width: 100%; font-size: 12.5px; padding: 9px 8px; }
-
-  @media (max-width: 768px) {
-    .team-sel { font-size: 11px; padding: 4px 22px 4px 10px; max-width: 132px; }
-    .team-sel-wrap { margin-left: auto; }
-    .team-sel-wrap::after { right: 9px; width: 6px; height: 6px; }
-    .club-hero { padding: 15px 15px; border-radius: 10px; margin-bottom: 12px; border-left-width: 4px; }
-    .ch-name { font-size: 19px; }
-    .ch-name span { display: block; margin: 3px 0 0; font-size: 12px; }
-    .ch-meta { font-size: 12px; }
-    #teamOther .grid2 { grid-template-columns: 1fr; }
-  }
-</style>
-
-<style id="tacStyle">
-  /* ══════ 18팀 감독·전술 + 엠블럼 (2026-08-15) ══════ */
-  .club-hero { display: flex; align-items: center; gap: 16px; }
-  .ch-crest { width: 56px; height: 56px; object-fit: contain; flex: none; }
-  .ch-crest-na {
-    width: 56px; height: 56px; flex: none; border-radius: 50%;
-    background: var(--chip-bg); color: var(--ink-3);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; font-weight: 900;
-  }
-  .club-hero > div:not(.ch-crest-na) { min-width: 0; }
-  .xi.xi-nophoto { cursor: default; }
-  .xi.xi-nophoto:hover .xi-n { background: rgba(0,0,0,.55); }
-  .xi.xi-nophoto .xi-fb { background: #fff; }
-
-  @media (max-width: 768px) {
-    .club-hero { gap: 11px; }
-    .ch-crest, .ch-crest-na { width: 42px; height: 42px; }
-    .ch-crest-na { font-size: 17px; }
-    #teamOther .pitch-wrap { max-width: 100%; }
-  }
-</style>
-
-<style id="phStyle">
-  /* ══════ 18팀 선수 카드·사진 (2026-08-15) ══════ */
-  .xi img { background: #fff; }
-</style>
-
 <style id="fixStyle">
   /* ══════ 사진 스택 (2026-08-15) ══════
      lazy 이미지에 display:none 을 걸면 뷰포트에 절대 안 들어가 영영 로딩되지 않는다.
      그래서 이미지를 숨기지 않고, 이니셜 폴백을 절대배치로 뒤에 깔아 자연스럽게 가려지게 한다. */
-  .p-photo-wrap.stack { position: relative; }
-  .p-photo-wrap.stack .p-fallback { position: absolute; inset: 0; }
-  .p-photo-wrap.stack .p-photo { position: relative; z-index: 1; background: transparent; }
   .mgr .p-photo-wrap { position: relative; }
-  .mgr .p-fallback.mgr-fb { position: absolute; inset: 0; }
-  .mgr .p-photo.mgr-img { position: relative; z-index: 1; background: transparent; }
   /* ⚠️ .xi 는 원래 position:absolute + translate(-50%,-50%) 로 피치 위 좌표에 놓인다.
      여기서 position:relative 로 덮으면 11명이 좌표를 잃고 흐름대로 쌓여버린다. 절대 건드리지 말 것.
      .xi 가 이미 positioned 요소라 폴백은 그대로 absolute 로 겹칠 수 있다. */
@@ -1220,6 +868,10 @@
     .p-detail { padding: 6px 14px; font-size: 12px; }
     .theme-toggle::after { left: -6px; right: -6px; }
   }
+  /* 여백 도우미 — 인라인 style 을 옮긴 것이라 다른 규칙보다 앞서야 한다 */
+  .mt-8 { margin-top: 8px !important; }
+  .mb-8 { margin-bottom: 8px !important; }
+  .mb-10 { margin-bottom: 10px !important; }
 </style>
 </head>
 <body>
@@ -1246,7 +898,6 @@
 
 <main>
 
-<div id="teamArs">
 
 <!-- ═══════════ 홈 ═══════════ -->
 <section class="panel active" id="panel-home" data-group="home">
@@ -1283,8 +934,8 @@
       <div class="match"><div class="date">10.14 (수) 04:00</div><div class="comp" data-c="ucl">UCL 리그페이즈 2R</div><div class="teams">릴전 · 홈</div></div>
       <div class="match"><div class="date">10.19 (월) 00:30</div><div class="comp" data-c="epl">EPL 7R</div><div class="teams">노팅엄 포레스트전 · 원정</div></div>
       </div>
-      <p class="small" style="margin-top:8px;"><b>🚨 브라이턴전 0-3 패배로 시즌 첫 패배, 이후 3주간 국제 A매치 브레이크(9/21~10/6) 돌입.</b> 다음 공식 경기는 <b>국제 A매치 브레이크 이후 EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST, 에미레이츠)</b>. 카라바오컵 4라운드(리그투 플리트우드 타운 원정)는 <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00)로 확정됐다. 브레이크 기간 동안 살리바(장기 결장)·화이트·모스케라·인카피에 등 부상자들의 재정비 시간이 될 전망이다.</p>
-      <p class="muted" style="margin-top:8px;">* 모든 일정은 한국시간(KST) 기준.</p>
+      <p class="small mt-8"><b>🚨 브라이턴전 0-3 패배로 시즌 첫 패배, 이후 3주간 국제 A매치 브레이크(9/21~10/6) 돌입.</b> 다음 공식 경기는 <b>국제 A매치 브레이크 이후 EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST, 에미레이츠)</b>. 카라바오컵 4라운드(리그투 플리트우드 타운 원정)는 <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00)로 확정됐다. 브레이크 기간 동안 살리바(장기 결장)·화이트·모스케라·인카피에 등 부상자들의 재정비 시간이 될 전망이다.</p>
+      <p class="muted mt-8">* 모든 일정은 한국시간(KST) 기준.</p>
     </div>
   </div>
 
@@ -1346,7 +997,7 @@
     <div class="grid2">
       <div class="card">
       <h3>리즈는 어떤 팀?</h3>
-      <p class="small" style="margin-bottom:8px;"><b>개막 5경기 2승3무로 무패 행진</b>을 이어가며 5위에 올라 있다. 크리스탈 팰리스전(5R)은 0-0으로 비겼지만 beIN Sports는 "팰리스가 더 좋은 기회를 놓쳤을 뿐, 파르케의 팀이 다소 운이 따랐다"고 평가했다. 앞서 밀렸던 4R 뉴캐슬 홈전에서는 4-1 대승을 거뒀다. 파르케 감독은 A매치 브레이크를 앞두고 "무패로 시즌을 시작한 데 만족한다"고 밝혔다.</p>
+      <p class="small mb-8"><b>개막 5경기 2승3무로 무패 행진</b>을 이어가며 5위에 올라 있다. 크리스탈 팰리스전(5R)은 0-0으로 비겼지만 beIN Sports는 "팰리스가 더 좋은 기회를 놓쳤을 뿐, 파르케의 팀이 다소 운이 따랐다"고 평가했다. 앞서 밀렸던 4R 뉴캐슬 홈전에서는 4-1 대승을 거뒀다. 파르케 감독은 A매치 브레이크를 앞두고 "무패로 시즌을 시작한 데 만족한다"고 밝혔다.</p>
       <p class="small">구단 역대 최고 이적료(금액 비공개, £40m+보너스 보도)로 영입한 골키퍼 트래퍼드와 약 £34m을 들인 센터백 무하레모비치가 지난 시즌 최대 약점이던 수비를 재편하며 안정감을 더하고 있다는 평가다.</p>
     </div>
       <div class="card">
@@ -1371,7 +1022,7 @@
       <div class="match"><div class="date">10.10 (토) 20:30</div><div class="comp" data-c="epl">EPL 6R</div><div class="teams">아스날 vs 리즈 유나이티드 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.10 12:30)</span></div></div>
       <div class="match"><div class="date">10.14 (수) 04:00</div><div class="comp" data-c="ucl">UCL 리그페이즈 2R</div><div class="teams">아스날 vs 릴 <span class="muted">· 에미레이츠 스타디움 (홈 · 현지 10.13 20:00)</span></div></div>
       <div class="match"><div class="date">10.19 (월) 00:30</div><div class="comp" data-c="epl">EPL 7R</div><div class="teams">노팅엄 포레스트 vs 아스날 <span class="muted">· 시티 그라운드 (원정 · 현지 10.18 16:30)</span></div></div>
-      <p class="small" style="margin-top:8px;">브라이턴 원정 0-3 패배(5R)로 시즌 첫 패배를 당했다(상세는 아래 «경기 결과» 참고). 다음 경기까지 <b>3주간 국제 A매치 브레이크(9/21~10/6)</b>가 이어지며, 복귀전은 <b>EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST)</b>이다. 카라바오컵 4라운드는 리그투 플리트우드 타운 원정, <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00, 하이버리 스타디움)로 확정됐다. 그 뒤 리그 일정은 방송 편성으로 시각이 확정되는 대로 추가한다.</p>
+      <p class="small mt-8">브라이턴 원정 0-3 패배(5R)로 시즌 첫 패배를 당했다(상세는 아래 «경기 결과» 참고). 다음 경기까지 <b>3주간 국제 A매치 브레이크(9/21~10/6)</b>가 이어지며, 복귀전은 <b>EPL 6R 리즈 유나이티드 홈전(10/10 20:30 KST)</b>이다. 카라바오컵 4라운드는 리그투 플리트우드 타운 원정, <b>10/28(수) 05:00 KST</b>(현지 10/27 20:00, 하이버리 스타디움)로 확정됐다. 그 뒤 리그 일정은 방송 편성으로 시각이 확정되는 대로 추가한다.</p>
     </div>
     <p class="fb-note" data-fb hidden>전체 일정을 불러오지 못해 가까운 경기만 보여 드려요. 새로고침하거나 달력 파일로 받아 보세요.</p>
     <button class="more-btn" id="schedMore" hidden>전체 일정 보기</button>
@@ -1395,7 +1046,7 @@
       <div class="inj"><div class="inj-h"><b>브루누 기마랑이스</b><span class="badge win">출전 가능</span></div><div class="inj-part">부상 아님</div><p>변동 없음</p></div>
       <div class="inj"><div class="inj-h"><b>루이 콥리</b><span class="badge low">시즌 아웃</span></div><div class="inj-part">무릎(ACL)</div><p>2026-27 사실상 전체 결장 — 구체 복귀 시점·구단 공식 성명 여전히 없음, 변동 없음</p></div>
     </div>
-    <p class="small" style="margin-top:8px;">✅ <b>아스날은 9/7 챔피언스리그 22인 UEFA 등록 명단(GK 3·DF 8·MF 6·FW 5)을 확정 발표</b>했다. <b>징계: 없음(3주 A매치 브레이크 기간).</b> 🚨 <b>3주 국제 A매치 브레이크(9/21~10/6) 기간이라 프리뷰 기자회견이 없어, 이번 업데이트는 readarsenal 등 매체 재확인 보도로만 표를 갱신했다</b> — 아르테타의 직접 코멘트는 브레이크 종료 후 리즈전 프리뷰(10월 초)에서 재확인 필요.</p>
+    <p class="small mt-8">✅ <b>아스날은 9/7 챔피언스리그 22인 UEFA 등록 명단(GK 3·DF 8·MF 6·FW 5)을 확정 발표</b>했다. <b>징계: 없음(3주 A매치 브레이크 기간).</b> 🚨 <b>3주 국제 A매치 브레이크(9/21~10/6) 기간이라 프리뷰 기자회견이 없어, 이번 업데이트는 readarsenal 등 매체 재확인 보도로만 표를 갱신했다</b> — 아르테타의 직접 코멘트는 브레이크 종료 후 리즈전 프리뷰(10월 초)에서 재확인 필요.</p>
     <p class="muted" style="margin-top:6px;">* 최신 보도·기자회견 기준으로 갱신하는 코너예요.</p>
   </div>
 
@@ -1408,42 +1059,42 @@
         <div class="teams">브라이턴 <span class="score">3 : 0</span> 아스날 <span class="muted">(원정)</span></div>
         <span class="badge low">시즌 첫 패배</span>
       </div>
-      <p class="small" style="margin-bottom:10px;"><b>브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>카랄람포스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. 다음 경기까지 <b>3주간 국제 A매치 브레이크</b>가 이어진다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
+      <p class="small mb-10"><b>브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>카랄람포스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. 다음 경기까지 <b>3주간 국제 A매치 브레이크</b>가 이어진다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
       <div class="match">
         <div class="date">9.16 (수) 04:00</div>
         <div class="comp" data-c="cup">카라바오컵 3R</div>
         <div class="teams">입스위치 타운 <span class="score">2 : 4</span> 아스날 <span class="muted">· 포트만 로드 (원정)</span></div>
         <span class="badge win">4라운드 진출</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">9명을 로테이션한 스쿼드로 나서 16세 맥스 다우먼이 2골(7'·47'), 노니 마두에케(16')·미켈 메리노(58')가 추가골을 넣었다(입스위치는 메흐메티(62')·아크폼(90+1') 만회골). 아르테타는 다우먼의 활약을 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 평가했다.</p>
+      <p class="small mb-10">9명을 로테이션한 스쿼드로 나서 16세 맥스 다우먼이 2골(7'·47'), 노니 마두에케(16')·미켈 메리노(58')가 추가골을 넣었다(입스위치는 메흐메티(62')·아크폼(90+1') 만회골). 아르테타는 다우먼의 활약을 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 평가했다.</p>
       <div class="match">
         <div class="date">9.13 (일) 04:00</div>
         <div class="comp" data-c="epl">EPL 4R</div>
         <div class="teams">선덜랜드 <span class="score">0 : 2</span> 아스날 <span class="muted">· 스타디움 오브 라이트 (원정)</span></div>
         <span class="badge win">4연승</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">선덜랜드 엔조 르 페의 PK 시도를 다비드 라야가 선방(맨오브더매치), 이어 브루누 기마랑이스가 중거리포로 선제골, 후반 부카요 사카가 PK로 쐐기골을 넣었다. 아르테타는 심판의 PK 선언 자체에 불만을 표한 것으로 전해진다.</p>
+      <p class="small mb-10">선덜랜드 엔조 르 페의 PK 시도를 다비드 라야가 선방(맨오브더매치), 이어 브루누 기마랑이스가 중거리포로 선제골, 후반 부카요 사카가 PK로 쐐기골을 넣었다. 아르테타는 심판의 PK 선언 자체에 불만을 표한 것으로 전해진다.</p>
       <div class="match">
         <div class="date">9.10 (목) 04:00</div>
         <div class="comp" data-c="ucl">UCL 리그페이즈 1R</div>
         <div class="teams">나폴리 <span class="score">0 : 1</span> 아스날 <span class="muted">· 스타디오 디에고 아르만도 마라도나 (원정)</span></div>
         <span class="badge win">챔스 개막전 승리</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">76% 점유율로 압도했으나 메리노·사카·인카피에·마두에케가 연달아 찬스를 놓치며 고전하다 <b>75분 외데고르가 화이트-촐리스 연계 패스를 받아 골포스트를 맞고 들어가는 중거리슛</b>으로 결승골. 나폴리 GK 메레트는 부상으로 하프타임 교체. 선발: 라야, 화이트, 콘사, 가브리엘, 인카피에, 라이스, 메리노, 사카, 외데고르, 에제, 요케레스. 아르테타 "26개 슈팅을 기록한 만큼 스코어가 더 큰 격차를 반영했어야 한다."</p>
+      <p class="small mb-10">76% 점유율로 압도했으나 메리노·사카·인카피에·마두에케가 연달아 찬스를 놓치며 고전하다 <b>75분 외데고르가 화이트-촐리스 연계 패스를 받아 골포스트를 맞고 들어가는 중거리슛</b>으로 결승골. 나폴리 GK 메레트는 부상으로 하프타임 교체. 선발: 라야, 화이트, 콘사, 가브리엘, 인카피에, 라이스, 메리노, 사카, 외데고르, 에제, 요케레스. 아르테타 "26개 슈팅을 기록한 만큼 스코어가 더 큰 격차를 반영했어야 한다."</p>
       <div class="match">
         <div class="date">9.7 (월) 00:30</div>
         <div class="comp" data-c="epl">EPL 3R</div>
         <div class="teams">아스날 <span class="score win">2 : 1</span> 첼시 <span class="muted">· 에미레이츠 스타디움 (홈)</span></div>
         <span class="badge win">역전승 · 3연승</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">모건 로저스에게 킥오프 77초 만에 실점했으나 하베르츠(25')·외데고르(50', 하베르츠 도움)가 역전골을 넣었다. 칼라피오리 골 오프사이드 취소, 네투 골대 강타, 라야 후반 결정적 선방. 아르테타 "실점은 아쉬웠지만 오늘 우리는 작년 우승 시즌보다 더 높은 수준을 보여줄 수 있다는 걸 증명했다." 모스케라는 근육 문제로 결장, 살리바·팀버도 결장.</p>
+      <p class="small mb-10">모건 로저스에게 킥오프 77초 만에 실점했으나 하베르츠(25')·외데고르(50', 하베르츠 도움)가 역전골을 넣었다. 칼라피오리 골 오프사이드 취소, 네투 골대 강타, 라야 후반 결정적 선방. 아르테타 "실점은 아쉬웠지만 오늘 우리는 작년 우승 시즌보다 더 높은 수준을 보여줄 수 있다는 걸 증명했다." 모스케라는 근육 문제로 결장, 살리바·팀버도 결장.</p>
       <div class="match">
         <div class="date">9.1 (화) 04:00</div>
         <div class="comp" data-c="epl">EPL 2R</div>
         <div class="teams">애스턴 빌라 <span class="score">0 : 1</span> 아스날 <span class="muted">· 빌라 파크 (원정 · 현지 8.31 20:00)</span></div>
         <span class="badge win">2연승 · 무실점</span>
       </div>
-      <p class="small" style="margin-bottom:10px;">빌라 파크. 12분 부엔디아의 슈팅이 크로스바를 강타했고, 56분 사카의 PK 판정이 VAR 리뷰로 매트선의 파울이 박스 밖이었다는 이유로 번복됐다. 그러나 59분 <b>칼라피오리의 크로스를 사카가 밀어넣어 결승골</b>을 만들었다. 아르테타 "정말 기쁘다. 원정에서 힘겹게 승점 3점을 따냈다." 후반 교체 투입된 <b>크리스티안 모스케라가 부상으로 실려나가 수 주 결장이 우려</b>된다(경기 직후엔 발목 부상이 거론됐으나 이후 허벅지 문제로 확인됐다). 이 결과로 EPL 2R이 완전히 종료돼 아스날은 승점6·득실+4로 2위(맨시티와 동률이나 다득점에서 밀림). 다음 경기는 9/6(일) 첼시 홈전.</p>
+      <p class="small mb-10">빌라 파크. 12분 부엔디아의 슈팅이 크로스바를 강타했고, 56분 사카의 PK 판정이 VAR 리뷰로 매트선의 파울이 박스 밖이었다는 이유로 번복됐다. 그러나 59분 <b>칼라피오리의 크로스를 사카가 밀어넣어 결승골</b>을 만들었다. 아르테타 "정말 기쁘다. 원정에서 힘겹게 승점 3점을 따냈다." 후반 교체 투입된 <b>크리스티안 모스케라가 부상으로 실려나가 수 주 결장이 우려</b>된다(경기 직후엔 발목 부상이 거론됐으나 이후 허벅지 문제로 확인됐다). 이 결과로 EPL 2R이 완전히 종료돼 아스날은 승점6·득실+4로 2위(맨시티와 동률이나 다득점에서 밀림). 다음 경기는 9/6(일) 첼시 홈전.</p>
       <div class="match">
         <div class="date">8.22 (토) 04:00</div>
         <div class="comp" data-c="epl">EPL 1R</div>
@@ -1481,13 +1132,13 @@
         <span class="badge win">승리</span>
       </div>
     </div>
-    <p class="small" style="margin-top:8px;"><b>코번트리전 득점:</b> 하베르츠 15' · 사카 23' · 외데고르 49'. 관중 60,098명. 살리바·팀버·기마랑이스 결장 속 가브리엘-모스케라 중앙 수비 조합이 클린시트를 지켰다. 아르테타는 경기 후 "지배력·명확성·이해도·성장이 인상적이었다"며 화이트-사카-외데고르 조합과 촐리스의 저돌적 움직임을 칭찬했다. 콘사는 이날 오피셜 발표됐으나 등록 절차상 출전하지 못했다.</p>
-    <p class="small" style="margin-top:8px;"><b>도르트문트전 득점(신규):</b> 이나시우 7' · 카레차스 29' · 가두 59' (실점) / <b>은와네리 55'</b> · <b>요케레스 69' PK</b> (득점). 마르티넬리의 90+3분 골은 오프사이드 취소, 요케레스는 전반에 크로스바도 맞혔다. 주심 크리스 카바나가 외데고르에 대한 PK를 선언했다 번복하는 장면도 있었다. <b>정규시간은 도르트문트 3-2 승리.</b><br>포인트: <b>촐리스</b>가 은와네리 골 어시스트 + PK 유도 + 날카로운 프리킥 2회로 <b>경기 최고 평점</b>. 반대로 <b>코너 수비와 걷어내기 실수</b>가 실점으로 직결돼, 베티스전에서 아르테타가 지적한 수비 문제가 그대로 재발했다. 선발: 아리사발라가; 화이트·모스케라·가브리엘·칼라피오리; 루이스-스켈리·하베르츠·외데고르·다우먼·촐리스; 요케레스 (라야는 웜업만 하고 미출전).</p>
+    <p class="small mt-8"><b>코번트리전 득점:</b> 하베르츠 15' · 사카 23' · 외데고르 49'. 관중 60,098명. 살리바·팀버·기마랑이스 결장 속 가브리엘-모스케라 중앙 수비 조합이 클린시트를 지켰다. 아르테타는 경기 후 "지배력·명확성·이해도·성장이 인상적이었다"며 화이트-사카-외데고르 조합과 촐리스의 저돌적 움직임을 칭찬했다. 콘사는 이날 오피셜 발표됐으나 등록 절차상 출전하지 못했다.</p>
+    <p class="small mt-8"><b>도르트문트전 득점(신규):</b> 이나시우 7' · 카레차스 29' · 가두 59' (실점) / <b>은와네리 55'</b> · <b>요케레스 69' PK</b> (득점). 마르티넬리의 90+3분 골은 오프사이드 취소, 요케레스는 전반에 크로스바도 맞혔다. 주심 크리스 카바나가 외데고르에 대한 PK를 선언했다 번복하는 장면도 있었다. <b>정규시간은 도르트문트 3-2 승리.</b><br>포인트: <b>촐리스</b>가 은와네리 골 어시스트 + PK 유도 + 날카로운 프리킥 2회로 <b>경기 최고 평점</b>. 반대로 <b>코너 수비와 걷어내기 실수</b>가 실점으로 직결돼, 베티스전에서 아르테타가 지적한 수비 문제가 그대로 재발했다. 선발: 아리사발라가; 화이트·모스케라·가브리엘·칼라피오리; 루이스-스켈리·하베르츠·외데고르·다우먼·촐리스; 요케레스 (라야는 웜업만 하고 미출전).</p>
     <p class="small" style="margin-top:8px; padding:10px 12px; background:var(--chip-bg); border-radius:8px;"><b>⚠️ 트로피 귀속 — 보도 엇갈림, 양쪽 병기.</b> 정규시간 종료 후 친선 성격의 <b>승부차기가 이어졌고 아스날이 5-4로 승리</b>했다. 다만 이 승부차기가 실제 우승팀 결정에 반영되는지를 두고 매체 보도가 갈린다 — <b>Outlook India는 "도르트문트가 정규시간 결과로 우승했고, 승부차기는 트로피와 무관하게 사전 합의된 이벤트였다"</b>고 명시한 반면, <b>다른 매체들은 승부차기 결과(아스날 승)를 경기의 최종 결론처럼 다뤘다.</b> 어느 쪽이 맞는지 단정할 근거가 부족해 <b>양쪽 보도를 그대로 병기</b>한다 — 잠정적으로는 "정규시간 기준 도르트문트 우승, 승부차기는 별도 이벤트로 아스날 승"으로 정리한다.</p>
-    <p class="small" style="margin-top:8px;"><b>베티스전 득점:</b> 리켈메 9' · 데오사 26' · 포르날스 43' (실점) / 인카피에 32' 헤더 (득점). 후반 46분 아르테타가 7명을 한꺼번에 교체(가브리엘·마르티넬리 등 부상 복귀 조 투입). 관중 5만 명, 더블린 아비바 스타디움.</p>
+    <p class="small mt-8"><b>베티스전 득점:</b> 리켈메 9' · 데오사 26' · 포르날스 43' (실점) / 인카피에 32' 헤더 (득점). 후반 46분 아르테타가 7명을 한꺼번에 교체(가브리엘·마르티넬리 등 부상 복귀 조 투입). 관중 5만 명, 더블린 아비바 스타디움.</p>
     <p class="small">득점(지로나전): 하베르츠 16' · 촐리스 32'(데뷔골) · 다우먼 53' · 제주스 55' (실점: 아르나우 마르티네스 50')</p>
     <p class="small">포인트: 여름 영입생 촐리스가 데뷔전 데뷔골. 2009년 12월 31일생 맥스 다우먼은 선제골 어시스트 후 직접 득점하며 "하베르츠보다 눈에 띈" 프리시즌 1호 스타.</p>
-    <p class="small" style="margin-top:8px;"><b>코모전 포인트:</b> 루이스-스켈리 33'(코모 골키퍼 실수 유발) · 코모 바투리나 43'. 승부차기 4-3 승. <b>기마랑이스가 하프타임 교체로 아스날 데뷔전</b>을 치르고 승부차기에서도 성공, 아르테타는 "정말 좋았다, 팬들과 즉시 강한 연결감을 느낄 수 있다"고 평가(Sky Sports 8/12~13). 16세 마를리 샬몬이 13번의 매치업 중 9번 승리·패스 성공률 42/43으로 눈도장. 사카·라이스·수비멘디는 미출전(사유 미공개).</p>
+    <p class="small mt-8"><b>코모전 포인트:</b> 루이스-스켈리 33'(코모 골키퍼 실수 유발) · 코모 바투리나 43'. 승부차기 4-3 승. <b>기마랑이스가 하프타임 교체로 아스날 데뷔전</b>을 치르고 승부차기에서도 성공, 아르테타는 "정말 좋았다, 팬들과 즉시 강한 연결감을 느낄 수 있다"고 평가(Sky Sports 8/12~13). 16세 마를리 샬몬이 13번의 매치업 중 9번 승리·패스 성공률 42/43으로 눈도장. 사카·라이스·수비멘디는 미출전(사유 미공개).</p>
   </div>
 </section>
 
@@ -1616,7 +1267,7 @@
           </tbody>
         </table>
         <div style="margin-top:12px;">
-          <div class="fm-sub" style="margin-bottom:8px;">SQUAD I/O · 2026-27</div>
+          <div class="fm-sub mb-8">SQUAD I/O · 2026-27</div>
           <div class="io-tags">
             <span class="io-tag in">+ 인카피에</span>
             <span class="io-tag in">+ 촐리스</span>
@@ -2028,7 +1679,7 @@
       <div class="q">Tonight we see we are capable of performing at a higher level than the one in last season.</div>
       <div class="who">— 미켈 아르테타, 첼시전 2-1 역전승 후</div>
     </div>
-    <p class="small" style="margin-bottom:8px;">첼시전 2-1 역전승 후 기자회견. 아르테타는 실점 장면에는 아쉬움을 표하면서도 팀의 침착함과 인성, 우승 시즌보다 더 높아진 경기력을 강조했다. 6개월·5개월·(사카)3개월 반·(하베르츠)7개월씩 결장했던 선수들이 있었음을 언급하며 스쿼드 뎁스에 자신감을 보였고, 신입 촐리스와 라야를 특히 칭찬했다. <b>모스케라는 근육 문제로 재차 결장</b>했으며 "심하지 않길 바라지만 며칠 지켜봐야 한다"고 밝혔다(부상자 보드 참고). 상대팀 사비 알론소 감독은 "패배는 아플 수밖에 없다"고 인정했다. 외데고르는 "계속 싸우는 것"이 팀의 멘탈리티라고, 하베르츠는 "돌아온 외데고르는 언빌리버블한 선수"라고 평가했다.</p>
+    <p class="small mb-8">첼시전 2-1 역전승 후 기자회견. 아르테타는 실점 장면에는 아쉬움을 표하면서도 팀의 침착함과 인성, 우승 시즌보다 더 높아진 경기력을 강조했다. 6개월·5개월·(사카)3개월 반·(하베르츠)7개월씩 결장했던 선수들이 있었음을 언급하며 스쿼드 뎁스에 자신감을 보였고, 신입 촐리스와 라야를 특히 칭찬했다. <b>모스케라는 근육 문제로 재차 결장</b>했으며 "심하지 않길 바라지만 며칠 지켜봐야 한다"고 밝혔다(부상자 보드 참고). 상대팀 사비 알론소 감독은 "패배는 아플 수밖에 없다"고 인정했다. 외데고르는 "계속 싸우는 것"이 팀의 멘탈리티라고, 하베르츠는 "돌아온 외데고르는 언빌리버블한 선수"라고 평가했다.</p>
     <p class="small">9/7 아스날은 <b>챔피언스리그 22인 UEFA 등록 명단을 공식 발표</b>했다(이번 여름 영입생 인카피에·촐리스·메슬리에·기마랑이스·콘사 전원 포함, 살리바·팀버·모스케라도 등록은 됐으나 나폴리전 실제 출전은 최종 컨디션 체크 대기). 나폴리 원정(9/10 04:00 KST) 프리뷰 기자회견은 통상 하루 전(9/9) 열려 아직 게재 전.</p>
   </div>
 
@@ -2081,7 +1732,7 @@
       <div class="q">He's trained really well and he will be available for selection.</div>
       <div class="who">— 미켈 아르테타, 옛 소속팀 상대 데뷔가 유력한 에즈리 콘사에 대해</div>
     </div>
-    <p class="small" style="margin-bottom:8px;">애스턴 빌라 원정(8/31, 현지 20:00 BST · KST 9/1 04:00)을 앞두고 열린 프리뷰 기자회견. 아르테타는 <b>훌리안 알바레스 질문에는 일절 답을 피했고</b>, 선수 본인에게 직접 연락했다는 보도에 대해서도 언급을 거부했다. <b>가브리엘 마르티넬리의 알힐랄행에 대해서는 "개인적인 상황을 함께 정리하고 있는 것"</b>이라며 애정을 드러내면서도 사실상 이적을 인정하는 뉘앙스를 보였고, 이달 초 마르티넬리에게 출전 기회 축소와 촐리스의 왼쪽 윙 기용 방침을 직접 통보했다는 사실도 확인됐다. <b>가브리엘 제주스</b> 역시 최근 훈련에 나오지 않은 이유를 스쿼드 내 자리 문제로 돌리며 방출 가능성을 시사했다.</p>
+    <p class="small mb-8">애스턴 빌라 원정(8/31, 현지 20:00 BST · KST 9/1 04:00)을 앞두고 열린 프리뷰 기자회견. 아르테타는 <b>훌리안 알바레스 질문에는 일절 답을 피했고</b>, 선수 본인에게 직접 연락했다는 보도에 대해서도 언급을 거부했다. <b>가브리엘 마르티넬리의 알힐랄행에 대해서는 "개인적인 상황을 함께 정리하고 있는 것"</b>이라며 애정을 드러내면서도 사실상 이적을 인정하는 뉘앙스를 보였고, 이달 초 마르티넬리에게 출전 기회 축소와 촐리스의 왼쪽 윙 기용 방침을 직접 통보했다는 사실도 확인됐다. <b>가브리엘 제주스</b> 역시 최근 훈련에 나오지 않은 이유를 스쿼드 내 자리 문제로 돌리며 방출 가능성을 시사했다.</p>
     <p class="small">팀 뉴스: <b>에즈리 콘사는 "훈련을 정말 잘 소화했고 선발 가능"</b> — 옛 소속팀 빌라 상대 데뷔전이 유력하다(살리바 이탈이 콘사 영입의 배경이 됐다고 설명). <b>윌리엄 살리바는 등 부상으로 "당분간(for the foreseeable future)" 결장</b>을 재확인. <b>위리엔 팀버는 "잘 회복 중"</b>이며 다음 주부터 훈련 강도를 높일 예정. <b>브루누 기마랑이스는 최근 며칠 훈련량을 관리해왔고, 월요일(빌라전) 출전 가능성이 있다</b>고 밝혔다. <a href="https://dailycannon.com/2026/08/arsenal-fitness-injury-update-aston-villa/" target="_blank" class="muted">dailycannon</a> · <a href="https://www.aol.co.uk/articles/mikel-arteta-answers-julian-alvarez-130150000.html" target="_blank" class="muted">AOL</a></p>
   </div>
   <div class="dg-head"><span class="dot"></span>현지 8월 21일 (금) <span class="dg-count">코번트리전 승리 후 기자회견</span></div>
@@ -2195,8 +1846,8 @@
       <div class="q">그를 보는 건 정말 좋았다. (팬들과) 즉시 강한 연결감을 느낄 수 있다</div>
       <div class="who">— 미켈 아르테타, 브루누 기마랑이스 데뷔전(1-1, PK 4-3 승) 평가</div>
     </div>
-    <p class="small" style="margin-bottom:8px;"><b>프리시즌 총평:</b> "프리시즌에서 많은 박스를 체크했다(ticked a lot of boxes)"며 월드컵으로 다수 선수가 해외에 있었던 상황에서도 많은 과제를 해결했다고 평가. 다만 후반 점수 차를 벌리지 못한 점은 개선이 필요하다고 짚었다.</p>
-    <p class="small" style="margin-bottom:8px;"><b>이번 주말 커뮤니티실드(8/16, 맨시티전, 카디프)에 대해:</b> "일요일을 위해 준비되어 있을 것"이라 자신감을 표명.</p>
+    <p class="small mb-8"><b>프리시즌 총평:</b> "프리시즌에서 많은 박스를 체크했다(ticked a lot of boxes)"며 월드컵으로 다수 선수가 해외에 있었던 상황에서도 많은 과제를 해결했다고 평가. 다만 후반 점수 차를 벌리지 못한 점은 개선이 필요하다고 짚었다.</p>
+    <p class="small mb-8"><b>이번 주말 커뮤니티실드(8/16, 맨시티전, 카디프)에 대해:</b> "일요일을 위해 준비되어 있을 것"이라 자신감을 표명.</p>
     <p class="small"><b>루이스-스켈리 이적설 질문에는:</b> "우리 선수에 대한 루머가 있다는 건 좋은 신호"라며 담담하게 반응(atomicsoda·fotmob 재인용).</p>
     <p class="src">출처: <a href="https://www.skysports.com/football/arsenal-vs-como/562442" target="_blank">Sky Sports</a> · <a href="https://www.vavel.com/en/football/2026/08/13/arsenal/1267901-arteta-feels-arsenal-ticked-a-lot-of-boxes-in-preseason.html" target="_blank">VAVEL</a></p>
   </div>
@@ -2208,10 +1859,10 @@
       <div class="q">우리는 경기에서 이기고 싶었지만, 오늘은 그러지 못했다</div>
       <div class="who">— 미켈 아르테타, 도르트문트전(2-3) 총평</div>
     </div>
-    <p class="small" style="margin-bottom:8px;"><b>총평:</b> 패배 자체는 만족스럽지 않다고 인정하면서도, 프리시즌 특성상 <b>여러 선수가 추가 경기 감각이 필요한 단계</b>였다는 점을 짚었다. 같은 발언을 재인용한 101greatgoals·roundtable.io에는 <b>"오늘 몇몇 좋지 않은 순간들이 있었다... 이런 건 집단적 책임이다"</b>는 표현으로도 옮겨져 있어 — 매체별 번역 차이일 뿐 취지는 동일하다.</p>
-    <p class="small" style="margin-bottom:8px;"><b>기마랑이스에 대해:</b> <b>"그를 갖게 돼 기쁘다... 훈련장에 곧바로 가져온 에너지, 갈망, 여기 오고 싶어했던 열망"</b>이라 평가했고, 볼 경합 능력·득점 위협을 겸비했다며 <b>"엄청난 타이밍과 직관"</b>을 갖췄다고 극찬했다. 101greatgoals 재인용본에는 <b>"전사 같은 선수다. 엄청난 퀄리티와 리더십을 갖고 있다"</b>는 표현도 담겼다.</p>
-    <p class="small" style="margin-bottom:8px;"><b>살리바 부상:</b> <b>"윌리엄은 지금 2주간 휴식 모드다... 회복에는 시간이 좀 걸릴 것"</b>이라며 등 부상 회복 일정을 밝혔다.</p>
-    <p class="small" style="margin-bottom:8px;"><b>팀버 복귀:</b> <b>"위리엔은 정말 잘 회복하고 있다... 다만 아직 몇 주는 더 남았다"</b>며 정확한 복귀 시점은 특정하지 않았다.</p>
+    <p class="small mb-8"><b>총평:</b> 패배 자체는 만족스럽지 않다고 인정하면서도, 프리시즌 특성상 <b>여러 선수가 추가 경기 감각이 필요한 단계</b>였다는 점을 짚었다. 같은 발언을 재인용한 101greatgoals·roundtable.io에는 <b>"오늘 몇몇 좋지 않은 순간들이 있었다... 이런 건 집단적 책임이다"</b>는 표현으로도 옮겨져 있어 — 매체별 번역 차이일 뿐 취지는 동일하다.</p>
+    <p class="small mb-8"><b>기마랑이스에 대해:</b> <b>"그를 갖게 돼 기쁘다... 훈련장에 곧바로 가져온 에너지, 갈망, 여기 오고 싶어했던 열망"</b>이라 평가했고, 볼 경합 능력·득점 위협을 겸비했다며 <b>"엄청난 타이밍과 직관"</b>을 갖췄다고 극찬했다. 101greatgoals 재인용본에는 <b>"전사 같은 선수다. 엄청난 퀄리티와 리더십을 갖고 있다"</b>는 표현도 담겼다.</p>
+    <p class="small mb-8"><b>살리바 부상:</b> <b>"윌리엄은 지금 2주간 휴식 모드다... 회복에는 시간이 좀 걸릴 것"</b>이라며 등 부상 회복 일정을 밝혔다.</p>
+    <p class="small mb-8"><b>팀버 복귀:</b> <b>"위리엔은 정말 잘 회복하고 있다... 다만 아직 몇 주는 더 남았다"</b>며 정확한 복귀 시점은 특정하지 않았다.</p>
     <p class="small"><b>추가 영입 질문에는:</b> <b>"시장에 우리를 훨씬 낫게 만들 적임자가 있다면, 우리는 정말로 기대하고 있다"</b>고 답해 잔여 이적시장 기간 추가 영입 가능성을 열어뒀다.</p>
     <p class="src">출처: <a href="https://www.aol.co.uk/articles/every-word-mikel-arteta-said-155048000.html" target="_blank">AOL</a> · <a href="https://www.101greatgoals.com/football/premier-league/arteta-frustrated-another-pre-season-defeat-arsenal/" target="_blank">101greatgoals</a> · <a href="https://roundtable.io/sports/soccer/premier-league/arsenal/news/mikel-arteta-outlines-arsenal-transfer-stance-after-dortmund-defeat" target="_blank">roundtable.io</a> (arsenal.com 공식 전문 링크는 재인용 매체로 교차 확인)</p>
   </div>
@@ -2223,7 +1874,7 @@
       <div class="q">아스날 스포팅 디렉터 안드레아 베르타와 미켈(아르테타)과 처음 이야기했을 때부터 설렜다. 내 안에서 새로운 도전이 필요하다는 걸 느꼈다</div>
       <div class="who">— 브루누 기마랑이스</div>
     </div>
-    <p class="small" style="margin-bottom:8px;"><b>"저는 여러분의 전사가 될 준비가 됐다. 우리는 올 시즌 치열한 경기들을 치를 텐데, 스쿼드가 정말 중요할 것이고 우리의 꿈을 이룰 수 있길 바란다"</b>고 덧붙였다. 스포팅 디렉터 안드레아 베르타는 <b>"브루노는 수비형 미드필더로도, 박스투박스로도 뛸 수 있는 선수다. 그는 퀄리티와 물량을 겸비했고, 매 시즌 골과 도움을 만들어냈다"</b>고 소개했다.</p>
+    <p class="small mb-8"><b>"저는 여러분의 전사가 될 준비가 됐다. 우리는 올 시즌 치열한 경기들을 치를 텐데, 스쿼드가 정말 중요할 것이고 우리의 꿈을 이룰 수 있길 바란다"</b>고 덧붙였다. 스포팅 디렉터 안드레아 베르타는 <b>"브루노는 수비형 미드필더로도, 박스투박스로도 뛸 수 있는 선수다. 그는 퀄리티와 물량을 겸비했고, 매 시즌 골과 도움을 만들어냈다"</b>고 소개했다.</p>
     <p class="small">가브리엘 마갈량이스·마르티넬리·제주스 등 <b>브라질 동료 3명과 이미 친분</b>이 있다는 점도 함께 소개됐다. 아르테타 감독 본인의 별도 코멘트(도르트문트전 프리뷰 포함)는 이번 재확인에서도 나오지 않았다.</p>
     <p class="src">출처: <a href="https://www.arsenal.com/news/bruno-guimaraes-joins-arsenal-assZJ0i5HUEi" target="_blank">Arsenal.com</a></p>
   </div>
@@ -2254,9 +1905,9 @@
       <div class="q">경기에 지면 늘 속상하다... 특히 우리 박스 안팎에서의 컴피트(compete) 수준이 기준에 못 미쳤다</div>
       <div class="who">— 미켈 아르테타, 패인 분석</div>
     </div>
-    <p class="small" style="margin-bottom:8px;"><b>실점 원인:</b> "코너 상황에서 첫 액션을 지배해야 하는데, 정말 어설픈 골을 내줬다"고 자책. 다만 <b>"공식 경기가 아니라 친선경기에서 내주는 게 낫다"</b>며 프리시즌의 순기능도 짚었다.</p>
-    <p class="small" style="margin-bottom:8px;"><b>새 시즌 목표:</b> <b>"더 흥분된다. 우리는 가능한 모든 타이틀을 노리러 갈 것이다, 그게 우리의 야망이니까"</b>라며 "다시 이기는 법을 이해하고 이 클럽에 <b>왕조(dynasty)</b>를 만드는 게 목표"라고 강조.</p>
-    <p class="small" style="margin-bottom:8px;"><b>기마랑이스 영입 질문에는:</b> <b>"아스날 소속이 아닌 선수에 대해서는 말할 수 없다"</b>며 원칙적인 답변 — 로마노의 "히어 위 고" 발표에도 구단 공식 입장은 여전히 신중.</p>
+    <p class="small mb-8"><b>실점 원인:</b> "코너 상황에서 첫 액션을 지배해야 하는데, 정말 어설픈 골을 내줬다"고 자책. 다만 <b>"공식 경기가 아니라 친선경기에서 내주는 게 낫다"</b>며 프리시즌의 순기능도 짚었다.</p>
+    <p class="small mb-8"><b>새 시즌 목표:</b> <b>"더 흥분된다. 우리는 가능한 모든 타이틀을 노리러 갈 것이다, 그게 우리의 야망이니까"</b>라며 "다시 이기는 법을 이해하고 이 클럽에 <b>왕조(dynasty)</b>를 만드는 게 목표"라고 강조.</p>
+    <p class="small mb-8"><b>기마랑이스 영입 질문에는:</b> <b>"아스날 소속이 아닌 선수에 대해서는 말할 수 없다"</b>며 원칙적인 답변 — 로마노의 "히어 위 고" 발표에도 구단 공식 입장은 여전히 신중.</p>
     <p class="small"><b>루이 콥리 무릎 부상:</b> <b>"이 친구를 두고 꽤 걱정하고 있다. 메커니즘이 그리 좋아 보이지 않는다... 내일 스캔 결과를 봐야 한다"</b>고 우려를 나타냈다. 19세 유망주로 후반 무릎을 접질려 교체됐다.</p>
     <p class="src">출처: <a href="https://arseblog.news/2026/08/arteta-on-betis-defeat-new-season-ambitions-bruno-deal-copley-injury/" target="_blank">Arseblog News</a> · <a href="https://www.skysports.com/football/arsenal-vs-real-betis/report/555716" target="_blank">Sky Sports 경기 리포트</a></p>
   </div>
@@ -2264,7 +1915,7 @@
   <div class="dg-head"><span class="dot"></span>8월 4일 (화) <span class="dg-count">2건</span></div>
   <div class="card">
     <h3>하베르츠, 신입 두 명을 말하다 <span class="muted">The Dispatch (구단 채널) · 프리미 인터뷰</span></h3>
-    <p class="small" style="margin-bottom:8px;">카이 하베르츠가 팀 동료 프림퐁과의 구단 영상에서 새 영입 <b>크리스토스 촐리스</b>와 <b>일란 메슬리에</b>를 두고 <b>"흥미로운 잠재력(exciting potential)"</b>이라 표현했다. 지로나전 데뷔골을 넣은 촐리스에 대한 팀 내부 평가가 좋다는 신호.</p>
+    <p class="small mb-8">카이 하베르츠가 팀 동료 프림퐁과의 구단 영상에서 새 영입 <b>크리스토스 촐리스</b>와 <b>일란 메슬리에</b>를 두고 <b>"흥미로운 잠재력(exciting potential)"</b>이라 표현했다. 지로나전 데뷔골을 넣은 촐리스에 대한 팀 내부 평가가 좋다는 신호.</p>
     <p class="small">아르테타도 앞서 촐리스를 "골문을 정면으로 노릴 줄 아는 직선적인 선수"라 평한 바 있어, 왼쪽 윙어 로테이션의 즉시전력으로 보는 시각이 굳어지는 중이다.</p>
   </div>
   <div class="card">
@@ -2284,7 +1935,7 @@
       <div class="who">— 카이 하베르츠</div>
     </div>
     <p class="small">다만 <b>"그걸 이루려면 또 한 단계 올라서야 한다"</b>며 자만을 경계했다. 스쿼드 조화에 대해서는 "모두가 아주 잘 맞아떨어지고 있다는 느낌"이라고 표현.</p>
-    <p class="small" style="margin-top:8px;">같은 자리에서 아르테타는 신입 <b>촐리스</b>를 극찬했다 — "아주 마음에 든다. 대단히 직선적인 선수이고, <b>골문을 정확히 노릴 줄 안다</b>." 촐리스 본인은 감독의 주문을 이렇게 전했다: "브뤼헤에서 하던 것과 다르게 하라고 하지 않으신다. 그저 <b>자유롭게 뛰며 네 강점을 보여줘라, 그러면 나머지는 따라온다</b>고 하셨다."</p>
+    <p class="small mt-8">같은 자리에서 아르테타는 신입 <b>촐리스</b>를 극찬했다 — "아주 마음에 든다. 대단히 직선적인 선수이고, <b>골문을 정확히 노릴 줄 안다</b>." 촐리스 본인은 감독의 주문을 이렇게 전했다: "브뤼헤에서 하던 것과 다르게 하라고 하지 않으신다. 그저 <b>자유롭게 뛰며 네 강점을 보여줘라, 그러면 나머지는 따라온다</b>고 하셨다."</p>
     <p class="src">출처: <a href="https://arseblog.news/2026/08/havertz-targets-more-silverware-as-arteta-hails-tzolis/" target="_blank">Arseblog News</a></p>
   </div>
 
@@ -2335,7 +1986,7 @@
       <span class="chip">라이스·기마랑이스 조합 물음표</span>
       <span class="chip">마르티넬리 이후 측면 속도 부족</span>
     </div>
-    <p class="small" style="margin-bottom:8px;"><b>해외</b> — 9/19 브라이턴 원정 0-3 완패로 리그 무패 출발이 끝났어요. 아스날 팬 블로그 Arseblog(9/20)의 경기 칼럼은 브라이턴의 강한 압박에 끝까지 같은 방식으로만 풀려다 막힌 점, 실점 장면마다 나온 개인 실수, 역습에서 치고 나갈 속도가 없다는 점을 짚었어요. 속도 문제는 마르티넬리를 보낸 여름 결정과 엮어 보는 시각이 있어요. 아르테타는 경기 뒤 세컨드볼·경합에서 크게 밀렸다며 «큰 교훈»이라고 했고, 라이스·기마랑이스 중원 조합을 묻는 질문엔 함께 뛴 시간이 짧아 나아질 거라고 답했어요(NBC Sports·LastWordOnSports 9/20).</p>
+    <p class="small mb-8"><b>해외</b> — 9/19 브라이턴 원정 0-3 완패로 리그 무패 출발이 끝났어요. 아스날 팬 블로그 Arseblog(9/20)의 경기 칼럼은 브라이턴의 강한 압박에 끝까지 같은 방식으로만 풀려다 막힌 점, 실점 장면마다 나온 개인 실수, 역습에서 치고 나갈 속도가 없다는 점을 짚었어요. 속도 문제는 마르티넬리를 보낸 여름 결정과 엮어 보는 시각이 있어요. 아르테타는 경기 뒤 세컨드볼·경합에서 크게 밀렸다며 «큰 교훈»이라고 했고, 라이스·기마랑이스 중원 조합을 묻는 질문엔 함께 뛴 시간이 짧아 나아질 거라고 답했어요(NBC Sports·LastWordOnSports 9/20).</p>
     <p class="small"><b>국내</b> — 국내 기사들도 «기본조차 못 지킨 경기»라는 아르테타의 질타를 크게 다뤘고, 경기 뒤 브라이턴 팬들이 토트넘에 빗대 아스날을 놀린 응원가가 함께 화제가 됐어요(베스트일레븐 등 9/20). 이어진 A매치 휴식기 동안은 새 소식보다 다음 경기(리즈, 10/10)에서의 반등 여부에 관심이 쏠려 있어요.</p>
     <p class="src">참고: <a href="https://arseblog.com/2026/09/brighton-3-0-arsenal-shoddy-gunners-get-what-they-deserve/" target="_blank">Arseblog</a> · <a href="https://www.nbcsports.com/soccer/news/mikel-arteta-reaction-what-did-arsenal-boss-say-after-brighton-bullied-his-bullies" target="_blank">NBC Sports</a> · <a href="https://lastwordonsports.com/football/2026/09/20/mikel-arteta-big-lesson/" target="_blank">LastWordOnSports</a> · <a href="https://www.besteleven.com/news/articleView.html?idxno=312385" target="_blank">베스트일레븐</a></p>
   </div>
@@ -2405,7 +2056,7 @@
           <tr><td><b>토미 세트포드</b></td><td>스티버니지 (임대)</td><td class="num">—</td></tr>
         </tbody>
       </table>
-      <p class="small" style="margin-top:8px;">마르티넬리 £60m(고정, 재판매 조항 별도)은 구단 역대 최고 매각이에요. 8/30 합의 당시엔 £55.7m으로 보도됐어요. 종전 기록은 2017년 옥슬레이드-체임벌린(리버풀행)이고, 금액은 보도마다 £35~40m으로 갈려요. 아스날 통산 278경기 62골. 비에이라 금액은 매체마다 달라 범위로 적었어요. 넬슨은 계약을 합의 해지한 뒤 자유계약으로, 은와네리는 이번 시즌 임대예요.</p>
+      <p class="small mt-8">마르티넬리 £60m(고정, 재판매 조항 별도)은 구단 역대 최고 매각이에요. 8/30 합의 당시엔 £55.7m으로 보도됐어요. 종전 기록은 2017년 옥슬레이드-체임벌린(리버풀행)이고, 금액은 보도마다 £35~40m으로 갈려요. 아스날 통산 278경기 62골. 비에이라 금액은 매체마다 달라 범위로 적었어요. 넬슨은 계약을 합의 해지한 뒤 자유계약으로, 은와네리는 이번 시즌 임대예요.</p>
       <p class="src">확인: <a href="https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR" target="_blank">Arsenal.com 이적 목록</a> · <a href="https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html" target="_blank">Sports Mole</a> · 마르티넬리 <a href="https://www.arsenal.com/news/gabriel-martinelli-joins-al-hilal-aOqHc1P93HkF" target="_blank">Arsenal.com</a> · <a href="https://www.skysports.com/football/news/33694/13579053/arsenal-agree-lb55-7m-club-record-gabriel-martinelli-sale-to-al-hilal-with-deal-also-agreed-in-principle-with-barcelona-for-gabriel-jesus" target="_blank">Sky Sports</a> · 제주스 <a href="https://www.fcbarcelona.com/en/football/first-team/news/4570072/gabriel-jesus-signs-for-fc-barcelona" target="_blank">FC바르셀로나</a> · 은와네리 <a href="https://www.arsenal.com/news/ethan-nwaneri-joins-borussia-dortmund-on-loan-aQN7v3e8JvAT" target="_blank">Arsenal.com</a> · 넬슨 <a href="https://www.feyenoord.com/en/news/reiss-nelson-returns-to-feyenoord-0209261" target="_blank">Feyenoord</a></p>
     </div>
   </div>
@@ -2476,7 +2127,6 @@
   </div>
 </section>
 
-</div><!-- /teamArs -->
 
 
 </main>
@@ -2960,8 +2610,7 @@ renderXI('pitch', XI);
 <script>
 /* ══════════════════════════════════════════════════════════
    모바일 레이어 JS (2026-08-04)
-   기존 탭/팀/테마 로직을 재작성하지 않고, 숨겨진 데스크탑 컨트롤을
-   프로그램적으로 클릭해 재사용한다 — 동작 일관성 보장 + 회귀 위험 0.
+   표 가로 스크롤 래퍼 · 폰 폭 구단명 축약 · 하단 탭바 → 주소 라우터.
    ══════════════════════════════════════════════════════════ */
 (function () {
   var mq = window.matchMedia('(max-width: 768px)');
@@ -2997,7 +2646,7 @@ renderXI('pitch', XI);
   };
   var cells = null;
   function shortNames(on) {
-    if (!cells) cells = Array.prototype.slice.call(document.querySelectorAll('table.tbl td, .lg-name, .lg-next b'));
+    if (!cells) cells = Array.prototype.slice.call(document.querySelectorAll('table.tbl td'));
     cells.forEach(function (td) {
       if (td.children.length && !td.querySelector('b')) return;
       var host = td.querySelector('b') || td;
@@ -3066,6 +2715,9 @@ renderXI('pitch', XI);
     var c = COMP[f.competition] || ['etc'];
     return '<span class="cb cb-' + c[0] + '">' + esc(compShort(f)) + '</span>';
   }
+  /* 경기 행(.match .comp)용 대회 색 — 정적 표기(data-c="epl|ucl|cup")와 같은 값 */
+  var COMP_C = { epl: 'epl', ucl: 'ucl', efl: 'cup' };
+  function compAttr(f) { var c = COMP_C[(COMP[f.competition] || [])[0]]; return c ? ' data-c="' + c + '"' : ''; }
   function tv(f) { return f.kr_broadcast && f.kr_broadcast.name ? f.kr_broadcast.name : null; }
   function scoreLine(f) {
     var r = f.result, a = '아스날', o = f.opponent_ko;
@@ -3152,7 +2804,7 @@ renderXI('pitch', XI);
   function renderHomeNext(FX) {
     $('homeNext').innerHTML = upcoming(FX).slice(0, 3).map(function (f) {
       return '<div class="match"><div class="date">' + esc(timed(f) ? dlabel(f.kickoff_kst) + ' ' + hm(f.kickoff_kst) : dlabel(f.date_local) + ' 시간 미정') + '</div>' +
-        '<div class="comp">' + esc(compShort(f)) + '</div><div class="teams">' + esc(f.opponent_ko) + '전 · ' + ha(f) + '</div>' +
+        '<div class="comp"' + compAttr(f) + '>' + esc(compShort(f)) + '</div><div class="teams">' + esc(f.opponent_ko) + '전 · ' + ha(f) + '</div>' +
         (f.dawn_kst ? '<span class="tag dawn">새벽</span>' : '') + '</div>';
     }).join('');
   }

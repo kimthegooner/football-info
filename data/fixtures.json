@@ -1,0 +1,1515 @@
+{
+  "as_of_kst": "2026-09-28T15:32:55+09:00",
+  "season": "2026-27",
+  "team": "Arsenal",
+  "timezone_note": "영국은 2026-10-25 새벽에 서머타임(BST, UTC+1) 종료 → GMT(UTC+0). 2027-03-28 다시 BST. 한국(KST)은 UTC+9 고정. 그래서 10/24까지는 영국+8시간, 10/25~3/27은 +9시간.",
+  "dawn_rule": "한국시간 00:00~06:59 킥오프면 dawn_kst=true",
+  "broadcast_kr": {
+    "EPL": {
+      "name": "쿠팡플레이",
+      "status": "확인",
+      "period": "2025/26~2030/31(6시즌) 국내 독점",
+      "sources": [
+        "https://news.coupang.com/archives/51789/",
+        "https://www.hankyung.com/article/202503244214i"
+      ],
+      "note": "쿠팡 공식 보도자료는 «2025/26 시즌부터 독점»만 명시, 6년(2030/31까지)은 한국경제 보도"
+    },
+    "UCL": {
+      "name": "SPOTV (SPOTV NOW)",
+      "status": "확인",
+      "period": "2026/27",
+      "sources": [
+        "https://www.uefa.com/uefachampionsleague/news/0253-0d82037aaedd-f371c464f919-1000--where-to-watch-the-uefa-champions-league-tv-broadcast-partners/",
+        "https://www.spotvnow.co.kr/football"
+      ]
+    },
+    "EFL": {
+      "name": null,
+      "status": "미확정",
+      "note": "카라바오컵 2026/27 국내 중계 공식 발표 확인 못 함(쿠팡플레이 유튜브에 3R 예고 영상만 있음)"
+    },
+    "FAC": {
+      "name": null,
+      "status": "미확정",
+      "note": "FA컵 3R(2027-01-08~11) 대진 미정, 국내 중계 미확인"
+    }
+  },
+  "not_included": [
+    "FA컵 3라운드(2027-01-08~11 주간) — 대진 추첨 전이라 상대 미정",
+    "카라바오컵 5라운드(2026-12-15/16 주간) — 4R 결과 대기",
+    "UCL 녹아웃(플레이오프 2027-02-16/17·23/24, 16강 3/9·10·16·17) — 순위 결정 전"
+  ],
+  "counts": {
+    "recent_results": 5,
+    "upcoming": 41,
+    "upcoming_time_confirmed": 20,
+    "upcoming_time_tbd": 21,
+    "upcoming_dawn_kst": 18,
+    "recent_dawn_kst": 4,
+    "status_unconfirmed": 21
+  },
+  "recent_results": [
+    {
+      "id": "2026-09-06-EPL-CHE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "3R",
+      "opponent": "Chelsea",
+      "opponent_ko": "첼시",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-09-06",
+      "date_status": "확정",
+      "kickoff_local": "2026-09-06T16:30:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-09-07T00:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": {
+        "arsenal": 2,
+        "opponent": 1,
+        "outcome": "W",
+        "outcome_ko": "승",
+        "scorers": [
+          {
+            "team": "opp",
+            "player": "Morgan Rogers",
+            "player_ko": "모건 로저스",
+            "minute": "2'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Kai Havertz",
+            "player_ko": "카이 하베르츠",
+            "minute": "25'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Martin Ødegaard",
+            "player_ko": "마르틴 외데고르",
+            "minute": "50'",
+            "type": "골"
+          }
+        ]
+      },
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-09",
+        "https://www.theguardian.com/football/2026/sep/06/arsenal-chelsea-premier-league-match-report"
+      ],
+      "status": "확인",
+      "note": "로저스 선제골은 킥오프 77초(가디언), BBC 표기 2분"
+    },
+    {
+      "id": "2026-09-09-UCL-NAP",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 1R",
+      "opponent": "Napoli",
+      "opponent_ko": "나폴리",
+      "home_away": "A",
+      "venue": "Stadio Diego Armando Maradona",
+      "date_local": "2026-09-09",
+      "date_status": "확정",
+      "kickoff_local": "2026-09-09T21:00:00+02:00",
+      "local_tz": "CEST",
+      "kickoff_kst": "2026-09-10T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": {
+        "arsenal": 1,
+        "opponent": 0,
+        "outcome": "W",
+        "outcome_ko": "승",
+        "scorers": [
+          {
+            "team": "ARS",
+            "player": "Martin Ødegaard",
+            "player_ko": "마르틴 외데고르",
+            "minute": "75'",
+            "type": "골"
+          }
+        ]
+      },
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-09",
+        "https://www.theguardian.com/football/2026/sep/09/napoli-arsenal-champions-league-match-report"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-09-12-EPL-SUN",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "4R",
+      "opponent": "Sunderland",
+      "opponent_ko": "선덜랜드",
+      "home_away": "A",
+      "venue": "Stadium of Light",
+      "date_local": "2026-09-12",
+      "date_status": "확정",
+      "kickoff_local": "2026-09-12T20:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-09-13T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": {
+        "arsenal": 2,
+        "opponent": 0,
+        "outcome": "W",
+        "outcome_ko": "승",
+        "scorers": [
+          {
+            "team": "ARS",
+            "player": "Bruno Guimarães",
+            "player_ko": "브루누 기마랑이스",
+            "minute": "58'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Bukayo Saka",
+            "player_ko": "부카요 사카",
+            "minute": "90+7'",
+            "type": "PK"
+          }
+        ]
+      },
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-09",
+        "https://www.theguardian.com/football/2026/sep/12/sunderland-arsenal-premier-league-match-report"
+      ],
+      "status": "확인",
+      "note": "선덜랜드 르 페 PK를 라야가 선방(가디언)"
+    },
+    {
+      "id": "2026-09-15-EFL-IPS",
+      "competition": "EFL",
+      "competition_ko": "카라바오컵",
+      "round": "3R",
+      "opponent": "Ipswich Town",
+      "opponent_ko": "입스위치 타운",
+      "home_away": "A",
+      "venue": "Portman Road",
+      "date_local": "2026-09-15",
+      "date_status": "확정",
+      "kickoff_local": "2026-09-15T20:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-09-16T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": {
+        "arsenal": 4,
+        "opponent": 2,
+        "outcome": "W",
+        "outcome_ko": "승",
+        "scorers": [
+          {
+            "team": "ARS",
+            "player": "Max Dowman",
+            "player_ko": "맥스 다우먼",
+            "minute": "7'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Noni Madueke",
+            "player_ko": "노니 마두에케",
+            "minute": "16'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Max Dowman",
+            "player_ko": "맥스 다우먼",
+            "minute": "47'",
+            "type": "골"
+          },
+          {
+            "team": "ARS",
+            "player": "Mikel Merino",
+            "player_ko": "미켈 메리노",
+            "minute": "58'",
+            "type": "골"
+          },
+          {
+            "team": "opp",
+            "player": "Anis Mehmeti",
+            "player_ko": "아니스 메흐메티",
+            "minute": "62'",
+            "type": "골"
+          },
+          {
+            "team": "opp",
+            "player": "Chuba Akpom",
+            "player_ko": "추바 아크폼",
+            "minute": "90+1'",
+            "type": "골"
+          }
+        ]
+      },
+      "kr_broadcast": null,
+      "kr_broadcast_note": "미확정 — 2026/27 카라바오컵 국내 중계사 공식 발표 확인 못 함",
+      "sources": [
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-09",
+        "https://www.theguardian.com/football/2026/sep/15/ipswich-arsenal-carabao-cup-third-round-match-report"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-09-19-EPL-BHA",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "5R",
+      "opponent": "Brighton & Hove Albion",
+      "opponent_ko": "브라이턴",
+      "home_away": "A",
+      "venue": "Amex Stadium",
+      "date_local": "2026-09-19",
+      "date_status": "확정",
+      "kickoff_local": "2026-09-19T15:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-09-19T23:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": false,
+      "result": {
+        "arsenal": 0,
+        "opponent": 3,
+        "outcome": "L",
+        "outcome_ko": "패",
+        "scorers": [
+          {
+            "team": "opp",
+            "player": "Pascal Groß",
+            "player_ko": "파스칼 그로스",
+            "minute": "31'",
+            "type": "골"
+          },
+          {
+            "team": "opp",
+            "player": "Charalampos Kostoulas",
+            "player_ko": "하랄람보스 코스툴라스",
+            "minute": "45'",
+            "type": "골"
+          },
+          {
+            "team": "opp",
+            "player": "Chema Andrés",
+            "player_ko": "체마 안드레스",
+            "minute": "57'",
+            "type": "골"
+          }
+        ]
+      },
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-09",
+        "https://www.theguardian.com/football/2026/sep/19/brighton-arsenal-premier-league-match-report"
+      ],
+      "status": "확인"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "2026-10-10-EPL-LEE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "6R",
+      "opponent": "Leeds United",
+      "opponent_ko": "리즈 유나이티드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-10-10",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-10T12:30:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-10-10T20:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": false,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+        "https://www.arsenal.com/news/three-premier-league-games-in-october-rearranged-aoQIO8a3k2yj"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-10-13-UCL-LIL",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 2R",
+      "opponent": "Lille",
+      "opponent_ko": "릴",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-10-13",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-13T20:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-10-14T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-10"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2026-10-18-EPL-NFO",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "7R",
+      "opponent": "Nottingham Forest",
+      "opponent_ko": "노팅엄 포레스트",
+      "home_away": "A",
+      "venue": "City Ground",
+      "date_local": "2026-10-18",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-18T16:30:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-10-19T00:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+        "https://www.arsenal.com/news/three-premier-league-games-in-october-rearranged-aoQIO8a3k2yj"
+      ],
+      "status": "확인",
+      "note": "원래 10/17(토) → 10/18(일)로 변경"
+    },
+    {
+      "id": "2026-10-21-UCL-BAY",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 3R",
+      "opponent": "Bayern München",
+      "opponent_ko": "바이에른 뮌헨",
+      "home_away": "A",
+      "venue": "Allianz Arena",
+      "date_local": "2026-10-21",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-21T21:00:00+02:00",
+      "local_tz": "CEST",
+      "kickoff_kst": "2026-10-22T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-10"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2026-10-24-EPL-EVE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "8R",
+      "opponent": "Everton",
+      "opponent_ko": "에버턴",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-10-24",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-24T15:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2026-10-24T23:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": false,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+        "https://www.arsenal.com/news/three-premier-league-games-in-october-rearranged-aoQIO8a3k2yj"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-10-27-EFL-FLE",
+      "competition": "EFL",
+      "competition_ko": "카라바오컵",
+      "round": "4R(16강)",
+      "opponent": "Fleetwood Town",
+      "opponent_ko": "플리트우드 타운",
+      "home_away": "A",
+      "venue": "Highbury Stadium (Fleetwood)",
+      "date_local": "2026-10-27",
+      "date_status": "확정",
+      "kickoff_local": "2026-10-27T20:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-10-28T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": null,
+      "kr_broadcast_note": "미확정 — 2026/27 카라바오컵 국내 중계사 공식 발표 확인 못 함",
+      "sources": [
+        "https://www.arsenal.com/news/date-confirmed-for-carabao-cup-trip-to-fleetwood-azyR45T51D3Q",
+        "https://www.fleetwoodtownfc.com/arsenal-h-ticket-prices-and-sale-dates-confirmed/"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-11-01-EPL-LIV",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "9R",
+      "opponent": "Liverpool",
+      "opponent_ko": "리버풀",
+      "home_away": "A",
+      "venue": "Anfield",
+      "date_local": "2026-11-01",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-01T16:30:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-11-02T01:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+        "https://www.arsenal.com/news/three-premier-league-games-in-october-rearranged-aoQIO8a3k2yj"
+      ],
+      "status": "확인",
+      "note": "원래 10/31(토) → 11/1(일)로 변경"
+    },
+    {
+      "id": "2026-11-04-UCL-SLA",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 4R",
+      "opponent": "Slavia Praha",
+      "opponent_ko": "슬라비아 프라하",
+      "home_away": "A",
+      "venue": "Fortuna Arena (Eden)",
+      "date_local": "2026-11-04",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-04T21:00:00+01:00",
+      "local_tz": "CET",
+      "kickoff_kst": "2026-11-05T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-11"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2026-11-07-EPL-HUL",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "10R",
+      "opponent": "Hull City",
+      "opponent_ko": "헐 시티",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-11-07",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-07T15:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-11-08T00:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-11"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-11-21-EPL-NEW",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "11R",
+      "opponent": "Newcastle United",
+      "opponent_ko": "뉴캐슬 유나이티드",
+      "home_away": "A",
+      "venue": "St James' Park",
+      "date_local": "2026-11-21",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-21T17:30:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-11-22T02:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-11"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2026-11-24-UCL-BVB",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 5R",
+      "opponent": "Borussia Dortmund",
+      "opponent_ko": "보루시아 도르트문트",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-11-24",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-24T20:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-11-25T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-11"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2026-11-29-EPL-MCI",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "12R",
+      "opponent": "Manchester City",
+      "opponent_ko": "맨체스터 시티",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-11-29",
+      "date_status": "확정",
+      "kickoff_local": "2026-11-29T16:30:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-11-30T01:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-premier-league-matches-in-november",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-11"
+      ],
+      "status": "확인",
+      "note": "원래 11/28(토) → 11/29(일)로 변경"
+    },
+    {
+      "id": "2026-12-02-EPL-BRE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "13R",
+      "opponent": "Brentford",
+      "opponent_ko": "브렌트퍼드",
+      "home_away": "A",
+      "venue": "Gtech Community Stadium",
+      "date_local": "2026-12-02",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정(아스날 공식). 주중 경기 기본값 20:00(영국), TV 선택 시 19:30 또는 20:15로 바뀜"
+    },
+    {
+      "id": "2026-12-05-EPL-TOT",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "14R",
+      "opponent": "Tottenham Hotspur",
+      "opponent_ko": "토트넘 홋스퍼",
+      "home_away": "A",
+      "venue": "Tottenham Hotspur Stadium",
+      "date_local": "2026-12-05",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정(아스날 공식)"
+    },
+    {
+      "id": "2026-12-09-UCL-RMA",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 6R",
+      "opponent": "Real Madrid",
+      "opponent_ko": "레알 마드리드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-12-09",
+      "date_status": "확정",
+      "kickoff_local": "2026-12-09T20:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-12-10T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-12"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2026-12-12-EPL-BOU",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "15R",
+      "opponent": "AFC Bournemouth",
+      "opponent_ko": "본머스",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-12-12",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정(아스날 공식). 본머스의 직전 목요일 유로파리그 경기 때문에 토요일에서 옮겨질 예정(아스날 공식)"
+    },
+    {
+      "id": "2026-12-19-EPL-MUN",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "16R",
+      "opponent": "Manchester United",
+      "opponent_ko": "맨체스터 유나이티드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2026-12-19",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 12월 경기 편성은 10월 19일 주간 발표 예정(아스날 공식)"
+    },
+    {
+      "id": "2026-12-27-EPL-CRY",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "17R",
+      "opponent": "Crystal Palace",
+      "opponent_ko": "크리스탈 팰리스",
+      "home_away": "A",
+      "venue": "Selhurst Park",
+      "date_local": "2026-12-27",
+      "date_status": "확정",
+      "kickoff_local": "2026-12-27T19:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-12-28T04:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/premier-league-festive-fixture-details-confirmed-atjUt4t54LGl",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-12"
+      ],
+      "status": "확인",
+      "note": "원래 12/26(토) → 12/27(일)로 변경"
+    },
+    {
+      "id": "2026-12-30-EPL-FUL",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "18R",
+      "opponent": "Fulham",
+      "opponent_ko": "풀럼",
+      "home_away": "A",
+      "venue": "Craven Cottage",
+      "date_local": "2026-12-30",
+      "date_status": "확정",
+      "kickoff_local": "2026-12-30T19:30:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2026-12-31T04:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/premier-league-festive-fixture-details-confirmed-atjUt4t54LGl",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2026-12"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2027-01-02-EPL-IPS",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "19R",
+      "opponent": "Ipswich Town",
+      "opponent_ko": "입스위치 타운",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-01-02",
+      "date_status": "확정",
+      "kickoff_local": "2027-01-02T15:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2027-01-03T00:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/premier-league-festive-fixture-details-confirmed-atjUt4t54LGl",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2027-01"
+      ],
+      "status": "확인"
+    },
+    {
+      "id": "2027-01-05-EPL-BRE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "20R",
+      "opponent": "Brentford",
+      "opponent_ko": "브렌트퍼드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-01-05",
+      "date_status": "확정",
+      "kickoff_local": "2027-01-05T19:30:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2027-01-06T04:30:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/premier-league-festive-fixture-details-confirmed-atjUt4t54LGl",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2027-01"
+      ],
+      "status": "확인",
+      "note": "원래 1/6(수) → 1/5(화)로 변경"
+    },
+    {
+      "id": "2027-01-16-EPL-HUL",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "21R",
+      "opponent": "Hull City",
+      "opponent_ko": "헐 시티",
+      "home_away": "A",
+      "venue": "MKM Stadium",
+      "date_local": "2027-01-16",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-01-20-UCL-BET",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 7R",
+      "opponent": "Real Betis",
+      "opponent_ko": "레알 베티스",
+      "home_away": "A",
+      "venue": null,
+      "date_local": "2027-01-20",
+      "date_status": "확정",
+      "kickoff_local": "2027-01-20T21:00:00+01:00",
+      "local_tz": "CET",
+      "kickoff_kst": "2027-01-21T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2027-01"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인",
+      "venue_note": "미확정 — 베티스 홈구장(비야마린 복귀 여부) 확인 못 함"
+    },
+    {
+      "id": "2027-01-23-EPL-NEW",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "22R",
+      "opponent": "Newcastle United",
+      "opponent_ko": "뉴캐슬 유나이티드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-01-23",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-01-27-UCL-SAB",
+      "competition": "UCL",
+      "competition_ko": "UEFA 챔피언스리그",
+      "round": "리그 페이즈 8R",
+      "opponent": "Sabah FK",
+      "opponent_ko": "사바흐",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-01-27",
+      "date_status": "확정",
+      "kickoff_local": "2027-01-27T20:00:00+00:00",
+      "local_tz": "GMT",
+      "kickoff_kst": "2027-01-28T05:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "SPOTV (SPOTV NOW)",
+        "status": "확인",
+        "note": "2026/27 국내 중계사. 2027/28부터는 쿠팡플레이로 바뀜(보도)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/champions-league-league-phase-fixtures-confirmed-aEFFw4Q3v2eT",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2027-01"
+      ],
+      "status": "확인",
+      "note": "uefa.com 경기 페이지는 접속 차단(403)으로 직접 확인 못 함 — 아스날 공식·BBC로 확인"
+    },
+    {
+      "id": "2027-01-30-EPL-MCI",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "23R",
+      "opponent": "Manchester City",
+      "opponent_ko": "맨체스터 시티",
+      "home_away": "A",
+      "venue": "Etihad Stadium",
+      "date_local": "2027-01-30",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-02-06-EPL-LIV",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "24R",
+      "opponent": "Liverpool",
+      "opponent_ko": "리버풀",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-02-06",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-02-10-EPL-IPS",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "25R",
+      "opponent": "Ipswich Town",
+      "opponent_ko": "입스위치 타운",
+      "home_away": "A",
+      "venue": "Portman Road",
+      "date_local": "2027-02-10",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 주중 경기 기본값 20:00(영국)"
+    },
+    {
+      "id": "2027-02-20-EPL-FUL",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "26R",
+      "opponent": "Fulham",
+      "opponent_ko": "풀럼",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-02-20",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-02-27-EPL-MUN",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "27R",
+      "opponent": "Manchester United",
+      "opponent_ko": "맨체스터 유나이티드",
+      "home_away": "A",
+      "venue": "Old Trafford",
+      "date_local": "2027-02-27",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-03-03-EPL-CRY",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "28R",
+      "opponent": "Crystal Palace",
+      "opponent_ko": "크리스탈 팰리스",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-03-03",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정. 주중 경기 기본값 20:00(영국)"
+    },
+    {
+      "id": "2027-03-13-EPL-CHE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "29R",
+      "opponent": "Chelsea",
+      "opponent_ko": "첼시",
+      "home_away": "A",
+      "venue": "Stamford Bridge",
+      "date_local": "2027-03-13",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-03-20-EPL-SUN",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "30R",
+      "opponent": "Sunderland",
+      "opponent_ko": "선덜랜드",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-03-20",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-04-10-EPL-COV",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "31R",
+      "opponent": "Coventry City",
+      "opponent_ko": "코번트리 시티",
+      "home_away": "A",
+      "venue": "Coventry Building Society Arena",
+      "date_local": "2027-04-10",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-04-17-EPL-AVL",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "32R",
+      "opponent": "Aston Villa",
+      "opponent_ko": "애스턴 빌라",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-04-17",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-04-24-EPL-BOU",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "33R",
+      "opponent": "AFC Bournemouth",
+      "opponent_ko": "본머스",
+      "home_away": "A",
+      "venue": "Vitality Stadium",
+      "date_local": "2027-04-24",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-05-01-EPL-TOT",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "34R",
+      "opponent": "Tottenham Hotspur",
+      "opponent_ko": "토트넘 홋스퍼",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-05-01",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-05-08-EPL-LEE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "35R",
+      "opponent": "Leeds United",
+      "opponent_ko": "리즈 유나이티드",
+      "home_away": "A",
+      "venue": "Elland Road",
+      "date_local": "2027-05-08",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-05-15-EPL-NFO",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "36R",
+      "opponent": "Nottingham Forest",
+      "opponent_ko": "노팅엄 포레스트",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-05-15",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-05-23-EPL-EVE",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "37R",
+      "opponent": "Everton",
+      "opponent_ko": "에버턴",
+      "home_away": "A",
+      "venue": "Hill Dickinson Stadium",
+      "date_local": "2027-05-23",
+      "date_status": "잠정",
+      "kickoff_local": null,
+      "local_tz": null,
+      "kickoff_kst": null,
+      "kickoff_status": "시간 미정",
+      "dawn_kst": null,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4675132/all-of-arsenals-fixtures-for-202627-premier-league-season",
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m"
+      ],
+      "status": "미확정",
+      "note": "TV 중계 선택 대기 — 날짜는 잠정, 킥오프 시각 미정"
+    },
+    {
+      "id": "2027-05-30-EPL-BHA",
+      "competition": "EPL",
+      "competition_ko": "프리미어리그",
+      "round": "38R",
+      "opponent": "Brighton & Hove Albion",
+      "opponent_ko": "브라이턴",
+      "home_away": "H",
+      "venue": "Emirates Stadium",
+      "date_local": "2027-05-30",
+      "date_status": "확정",
+      "kickoff_local": "2027-05-30T16:00:00+01:00",
+      "local_tz": "BST",
+      "kickoff_kst": "2027-05-31T00:00:00+09:00",
+      "kickoff_status": "확정",
+      "dawn_kst": true,
+      "result": null,
+      "kr_broadcast": {
+        "name": "쿠팡플레이",
+        "status": "확인",
+        "note": "2025/26~2030/31 국내 독점(6시즌)"
+      },
+      "sources": [
+        "https://www.arsenal.com/news/arsenals-202627-premier-league-fixture-list-aONqx5R7tK9m",
+        "https://www.bbc.co.uk/sport/football/teams/arsenal/scores-fixtures/2027-05"
+      ],
+      "status": "확인",
+      "note": "최종전은 전 경기 동시 16:00(영국) 킥오프(아스날 공식)"
+    }
+  ]
+}

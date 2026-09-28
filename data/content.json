@@ -1,0 +1,873 @@
+{
+  "_meta": {
+    "basis": "공개본 main 10f1584 화면 값 + 2026-09-28 RSS",
+    "check": "check:true 는 숫자·날짜·이적료를 출처 두 곳으로 대조해야 하는 항목. 화면에는 표시하지 않는다.",
+    "placeholders": "{{...}} 는 데이터 파일(fixtures.json·standings.json) 값으로 채울 자리"
+  },
+  "dataroomLabel": "아스날 데이터룸",
+  "hero": {
+    "candidates": [
+      {
+        "id": "h1",
+        "kicker": "지금 아스날 · 9.28",
+        "head": "첫 패배 뒤 휴식기, 10일 리즈전에서 반등 노린다",
+        "sub": "브라이턴 원정 0-3으로 7연승 마감. EPL 2위, 1위와 3점 차.",
+        "check": true
+      },
+      {
+        "id": "h2",
+        "kicker": "지금 아스날 · 9.28",
+        "head": "7연승 멈춘 챔피언, 리즈 홈에서 다시 시작",
+        "sub": "A매치 휴식 뒤 10월 10일(토) 20:30 에미레이츠에서 리즈전.",
+        "check": true
+      },
+      {
+        "id": "h3",
+        "kicker": "지금 아스날 · 9.28",
+        "head": "브라이턴 0-3의 교훈, 답은 10월 10일 리즈전",
+        "sub": "시즌 첫 패배 뒤 3주 휴식. 무패 5위 리즈를 홈에서 맞는다.",
+        "check": true
+      }
+    ],
+    "recommended": "h1",
+    "recommendedReason": "지난 결과(첫 패배)·지금(휴식기)·다음(리즈전 날짜)이 한 줄에 다 들어가고, 순위 숫자는 sub 에서 받쳐 준다."
+  },
+  "matchSummaries": [
+    {
+      "id": "2026-09-19-bha",
+      "date": "9.19 (토) 23:00",
+      "dateIso": "2026-09-19T23:00+09:00",
+      "competition": "프리미어리그 5R",
+      "venue": "원정",
+      "home": "브라이턴",
+      "away": "아스날",
+      "score": "3-0",
+      "result": "패",
+      "lines": [
+        "브라이턴 원정에서 0-3으로 져 시즌 첫 패배를 안았다.",
+        "그로스 중거리, 코스툴라스 추가골, 안드레스 코너킥 헤더로 3실점.",
+        "전 대회 7연승이 끝났다. 3주 휴식 뒤 10일 리즈 홈에서 반등 도전."
+      ],
+      "scorers": {
+        "arsenal": [],
+        "opponent": [
+          "그로스 31'",
+          "코스툴라스 45'",
+          "안드레스 57'"
+        ]
+      },
+      "sourceUrl": "https://www.skysports.com/football/news/11670/13589868/arsenal-boss-mikel-arteta-accuses-players-of-failing-to-respect-the-game-as-champions-suffer-first-defeat-of-season-to-brighton",
+      "sourceName": "Sky Sports",
+      "check": true
+    },
+    {
+      "id": "2026-09-16-ips",
+      "date": "9.16 (수) 04:00",
+      "dateIso": "2026-09-16T04:00+09:00",
+      "competition": "카라바오컵 3R",
+      "venue": "원정",
+      "home": "입스위치 타운",
+      "away": "아스날",
+      "score": "2-4",
+      "result": "승",
+      "lines": [
+        "입스위치 원정에서 4-2로 이겨 카라바오컵 4라운드에 올랐다.",
+        "선발을 크게 바꾼 가운데 16세 다우먼이 두 골을 넣으며 주인공이 됐다.",
+        "4라운드는 리그투 플릿우드 타운 원정, 10월 26일 주간에 열린다."
+      ],
+      "scorers": {
+        "arsenal": [
+          "다우먼 7'",
+          "마두에케 16'",
+          "다우먼 47'",
+          "메리노 58'"
+        ],
+        "opponent": [
+          "메흐메티 62'",
+          "아콤포 90+1'"
+        ]
+      },
+      "sourceUrl": null,
+      "sourceName": "Sky Sports (9/16)",
+      "check": true,
+      "_note": "공개본에 이 경기 출처 링크가 없음(매체명만). 가디언 RSS 경기 문자중계 https://www.theguardian.com/football/live/2026/sep/15/ipswich-town-v-arsenal-carabao-cup-third-round-live 를 대체 후보로 둠 — 확인 필요"
+    },
+    {
+      "id": "2026-09-13-sun",
+      "date": "9.13 (일) 04:00",
+      "dateIso": "2026-09-13T04:00+09:00",
+      "competition": "프리미어리그 4R",
+      "venue": "원정",
+      "home": "선덜랜드",
+      "away": "아스날",
+      "score": "0-2",
+      "result": "승",
+      "lines": [
+        "선덜랜드 원정에서 2-0으로 이겨 리그 개막 4연승을 이어갔다.",
+        "초반 르 페의 페널티킥을 라야가 막아 낸 뒤 흐름이 아스날로 넘어왔다.",
+        "기마랑이스 중거리 선제골, 사카 PK 쐐기골로 전 대회 6전 전승."
+      ],
+      "scorers": {
+        "arsenal": [
+          "기마랑이스",
+          "사카 (PK)"
+        ],
+        "opponent": []
+      },
+      "sourceUrl": "https://arseblog.news/2026/09/post-sunderland-quotes-round-up-arteta-le-bris-raya-bruno-keown-upson-more/",
+      "sourceName": "Arseblog News",
+      "check": true,
+      "_note": "공개본에 득점 시각(분) 없음 — 채울 값 필요"
+    },
+    {
+      "id": "2026-09-10-nap",
+      "date": "9.10 (목) 04:00",
+      "dateIso": "2026-09-10T04:00+09:00",
+      "competition": "챔피언스리그 리그페이즈 1R",
+      "venue": "원정",
+      "home": "나폴리",
+      "away": "아스날",
+      "score": "0-1",
+      "result": "승",
+      "lines": [
+        "나폴리 원정에서 1-0으로 이기며 챔피언스리그를 시작했다.",
+        "75분 외데고르의 중거리슛이 골대를 맞고 들어가 결승골이 됐다.",
+        "슈팅 26개로 몰아붙이고도 한 골에 그쳐 마무리가 숙제로 남았다."
+      ],
+      "scorers": {
+        "arsenal": [
+          "외데고르 75'"
+        ],
+        "opponent": []
+      },
+      "sourceUrl": "https://arseblog.news/2026/09/post-napoli-quotes-round-up-arteta-allegri-di-lorenzo-odegaard-rice-keown-more/",
+      "sourceName": "Arseblog News",
+      "check": true
+    },
+    {
+      "id": "2026-09-07-che",
+      "date": "9.7 (월) 00:30",
+      "dateIso": "2026-09-07T00:30+09:00",
+      "competition": "프리미어리그 3R",
+      "venue": "홈",
+      "home": "아스날",
+      "away": "첼시",
+      "score": "2-1",
+      "result": "승",
+      "lines": [
+        "첼시에 먼저 실점했지만 2-1로 뒤집으며 리그 3연승을 달렸다.",
+        "하베르츠가 동점골을 넣고, 50분 그의 도움으로 외데고르가 역전골.",
+        "후반 막판 라야의 선방으로 리드를 지켜 맨시티와 승점 9 동률."
+      ],
+      "scorers": {
+        "arsenal": [
+          "하베르츠 25'",
+          "외데고르 50'"
+        ],
+        "opponent": [
+          "로저스 2'"
+        ]
+      },
+      "sourceUrl": "https://arseblog.news/2026/09/arsenal-2-1-chelsea-on-the-whistle/",
+      "sourceName": "Arseblog News",
+      "check": true,
+      "_note": "첼시 선제골 득점자(로저스)·시각(77초)은 사실 대조 목록에 있는 항목"
+    }
+  ],
+  "transferBoard": {
+    "title": "이적 보드",
+    "window": "2026 여름 창 마감: 9월 2일(수) 07:00 (영국 9월 1일 23:00). 다음 창: 2027년 1월.",
+    "gradeGuide": "등급 — A 구단 공식 발표 · B 신뢰 매체 두 곳 이상 · C 한 곳만 보도 · D 출처가 불분명한 소문",
+    "stageGuide": "단계 — 루머 → 협상 → 합의 → 오피셜",
+    "feeNote": "이적료는 구단이 대부분 공개하지 않아 매체 보도 금액을 적었어요.",
+    "summary": {
+      "in": 5,
+      "out": 10,
+      "outLoan": 2,
+      "inTotal": "약 £198.5m (콘사 가산 £4m 포함)",
+      "outTotal": "약 £96.3~97.1m (트로사르 제외)",
+      "check": true
+    },
+    "items": [
+      {
+        "player": "피에로 인카피에",
+        "direction": "in",
+        "club": "레버쿠젠",
+        "position": "CB",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£34.5m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "크리스토스 촐리스",
+        "direction": "in",
+        "club": "클럽 브뤼헤",
+        "position": "WG",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£34m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "일란 메슬리에",
+        "direction": "in",
+        "club": "리즈",
+        "position": "GK",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "자유계약",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "브루누 기마랑이스",
+        "direction": "in",
+        "club": "뉴캐슬",
+        "position": "MF",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£75m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/bruno-guimaraes-joins-arsenal-assZJ0i5HUEi"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "에즈리 콘사",
+        "direction": "in",
+        "club": "애스턴 빌라",
+        "position": "CB",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£51m + 가산 £4m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sky Sports",
+            "url": "https://www.skysports.com/football/news/11670/13574990/ezri-konsa-arsenal-complete-51m-deal-for-aston-villa-and-england-defender"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "가브리엘 마르티넬리",
+        "direction": "out",
+        "club": "알힐랄",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£55.7m (구단 역대 최고 매각)",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/gabriel-martinelli-joins-al-hilal-aOqHc1P93HkF"
+          },
+          {
+            "name": "Sky Sports",
+            "url": "https://www.skysports.com/football/news/33694/13579053/arsenal-agree-lb55-7m-club-record-gabriel-martinelli-sale-to-al-hilal-with-deal-also-agreed-in-principle-with-barcelona-for-gabriel-jesus"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "가브리엘 제주스",
+        "direction": "out",
+        "club": "바르셀로나",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£8.6m",
+        "sources": [
+          {
+            "name": "FC바르셀로나",
+            "url": "https://www.fcbarcelona.com/en/football/first-team/news/4570072/gabriel-jesus-signs-for-fc-barcelona"
+          },
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "파비우 비에이라",
+        "direction": "out",
+        "club": "함부르크",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£7.7~8.5m (매체별 차이)",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "크리스티안 뇌르고르",
+        "direction": "out",
+        "club": "에버턴",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£7m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "레안드로 트로사르",
+        "direction": "out",
+        "club": "베식타시",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "비공개",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "야쿠프 키비오르",
+        "direction": "out",
+        "club": "포르투",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£14.7m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "칼 헤인",
+        "direction": "out",
+        "club": "브레멘",
+        "deal": "완전",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "£2.6m",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "리스 넬슨",
+        "direction": "out",
+        "club": "페예노르트",
+        "deal": "자유",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "자유계약 (계약 합의 해지)",
+        "sources": [
+          {
+            "name": "Feyenoord",
+            "url": "https://www.feyenoord.com/en/news/reiss-nelson-returns-to-feyenoord-0209261"
+          },
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "에단 은와네리",
+        "direction": "out",
+        "club": "도르트문트",
+        "deal": "임대",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "임대",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/ethan-nwaneri-joins-borussia-dortmund-on-loan-aQN7v3e8JvAT"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      },
+      {
+        "player": "토미 세트포드",
+        "direction": "out",
+        "club": "스티버니지",
+        "deal": "임대",
+        "stage": "오피셜",
+        "grade": "A",
+        "fee": "임대",
+        "sources": [
+          {
+            "name": "Arsenal.com",
+            "url": "https://www.arsenal.com/news/arsenal-transfers-all-the-ins-and-outs-in-202627-a8qx29v8B1fR"
+          },
+          {
+            "name": "Sports Mole",
+            "url": "https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/arsenal-summer-transfers-all-confirmed-ins-and-outs-for-2026_599109.html"
+          }
+        ],
+        "updated": "2026-09-02",
+        "check": true
+      }
+    ],
+    "rumors": [
+      {
+        "player": "훌리안 알바레스",
+        "direction": "in",
+        "club": "아틀레티코 마드리드",
+        "stage": "루머",
+        "grade": "C",
+        "fee": "미확정 (임대설)",
+        "note": "여름엔 아틀레티코 잔류로 끝났고, 1월 임대 가능성이 다시 거론됐어요. 구단 간 접촉 확인은 없어요.",
+        "sources": [
+          {
+            "name": "Yahoo Sports",
+            "url": null,
+            "date": "2026-09-22"
+          }
+        ],
+        "updated": "2026-09-22",
+        "check": true
+      },
+      {
+        "player": "데클란 라이스",
+        "direction": "out",
+        "club": "레알 마드리드",
+        "stage": "루머",
+        "grade": "C",
+        "fee": "—",
+        "note": "레알 마드리드 관심설. 라이스는 잔류 의사가 강하다는 보도가 먼저 나와 가능성은 낮게 봐요.",
+        "sources": [
+          {
+            "name": "CaughtOffside",
+            "url": null,
+            "date": "2026-09-09"
+          }
+        ],
+        "updated": "2026-09-09",
+        "check": true
+      }
+    ],
+    "contracts": [
+      {
+        "player": "미켈 아르테타 (감독)",
+        "stage": "합의",
+        "grade": "B",
+        "note": "새 장기 계약 합의 보도. 구단 발표가 나오면 오피셜로 바꿔요.",
+        "sources": [
+          {
+            "name": "Sky Sports",
+            "url": "https://www.skysports.com/football/news/13588507/mikel-arteta-contract-arsenal-boss-agrees-new-deal-to-extend-stay-at-premier-league-champions",
+            "date": "2026-09-22"
+          },
+          {
+            "name": "Goal",
+            "url": "https://www.goal.com/en-us/lists/mikel-arteta-agrees-new-arsenal-contract/blt6f9bd2f6550697a3",
+            "date": "2026-09-23"
+          },
+          {
+            "name": "BBC Sport",
+            "url": "https://www.bbc.co.uk/sport/football/articles/ckd68e40ze3jo",
+            "date": "2026-09-22"
+          },
+          {
+            "name": "The Guardian",
+            "url": "https://www.theguardian.com/football/2026/sep/22/mikel-arteta-agrees-contract-extension-arsenal-2030",
+            "date": "2026-09-23"
+          }
+        ],
+        "updated": "2026-09-23",
+        "check": true
+      },
+      {
+        "player": "라이스 · 외데고르 · 팀버",
+        "stage": "협상",
+        "grade": "C",
+        "note": "세 선수 모두 2028년 여름 만료. 재계약 협상 중이라는 보도가 이어지고, 팀버 쪽이 가장 앞서 있다는 보도가 있어요.",
+        "sources": [
+          {
+            "name": "TEAMtalk",
+            "url": null,
+            "date": "2026-09-23"
+          },
+          {
+            "name": "Yahoo Sports",
+            "url": null,
+            "date": "2026-09"
+          }
+        ],
+        "updated": "2026-09-23",
+        "check": true
+      },
+      {
+        "player": "카이 하베르츠",
+        "stage": "루머",
+        "grade": "C",
+        "note": "연봉 인상 없는 연장 계약에 서명할 것이라는 보도가 한 곳에서만 나왔어요.",
+        "sources": [
+          {
+            "name": "Premier League News Now",
+            "url": null,
+            "date": "2026-09 초"
+          }
+        ],
+        "updated": "2026-09",
+        "check": true
+      }
+    ],
+    "closedRumors": [
+      {
+        "player": "훌리안 알바레스",
+        "result": "영입 무산, 아틀레티코 잔류"
+      },
+      {
+        "player": "비니시우스 주니어",
+        "result": "무산, 레알과 2032년까지 재계약"
+      },
+      {
+        "player": "브래들리 바르콜라",
+        "result": "가격 차로 영입 없이 끝남"
+      },
+      {
+        "player": "페란 토레스",
+        "result": "탐색 단계에서 끝남"
+      },
+      {
+        "player": "호아킨 사이스",
+        "result": "영입 없음"
+      },
+      {
+        "player": "자렐 콴사",
+        "result": "레버쿠젠 매각 거부 보도, 영입 없음"
+      },
+      {
+        "player": "잭 힌셸우드",
+        "result": "영입 없음"
+      },
+      {
+        "player": "빅터 오시멘",
+        "result": "갈라타사라이 매각 거부, 영입 없음"
+      },
+      {
+        "player": "마티아스 페르난데스-파르도",
+        "result": "마감 직전 접촉 보도, 영입 없음"
+      },
+      {
+        "player": "케난 이을드즈",
+        "result": "스왑안 무산"
+      },
+      {
+        "player": "니코 윌리엄스 · 깁스화이트 · 토날리 · 모건 로저스",
+        "result": "링크만 있었고 영입 없음"
+      },
+      {
+        "player": "마르티넬리",
+        "result": "갈라타사라이 입찰 거절, 최종 알힐랄행"
+      },
+      {
+        "player": "제주스",
+        "result": "나폴리 관심, 최종 바르셀로나행"
+      },
+      {
+        "player": "은와네리",
+        "result": "AC 밀란·갈라타사라이 관심, 도르트문트 임대로 끝남"
+      },
+      {
+        "player": "루이스-스켈리",
+        "result": "첼시 문의, 아스날 거절 보도로 잔류 (계약 2030년까지)"
+      },
+      {
+        "player": "벤 화이트",
+        "result": "에버턴행설, 이적 없이 잔류"
+      }
+    ],
+    "closedNote": "결과 기준: 구단 확정 영입·방출 목록에 없으면 «영입 없음»·«잔류»로 적었어요."
+  },
+  "headlines": {
+    "fetchedAt": "2026-09-28 15:21 KST",
+    "note": "제목은 원문 그대로, 요약은 제목과 소개글만 보고 쓴 한 줄입니다.",
+    "items": [
+      {
+        "title": "Carsley urges patience over Dowman and England",
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/articles/cqx2z4x4m9zdo",
+        "published": "2026-09-23 02:00 KST",
+        "summaryKo": "U-19 대표팀에 뽑힌 다우먼, 칼즐리 감독은 대표팀 승격을 서두르지 말자고 당부"
+      },
+      {
+        "title": "Arteta agrees new deal with champions Arsenal",
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/articles/ckd68e40ze3jo",
+        "published": "2026-09-22 20:48 KST",
+        "summaryKo": "아르테타 감독이 조건이 좋아진 새 계약에 합의"
+      },
+      {
+        "title": "Brighton humbling 'a big lesson' for Arsenal - Arteta",
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/articles/cmqlw745q30vo",
+        "published": "2026-09-20 04:05 KST",
+        "summaryKo": "아르테타, 브라이턴전 0-3 완패를 팀에 필요한 «큰 교훈»으로 받아들여"
+      },
+      {
+        "title": "Arsenal open to Dowman loan in right circumstances",
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/articles/crp3k23nkl8go",
+        "published": "2026-09-19 06:30 KST",
+        "summaryKo": "아스날, 성장에 도움이 된다면 이번 시즌 다우먼 임대도 열어 둔다"
+      },
+      {
+        "title": "Arteta responds to journalist's wishes over new contract",
+        "source": "BBC Sport",
+        "url": "https://www.bbc.co.uk/sport/football/videos/cqdr72v42nxeo",
+        "published": "2026-09-18 19:33 KST",
+        "summaryKo": "(영상) 아르테타, 재계약은 «때가 되면» 서명할 것이라고 답해"
+      },
+      {
+        "title": "Have Arsenal been figured out? Three big questions after Brighton’s upset",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/sport/2026/sep/24/arsenal-brighton-premier-league-questions",
+        "published": "2026-09-24 19:00 KST",
+        "summaryKo": "브라이턴전 패배 뒤 남은 세 가지 질문 — 상대 팀들이 아스날 공략법을 찾았나"
+      },
+      {
+        "title": "Mikel Arteta agrees contract extension expected to keep him at Arsenal until 2030",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/football/2026/sep/22/mikel-arteta-agrees-contract-extension-arsenal-2030",
+        "published": "2026-09-23 02:36 KST",
+        "summaryKo": "아르테타, 2030년까지 이어질 것으로 보이는 연장 계약에 합의 — 연봉도 크게 오를 전망"
+      },
+      {
+        "title": "Premier League: 10 talking points from the weekend’s action",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/football/2026/sep/21/premier-league-10-talking-points-from-the-weekends-action",
+        "published": "2026-09-21 16:00 KST",
+        "summaryKo": "EPL 5라운드 주말 10가지 이야깃거리 — 리즈 골키퍼 트래퍼드의 활약도 포함"
+      },
+      {
+        "title": "‘They deserved to win’: Mikel Arteta left humbled by Brighton defeat",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/football/2026/sep/19/mikel-arteta-arsenal-humbled-brighton-defeat",
+        "published": "2026-09-20 02:34 KST",
+        "summaryKo": "아르테타 «브라이턴이 이길 만했다» — 개막 전승 행진이 끝나"
+      },
+      {
+        "title": "Brighton demolish champions Arsenal 3-0 to mark anniversary in style",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/football/2026/sep/19/brighton-arsenal-premier-league-match-report",
+        "published": "2026-09-20 01:06 KST",
+        "summaryKo": "브라이턴, 창단 125주년 기념 경기에서 챔피언 아스날을 3-0으로 꺾어"
+      },
+      {
+        "title": "Havertz heads back to Arsenal after Germany injury",
+        "source": "Arseblog News",
+        "url": "https://arseblog.news/2026/09/havertz-heads-back-to-arsenal-after-germany-injury/",
+        "published": "2026-09-25 20:12 KST",
+        "summaryKo": "하베르츠, 독일 대표팀 네덜란드전에서 다쳐 소속팀으로 조기 복귀"
+      },
+      {
+        "title": "Arsenal goalkeeper Charlie Phillips makes good progress",
+        "source": "Arseblog News",
+        "url": "https://arseblog.news/2026/09/arsenal-goalkeeper-charlie-phillips-makes-good-progress/",
+        "published": "2026-09-24 20:02 KST",
+        "summaryKo": "어린 골키퍼 찰리 필립스, 카라바오컵 1군 세 번째 골키퍼로 뽑히는 등 성장세"
+      },
+      {
+        "title": "Carsley: England must get the timing right with Dowman",
+        "source": "Arseblog News",
+        "url": "https://arseblog.news/2026/09/carsley-england-must-get-the-timing-right-with-dowman/",
+        "published": "2026-09-23 20:36 KST",
+        "summaryKo": "칼즐리 U-21 감독 «다우먼의 대표팀 발탁은 시기를 잘 골라야»"
+      },
+      {
+        "title": "Report: Arteta’s backroom staff set for new deals",
+        "source": "Arseblog News",
+        "url": "https://arseblog.news/2026/09/report-artetas-backroom-staff-set-for-new-deals/",
+        "published": "2026-09-23 02:25 KST",
+        "summaryKo": "디 애슬레틱 보도 — 감독 재계약 발표를 앞두고 코칭스태프도 새 계약 협상 중"
+      },
+      {
+        "title": "Two more November fixtures moved for broadcast",
+        "source": "Arseblog News",
+        "url": "https://arseblog.news/2026/09/two-more-november-fixtures-moved-for-broadcast/",
+        "published": "2026-09-22 00:15 KST",
+        "summaryKo": "방송 편성으로 11월 두 경기 시간이 바뀌며 11월 일정 확정"
+      }
+    ]
+  },
+  "preview": {
+    "opponent": "리즈 유나이티드",
+    "competition": "프리미어리그 6R",
+    "kickoff": "10.10 (토) 20:30 KST (현지 12:30)",
+    "kickoffIso": "2026-10-10T20:30+09:00",
+    "venue": "에미레이츠 스타디움 (홈)",
+    "check": true,
+    "intro": [
+      "다니엘 파르케 감독 체제의 리즈는 개막 {{leeds.played}}경기 {{leeds.won}}승 {{leeds.drawn}}무 무패로 {{leeds.position}}위에 올라 있다.",
+      "구단 최고 이적료로 데려온 골키퍼 트래퍼드를 중심으로 수비를 다시 짜며 쉽게 지지 않는 팀이 됐다."
+    ],
+    "keyPoints": [
+      "휴식기 3주, 브라이턴전에서 드러난 압박 대응과 세트피스 수비를 얼마나 고쳤나",
+      "부상자 복귀 — {{arsenal.injuryUpdate}}",
+      "{{leeds.unbeaten}}경기 무패 리즈의 단단한 수비를 아스날 공격이 뚫을 수 있나"
+    ],
+    "numbers": {
+      "arsenalPosition": "{{arsenal.position}}",
+      "arsenalPoints": "{{arsenal.points}}",
+      "leedsPosition": "{{leeds.position}}",
+      "leedsPoints": "{{leeds.points}}",
+      "h2hLast": "{{h2h.last}}"
+    }
+  },
+  "menu": {
+    "items": [
+      {
+        "key": "home",
+        "name": "홈",
+        "desc": "지금 아스날 한 줄 요약과 다음 경기·순위·최근 결과",
+        "tabLabel": "홈"
+      },
+      {
+        "key": "matches",
+        "name": "경기",
+        "desc": "한국시간 일정과 결과, 경기 요약, 부상자, 다음 상대 미리보기",
+        "tabLabel": "경기"
+      },
+      {
+        "key": "table",
+        "name": "순위·기록",
+        "desc": "EPL 순위표와 아스날 데이터룸 기록",
+        "tabLabel": "순위"
+      },
+      {
+        "key": "squad",
+        "name": "선수단",
+        "desc": "1군 선수 명단과 포지션별 정보",
+        "tabLabel": "선수단"
+      },
+      {
+        "key": "news",
+        "name": "소식",
+        "desc": "칼럼·기자회견·팬 여론·이적 소식을 한곳에",
+        "tabLabel": "소식"
+      }
+    ],
+    "newsSubTabs": [
+      {
+        "key": "columns",
+        "name": "칼럼"
+      },
+      {
+        "key": "press",
+        "name": "기자회견"
+      },
+      {
+        "key": "fans",
+        "name": "팬 여론"
+      },
+      {
+        "key": "transfers",
+        "name": "이적"
+      }
+    ]
+  },
+  "broadcastNote": {
+    "text": "중계: 프리미어리그 쿠팡플레이 · 챔피언스리그 {{broadcast.ucl}} · 카라바오컵 {{broadcast.carabao}}",
+    "short": "EPL 쿠팡플레이",
+    "check": true
+  }
+}

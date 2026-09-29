@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>아스날 팬 허브</title>
 <meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0A0B0E">
 <link rel="icon" href="data:,">
 <!-- 테마: 기본 다크, 사용자가 고른 값이 있으면 첫 그리기 전에 적용 -->
-<script>try{var __t=localStorage.getItem("theme");document.documentElement.dataset.theme=(__t==="light"?"light":"dark");}catch(e){}</script>
+<script>try{var __t=localStorage.getItem("theme");document.documentElement.dataset.theme=(__t==="light"?"light":"dark");if(__t==="light")document.querySelector('meta[name="theme-color"]').content="#F3F4F6";}catch(e){}</script>
 <!-- 글꼴: Pretendard 1.3.9 · Archivo — 둘 다 SIL OFL 1.1.
      본문(HTML)을 다 받은 뒤에 붙인다 — 글꼴이 먼저 받아지면 느린 폰망에서 본문·데이터가 늦어진다. 글꼴 파일은 font-display:swap. -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -67,6 +68,7 @@
   --text:#0E1014; --text-2:#454A55; --text-3:#646A76;
   --accent:#D1101A; --accent-ink:#FFFFFF; --accent-text:#BE0E17; --accent-soft:#FDECEC;
   --win:#13803F; --draw:#5E6573; --loss:#C4202B; --form-ink:#FFFFFF;
+  --win-text:#0E6A33; --loss-text:#A81C25;
   --live:#CF111A; --dawn:#4B45D6; --dawn-soft:#ECEBFF; --gold:#8A6A26;
   --comp-epl:#5B2CD6; --comp-ucl:#1D5FD1; --comp-efl:#0E7E55; --comp-fa:#B4261D;
   --zone-ucl:#1D5FD1; --zone-uel:#D46A00; --zone-rel:#C4202B;
@@ -85,6 +87,7 @@
     --text:#F3F4F6; --text-2:#B3B9C4; --text-3:#8A919D;
     --accent:#E3141E; --accent-ink:#FFFFFF; --accent-text:#FF5C63; --accent-soft:rgba(227,20,30,.16);
     --win:#15803D; --draw:#555C69; --loss:#D42A34; --form-ink:#FFFFFF;
+    --win-text:#3DD68C; --loss-text:#FF6B72;
     --live:#FF3B3F; --dawn:#A3A6FF; --dawn-soft:rgba(120,124,255,.16); --gold:#D4AF63;
     --comp-epl:#A98BFF; --comp-ucl:#6FA3FF; --comp-efl:#4FD29A; --comp-fa:#FF7A70;
     --zone-ucl:#4C8DFF; --zone-uel:#FF9A2E; --zone-rel:#FF4D57;
@@ -102,6 +105,7 @@
   --text:#F3F4F6; --text-2:#B3B9C4; --text-3:#8A919D;
   --accent:#E3141E; --accent-ink:#FFFFFF; --accent-text:#FF5C63; --accent-soft:rgba(227,20,30,.16);
   --win:#15803D; --draw:#555C69; --loss:#D42A34; --form-ink:#FFFFFF;
+  --win-text:#3DD68C; --loss-text:#FF6B72;
   --live:#FF3B3F; --dawn:#A3A6FF; --dawn-soft:rgba(120,124,255,.16); --gold:#D4AF63;
   --comp-epl:#A98BFF; --comp-ucl:#6FA3FF; --comp-efl:#4FD29A; --comp-fa:#FF7A70;
   --zone-ucl:#4C8DFF; --zone-uel:#FF9A2E; --zone-rel:#FF4D57;
@@ -211,7 +215,7 @@ button{font:inherit;color:inherit}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--live);animation:pulse 1.6s var(--ease-in-out) infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 60%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
 
-/* 팀 모노그램 — 구단 로고 대신 3글자 약어 */
+/* 팀 모노그램 — 엠블럼 파일이 없는 구단에 쓰는 3글자 약어 */
 .mono{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--surface-3);color:var(--text-2);
   font-family:var(--font-num);font-stretch:75%;font-weight:800;font-size:12px;letter-spacing:.04em;flex:none}
 .mono--us{background:var(--accent);color:var(--accent-ink)}
@@ -426,7 +430,7 @@ button{font:inherit;color:inherit}
 /* ---------- 21. 상태 칩 (선수 상태) ---------- */
 .st{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 7px;border-radius:var(--r-xs);font-size:12px;font-weight:var(--w-bold);white-space:nowrap;background:color-mix(in srgb,var(--s,var(--text-3)) 13%,transparent);color:var(--s,var(--text-2))}
 .st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.st--out{--s:var(--loss)}.st--doubt{--s:var(--grade-c)}.st--return{--s:var(--win)}.st--ok{--s:var(--win)}
+.st--out{--s:var(--loss-text)}.st--doubt{--s:var(--grade-c)}.st--return{--s:var(--win-text)}.st--ok{--s:var(--win-text)}
 .st--new{--s:var(--accent-text)}.st--cap{--s:var(--gold)}.st--info{--s:var(--text-2)}
 .st--loan{background:transparent;box-shadow:inset 0 0 0 1px var(--line-strong);color:var(--text-3)}
 .st--loan::before{display:none}
@@ -516,6 +520,7 @@ body.is-locked{overflow:hidden}
 /* ---------- 26. 기사 줄 (칼럼) · 시간선 (여론) ---------- */
 .article{display:grid;grid-template-columns:52px 1fr;gap:var(--sp-3);padding:var(--sp-4) 0;border-bottom:1px solid var(--line)}
 .article:last-child{border-bottom:0}
+.article__wd{display:block;font-size:12px;font-weight:600;color:var(--text-3)}
 .article__date{font-family:var(--font-num);font-stretch:78%;font-weight:800;font-size:17px;color:var(--text-2);font-variant-numeric:tabular-nums;line-height:1.3}
 .article__meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11px;font-weight:var(--w-bold);letter-spacing:.04em;color:var(--text-3)}
 .article__ko{display:block;margin-top:4px;font-family:var(--font-head);font-size:var(--t-lg);font-weight:var(--w-bold);line-height:var(--lh-snug);letter-spacing:-.02em}
@@ -1095,7 +1100,7 @@ details.closed li span{color:var(--text-3)}
       <summary><span><span class="sec-title">경기 결과 기록</span> <span class="eyebrow">프리시즌부터 · 긴 해설</span></span><svg class="ico" aria-hidden="true"><use href="#i-arrowR"/></svg></summary>
       <div class="rlog-wrap">
 <div class="rlog"><span class="rlog__d num">9/19(토) 23:00</span><span class="comp comp--epl">EPL 5R</span><span class="rlog__t">브라이턴 <span class="score num">3 : 0</span> 아스날 <span class="muted">(원정)</span></span><span class="st st--info">시즌 첫 패배</span></div>
-      <p class="rlog__p"><b>브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>카랄람포스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
+      <p class="rlog__p"><b>브라이턴 원정 0-3 완패, 시즌 첫 리그 패배(전 대회 통산 7전 전승 후 첫 패).</b> <b>파스칼 그로스(31')</b>가 박스 바깥에서 감아찬 슈팅이 골포스트를 맞고 골문 오른쪽 아래로 들어갔고, <b>하랄람보스 코스툴라스(45')</b>가 박스 근처에서 환상적인 중거리슛으로 추가골을 넣었으며, <b>체마 안드레스(57')</b>가 코너킥 상황 헤더로 쐐기골을 꽂았다. 아스날은 하베르츠·칼라피오리를 통해 기회를 만들었으나 득점으로 연결하지 못했다. 아르테타는 "매우 실망스러운 결과이자 경기력"이라며 <b>몸싸움에서 밀렸고 기술적으로 부족했으며 브라이턴의 압박에 대응하지 못했고 세트피스에서 취약했다</b>고 자평했다("이런 일이 다시 일어나선 안 된다"). 파비안 휘르첼러 브라이턴 감독은 자신들의 스타일에 대한 소신을 밝히면서도 아스날의 우승 후보 자격을 인정했다. <span class="muted">(ESPN·Sky Sports·Arseblog 9/19~20)</span></p>
       <div class="rlog"><span class="rlog__d num">9/16(수) 04:00</span><span class="comp comp--efl">카라바오컵 3R</span><span class="rlog__t">입스위치 타운 <span class="score num">2 : 4</span> 아스날 <span class="muted">· 포트먼 로드 (원정)</span></span><span class="st st--ok">4라운드 진출</span></div>
       <p class="rlog__p">9명을 로테이션한 스쿼드로 나서 16세 맥스 다우먼이 2골(7'·47'), 노니 마두에케(16')·미켈 메리노(58')가 추가골을 넣었다(입스위치는 메흐메티(62')·아크폼(90+1') 만회골). 아르테타는 다우먼의 활약을 "뛰어난 개별 플레이로 경기를 좌지우지했다"고 평가했다.</p>
       <div class="rlog"><span class="rlog__d num">9/13(일) 04:00</span><span class="comp comp--epl">EPL 4R</span><span class="rlog__t">선덜랜드 <span class="score num">0 : 2</span> 아스날 <span class="muted">· 스타디움 오브 라이트 (원정)</span></span><span class="st st--ok">4연승</span></div>
@@ -1271,7 +1276,7 @@ details.closed li span{color:var(--text-3)}
 <section class="panel" id="panel-news" data-group="news">
   <header class="page-head">
     <h1>소식</h1>
-    <p>칼럼·기자회견·팬 여론·이적 소식을 한곳에 모았어요. 기사는 한국어 요약이 먼저, 원문 제목은 작게 달아요.</p>
+    <p>칼럼·기자회견·팬 여론·이적 소식을 한곳에 모았어요. 헤드라인은 한국어 요약이 먼저, 원문 제목은 작게 달아요. 칼럼은 한국어 요약과 원문 링크로 정리했어요.</p>
   </header>
   <section class="hl-grid" id="hlCard" aria-labelledby="t-hl">
     <div class="card">
@@ -1295,212 +1300,212 @@ details.closed li span{color:var(--text-3)}
   <div class="two">
     <div class="card">
       <div class="sec-head"><h2 class="sec-title">전문가 칼럼</h2><span class="eyebrow">원문 발행일(현지) 순 · 9/21 기준</span></div>
-<article class="article"><span class="article__date num" title="9월 20일 (일)">9.20</span><div>
+<article class="article"><span class="article__date num" title="9월 20일 (일)">9/20<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Arseblog · 9/20</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/brighton-3-0-arsenal-shoddy-gunners-get-what-they-deserve/" target="_blank" rel="noopener">"Brighton 3-0 Arsenal: 지저분했던 거너스, 자업자득"</a>
   <p class="article__sum">시즌 첫 리그 패배(브라이턴 원정 0-3)를 두고 "패배가 마땅했다"고 냉정하게 평가한 칼럼. 브라이턴의 강한 맨마킹 압박 앞에 미드필드에서부터 볼을 쉽게 내주는 등 기술적으로 부실했고, 라야의 머뭇거리는 빌드업이 팀 전체에 전염됐다고 짚었다. 가브리엘 마갈량이스가 그로스의 선제골 장면에서 늦게 붙었고, 기마랑이스는 볼을 자주 뺏기고 커버 스피드가 부족했다고 지적했으며, 하베르츠는 골키퍼까지 제친 결정적 찬스를 놓쳤다고 아쉬워했다. 전술적으로는 ①높은 압박을 받았을 때 대안(플랜B) 부재 ②마르티넬리 이적 이후 스쿼드에 스피드가 사라진 점 ③아르테타의 교체 타이밍이 늦었던 것 아니냐는 의문을 제기했다. 다만 "호들갑 떨 필요는 없다"며 시즌 전체로 보면 이번 패배 전까지 무패 행진이었던 만큼 국제 A매치 브레이크를 거쳐 리즈전(10/10, 홈)에서 만회할 기회가 있다고 마무리했다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 17일 (목)">9.17</span><div>
+<article class="article"><span class="article__date num" title="9월 17일 (목)">9/17<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>Arseblog · 9/17</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/the-gyokeres-conversations-will-continue/" target="_blank" rel="noopener">"요케레스를 둘러싼 대화는 계속될 것이다"</a>
   <p class="article__sum">지난 시즌 전 대회 21골(리그 14골)을 넣었던 빅토르 요케레스가 이번 시즌 프리미어리그에서 단 12분밖에 뛰지 못했다고 지적하는 칼럼. 필진은 ①카이 하베르츠가 주전 원톱 자리를 굳힌 포지션 경쟁, ②스포르팅 시절과 달리 2선에서 뛰길 요구받는 데서 오는 심리적 부담, ③5월 이후 득점이 없는 자신감 저하를 부진의 원인으로 꼽으며 "결국 현재 그의 플레이 스타일이 지금 아스날 팀과 맞지 않는다"고 평가했다. 1월 이적시장 전까지 이 논쟁이 계속될 것으로 전망했다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 8일 (화)">9.8</span><div>
+<article class="article"><span class="article__date num" title="9월 8일 (화)">9/8<span class="article__wd">(화)</span></span><div>
   <div class="article__meta"><span>Arseblog · 미디어 비평</span></div>
   <span class="article__ko">Arseblog — "Tedious media narratives"</span>
   <p class="article__sum">Sky Sports 등 해외 매체가 아스날의 무패 행진을 다루는 방식이 지나치게 선정적·자극적이라고 비판하는 칼럼. "챔피언은 이렇게 될 것이다" 류의 성급한 서사보다 시즌 중반까지 꾸준함을 지키는 게 우선이라는 논조로, 시즌 초반 과열된 미디어 담론에 거리를 두려는 Arseblog 특유의 시각을 담았다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 7일 (월)">9.7</span><div>
+<article class="article"><span class="article__date num" title="9월 7일 (월)">9/7<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>FootballTransfers · Cameron Smith</span></div>
   <a class="article__ko" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/09/arsenal-news-premier-league-title-2027-analysis-dark-arts-mastered-in-form-attack" target="_blank" rel="noopener">"다크아츠를 마스터한 아르테타, 프리미어리그 타이틀에 한 손을 얹었다"</a>
   <p class="article__sum">기마랑이스·콘사 영입 이후 백업 스쿼드마저 "톱4급"으로 올라섰다고 평가하며, 첼시전에서 보여준 맨시티식 "전술적 파울" 관리 능력, 외데고르·하베르츠의 나란한 3골 페이스, 첼시전 0.39 xG 허용에 그친 수비 안정감을 근거로 우승 경쟁력을 높게 평가하는 칼럼.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 7일 (월)">9.7</span><div>
+<article class="article"><span class="article__date num" title="9월 7일 (월)">9/7<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Arseblog News · 경기 리뷰</span></div>
   <a class="article__ko" href="https://arseblog.news/2026/09/arsenal-2-1-chelsea-on-the-whistle/" target="_blank" rel="noopener">Arseblog News — "On the whistle" 첼시전 총평</a>
   <p class="article__sum">첼시전 2-1 역전승을 되짚는 경기 리뷰 칼럼. 킥오프 77초 만의 실점을 딛고 하베르츠·외데고르의 연속골로 뒤집은 경기 흐름을 정리하며, 부상으로 6~7개월씩 빠졌던 선수들(사카 3개월 반·하베르츠 7개월 등)을 감안하면 더 값진 승리라는 논조.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 7일 (월)">9.7</span><div>
+<article class="article"><span class="article__date num" title="9월 7일 (월)">9/7<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Arseblog News · 인용 모음</span></div>
   <a class="article__ko" href="https://arseblog.news/2026/09/post-chelsea-quotes-round-up-arteta-alonso-odegaard-konsa-havertz-wright-keown-more/" target="_blank" rel="noopener">Arseblog News — 첼시전 후 코멘트 총정리</a>
   <p class="article__sum">아르테타·사비 알론소(첼시)·외데고르·콘사·하베르츠에 더해 이안 라이트·마틴 키언 등 방송 해설진의 코멘트까지 한데 모은 정리 칼럼(상세는 기자회견 탭 참고).</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 7일 (월)">9.7</span><div>
+<article class="article"><span class="article__date num" title="9월 7일 (월)">9/7<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Arseblog · 팟캐스트</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/arsecast-extra-episode-711-07-09-2026/" target="_blank" rel="noopener">아스캐스트 엑스트라 에피소드 711</a>
   <p class="article__sum">첼시전 분석(풀백 공격 가담과 그로 인한 수비 리스크의 상충 관계), 라이스·로저스·가브리엘 관련 장면, 3경기 소화 후 시즌 총평, 나폴리전 로테이션·메리노 활용법·스쿼드 뎁스·향후 겨울 이적시장 타겟에 대한 청취자 질의응답을 다뤘다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 7일 (월)">9.7</span><div>
+<article class="article"><span class="article__date num" title="9월 7일 (월)">9/7<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>SportBible · 논란성 칼럼</span></div>
   <a class="article__ko" href="https://www.sportbible.com/football/football-news/arsenal/mikel-arteta-arsenal-chelsea-premier-league-rule-765103-20260906" target="_blank" rel="noopener">스포트바이블 — "아르테타, 테크니컬 에어리어 규정 위반을 계속 눈감아준다는 지적"</a>
   <p class="article__sum">첼시전에서 아르테타 감독이 지정된 테크니컬 에어리어를 벗어나 터치라인에 계속 나와 있었다는 팬들의 SNS 지적을 다룬 칼럼. 데 제르비·야이슬레 등 다른 감독들은 같은 사안으로 이번 시즌 경고를 받았는데 아르테타만 제재를 피해간다는 불만을 소개한다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 6일 (일)">9.6</span><div>
+<article class="article"><span class="article__date num" title="9월 6일 (일)">9/6<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Arseblog · 첼시전 프리뷰 칼럼</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/can-arteta-take-advantage-of-early-days-alonso-as-chelsea-visit/" target="_blank" rel="noopener">Arseblog — "초기 단계 알론소를 아르테타가 공략할 수 있을까?"</a>
   <p class="article__sum">신임 첼시 감독 사비 알론소가 아직 시스템 정착 초기 단계라는 점에 주목하는 칼럼. 첼시가 최근 브라이턴전 3실점·풀럼전 2실점 등 수비 불안을 노출했다고 짚으며, 아직 자리 잡지 못한 첼시를 상대로 아스날의 안정된 조직력과 완성도가 우위를 가져갈 수 있다고 진단한다. 예상 선발로는 <b>에베레치 에제가 왼쪽 윙 자리</b>를 맡을 가능성을 거론했다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 4일 (금)">9.4</span><div>
+<article class="article"><span class="article__date num" title="9월 4일 (금)">9/4<span class="article__wd">(금)</span></span><div>
   <div class="article__meta"><span>Arseblog · 작별 칼럼</span></div>
   <span class="article__ko">Arseblog — "Goodbye to Little Gabi"</span>
   <p class="article__sum">알힐랄로 완전 이적한 가브리엘 마르티넬리를 다루는 작별 칼럼. 2019년 이투아노에서 입단해 7년간 <b>278경기 62골</b>을 기록했고 이번 이적으로 구단 역대 최고 매각가(최종 £60m, 합의 당시 보도 £55.7m)를 남겼다는 점을 되짚는다. 이안 라이트 등의 발언을 인용하며 최근 시즌 출전 시간이 줄어드는 과정에서 구단과 다소 온도차가 있었을 수 있다는 뉘앙스도 담았지만, 전반적으로는 그의 공헌과 인간적인 면모를 기리는 애정 어린 논조.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 3일 (목)">9.3</span><div>
+<article class="article"><span class="article__date num" title="9월 3일 (목)">9/3<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>Arseblog · 전술 분석</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/how-do-arsenal-improve-their-attack-now/" target="_blank" rel="noopener">Arseblog — "아스날은 이제 공격을 어떻게 개선할까?"</a>
   <p class="article__sum">마르티넬리·트로사르·제주스가 모두 떠나고 촐리스 한 명만 영입된 상황에서 아스날이 쓸 수 있는 현실적 대안을 짚는다. 사카·외데고르·하베르츠 등 핵심 자원의 건강 관리가 득점력 유지의 최우선 과제라는 데이터를 제시하고, 마르티넬리·트로사르 공백으로 <b>에제가 왼쪽 윙어로 더 자주 기용될 가능성</b>과 <b>메리노의 다재다능함</b>이 공격 보강의 실마리가 될 수 있다고 분석한다. 부족한 상황을 인정하면서도 기존 전력의 재배치로 풀어갈 수 있다는 현실적이고 다소 긍정적인 논조.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 3일 (목)">9.3</span><div>
+<article class="article"><span class="article__date num" title="9월 3일 (목)">9/3<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>Arseblog · 이적시장 총평</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/09/the-focus-turns-to-the-football/" target="_blank" rel="noopener">Arseblog — "이제 초점은 축구로 넘어간다"</a>
   <p class="article__sum">이적시장이 마감된 지금, 이제는 스쿼드와 감독의 경기력으로 증명해야 할 때라는 논조. 비니시우스 영입 시도 등 야심찬 움직임을 보였으나 결국 제한적인 보강에 그쳤다는 점은 인정하면서도, 현재 스쿼드가 "매우 우수하다"고 평가하고 미드필드·수비 조직력의 강점을 강조한다. 공격진 보강 부족에 대한 우려는 여전히 남겨두되, 아르테타 감독이 이적시장의 제한 속에서도 창의적인 전술 해법을 찾아 "우리가 보유한 것을 지키고 챔피언임을 상기시켜야 한다"고 결론짓는다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 2일 (수)">9.2</span><div>
+<article class="article"><span class="article__date num" title="9월 2일 (수)">9/2<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Arseblog · 이적시장 결산</span></div>
   <span class="article__ko">Arseblog — 이적시장 결산: "좋고, 좋고, 그리고 꽤 나쁘다"</span>
   <p class="article__sum">브루누 기마랑이스·에즈리 콘사 영입은 긍정 평가하지만, 마르티넬리·제주스·비에이라 방출 후 대체 윙어가 촐리스 한 명뿐인 공격진 보강은 "완전한 실패"에 가깝다고 혹평한다. 비니시우스·알바레스 영입 실패, 모건 로저스 등 대체 윙어 후보를 확보하지 못한 점도 비판 대상. 리처드 갈릭 CEO의 낙관적 인터뷰(아래 기자회견/인터뷰 탭 참고)와 대비되는 팬 심리 온도차를 짚었다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="9월 2일 (수)">9.2</span><div>
+<article class="article"><span class="article__date num" title="9월 2일 (수)">9/2<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>footballtransfers.com · 이적시장 비평</span></div>
   <span class="article__ko">footballtransfers.com(Tom Weber) — "거너스는 이번 여름 할 일이 하나였는데, 완전히 실패했다"</span>
   <p class="article__sum">비니시우스·알바레스 영입에 올인했다가 둘 다 놓치고, 방출된 마르티넬리·제주스의 대체 윙어(바르콜라·은디아예·포파나 등 거론됐던 대안)도 확보하지 못했다고 비판한다. 촐리스 단독 체제로 시즌을 치러야 하는 위험성을 경고하는 논조.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 30일 (일)">8.30</span><div>
+<article class="article"><span class="article__date num" title="8월 30일 (일)">8/30<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Arseblog · 이적시장 비평</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/08/a-sunday-hot-take-sort-of-but-not-really/" target="_blank" rel="noopener">Arseblog — 일요일 성급한 생각(비슷한 것): 나가는 게 둘인데 들어오는 게 하나면 실패한 이적시장</a>
   <p class="article__sum">마르티넬리·제주스가 모두 떠나는 상황에서 공격 자원 보강이 트로사르 대체자 한 명뿐이라면 "실패한 여름"으로 남을 수 있다는 우려를 담았다. 마르티넬리(지난 시즌 전 대회 11골 7도움/53경기)·제주스(27경기 6골 2도움)·트로사르(50경기 8골 11도움)의 생산력을 근거로, 하베르츠·사카·외데고르 등 기존 자원의 잦은 부상 이력을 감안하면 백업 뎁스가 얇아질 수 있다고 지적한다. 알바레스 사가는 오른스타인의 "사실상 무산" 보도를 인용해 비관적으로 서술했다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 20일 (목)">8.20</span><div>
+<article class="article"><span class="article__date num" title="8월 20일 (목)">8/20<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>VAVEL International · 시즌 분석</span></div>
   <a class="article__ko" href="https://www.vavel.com/en/football/2026/08/20/arsenal/1268429-how-difficult-will-arsenal-s-title-defence-be.html" target="_blank" rel="noopener">VAVEL — 아스날의 타이틀 방어, 얼마나 어려울까</a>
   <p class="article__sum">제마 램지-베넷이 리그 연속 우승 방어의 난이도를 짚은 칼럼. 라이벌 구단들의 감독 교체로 인한 혼란기가 오히려 아스날에 유리하게 작용할 수 있다는 논조를 편다. 살리바·팀버 동시 결장 같은 수비 공백 리스크는 여전히 변수로 남는다고 짚었다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 19일 (수)">8.19</span><div>
+<article class="article"><span class="article__date num" title="8월 19일 (수)">8/19<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Opta Analyst · 데이터 분석</span></div>
   <a class="article__ko" href="https://theanalyst.com/articles/arsenal-premier-league-title-defence-2026-27-preview" target="_blank" rel="noopener">Opta Analyst — 아스날의 우승 방어, 다섯 가지 질문</a>
   <p class="article__sum">올리버 홉킨스가 연속 우승 도전을 다섯 가지 이슈로 짚었다. ①스쿼드 연속성이라는 이점 ②우승 방어 자체의 통계적 난이도 ③살리바·팀버 결장에 따른 수비 공백 ④세트피스 의존도(지난 시즌 코너킥 19골, EPL 최다 기록) ⑤71골을 넣은 득점력 유지 여부. 데이터에 기반해 강점과 리스크를 균형 있게 짚는 톤이다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 19일 (수)">8.19</span><div>
+<article class="article"><span class="article__date num" title="8월 19일 (수)">8/19<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Cannon Stats · 비판적 분석</span></div>
   <a class="article__ko" href="https://www.cannonstats.com/p/prose-and-konsa" target="_blank" rel="noopener">캐논 스탯츠 — &quot;프로즈 앤 콘사&quot;: 논리는 이해되지만 전적으로 지지하긴 어렵다</a>
   <p class="article__sum">애덤 레이 보지가 콘사(£51m) 영입을 비판적으로 짚은 칼럼. 살리바 결장·팀버 공백을 메울 즉시 전력이라는 논리 자체는 이해하지만, £51m은 <b>28세 이상 수비수 역대 최고 이적료</b>에 해당해 재판매 가치가 사실상 없다는 점을 지적한다. 또한 콘사 영입이 어린 센터백 모스케라의 출전 기회를 줄일 수 있다는 우려도 제기했다. 전면 반대는 아니지만 &quot;전적으로 지지하지는 않는다&quot;는 유보적 결론으로 끝맺는다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Coaches&#x27; Voice · 전술 분석</span></div>
   <a class="article__ko" href="https://learning.coachesvoice.com/cv/arsenal-man-city-2026-community-shield-tactics/" target="_blank" rel="noopener">코치스 보이스 전술 분석 — 아스날 3-0 맨시티, 하프스페이스 침투가 시티 백라인을 부쉈다</a>
   <p class="article__sum">커뮤니티실드에서 아스날이 하프스페이스 침투로 반복적인 수적 우위를 만들며 시티 백라인을 무너뜨렸다고 분석했다. 기대득점은 아스날 1.93 대 시티 1.21이었고, 시티는 점유율 63%를 가져가고도 아스날의 촘촘한 4-4-2 블록을 뚫지 못했다고 지적한다. 특히 압두코디르 후사노프가 침투를 미러링하지 못해 선제골과 두 번째 골 모두에 직접적인 책임이 있었다고 짚었다. 마레스카의 시티는 빌드업에서 3-1 구조를 썼지만 측면 이후의 창의성이 결여됐다는 평가다. 아르테타의 &#x27;체력이 완전하지 않은데도 팀이 수비 복귀하는 방식이 믿을 수 없을 정도였다&#x27;는 발언을 근거로, 이 승리가 전술이 아니라 태도의 문제였다고 결론짓는다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Arseblog · 관전 분석</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/08/arsenal-3-0-man-city-community-shield-observations/" target="_blank" rel="noopener">Arseblog 관전평 — 24초 선제골, 외데고르의 부활, 그리고 여전히 급한 센터백</a>
   <p class="article__sum">칼라피오리의 24초 선제골이 경기 전체의 톤을 정했고, &#x27;일찍 넣는 것만으로 팀이 안정된다&#x27;고 평했다. 부상에서 돌아온 외데고르가 최근 볼 수 없었던 여유와 자신감으로 골과 다수의 키패스를 만들었고 수비 가담도 좋았다고 강조한다. 데뷔전에서 2도움에 태클 3개를 기록한 촐리스, 45분 동안 빌드업에서 의도를 보여준 기마랑이스를 호평하면서도 기마랑이스가 경기 후 아이싱을 한 점은 우려로 남겼다. 다만 살리바와 팀버의 부상 상황에서 마르티넬리와 은와네리가 명단에서 통째로 빠진 것을 두고, 수비 보강이 시급하다는 결론을 낸다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>football365 · 분석 칼럼</span></div>
   <a class="article__ko" href="https://www.football365.com/news/kneejerk-reactions-community-shield-2026-arsenal-manchester-city" target="_blank" rel="noopener">football365 — 커뮤니티실드 성급한 반응 10가지: 마레스카 경질론과 아스날 우승론</a>
   <p class="article__sum">새뮤얼 배니스터가 3-0 완승을 놓고 열 가지 &#x27;성급한 반응&#x27;을 정리했다. 아스날의 우승 후보 지위는 더 굳어졌지만 &#x27;아스날이 끼면 우승 경쟁은 늘 예측 불가&#x27;라며 톤을 낮춘다. 시티 쪽에서는 £116m에 영입된 엘리엇 앤더슨이 낮은 패스 성공률에 태클 성공 0으로 데뷔전을 망친 점, 후사노프의 임시 라이트백 기용이 드러낸 수비 구멍을 지적했다. 마레스카는 1906년 이후 데뷔전에서 3점 차로 패한 최초의 시티 감독이 되며 곧바로 압박을 받게 됐다고 썼다. 아스날 내부적으로는 촐리스의 2도움과, 기마랑이스·라이스 사이에서 입지가 애매해진 수비멘디의 경쟁 구도를 짚었다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Al Jazeera · 시즌 분석</span></div>
   <a class="article__ko" href="https://www.aljazeera.com/sports/2026/8/17/arsenal-preview-key-questions-heading-into-2026-27-premier-league-season" target="_blank" rel="noopener">알자지라 — 아스날 2026-27 시즌 5가지 핵심 질문</a>
   <p class="article__sum">아스날이 1935년 이후 처음으로 리그 연속 우승에 도전한다는 점을 출발점으로 삼는다. 지난 시즌 38경기 27실점이라는 수비 기록을 세운 팀이 살리바를 장기 부상으로 잃은 것이 최대 변수라고 본다. 챔피언스리그는 통산 226경기 출전에도 무관인 기록을 언급하며, 지난 시즌 결승에서 PSG에 승부차기로 패했고 가브리엘이 결정적인 키커를 실축했다는 점을 짚었다. £75m 기마랑이스는 라이스의 부담을 덜 리더십 자원이며 아르테타가 &#x27;엄청난 퀄리티를 가진 전사&#x27;로 평가했다고 전한다. 나머지 두 질문은 데뷔 시즌 리그 14골에 그친 요케레스의 도약과, 2026년 3월 PL 최연소 득점자가 된 16세 맥스 다우먼의 컵대회 출전 확대 여부다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>Daily Cannon · 분석 칼럼</span></div>
   <a class="article__ko" href="https://dailycannon.com/2026/08/arsenal-odegaard-cardiff/" target="_blank" rel="noopener">Daily Cannon — 카디프에서 나온 선언: 외데고르가 다시 팀의 중심이 됐다</a>
   <p class="article__sum">폴 윌리엄스는 프리시즌급 대회 결과에 과한 의미를 부여하지 말라고 전제하면서도, 내용 자체는 확실히 인상적이었다고 평가한다. 지난 시즌 후반부의 수비적인 운영과 달리 빠른 패스, 전진 런, 로테이션이 살아났다는 것이 핵심 논지다. 외데고르는 지배적인 경기력에 마무리까지 더했고, 루이스-스켈리의 리버스 패스가 선제골의 출발점이었다고 짚었다. 촐리스는 이 경기로 19경기 연속 공격 포인트를 이어갔다고 전한다. 시티는 여름 이적으로 미드필드의 기교와 경험을 잃었다고 보면서도, &#x27;한 번의 프리시즌 결과는 거의 아무것도 바꾸지 않는다&#x27;며 신중론을 남긴다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 17일 (월)">8.17</span><div>
+<article class="article"><span class="article__date num" title="8월 17일 (월)">8/17<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>The Hard Tackle · 오피니언</span></div>
   <a class="article__ko" href="https://thehardtackle.com/opinion/arsenals-communiy-shield-statement-sets-the-tone/" target="_blank" rel="noopener">더 하드태클 — 커뮤니티실드에서 나온 선언이 시즌의 톤을 정한다</a>
   <p class="article__sum">3골 모두 오픈플레이에서 나왔다는 점(칼라피오리 24초, 하베르츠 전반, 외데고르 후반)을 근거로 이 승리가 우연이 아니라고 주장한다. 살리바와 팀버가 모두 빠진 상태에서 거둔 완승이라 스쿼드 뎁스가 한 시즌을 버틸 수준임을 보여줬다는 논지다. 촐리스와 기마랑이스가 &#x27;이미 감독의 요구를 흡수한 선수처럼&#x27; 뛰었다는 점에서 신입 통합이 빠르게 진행됐다고 본다. 다만 &#x27;최고의 챔피언은 지난 시즌의 성공이 무엇도 보장한다고 여기지 않는다&#x27;며, 단판 대회를 38경기 리그의 예고편으로 과대 해석하지 말라는 단서를 명확히 붙인다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 16일 (일)">8.16</span><div>
+<article class="article"><span class="article__date num" title="8월 16일 (일)">8/16<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>VAVEL International · 시즌 분석</span></div>
   <a class="article__ko" href="https://www.vavel.com/en/football/2026/08/16/arsenal/1268116-arsenal-2026-27-season-preview.html" target="_blank" rel="noopener">VAVEL 시즌 프리뷰 — 22년 만의 챔피언, 이제 &#x27;지켜내는 법&#x27;을 배울 차례</a>
   <p class="article__sum">에런 재프가 22년 만의 리그 우승 이후 첫 타이틀 방어에 나서는 아스날을 분석했다. 2025-26 시즌은 리그 우승에 카라바오컵·챔피언스리그 결승 진출까지 이뤘지만 유럽 결승에서 PSG에 승부차기로 무너졌다고 정리한다. 여름에는 기마랑이스(뉴캐슬, £75m)와 트로사르 대체자 촐리스(클럽 브뤼헤, £34m)를 영입했고 인카피에의 임대는 완전 이적으로 전환됐다. 전술적으로는 점유보다 전환을 우선하는 4-3-3이며, 지난 시즌 세트피스에서만 25골을 넣을 만큼 세트피스가 아르테타 체제의 핵심 무기가 됐다고 평가한다. 38경기 27실점의 수비 기록을 살리바·팀버 부상 속에서도 유지할 수 있느냐가 관건이라는 결론이다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 16일 (일)">8.16</span><div>
+<article class="article"><span class="article__date num" title="8월 16일 (일)">8/16<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Daily Cannon · 분석 칼럼</span></div>
   <a class="article__ko" href="https://dailycannon.com/2026/08/nwaneri-martinelli-arsenal-squad/" target="_blank" rel="noopener">Daily Cannon — 마르티넬리와 은와네리는 왜 카디프 명단에 없었나</a>
   <p class="article__sum">리 헐리는 두 선수가 카디프까지 동행하고도 명단에서 제외된 것 자체가 구단의 방출 의지를 보여주는 신호라고 해석한다. 아르테타가 은와네리에 대해 &#x27;출전 시간을 위해 또 한 시즌 팀 밖에서 보낼 수 있다&#x27;는 취지로 말했고, 독일 구단들의 관심이 있다고 전한다. 마르티넬리 제외는 가장 큰 이적료를 만들 수 있는 자원을 밀어내려는 시도로 읽으며, 갈라타사라이 이적을 이미 거절한 상황이라고 덧붙인다. 파비우 비에이라, 리스 넬슨, 제주스도 함께 빠졌고 제주스는 나폴리가 약 £20m, 넬슨은 웨스트햄이 £3m 수준에 노린다고 정리했다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 15일 (토)">8.15</span><div>
+<article class="article"><span class="article__date num" title="8월 15일 (토)">8/15<span class="article__wd">(토)</span></span><div>
   <div class="article__meta"><span>Daily Cannon · 이적시장 분석</span></div>
   <a class="article__ko" href="https://dailycannon.com/2026/08/arsenal-summer-business-2/" target="_blank" rel="noopener">Daily Cannon — 여기까지의 여름 장사 결산: 중원은 채웠고 뒷문은 비었다</a>
   <p class="article__sum">폴 윌리엄스는 기마랑이스를 &#x27;상당한 업그레이드&#x27;로 규정하고, 챔피언스리그 결승에서 드러난 중원 문제의 해답이라고 본다. 방출 쪽에서는 트로사르가 비공개(보도치 £20m)로 베식타시로 간 것을 &#x27;이적시장에서 보기 드문 진짜 가치 회수&#x27;로 평가하고, 뇌르고르는 에버턴으로 떠났다고 정리한다. 촐리스에 대해서는 직선적인 드리블과 양발 활용 능력을 강점으로 꼽는다. 루이스-스켈리가 맨유·첼시에 제안됐다는 보도가 있었지만 디 애슬레틱을 인용해 본인은 아스날에 집중하고 있다고 전한다. 결론은 살리바의 등 부상과 팀버의 사타구니 부상이 겹친 수비진이 이번 여름의 미완 과제라는 것이다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 13일 (목)">8.13</span><div>
+<article class="article"><span class="article__date num" title="8월 13일 (목)">8/13<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>VAVEL</span></div>
   <a class="article__ko" href="https://www.vavel.com/en/football/2026/08/13/arsenal/1267901-arteta-feels-arsenal-ticked-a-lot-of-boxes-in-preseason.html" target="_blank" rel="noopener">아르테타 "프리시즌에서 많은 박스를 체크했다"</a>
   <p class="article__sum">코모전(1-1, PK 4-3 승) 이후 프리시즌 총평. 월드컵으로 다수 선수가 해외에 있었던 상황에서도 많은 과제를 해결했다고 자평하면서도, 후반 점수 차를 벌리지 못한 점은 개선이 필요하다고 짚었다. 기마랑이스에 대해 "우리 팀을 더 좋게 만들 선수"라 평가.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 10일 (월)">8.10</span><div>
+<article class="article"><span class="article__date num" title="8월 10일 (월)">8/10<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>VAVEL International · 인터뷰</span></div>
   <a class="article__ko" href="https://www.vavel.com/en/football/2026/08/10/arsenal/1267681-gyokeres-i-feel-much-better-than-last-pre-season.html" target="_blank" rel="noopener">"작년보다 훨씬 낫다" — 요케레스, 프리시즌 컨디션 자평</a>
   <p class="article__sum">빅토르 요케레스가 도르트문트전 패배 이후 자신의 몸 상태를 두고 <b>"작년 이맘때보다 훨씬, 훨씬 낫다. 이번엔 준비 기간이 더 길었고 몸이 아주 좋게 느껴진다"</b>고 밝혔다. 공수 양면에서 보완할 지점은 인정하면서도 <b>"우리에게 다가올 모든 것에 준비될 것이라 확신한다"</b>며 개막(8/22)을 앞둔 자신감을 드러냈다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 10일 (월)">8.10</span><div>
+<article class="article"><span class="article__date num" title="8월 10일 (월)">8/10<span class="article__wd">(월)</span></span><div>
   <div class="article__meta"><span>VAVEL International · 분석</span></div>
   <a class="article__ko" href="https://www.vavel.com/en/football/2026/08/09/arsenal/1267639-arsenal-bvb-draft.html" target="_blank" rel="noopener">프리시즌이 증명한 기마랑이스 영입의 필요성</a>
   <p class="article__sum">도르트문트전 2-3 패배를 소재로 한 분석 칼럼. 임시로 꾸린 미드필드가 3실점 과정에서 반복적으로 뚫린 장면을 짚으며, <b>기마랑이스의 영입이 왜 필요했는지를 프리시즌 실점 패턴이 그대로 증명했다</b>는 논지를 편다. 라이스·수비멘디에게 쏠렸던 부담을 기마랑이스가 나눠질 수 있을지가 개막 후 최대 관전 포인트로 꼽혔다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 9일 (일)">8.9</span><div>
+<article class="article"><span class="article__date num" title="8월 9일 (일)">8/9<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Sky Sports · 전술 분석</span></div>
   <a class="article__ko" href="https://www.skysports.com/football/news/11095/13569644/bruno-guimaraes-to-arsenal-where-would-newcastle-captain-fit-in-and-what-would-it-mean-for-martin-zubimendi-martin-odegaard-myles-lewis-skelly" target="_blank" rel="noopener">기마랑이스, 아스날 중원 어디에 놓일까 — 라이스·수비멘디·외데고르에 미칠 영향</a>
   <p class="article__sum">공식 발표 직후 나온 전술 분석. 기마랑이스는 <b>6번·8번 모두 소화 가능</b>하나 8번을 더 선호하며, ① <b>라이스와 더블 피벗</b>을 이뤄 외데고르(또는 에제)를 순수 10번으로 세우는 조합 ② <b>수비멘디·라이스와 함께 3인 중원</b>으로 몸싸움을 강화하는 조합 ③ 뉴캐슬 시절처럼 <b>우측 전진 배치</b> 세 가지 배치를 제시했다. 지난 시즌 4천 분 이상을 뛴 <b>라이스·수비멘디의 과부하를 덜어줄 영입</b>이라는 게 핵심 논지이며, 외데고르 결장 시 대체할 만한 창의성(90분당 라인 브레이킹 패스 8.6회)도 갖췄다고 평가했다. 다만 <b>루이스-스켈리의 출전 기회는 줄어들 수 있다</b>고 짚었다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 8일 (토)">8.8</span><div>
+<article class="article"><span class="article__date num" title="8월 8일 (토)">8/8<span class="article__wd">(토)</span></span><div>
   <div class="article__meta"><span>Sports Mole · 데이터 분석</span></div>
   <a class="article__ko" href="https://www.sportsmole.co.uk/football/arsenal/transfer-talk/feature/how-guimaraes-compares-to-arsenals-current-midfielders-after-gbp75m-transfer-confirmed_602646.html" target="_blank" rel="noopener">기마랑이스, 아스날 현 중원과 비교하면 — 데이터로 본 강점과 약점</a>
   <p class="article__sum">8/8 공식 발표 직후 나온 통계 중심 분석. <b>득점력에서 압도적 우위</b> — 지난 시즌 9골로 라이스(4골)와 수비멘디(5골)를 합친 수준이며, 슈팅 정확도 63.9%·전환율 21.4%로 팀 내 최고. 어시스트는 라이스와 동률(5개, 외데고르는 6개)이나 찬스 창출(45개)에서 앞선다. <b>가장 두드러진 영역은 수비</b> — 지난 시즌 볼경합 334회 중 168회를 따내 팀 내 최다. 다만 파울 75회로 세트피스 실점 리스크를 키울 수 있고, 공중볼 성공률 37.1%로 팀 내 최저, 카드 6장으로 다소 많은 편이라는 약점도 짚었다. 결론은 "공수 양면에서 가치를 더하는 올라운더".</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 7일 (금)">8.7</span><div>
+<article class="article"><span class="article__date num" title="8월 7일 (금)">8/7<span class="article__wd">(금)</span></span><div>
   <div class="article__meta"><span>GoonerDaily · 칼럼</span></div>
   <a class="article__ko" href="https://goonerdaily.com/2026/08/07/bruno-guimaraes-medical-complete-as-vinicius-junior-ends-arsenal-dream-with-real-madrid-extension/" target="_blank" rel="noopener">비니시우스는 레알에, 기마랑이스는 아스날에 — 하루 만에 갈린 두 사가</a>
   <p class="article__sum">3주 넘게 팬들의 감정을 쥐고 흔든 두 건의 이적설이 같은 날 정반대 결론을 맞았다는 정리 칼럼. 비니시우스는 레알과 2032년까지 재계약해 "아스날의 꿈"이 공식 종료됐고, 기마랑이스는 반대로 메디컬·계약서명까지 끝내고 뉴캐슬의 발표만 기다리는 상태라는 점을 대비했다. 필자는 "결과적으로 아스날은 원했던 미드필더는 얻고, 원했던 윙어는 놓쳤다"고 요약.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 6일 (목)">8.6</span><div>
+<article class="article"><span class="article__date num" title="8월 6일 (목)">8/6<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>FootballPlace · 분석</span></div>
   <a class="article__ko" href="https://footballplace.co.uk/arsenal-real-betis-pre-season-defeat-analysis/" target="_blank" rel="noopener">베티스전 3실점, 전부 수비 실수였다</a>
   <p class="article__sum">1-3 패배의 세 실점을 낱낱이 분해한 분석. ① 코너킥 상황에서 케파의 대응 미흡으로 리켈메에게 무표적 실점 ② 데오사에게 박스 바깥 공간을 과하게 내주며 실점 ③ <b>하베르츠가 중원에서 볼을 빼앗긴 직후 역습으로 포르날스에게 3번째 실점</b> — 기존 보도에 없던 3번째 골의 구체적 발단(하베르츠 턴오버)을 짚었다. 후반에도 지속적인 압박을 만들지 못해 베티스가 경기를 편하게 관리했다는 결론.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 6일 (목)">8.6</span><div>
+<article class="article"><span class="article__date num" title="8월 6일 (목)">8/6<span class="article__wd">(목)</span></span><div>
   <div class="article__meta"><span>Sports Mole · 프리뷰</span></div>
   <a class="article__ko" href="https://www.sportsmole.co.uk/football/arsenal/feature/you-want-to-win-every-game-arsenal-aiming-to-bounce-back-in-dortmund-contest_602500.html" target="_blank" rel="noopener">"매 경기 이기고 싶다" — 도르트문트전, 반등이 필요한가</a>
   <p class="article__sum">벤 냅튼의 에미레이츠컵(8/9) 프리뷰 칼럼. 프리시즌 결과가 시즌 성패와 무관하다는 전례(2023 커뮤니티실드 우승 후 리그 우승 실패)를 짚으면서도, 베티스전 패배 후 <b>"선수단이 분개해 있다"</b>며 "이 아스날은 이제 승리자들"이라는 경쟁심을 강조. 아스날은 최근 4회 연속 에미레이츠컵 우승 중이며, 상대 도르트문트의 위협 요소로 <b>세르후 기라시(지난 시즌 22골)·막시밀리안 바이어(10골)</b>와 아스날도 관심을 가졌던 18세 유망주 <b>콘스탄티노스 카레차스</b>를 꼽았다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 5일 (수)  · 2건">8.5</span><div>
+<article class="article"><span class="article__date num" title="8월 5일 (수)  · 2건">8/5<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Sports Illustrated · 칼럼</span></div>
   <a class="article__ko" href="https://www.si.com/soccer/four-takeaways-from-arsenal-deserved-defeat-to-real-betis-8-5-26" target="_blank" rel="noopener">베티스전 1-3 패배가 남긴 4가지 논지</a>
   <p class="article__sum">① 케파 아리사발라가가 실점 두 개에 모두 책임(첫 골은 코너킥 노맨스랜드 판단 미스, 두 번째는 스큐드 클리어링) ② 라이스·외데고르 등 주전 다수가 빠진 임시 미드필드가 "우려스러울 만큼 헐거워(alarmingly porous)" 베티스 역습에 무너짐 ③ 19세 유망주 루이 콥리가 후반 무릎을 다쳐 눈에 띄게 불편해하며 교체 아웃 ④ 다만 필자는 "아르테타가 과하게 걱정할 이유는 없다"— 주축 다수가 빠진 프리시즌 친선경기일 뿐이라는 결론.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="8월 5일 (수)  · 2건">8.5</span><div>
+<article class="article"><span class="article__date num" title="8월 5일 (수)  · 2건">8/5<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Arseblog · 칼럼</span></div>
   <a class="article__ko" href="https://arseblog.com/2026/08/guimaraes-deal-nears-completion-arsenal-set-to-face-real-betis-in-dublin/" target="_blank" rel="noopener">기마랑이스 딜 완성 단계 — 베티스전 더블린 원정 프리뷰</a>
   <p class="article__sum">데이비드 오른스타인의 "아스날, 뉴캐슬과 기마랑이스 영입 완전 합의에 근접" 보도와 BBC의 메디컬 준비 보도를 종합하며 "거의 다 끝난 것으로 보인다(more or less done)"고 평가. 오늘 밤 더블린에서 열리는 베티스전에는 다우먼·촐리스가 윙어로 나설 가능성, 전 아스날 소속 엑토르 벨레린의 베티스 유니폼 출전도 함께 다뤘다.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="7월 29일 (수)">7.29</span><div>
+<article class="article"><span class="article__date num" title="7월 29일 (수)">7/29<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>Squawka · 데이터 분석</span></div>
   <a class="article__ko" href="https://www.squawka.com/en/news/arsenal-premier-league-2026-27-preview/" target="_blank" rel="noopener">데이터로 보는 아스날 개막전 프리뷰</a>
   <p class="article__sum">예상 스타팅 포메이션과 키 플레이어를 데이터 중심으로 분석한 실용 프리뷰. 촐리스의 왼쪽 배치 시 예상 기여도와 세트피스 루틴 유지 여부에 주목.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="7월 28일 (화)">7.28</span><div>
+<article class="article"><span class="article__date num" title="7월 28일 (화)">7/28<span class="article__wd">(화)</span></span><div>
   <div class="article__meta"><span>FourFourTwo · 시즌 프리뷰</span></div>
   <a class="article__ko" href="https://www.fourfourtwo.com/team/mikel-arteta-is-under-a-very-different-pressure-to-go-and-win-it-all-over-again-while-new-managers-have-been-installed-at-every-other-big-six-outfit-fourfourtwos-2026-27-arsenal-season-preview" target="_blank" rel="noopener">"아르테타는 전혀 다른 종류의 압박 아래 있다"</a>
   <p class="article__sum">빅6 중 아스날만 감독을 유지한 채 새 시즌을 맞는다. 우승을 '따내는' 압박과 '지키는' 압박은 질적으로 다르며, 후자가 심리적으로 더 어렵다는 분석. 디펜딩 챔피언의 최대 적은 상대가 아니라 안주라는 논지.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="7월 19일 (일)">7.19</span><div>
+<article class="article"><span class="article__date num" title="7월 19일 (일)">7/19<span class="article__wd">(일)</span></span><div>
   <div class="article__meta"><span>Yahoo Sports (ReadArsenal)</span></div>
   <a class="article__ko" href="https://sports.yahoo.com/articles/arsenal-fans-not-panic-transfer-193001783.html" target="_blank" rel="noopener">"이적시장에 패닉할 필요 없다"</a>
   <p class="article__sum">모건 로저스 영입 불발로 술렁이는 팬심을 향한 반론. 구단의 영입 기조는 '패닉바이 없는 장기 전략'이었고 그 결과가 우승이었다는 점을 상기시키는 균형론.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="6월 9일 (화)">6.9</span><div>
+<article class="article"><span class="article__date num" title="6월 9일 (화)">6/9<span class="article__wd">(화)</span></span><div>
   <div class="article__meta"><span>Goal.com · 티에리 앙리</span></div>
   <a class="article__ko" href="https://www.goal.com/en-us/lists/arsenal-thierry-henry-summer-transfer-window-2026-premier-league-title-winners/blt39d5a83dc21fd5dd" target="_blank" rel="noopener">앙리의 경고: "우승 방어는 쉽지 않다"</a>
   <p class="article__sum">아스날 레전드 앙리가 우승 직후의 낙관론에 제동. 스쿼드 뎁스 보강, 특히 공격 자원 추가 영입이 '마지막 퍼즐'이며 이적시장에서 멈추면 안 된다고 경고.</p>
 </div></article>
-<article class="article"><span class="article__date num" title="5월 27일 (수)">5.27</span><div>
+<article class="article"><span class="article__date num" title="5월 27일 (수)">5/27<span class="article__wd">(수)</span></span><div>
   <div class="article__meta"><span>ESPN · 리그 전망</span></div>
   <a class="article__ko" href="https://www.espn.com/soccer/story/_/id/48884240/premier-league-2026-27-predictions-arsenal-chelsea-liverpool-manchester-city" target="_blank" rel="noopener">2026-27 EPL은 4파전이 된다</a>
   <p class="article__sum">우승 직후 나온 이른 전망. 아스날·맨시티·첼시·리버풀의 4파전 구도를 예상하며, 아스날은 '이미 완성된 틀 + 선택적 보강'이라는 점에서 안정성 면 우위라고 평가.</p>
@@ -1647,7 +1652,7 @@ details.closed li span{color:var(--text-3)}
     <blockquote class="quote"><p class="quote__ko">보강은 진행 중이고 아직 시간이 있다, 지금 스쿼드엔 만족한다 — "We are in the process"</p><div class="quote__who">— 미켈 아르테타, 추가 영입 가능성에 대해</div></blockquote>
     <p class="press__ctx">커뮤니티실드를 이틀 앞둔 8월 14일(금) 회견. 아르테타는 과르디올라가 떠나고 엔초 마레스카가 부임한 맨시티를 여전히 &#x27;이겨야 할 팀&#x27;으로 규정했다. 같은 회견에서 부상 관련 질문에 살리바는 &quot;more a long-term injury&quot;라며 개막전 결장을 사실상 확정했고, 팀버는 &quot;progressing really well, he is on the pitch&quot;라고 했다. 월드컵을 다녀온 사카·라이스·수비멘디에 대해서는 팀 훈련을 마쳐 &quot;They will be available&quot;이라고 밝혔다.</p>
 </article>
-<article class="card press-note"><p class="small"><b>기자회견 전문</b> — 아르테타 기자회견 전문은 <a href="https://www.arsenal.com/news" target="_blank">Arsenal.com 뉴스룸</a>에서 볼 수 있어요.</p></article>
+<article class="card press-note"><p class="small"><b>기자회견 전문</b> — 아르테타 기자회견 전문은 <a href="https://www.arsenal.com/news" target="_blank" rel="noopener">Arsenal.com 뉴스룸</a>에서 볼 수 있어요.</p></article>
 <article class="card press-card">
   <div class="press__top"><b class="num">8.13</b><span>8월 13일 (목)  · 코모전 경기 후 기자회견</span></div>
   <h3 class="press__title">아르테타 "정말 좋았다" — 코모전 경기 후, 기마랑이스 데뷔전 평가</h3>
@@ -1687,7 +1692,7 @@ details.closed li span{color:var(--text-3)}
     <p class="press__ctx">사카·라이스·살리바·외데고르가 복귀 중이나 전원이 도르트문트전에 뛸 준비가 된 건 아니며, 아르테타는 <b>서두르지 않고 단계적으로 복귀시키는 방침</b>이다. <b>루이 콥리는 부상으로 결장.</b> 도르트문트도 카니 추퀘메카가 부상 우려로 결장 가능성이 있다.</p>
     <p class="press__src">출처: <a href="https://roundtable.io/sports/soccer/premier-league/arsenal/news/arsenal-vs-borussia-dortmund-team-news-and-how-to-watch-the-emirates-cup" target="_blank" rel="noopener">roundtable.io</a></p>
 </article>
-<article class="card press-note"><p class="small"><b>루이 콥리, 본인이 ACL 파열 직접 확인.</b> 8/6 아르테타의 "내일 스캔 결과를 봐야 한다"는 발언 이후 이틀 만에, 콥리 본인이 8/7 저녁(현지, KST 8/8 00:13경) 인스타그램에 <b>"ruptured my ACL"</b>이라고 직접 밝혔다. 발표 당시 구단 공식 성명·예상 결장 기간·수술 계획은 나오지 않았고, 아르테타 감독의 코멘트도 없었다. <span class="muted">(<a href="https://arsenalyouth.wordpress.com/2026/08/07/arsenal-midfielder-louie-copley-confirms-he-ruptured-acl-against-real-betis/" target="_blank">Jeorge Bird's Arsenal Youth</a>)</span></p></article>
+<article class="card press-note"><p class="small"><b>루이 콥리, 본인이 ACL 파열 직접 확인.</b> 8/6 아르테타의 "내일 스캔 결과를 봐야 한다"는 발언 이후 이틀 만에, 콥리 본인이 8/7 저녁(현지, KST 8/8 00:13경) 인스타그램에 <b>"ruptured my ACL"</b>이라고 직접 밝혔다. 발표 당시 구단 공식 성명·예상 결장 기간·수술 계획은 나오지 않았고, 아르테타 감독의 코멘트도 없었다. <span class="muted">(<a href="https://arsenalyouth.wordpress.com/2026/08/07/arsenal-midfielder-louie-copley-confirms-he-ruptured-acl-against-real-betis/" target="_blank" rel="noopener">Jeorge Bird's Arsenal Youth</a>)</span></p></article>
 <article class="card press-card">
   <div class="press__top"><b class="num">8.6</b><span>8월 6일 (목) 새벽 — 베티스전(1-3 패배) 직후</span></div>
   <h3 class="press__title">아르테타, 패배·새 시즌 목표·기마랑이스·콥리 부상까지</h3>
@@ -1903,7 +1908,7 @@ details.closed li span{color:var(--text-3)}
   <div class="cols">
     <div>
       <h4>아스날 팬 허브</h4>
-      <p id="legalNote">비공식 팬 사이트입니다. 구단 엠블럼은 각 구단의 상표이며, 구단·리그와 관계가 없습니다. 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">기준일(한국시간): 일정 9/28 · 순위 5라운드 종료(9/20) · 부상·소식 9/23</span></p>
+      <p id="legalNote">구단 엠블럼은 각 구단의 상표입니다. 이 사이트는 비공식 팬 사이트이며 구단·리그와 관계가 없습니다. 모든 정보는 공개 보도를 요약한 것입니다.<br><span id="syncStampFoot">기준일(한국시간): 일정 9/28 · 순위 5라운드 종료(9/20) · 부상·소식 9/23</span></p>
     </div>
     <div>
       <h4>주요 출처</h4>
@@ -2060,11 +2065,11 @@ var FB = {
   standings: { round: 5, as_of_kst: '2026-09-28T15:32:55+09:00', table: [
     [1,'Manchester City','맨체스터 시티',5,5,0,0,13,5],[2,'Arsenal','아스날',5,4,0,1,8,4],[3,'Brighton & Hove Albion','브라이턴',5,3,1,1,16,5],
     [4,'Brentford','브렌트퍼드',5,2,3,0,10,4],[5,'Leeds United','리즈 유나이티드',5,2,3,0,7,3],[6,'Liverpool','리버풀',5,2,3,0,7,4],
-    [7,'Everton','에버턴',5,2,3,0,6,3],[8,'Hull City','헐 시티',5,2,2,1,6,4],[9,'Newcastle United','뉴캐슬 유나이티드',5,2,2,1,8,8],
-    [10,'Chelsea','첼시',5,2,1,2,7,9],[11,'Ipswich Town','입스위치 타운',5,2,0,3,5,9],[12,'Manchester United','맨체스터 유나이티드',5,1,2,2,6,6],
-    [13,'Nottingham Forest','노팅엄 포레스트',5,1,2,2,4,5],[14,'Sunderland','선덜랜드',5,1,1,3,8,12],[15,'Crystal Palace','크리스탈 팰리스',5,1,1,3,3,8],
-    [16,'Aston Villa','애스턴 빌라',5,1,1,3,5,10],[17,'AFC Bournemouth','본머스',5,0,3,2,3,5],[18,'Coventry City','코번트리 시티',5,1,0,4,3,12],
-    [19,'Fulham','풀럼',5,0,2,3,4,7],[20,'Tottenham Hotspur','토트넘 홋스퍼',5,0,2,3,5,11]
+    [7,'Everton','에버턴',5,2,3,0,6,3],[8,'Hull City','헐 시티',5,2,2,1,6,4],[9,'Newcastle United','뉴캐슬 유나이티드',5,2,2,1,9,9],
+    [10,'Chelsea','첼시',5,2,1,2,10,12],[11,'Ipswich Town','입스위치 타운',5,2,0,3,7,11],[12,'Manchester United','맨체스터 유나이티드',5,1,2,2,8,8],
+    [13,'Nottingham Forest','노팅엄 포레스트',5,1,2,2,4,5],[14,'Sunderland','선덜랜드',5,1,1,3,6,10],[15,'Crystal Palace','크리스탈 팰리스',5,1,1,3,6,11],
+    [16,'Aston Villa','애스턴 빌라',5,1,1,3,4,9],[17,'AFC Bournemouth','본머스',5,0,3,2,6,8],[18,'Coventry City','코번트리 시티',5,1,0,4,1,10],
+    [19,'Fulham','풀럼',5,0,2,3,5,8],[20,'Tottenham Hotspur','토트넘 홋스퍼',5,0,2,3,2,8]
   ].map(function (r) { return { pos: r[0], team: r[1], team_ko: r[2], played: r[3], won: r[4], drawn: r[5], lost: r[6], gf: r[7], ga: r[8], gd: r[7] - r[8], pts: r[4] * 3 + r[5] }; }) }
 };
 
@@ -2249,6 +2254,8 @@ function route() {
   var r = parseRoute();
   if (r.legacy && history.replaceState) history.replaceState(null, '', routeHash(r));
   renderRoute(r);
+  /* 숨은 상태에서 그린 차트는 폭이 0이라 비어 있다 — 순위 화면이 보일 때 다시 그린다 */
+  if (r.top === 'table' && typeof drawFlow === 'function') drawFlow();
   if (r.anchor) { pendingAnchor = r.anchor; setTimeout(function () { scrollToId(r.anchor); }, 0); }
   else if (lastTop !== null && lastTop !== r.top) window.scrollTo(0, 0);
   else if (lastTop === 'news' && r.top === 'news') {
@@ -2270,6 +2277,8 @@ document.addEventListener('click', function (e) {
   if (j) {
     e.preventDefault();
     var id = j.dataset.jump, panel = $(id) && $(id).closest('section.panel');
+    var fold = $(id) && $(id).querySelector(':scope > details.fold'); /* 접힌 카드로 가면 펼쳐서 보여 준다 */
+    if (fold) fold.open = true;
     if (panel && !panel.classList.contains('active')) { goRoute('#' + panel.dataset.group); setTimeout(function () { scrollToId(id); }, 30); }
     else scrollToId(id);
     return;
@@ -2287,7 +2296,11 @@ route();
 
 /* ── 테마 (기본 다크, 저장 키 "theme") ── */
 var themeBtn = $('themeToggle');
-function themeLabel() { themeBtn.setAttribute('aria-label', document.documentElement.dataset.theme === 'light' ? '다크 모드로 바꾸기' : '라이트 모드로 바꾸기'); }
+function themeLabel() {
+  var light = document.documentElement.dataset.theme === 'light', tc = document.querySelector('meta[name="theme-color"]');
+  themeBtn.setAttribute('aria-label', light ? '다크 모드로 바꾸기' : '라이트 모드로 바꾸기');
+  if (tc) tc.content = light ? '#F3F4F6' : '#0A0B0E'; /* 브라우저 주소창 색 = 배경(--bg) */
+}
 themeBtn.addEventListener('click', function () {
   var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = next;
@@ -2363,7 +2376,7 @@ function renderHome(FX, ST, CT) {
   $('homeR5').innerHTML = last5.map(function (f) {
     var t = f.kickoff_kst || f.date_local;
     return '<div class="r5__i"><span class="r5__d">' + md(t.slice(0, 10)) + '</span>' + compTag(f) + crest(codeOf(f), { size: 'sm' }) +
-      '<span class="r5__o">' + (f.home_away === 'H' ? '' : '@') + esc(shortKo(f.opponent_ko)) + '</span><span class="r5__s num">' + f.result.arsenal + '-' + f.result.opponent + '</span>' + form(f.result.outcome) + '</div>';
+      '<span class="r5__o">' + (f.home_away === 'H' ? '' : '@') + esc(shortKo(f.opponent_ko)) + '</span><span class="r5__s num">' + (f.home_away === 'H' ? f.result.arsenal + '-' + f.result.opponent : f.result.opponent + '-' + f.result.arsenal) + '</span>' + form(f.result.outcome) + '</div>';
   }).join('');
   $('homeTable').innerHTML = standingsTable(ST.table.slice(0, 8));
   $('homeTableFoot').textContent = ST.round + '라운드 뒤 · BBC·가디언 순위표 교차 확인';
@@ -2452,11 +2465,11 @@ function renderSchedule(FX, partial) {
       g.fs.map(function (f) { return matchRow(f, { next: f === nx, venue: true }); }).join('');
   }).join('');
   if (!rows.length) html = '<div class="state">' + ico('empty') + '<div class="state__title">조건에 맞는 경기가 없어요</div><div class="state__desc">필터를 바꾸거나 «전체»를 눌러 보세요.</div></div>';
-  if (!partial && shown.length > LIMIT) html += '<button class="btn btn--ghost btn--block more-row" type="button" id="schedMore">' + (sched.all ? '가까운 경기만 보기' : '나머지 ' + (shown.length - LIMIT) + '경기 모두 보기') + '</button>';
+  if (!partial && shown.length > LIMIT) html += '<button class="btn btn--ghost btn--block more-row" type="button" id="schedMore">' + (sched.all ? '접기' : '나머지 ' + (shown.length - LIMIT) + '경기 모두 보기') + '</button>';
   $('schedList').innerHTML = html;
-  $('schedCount').textContent = list.length;
-  var tbd = list.filter(function (f) { return !timed(f); }).length;
-  $('schedAsOf').textContent = (FX.as_of_kst ? md(FX.as_of_kst.slice(0, 10)) + ' 기준 · ' : '') + '확정 ' + (list.length - tbd) + ' · 시간 미정 ' + tbd;
+  $('schedCount').textContent = shown.length; /* 거른 결과 기준 */
+  var tbd = shown.filter(function (f) { return !timed(f); }).length;
+  $('schedAsOf').textContent = (FX.as_of_kst ? md(FX.as_of_kst.slice(0, 10)) + ' 기준 · ' : '') + '확정 ' + (shown.length - tbd) + ' · 시간 미정 ' + tbd;
 }
 function bindSchedule(FX, partial) {
   $('schedSeg').addEventListener('click', function (e) {
@@ -2555,7 +2568,7 @@ function renderFlow(FX, ST, nxL) {
     '<div><b class="' + (ars[lastR - 1] - PACE * lastR >= 0 ? 'pos' : '') + '">' + (ars[lastR - 1] - PACE * lastR >= 0 ? '+' : '') + (ars[lastR - 1] - PACE * lastR).toFixed(1) + '</b><span>지난 시즌 우승 페이스 대비</span></div>';
   $('rounds').innerHTML = rs.map(function (e) {
     return '<div class="rnd" role="listitem"><span class="rnd__r">' + e.r + 'R</span>' + crest(e.code, { size: 'sm' }) +
-      '<span class="rnd__sc">' + e.a + '-' + e.o + '</span>' + form(e.out) + '<span class="rnd__opp">' + (e.ha === 'H' ? '' : '@') + esc(shortKo(e.opp)) + '</span>' +
+      '<span class="rnd__sc">' + (e.ha === 'H' ? e.a + '-' + e.o : e.o + '-' + e.a) + '</span>' + form(e.out) + '<span class="rnd__opp">' + (e.ha === 'H' ? '' : '@') + esc(shortKo(e.opp)) + '</span>' +
       '<span class="rnd__pos">순위<b class="' + (e.pos ? '' : 'na') + '">' + (e.pos || '—') + '</b></span></div>';
   }).join('') + (nxL ? '<div class="rnd is-next" role="listitem"><span class="rnd__r">' + (lastR + 1) + 'R</span>' + crest(codeOf(nxL), { size: 'sm' }) +
     '<span class="rnd__sc">' + md((nxL.kickoff_kst || nxL.date_local).slice(0, 10)) + '</span><span class="tag">다음</span><span class="rnd__opp">' + (nxL.home_away === 'H' ? '' : '@') + esc(shortKo(nxL.opponent_ko)) + '</span><span class="rnd__pos">순위<b class="na">?</b></span></div>' : '');
@@ -2564,6 +2577,7 @@ function renderFlow(FX, ST, nxL) {
 }
 function drawFlow() {
   var el = $('flowChart'); if (!flowData || !el || !el.clientWidth) return;
+  drawFlow.w = el.clientWidth;
   var F = flowData, W = Math.max(280, el.clientWidth), H = W < 560 ? 200 : 240;
   var L = 30, Rr = 14, T = 14, B = 26, N = F.n, MAX = Math.max(18, Math.ceil(Math.max.apply(null, F.ars.concat(F.city || [])) / 6) * 6);
   var X = function (r) { return L + (r - 0.5) / N * (W - L - Rr); }, Y = function (p) { return T + (1 - p / MAX) * (H - T - B); };
@@ -2587,6 +2601,11 @@ function drawFlow() {
   el.innerHTML = s + '</svg>';
 }
 window.addEventListener('resize', function () { clearTimeout(drawFlow.t); drawFlow.t = setTimeout(drawFlow, 120); });
+/* 차트 칸의 폭이 바뀌면(숨김→보임, 창·기기 회전) 다시 그린다. 높이 변화는 무시해 되먹임을 막는다 */
+if (window.ResizeObserver && $('flowChart')) new ResizeObserver(function () {
+  var w = $('flowChart').clientWidth;
+  if (w && w !== drawFlow.w) { clearTimeout(drawFlow.t); drawFlow.t = setTimeout(drawFlow, 120); }
+}).observe($('flowChart'));
 
 /* 지난 시즌(2025-26) 결산 차트 */
 var TOP6 = [['아스날', 85], ['맨시티', 78], ['맨유', 71], ['애스턴 빌라', 65], ['리버풀', 60], ['본머스', 57]];
